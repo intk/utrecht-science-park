@@ -5,7 +5,6 @@ export function Footer(props) {
     <div className="footer">
       <div className="footer-top">
         <div className="footer-top-text">
-          {props.children}
           <p>
             Utrecht Science Park is the beating heart of one of Europe's most
             competitive regions. We bring competence from business, industry and

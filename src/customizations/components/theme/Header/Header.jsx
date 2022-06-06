@@ -15,28 +15,20 @@ import {
 } from '@plone/volto/components';
 import { BodyClass, isCmsUi } from '@plone/volto/helpers';
 import { Container, Segment } from 'semantic-ui-react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-// import { Link } from 'react-router-dom';
-// import { FormattedMessage } from 'react-intl';
 import { HeroSection, StickyHeader } from '@package/components';
-import logoSVG from '@package/icons/logo.svg';
+import logoSVG from '@package/static/logo.svg';
+
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Header = (props) => {
-  return '';
-  const {
-    content,
-    leadImage,
-    actualPathName,
-    pathname,
-    navigationItems,
-  } = props;
+  const { content, leadImage, pathname, navigationItems } = props;
 
   const leadImageUrl = leadImage?.scales?.panoramic?.download;
   const contentTitle = content?.title;
   const contentImageCaption = content?.image_caption;
   const contentDescription = content?.description;
   const isHomePage = content?.['@type'] === 'Plone Site';
-  const cmsView = isCmsUi(actualPathName);
+  const cmsView = isCmsUi(pathname);
   const homePageView = isHomePage && !cmsView;
 
   return (
@@ -74,20 +66,16 @@ const Header = (props) => {
 
                 <Navigation pathname={pathname} navigation={navigationItems} />
 
-                <div className="search">
-                  <SearchWidget pathname={pathname} />
-                </div>
-
                 <div className="tools-search-wrapper">
+                  <div className="search">
+                    <SearchWidget pathname={pathname} />
+                  </div>
                   <LanguageSelector />
-                  {!this.props.token && (
+                  {!props.token && (
                     <div className="tools">
                       <Anontools />
                     </div>
                   )}
-                  <div className="search">
-                    <SearchWidget />
-                  </div>
                 </div>
               </div>
             </Container>

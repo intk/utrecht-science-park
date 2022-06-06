@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom'; // NavLink,
 import { UniversalLink } from '@plone/volto/components';
 import config from '@plone/volto/registry';
 
@@ -28,7 +27,6 @@ export function Footer(props) {
         </div>
         <div className="footer-top-contact-address">
           <p>
-            {' '}
             Address <br />
             <strong>
               Utrecht Science Park Foundation <br />

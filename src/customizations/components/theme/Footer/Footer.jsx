@@ -35,12 +35,13 @@ export function Footer(props) {
                 <div className="footer-top-contact-address">
                     <p>
                         {' '}
-                        Address Utrecht Science Park Foundation Heidelberglaan 11 3584 CS
-                        Utrecht KvK 56652488
+                        Address <br /><strong>Utrecht Science Park Foundation <br />Heidelberglaan 11 <br />3584 CS
+                            Utrecht</strong> <br /></p><p>KvK <br /><strong>56652488 </strong>
                     </p>
                 </div>
                 <div className="footer-top-contact-details">
-                    <p>Phone +31 30 800 4499 E-mail info@utrechtsciencepark.nl</p>
+                    <p>Phone<br /><strong> +31 30 800 4499</strong> </p>
+                    <p>E-mail<br /> <strong>info@utrechtsciencepark.nl</strong></p>
                 </div>
 
             </div>

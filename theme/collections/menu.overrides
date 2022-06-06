@@ -1,0 +1,10 @@
+/********   Menu Overrides   ********/
+.navigation {
+    .ui.secondary.pointing.menu {
+        margin: 0 0 0 160px;
+        .item {
+            border: none;
+            font-size: 1.2rem;
+        }
+    }
+}

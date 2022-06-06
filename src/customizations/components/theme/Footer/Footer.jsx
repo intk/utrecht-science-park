@@ -1,10 +1,20 @@
 import { UniversalLink } from '@plone/volto/components';
+import { Grid } from 'semantic-ui-react';
+
 import config from '@plone/volto/registry';
 
 import './less/footer.less';
 
+const Action = ({ item }) => {
+  return (
+    <UniversalLink href={item.links.en.path}>
+      {item.links.en.title}
+    </UniversalLink>
+  );
+};
+
 export function Footer(props) {
-  const { footerLinks, socialLinks } = config.settings;
+  const { footerLinks, socialLinks, siteActions } = config.settings;
   return (
     <div className="footer">
       <div className="footer-top">
@@ -19,10 +29,8 @@ export function Footer(props) {
           </p>
         </div>
         <div className="footer-top-menu">
-          {footerLinks.map(({ id, links }) => (
-            <UniversalLink key={id} href={links.en.path}>
-              {links.en.title}
-            </UniversalLink>
+          {footerLinks.map((item) => (
+            <Action key={item.id} item={item} />
           ))}
         </div>
         <div className="footer-top-contact-address">
@@ -60,7 +68,16 @@ export function Footer(props) {
         ))}
       </div>
       <div className="footer-logos">logos here</div>
-      <div className="footer-bottom">copyright</div>
+      <div className="footer-bottom">
+        <Grid>
+          <Grid.Column>2022 @ Utrecht Science Park</Grid.Column>
+          <Grid.Column>
+            {siteActions.map((item) => (
+              <Action key={item.id} item={item} />
+            ))}
+          </Grid.Column>
+        </Grid>
+      </div>
     </div>
   );
 }

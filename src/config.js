@@ -7,6 +7,48 @@ export default function applyConfig(config) {
   config.settings.isMultilingual = true;
   config.settings.supportedLanguages = ['en', 'nl'];
   config.settings.defaultLanguage = 'en';
+  config.settings.siteActions = [
+    {
+      id: 'Newsletter',
+      links: {
+        en: {
+          title: 'Newsletter',
+          path: '/en/contact',
+        },
+        nl: {
+          title: 'Newsletter-NL',
+          path: '/nl/contact',
+        },
+      },
+    },
+    {
+      id: 'Disclaimer',
+      links: {
+        en: {
+          title: 'Disclaimer',
+          path: '/en/contact',
+        },
+        nl: {
+          title: 'Disclaimer-NL',
+          path: '/nl/contact',
+        },
+      },
+    },
+    {
+      id: 'Privacy policy',
+      links: {
+        en: {
+          title: 'Privacy policy',
+          path: '/en/contact',
+        },
+        nl: {
+          title: 'Privacy policy-NL',
+          path: '/nl/contact',
+        },
+      },
+    },
+  ];
+
   config.settings.footerLinks = [
     {
       id: 'Contacts',

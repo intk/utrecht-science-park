@@ -23,7 +23,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const Header = (props) => {
   const { content, leadImage, pathname, navigationItems } = props;
 
-  const leadImageUrl = leadImage?.scales?.panoramic?.download;
+  const leadImageUrl = leadImage?.scales?.huge?.download;
   const contentTitle = content?.title;
   const contentImageCaption = content?.image_caption;
   const contentDescription = content?.description;
@@ -83,23 +83,18 @@ const Header = (props) => {
         </StickyHeader>
       </Segment>
 
-      <React.Fragment>
-        {!cmsView && !isHomePage && (
-          <div className="header-bg">
-            <div
-              className={'header-container'}
-              style={{ position: 'relative' }}
-            >
-              <HeroSection
-                image_url={leadImageUrl}
-                image_caption={contentImageCaption}
-                content_title={contentTitle}
-                content_description={contentDescription}
-              />
-            </div>
+      {!(cmsView || isHomePage) && (
+        <div className="header-bg">
+          <div className={'header-container'} style={{ position: 'relative' }}>
+            <HeroSection
+              image_url={leadImageUrl}
+              image_caption={contentImageCaption}
+              content_title={contentTitle}
+              content_description={contentDescription}
+            />
           </div>
-        )}
-      </React.Fragment>
+        </div>
+      )}
     </div>
   );
 };
@@ -111,7 +106,7 @@ const Header = (props) => {
  */
 Header.propTypes = {
   pathname: PropTypes.string.isRequired,
-  actualPathName: PropTypes.string.isRequired,
+  // actualPathName: PropTypes.string.isRequired,
   leadImage: PropTypes.object,
   content: PropTypes.object,
 };

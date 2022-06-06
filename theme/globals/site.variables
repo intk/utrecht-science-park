@@ -1,0 +1,3 @@
+@fontName   : "Precious Sans Medium";
+@headerFont : 'Precious Sans Bold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont   : 'Precious Sans Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;

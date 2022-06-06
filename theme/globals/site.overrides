@@ -5,30 +5,26 @@
       OR
       <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
 */
-@font-face {
-  font-family: 'Precious Sans';
-  src: url('http://db.onlinewebfonts.com/t/e47a208d0b944c32f68c6c5971d0112b.eot'); /* IE9*/
-  src: url('http://db.onlinewebfonts.com/t/e47a208d0b944c32f68c6c5971d0112b.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */
-      url('http://db.onlinewebfonts.com/t/e47a208d0b944c32f68c6c5971d0112b.woff2')
-      format('woff2'),
-    /* chrome firefox */
-      url('http://db.onlinewebfonts.com/t/e47a208d0b944c32f68c6c5971d0112b.woff')
-      format('woff'),
-    /* chrome firefox */
-      url('http://db.onlinewebfonts.com/t/e47a208d0b944c32f68c6c5971d0112b.ttf')
-      format('truetype'),
-    /* chrome firefox opera Safari, Android, iOS 4.2+*/
-      url('http://db.onlinewebfonts.com/t/e47a208d0b944c32f68c6c5971d0112b.svg#Precious Sans')
-      format('svg'); /* iOS 4.1- */
+
+.loadThemeFont(@familyName, @fontName) {
+  @font-face {
+    font-family: @familyName;
+    src: url('@{fontsFolder}/@{fontName}.eot'); /* IE9*/
+    src: url('@{fontsFolder}/@{fontName}.eot?#iefix')
+        format('embedded-opentype'),
+      /* IE6-IE8 */ url('@{fontsFolder}/@{fontName}.woff2') format('woff2'),
+      /* chrome firefox */ url('@{fontsFolder}/@{fontName}.woff') format('woff'),
+      /* chrome firefox */ url('@{fontsFolder}/@{fontName}.ttf')
+        format('truetype'),
+      /* chrome firefox opera Safari, Android, iOS 4.2+*/
+        url('@{fontsFolder}/@{fontName}.svg#Precious Sans') format('svg'); /* iOS 4.1- */
+  }
 }
 
-body {
-  background: red;
+.loadFonts() {
+  .loadThemeFont ('Precious Sans Medium', 'Precious Sans-Book W00 Regular');;
+  .loadThemeFont ('Precious Sans Bold', 'Precious Sans-Bold W00 Regular');;
+  .loadThemeFont ('Precious Sans Light', 'Precious Sans-Light W00 Regular');;
 }
 
-h1 {
-  font-family: 'Precious Sans';
-  background: red;
-}
+.loadFonts();

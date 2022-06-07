@@ -32,5 +32,5 @@
 
 
 p {
-  font-size: @fontSize;
+  font-size: clamp (1.1rem, 2.5vw 1.6rem);
 }

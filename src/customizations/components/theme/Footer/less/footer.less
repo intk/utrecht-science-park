@@ -1,5 +1,5 @@
 /********   Footer Overrides   ********/
-.footer {
+#main .footer {
     .footer-top {
         background-color: #28B9F6;
         display: grid;
@@ -53,11 +53,49 @@
     .footer-logos {
         display: grid;
         grid-template-columns: 3fr 2fr;
+        min-height: 150px;
         .footer-logos-partners {
             border-right: 1px solid #000000;
+            padding: 20px 20px 0 20px;
+            h3 { 
+                font-weight: 400 !important;
+            }
+            .logos {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                img {
+                    height: 100%;
+                }
+            }
         }
         .footer-logos-supporters {
+            padding: 20px 0 0 20px;
+            h3 { 
+            }
+            .logos {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                img {
+                    height: 100%;
+                }
+            }
 
+        }
+    }
+    .footer-bottom {
+        background-color: #000000;
+        color: white;
+        padding: 0 20px;
+        a {
+            color: white;
+        }
+        .links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
         }
     }
 

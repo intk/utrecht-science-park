@@ -75,7 +75,7 @@ export function Footer(props) {
             <div className="footer-logos">
                 <div className='footer-logos-partners'>
                     <h3>Partners / founders</h3>
-                    <img
+                    <div className='logos'><img
                         height="auto"
                         title="Utrecht University"
                         src={UtrechtUnivLogo}
@@ -110,9 +110,11 @@ export function Footer(props) {
                         alt="Provincie Utrecht"
                         className="logo-partner"
                     />
+                    </div>
                 </div>
                 <div className='footer-logos-supporters'>
                     <h3> Supported by</h3>
+                    <div className='logos'>
                     <img
                         height="auto"
                         title="Ondernemers fonds Utrecht"
@@ -127,12 +129,13 @@ export function Footer(props) {
                         alt="European Fund for regional Development"
                         className="logo-partner"
                     />
+                    </div>
                 </div>
             </div>
             <div className="footer-bottom">
-                <Grid>
-                    <Grid.Column>2022 @ Utrecht Science Park</Grid.Column>
-                    <Grid.Column>
+                <Grid stackable>
+                    <Grid.Column width={6}>2022 @ Utrecht Science Park</Grid.Column>
+                    <Grid.Column width={6} className="links">
                         {siteActions.map((item) => (
                             <Action key={item.id} item={item} />
                         ))}

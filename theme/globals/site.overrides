@@ -1,3 +1,4 @@
+/********   Site Overrides   ********/
 /*
       www.OnlineWebFonts.Com
       You must credit the author Copy this link on your web
@@ -28,3 +29,8 @@
 }
 
 .loadFonts();
+
+
+p {
+  font-size: @fontSize;
+}

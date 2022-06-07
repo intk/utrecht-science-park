@@ -1,3 +1,39 @@
-@fontName   : "Precious Sans Medium";
-@headerFont : 'Precious Sans Bold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont   : 'Precious Sans Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+/********   Site Variables   ********/
+
+@fontName: 'Precious Sans Medium';
+@headerFont: 'Precious Sans Bold', 'Helvetica Neue', Arial, Helvetica,
+  sans-serif;
+@pageFont: 'Precious Sans Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+/*-------------------
+      Site Colors
+--------------------*/
+@black: #000000;
+@darkgrey: #706f6f;
+@lightGrey: #f1f1f1;
+@yellow: #fbba00;
+@pink: #EF12A6;
+@blueLight: #28B9F7;
+@greenLight: #97CC0A;
+
+/*-------------------
+      Base Sizes
+--------------------*/
+@h1: clamp (2.28rem, 2.5vw, 4.64rem);
+
+
+
+
+
+@fontSize: clamp (1.1rem, 2.5vw 1.6rem);
+
+
+
+
+
+
+
+/*-------------------
+      Other
+--------------------*/
+ 

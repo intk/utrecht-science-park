@@ -19,13 +19,15 @@
 /*-------------------
       Base Sizes
 --------------------*/
-@h1: clamp (2.28rem, 2.5vw, 4.64rem);
+// @h1: clamp(2.28rem, 2.5vw, 4.64rem);
 
 
 
 
 
-@fontSize: clamp (1.1rem, 2.5vw, 1.6rem);
+// @fontSize: clamp (1.1rem, 2.5vw, 1.6rem);
+
+@fontSize: clamp(1.1rem, 2.5vw, 1.6rem);
 
 
 
@@ -36,4 +38,4 @@
 /*-------------------
       Other
 --------------------*/
- 
+

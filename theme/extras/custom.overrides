@@ -1,3 +1,10 @@
 body {
   // background: red;
 }
+
+// hide the breadcrumbs on view pages
+.view-viewview.has-image {
+  #main > .breadcrumbs {
+    display: none !important;
+  }
+}

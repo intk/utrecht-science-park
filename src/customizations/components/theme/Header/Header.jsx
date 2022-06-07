@@ -14,8 +14,8 @@ import {
   SearchWidget,
 } from '@plone/volto/components';
 import { BodyClass, isCmsUi } from '@plone/volto/helpers';
-import { Container, Segment } from 'semantic-ui-react';
-import { HeroSection, StickyHeader } from '@package/components';
+// import { Container, Segment } from 'semantic-ui-react';
+import { HeroSection } from '@package/components'; // , StickyHeader
 import logoSVG from '@package/static/logo.svg';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -51,17 +51,7 @@ const Header = (props) => {
             }`}
           >
             <div className="logo">
-              {homePageView ? (
-                <LazyLoadImage
-                  className="home-logo"
-                  src={logoSVG}
-                  alt="Utrecht Science Park"
-                  width="234"
-                  height="56"
-                />
-              ) : (
-                <Logo />
-              )}
+              <Logo />
             </div>
 
             <Navigation pathname={pathname} navigation={navigationItems} />

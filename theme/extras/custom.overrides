@@ -10,3 +10,15 @@ body {
     display: none !important;
   }
 }
+
+.view-editview {
+  #main > .breadcrumbs {
+    display: none !important;
+  }
+
+  .herosection {
+    .ui.container {
+      display: none;
+    }
+  }
+}

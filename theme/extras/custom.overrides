@@ -1,13 +1,32 @@
 /********   Customn Overrides   ********/
 
-body {
-  // background: red;
-}
-
 // hide the breadcrumbs on view pages
 .view-viewview.has-image {
   #main > .breadcrumbs {
     display: none !important;
+  }
+}
+
+.view-viewview {
+  // float h3s to left
+  h3 {
+    max-width: 30%;
+    float: left;
+    margin-top: 0px;
+    padding-right: 1em;
+  }
+  p {
+    margin-left: 30%;
+  }
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .view-viewview {
+    // float h3s to left
+    h3 {
+      max-width: 100%;
+      float: none;
+    }
   }
 }
 

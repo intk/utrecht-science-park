@@ -39,7 +39,7 @@ const StickyHeader = (props) => {
 
   return (
     <div
-      className={cx({
+      className={cx('sticky-header-node', {
         'sticky-header': scrollingUp && width < stickyBreakpoint,
       })}
     >

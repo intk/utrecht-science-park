@@ -1,6 +1,45 @@
 /********   header Overrides   ********/
-.header {
-  background-color: white;
+
+.verticalAlign() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-wrapper {
+  position: absolute;
+  z-index: 9999;
   width: 100%;
-  // padding: 1rem;
+  padding: 1em;
+
+  .header {
+    width: calc(100% - 6em);
+    background-color: white;
+
+    .ui.container {
+      display: flex;
+    }
+
+    .logo-nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      .logo {
+        .verticalAlign();
+        margin: 0em 1em;
+      }
+
+      .tools-search-wrapper {
+        display: flex;
+
+        .language-selector-wrapper {
+          .verticalAlign();
+        }
+
+        .search-wrapper {
+          .verticalAlign();
+        }
+      }
+    }
+  }
 }

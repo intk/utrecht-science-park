@@ -31,57 +31,59 @@ const Header = (props) => {
   const cmsView = isCmsUi(pathname);
   const homePageView = isHomePage && !cmsView;
 
+  // <StickyHeader stickyBreakpoint={1024}>
+  // </StickyHeader>
+
   return (
     <div className="portal-top">
       {homePageView && <BodyClass className="homepage-view" />}
       {leadImageUrl && !cmsView && <BodyClass className="has-image" />}
-      <Segment
-        basic
+      <div
         className={`header-wrapper ${
           homePageView ? 'homepage' : 'contentpage'
         }`}
         role="banner"
       >
-        <StickyHeader stickyBreakpoint={1024}>
-          <div className="header">
-            <Container>
-              <div
-                className={`logo-nav-wrapper ${
-                  homePageView ? 'home-nav' : 'page-nav'
-                }`}
-              >
-                <div className="logo">
-                  {homePageView ? (
-                    <LazyLoadImage
-                      className="home-logo"
-                      src={logoSVG}
-                      alt="Utrecht Science Park"
-                      width="234"
-                      height="56"
-                    />
-                  ) : (
-                    <Logo />
-                  )}
-                </div>
+        <div className="header">
+          <div
+            className={`logo-nav-wrapper ${
+              homePageView ? 'home-nav' : 'page-nav'
+            }`}
+          >
+            <div className="logo">
+              {homePageView ? (
+                <LazyLoadImage
+                  className="home-logo"
+                  src={logoSVG}
+                  alt="Utrecht Science Park"
+                  width="234"
+                  height="56"
+                />
+              ) : (
+                <Logo />
+              )}
+            </div>
 
-                <Navigation pathname={pathname} navigation={navigationItems} />
+            <Navigation pathname={pathname} navigation={navigationItems} />
 
-                <div className="tools-search-wrapper">
-                  <div className="search">
-                    <SearchWidget pathname={pathname} />
-                  </div>
-                  <LanguageSelector />
-                  {!props.token && (
-                    <div className="tools">
-                      <Anontools />
-                    </div>
-                  )}
-                </div>
+            <div className="tools-search-wrapper">
+              <div className="search-wrapper">
+                <SearchWidget pathname={pathname} />
               </div>
-            </Container>
+
+              <div className="language-selector-wrapper">
+                <LanguageSelector />
+              </div>
+
+              {!props.token && (
+                <div className="tools">
+                  <Anontools />
+                </div>
+              )}
+            </div>
           </div>
-        </StickyHeader>
-      </Segment>
+        </div>
+      </div>
 
       {!(cmsView || isHomePage) && (
         <div className="header-bg">

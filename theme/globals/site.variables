@@ -19,8 +19,8 @@
 /*-------------------
       Base Sizes
 --------------------*/
-
-@fontSize: clamp(1.1rem, 2.5vw, 1.6rem);
+@emSize: 16px;
+@fontSize: clamp(1rem, 2.5vw, 1.375rem);
 
 
 

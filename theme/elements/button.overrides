@@ -1,0 +1,21 @@
+/********   Button Overrides   ********/
+
+.ui.primary.buttons .button,
+.ui.primary.button {
+    background-color: unset;
+    color: @black;
+    border-bottom: 4px @greenLight solid;
+    border-radius: unset;
+    padding: unset;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+}
+
+.ui.primary.buttons .button:hover,
+.ui.primary.button:hover {
+  background-color: @white;
+  color: unset;
+
+}

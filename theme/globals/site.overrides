@@ -58,3 +58,11 @@ p {
   font-size: clamp(1rem, 2.25vw, 1.375rem);
   line-height: clamp(1.300rem, 2.25vw, 1.788rem);
 }
+
+ol, ul {
+  font-size: clamp(1rem, 2.25vw, 1.375rem);
+  line-height: clamp(1.300rem, 2.25vw, 1.788rem);
+  li {
+    margin-bottom: 0.6rem;
+  }
+}

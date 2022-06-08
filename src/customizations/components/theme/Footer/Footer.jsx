@@ -1,7 +1,7 @@
 import { UniversalLink } from '@plone/volto/components';
 import { Grid } from 'semantic-ui-react';
 import config from '@plone/volto/registry';
-import './less/footer.less';
+//import './less/footer.less';
 import UtrechtUnivLogo from '@package/static/Utrecht University.png';
 import CityUtrechtLogo from '@package/static/City of Utrecht.png';
 import UMCUtrechtLogo from '@package/static/UMC Utrecht.png';

@@ -74,7 +74,7 @@ export function Footer(props) {
             </div>
             <div className="footer-logos">
                 <div className='footer-logos-partners'>
-                    <h3>Partners / founders</h3>
+                    <h4>Partners / founders</h4>
                     <div className='logos'><img
                         height="auto"
                         title="Utrecht University"
@@ -113,7 +113,7 @@ export function Footer(props) {
                     </div>
                 </div>
                 <div className='footer-logos-supporters'>
-                    <h3> Supported by</h3>
+                    <h4> Supported by</h4>
                     <div className='logos'>
                     <img
                         height="auto"

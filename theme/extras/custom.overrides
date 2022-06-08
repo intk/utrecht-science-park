@@ -42,7 +42,10 @@
   }
 }
 
-
+.content-description {
+  font-size: clamp(1.125rem, 2.75vw, 1.75rem);
+  line-height: clamp(1.350rem, 2.25vw, 2.100rem);
+}
 
 
 /********   Footer Overrides   ********/

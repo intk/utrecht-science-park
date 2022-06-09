@@ -13,19 +13,28 @@
     src: url('@{fontsFolder}/@{fontName}.eot'); /* IE9*/
     src: url('@{fontsFolder}/@{fontName}.eot?#iefix')
         format('embedded-opentype'),
-      /* IE6-IE8 */ url('@{fontsFolder}/@{fontName}.woff2') format('woff2'),
+      //* IE6-IE8 */ url('@{fontsFolder}/@{fontName}.woff2') format('woff2'),
       /* chrome firefox */ url('@{fontsFolder}/@{fontName}.woff') format('woff'),
       /* chrome firefox */ url('@{fontsFolder}/@{fontName}.ttf')
         format('truetype'),
       /* chrome firefox opera Safari, Android, iOS 4.2+*/
-        url('@{fontsFolder}/@{fontName}.svg#Precious Sans') format('svg'); /* iOS 4.1- */
+      //  url('@{fontsFolder}/@{fontName}.svg#Precious Sans') format('svg'); /* iOS 4.1- */
   }
 }
 
 .loadFonts() {
-  .loadThemeFont ('Precious Sans Medium', 'Precious Sans-Book W00 Regular');;
-  .loadThemeFont ('Precious Sans Bold', 'Precious Sans-Bold W00 Regular');;
-  .loadThemeFont ('Precious Sans Light', 'Precious Sans-Light W00 Regular');;
+  .loadThemeFont ('Precious Sans Two Black', 'Precious Sans Two Black');;
+  .loadThemeFont ('Precious Sans Two Black Italic', 'Precious Sans Two Black Italic');;
+  .loadThemeFont ('Precious Sans Two Bold', 'Precious Sans Two Bold');;
+  .loadThemeFont ('Precious Sans Two Bold Italic', 'Precious Sans Two Bold Italic');;
+  .loadThemeFont ('Precious Sans Two Demi Bold', 'Precious Sans Two Demi Bold');;
+  .loadThemeFont ('Precious Sans Two Demi Bold Italic', 'Precious Sans Two Demi Bold Italic');;
+  .loadThemeFont ('Precious Sans Two Light', 'Precious Sans Two Light');;
+  .loadThemeFont ('Precious Sans Two Light Italic', 'Precious Sans Two Light Italic');;
+  .loadThemeFont ('Precious Sans Two Medium', 'Precious Sans Two Medium');;
+  .loadThemeFont ('Precious Sans Two Medium Italic', 'Precious Sans Two Medium Italic');;
+  .loadThemeFont ('Precious Sans Two Thin', 'Precious Sans Two Thin');;
+  .loadThemeFont ('Precious Sans Two Thin Italic', 'Precious Sans Two Thin Italic');;
 }
 
 .loadFonts();
@@ -35,23 +44,23 @@
 --------------------*/
 h1 {
   font-size: clamp(2rem, 4.25vw, 4.06rem);
-  line-height: clamp(2.400rem, 2.25vw, 4.875rem);
+  line-height: clamp(2.400rem, 4.25vw, 4.875rem);
 }
 
 h2 {
   font-size: clamp(1.75rem, 3.75vw, 4.063rem);
-  line-height: clamp(2.100rem, 2.25vw, 4.063rem);
+  line-height: clamp(2.100rem, 3.75vw, 4.063rem);
   
 }
 
 h3 {
   font-size: clamp(1.75rem, 3.25vw, 2.813rem);
-  line-height: clamp(2.100rem, 2.25vw, 2.813rem);
+  line-height: clamp(2.100rem, 3.25vw, 2.813rem);
 }
 
 h4 {
   font-size: clamp(1.125rem, 2.75vw, 1.75rem);
-  line-height: clamp(1.350rem, 2.25vw, 2.100rem);
+  line-height: clamp(1.350rem, 2.75vw, 2.100rem);
 }
 
 p {
@@ -69,6 +78,10 @@ ol, ul {
 /*-------------------
       Typography
 --------------------*/
+body {
+  font-family: 'Precious Sans Two Light';
+}
+
 h1, h3 {
   text-transform: uppercase;
 }

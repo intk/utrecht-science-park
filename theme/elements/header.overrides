@@ -10,10 +10,10 @@
   position: absolute;
   z-index: 9999;
   width: 100%;
-  padding: 1em;
+  padding: 1rem;
 
   .header {
-    width: calc(100% - 6em);
+    width: calc(100% - 5rem);
     background-color: white;
 
     .ui.container {

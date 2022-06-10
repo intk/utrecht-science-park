@@ -95,3 +95,10 @@ h1 {
 h1, h2, h3, h4, h5 {
   font-family: 'Precious Sans Two Thin';
 }
+
+/*-------------------
+      Colors
+--------------------*/
+body {
+  background-color: @lightGrey;
+}

@@ -15,7 +15,7 @@
     margin-top: 0px;
     padding-right: 1em;
     font-size: clamp(1.125rem, 2.75vw, 1.563rem);
-    line-height: clamp(1.350rem, 2.75vw, 1.875rem);
+    line-height: clamp(1.35rem, 2.75vw, 1.875rem);
     text-transform: none;
     font-family: 'Precious Sans Two Bold';
   }
@@ -54,130 +54,150 @@ p.smaller {
 
 // discreet Desktop
 .discreet {
-  font-size: clamp(0.750rem, 2.25vw, 0.875rem);
+  font-size: clamp(0.75rem, 2.25vw, 0.875rem);
   line-height: clamp(0.975rem, 2.25vw, 1.026rem);
 }
 
 // Description under h1 title
 .content-description {
   font-size: clamp(1.125rem, 2.75vw, 1.75rem);
-  line-height: clamp(1.350rem, 2.75vw, 2.100rem);
+  line-height: clamp(1.35rem, 2.75vw, 2.1rem);
 }
-
 
 /********   Footer   ********/
 #main .footer {
   .footer-top {
-      background-color: @blueLight;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      min-height: 300px;
-      p {
-          margin-left: unset;
-          font-size: clamp(0.875rem, 2.25vw, 1.125rem);
-          line-height: clamp(1rem, 2.25vw, 1.31rem);
-           
-      }
+    background-color: @blueLight;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    min-height: 300px;
+    p {
+      margin-left: unset;
+      font-size: clamp(0.875rem, 2.25vw, 1.125rem);
+      line-height: clamp(1rem, 2.25vw, 1.31rem);
+    }
 
-      .footer-top-text {
-          border-right: 1px solid #000000;
-          padding: 1.25rem 1.25rem 0 1.25rem;
-      }
+    .footer-top-text {
+      border-right: 1px solid #000000;
+      padding: 1.25rem 1.25rem 0 1.25rem;
+    }
 
-      .footer-top-menu {
-          border-right: 1px solid #000000;
-          padding: 1.25rem 1.25rem 0 1.25rem;
-          display: flex;
-          flex-direction: column;
-          font-size: clamp(1.75rem, 2.25vw, 2.50rem);
-          gap: clamp(.875rem, 2.25vw, 1.5rem);
-          a {
-
-              color: black;
-              font-weight: 200;
-          }
+    .footer-top-menu {
+      border-right: 1px solid #000000;
+      padding: 1.25rem 1.25rem 0 1.25rem;
+      display: flex;
+      flex-direction: column;
+      font-size: clamp(1.75rem, 2.25vw, 2.5rem);
+      gap: clamp(0.875rem, 2.25vw, 1.5rem);
+      a {
+        color: black;
+        font-weight: 200;
       }
-      .footer-top-contact-address {
-          border-right: 1px solid #000000;
-          padding: 1.25rem 1.25rem 0 1.25rem;
-          font-size: 1.2rem;
-      }
-      .footer-top-contact-details {
-          border-right: 1px solid #000000;
-          padding: 1.25rem 1.25rem 0 1.25rem;
-          // p {
-          // font-size: 0.7rem !important;
-          // }
-      }
+    }
+    .footer-top-contact-address {
+      border-right: 1px solid #000000;
+      padding: 1.25rem 1.25rem 0 1.25rem;
+      font-size: 1.2rem;
+    }
+    .footer-top-contact-details {
+      border-right: 1px solid #000000;
+      padding: 1.25rem 1.25rem 0 1.25rem;
+      // p {
+      // font-size: 0.7rem !important;
+      // }
+    }
   }
 
   .footer-social {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-      background-color: #28B9F6;
-      text-align: center;
-      a {
-          border-width: 1px 1px 1px 0;
-          border-style: solid;
-          border-color: #000000;
-          padding: 1.5rem 0;
-          color: black;
-          font-size: clamp(0.875rem, 2.25vw, 1.125rem)
-      }
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: #28b9f6;
+    text-align: center;
+    a {
+      border-width: 1px 1px 1px 0;
+      border-style: solid;
+      border-color: #000000;
+      padding: 1.5rem 0;
+      color: black;
+      font-size: clamp(0.875rem, 2.25vw, 1.125rem);
+    }
   }
   .footer-logos {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      min-height: 150px;
-      .footer-logos-partners {
-          border-right: 1px solid #000000;
-          padding: 1.25rem 1.25rem 0 1.25rem;
-          h4 { 
-              font-family: Precious Sans Light;
-              font-size: clamp(0.688rem, 2.25vw, 1rem);
-          }
-          .logos {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              img {
-                  height: 100%;
-              }
-          }
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    min-height: 150px;
+    .footer-logos-partners {
+      border-right: 1px solid #000000;
+      padding: 1.25rem 1.25rem 0 1.25rem;
+      h4 {
+        font-family: Precious Sans Light;
+        font-size: clamp(0.688rem, 2.25vw, 1rem);
       }
-      .footer-logos-supporters {
-          padding: 1.25rem 0 0 1.25rem;
-          h4 { 
-              font-family: Precious Sans Light;
-              font-size: clamp(0.688rem, 2.25vw, 1rem);
-          }
-          .logos {
-              display: flex;
-              align-items: center;
-              gap: 10;
-              img {
-                  height: 100%;
-              }
-          }
-
+      .logos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+          height: 100%;
+        }
       }
+    }
+    .footer-logos-supporters {
+      padding: 1.25rem 0 0 1.25rem;
+      h4 {
+        font-family: Precious Sans Light;
+        font-size: clamp(0.688rem, 2.25vw, 1rem);
+      }
+      .logos {
+        display: flex;
+        align-items: center;
+        gap: 10;
+        img {
+          height: 100%;
+        }
+      }
+    }
   }
   .footer-bottom {
-      background-color: #000000;
+    background-color: #000000;
+    color: white;
+    padding: 0 1.25rem;
+    font-size: clamp(0.813rem, 2.25vw, 1.142rem);
+    a {
       color: white;
-      padding: 0 1.25rem;
-      font-size: clamp(0.813rem, 2.25vw, 1.142rem);
-      a {
-          color: white;
-      }
-      .links {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: 1.25rem;
-      }
+    }
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.25rem;
+    }
   }
-
 }
 
 /********   Footer Overrides END   ********/
+
+/********   Search results   ********/
+#page-search {
+  #content-core {
+    article.tileItem {
+      background-color: @white;
+      padding: 1.25rem 1.563rem;
+      margin-bottom: .25rem;
+      h2 {
+        font-size: clamp(1.25rem, 2.75vw, 1.875rem);
+        line-height: clamp(1.5rem, 2.75vw, 2.625rem);
+        font-family: 'Precious Sans Two Light';
+        margin-bottom: 0.625rem;
+        a {
+          color: @black;
+        }
+      }
+      .tileBody {
+        font-size: 1.25rem;
+        line-height: 1.563rem;
+      }
+
+    }
+  }
+}

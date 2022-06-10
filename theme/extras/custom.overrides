@@ -6,7 +6,7 @@
     display: none !important;
   }
 }
-
+// Floated content design
 .content-area {
   // float h3s to left
   h3 {
@@ -14,6 +14,10 @@
     float: left;
     margin-top: 0px;
     padding-right: 1em;
+    font-size: clamp(1.125rem, 2.75vw, 1.563rem);
+    line-height: clamp(1.350rem, 2.75vw, 1.875rem);
+    text-transform: none;
+    font-family: 'Precious Sans Two Bold';
   }
   p {
     margin-left: 30%;

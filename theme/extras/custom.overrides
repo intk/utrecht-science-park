@@ -131,7 +131,7 @@ p.smaller {
       border-right: 1px solid #000000;
       padding: 1.25rem 1.25rem 0 1.25rem;
       h4 {
-        font-family: Precious Sans Light;
+        font-family: Precious Sans Two Light;
         font-size: clamp(0.688rem, 2.25vw, 1rem);
       }
       .logos {
@@ -146,7 +146,7 @@ p.smaller {
     .footer-logos-supporters {
       padding: 1.25rem 0 0 1.25rem;
       h4 {
-        font-family: Precious Sans Light;
+        font-family: Precious Sans Two Light;
         font-size: clamp(0.688rem, 2.25vw, 1rem);
       }
       .logos {

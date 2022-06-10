@@ -47,6 +47,19 @@ export default function applyConfig(config) {
         },
       },
     },
+    {
+      id: 'Login',
+      links: {
+        en: {
+          title: 'Login',
+          path: '/en/login',
+        },
+        nl: {
+          title: 'Login',
+          path: '/nl/login',
+        },
+      },
+    },
   ];
 
   config.settings.footerLinks = [

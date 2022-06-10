@@ -41,14 +41,27 @@
     }
   }
 }
+/********   Other typography   ********/
+// P2 Body Copy Desktop
+p.smaller {
+  font-size: clamp(0.875rem, 2.25vw, 1.125rem);
+  line-height: clamp(1.026, 2.25vw, 1.318rem);
+}
 
+// discreet Desktop
+.discreet {
+  font-size: clamp(0.0.750rem, 2.25vw, 0.875rem);
+  line-height: clamp(0.975, 2.25vw, 1.026rem);
+}
+
+// Description under h1 title
 .content-description {
   font-size: clamp(1.125rem, 2.75vw, 1.75rem);
   line-height: clamp(1.350rem, 2.75vw, 2.100rem);
 }
 
 
-/********   Footer Overrides   ********/
+/********   Footer   ********/
 #main .footer {
   .footer-top {
       background-color: @blueLight;

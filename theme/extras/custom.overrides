@@ -50,7 +50,7 @@ p.smaller {
 
 // discreet Desktop
 .discreet {
-  font-size: clamp(0.0.750rem, 2.25vw, 0.875rem);
+  font-size: clamp(0.750rem, 2.25vw, 0.875rem);
   line-height: clamp(0.975, 2.25vw, 1.026rem);
 }
 

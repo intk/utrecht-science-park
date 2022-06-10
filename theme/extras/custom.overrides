@@ -58,10 +58,11 @@ p.smaller {
   line-height: clamp(0.975rem, 2.25vw, 1.026rem);
 }
 
-// Description under h1 title
+// Description below h1 title
 .content-description {
   font-size: clamp(1.125rem, 2.75vw, 1.75rem);
   line-height: clamp(1.35rem, 2.75vw, 2.1rem);
+  font-family: 'Precious Sans Two Bold';
 }
 
 /********   Footer   ********/

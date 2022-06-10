@@ -45,13 +45,13 @@
 // P2 Body Copy Desktop
 p.smaller {
   font-size: clamp(0.875rem, 2.25vw, 1.125rem);
-  line-height: clamp(1.026, 2.25vw, 1.318rem);
+  line-height: clamp(1.026rem, 2.25vw, 1.318rem);
 }
 
 // discreet Desktop
 .discreet {
   font-size: clamp(0.750rem, 2.25vw, 0.875rem);
-  line-height: clamp(0.975, 2.25vw, 1.026rem);
+  line-height: clamp(0.975rem, 2.25vw, 1.026rem);
 }
 
 // Description under h1 title

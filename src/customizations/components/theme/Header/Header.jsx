@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-  Anontools,
+//  Anontools,
   LanguageSelector,
   Logo,
   Navigation,
@@ -65,11 +65,11 @@ const Header = (props) => {
                 <LanguageSelector />
               </div>
 
-              {!props.token && (
+              {/* {!props.token && (
                 <div className="tools">
                   <Anontools />
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>

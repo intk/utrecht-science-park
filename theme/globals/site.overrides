@@ -1,11 +1,4 @@
 /********   Site Overrides   ********/
-/*
-      www.OnlineWebFonts.Com
-      You must credit the author Copy this link on your web
-      <div>Font made from <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>is licensed by CC BY 3.0</div>
-      OR
-      <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
-*/
 
 .loadThemeFont(@familyName, @fontName) {
   @font-face {
@@ -13,12 +6,8 @@
     src: url('@{fontsFolder}/@{fontName}.eot'); /* IE9*/
     src: url('@{fontsFolder}/@{fontName}.eot?#iefix')
         format('embedded-opentype'),
-      //* IE6-IE8 */ url('@{fontsFolder}/@{fontName}.woff2') format('woff2'),
-      /* chrome firefox */ url('@{fontsFolder}/@{fontName}.woff') format('woff'),
-      /* chrome firefox */ url('@{fontsFolder}/@{fontName}.ttf')
-        format('truetype'),
-      /* chrome firefox opera Safari, Android, iOS 4.2+*/
-      //  url('@{fontsFolder}/@{fontName}.svg#Precious Sans') format('svg'); /* iOS 4.1- */
+      url('@{fontsFolder}/@{fontName}.woff') format('woff'),
+      url('@{fontsFolder}/@{fontName}.ttf') format('truetype');
   }
 }
 
@@ -44,33 +33,33 @@
 --------------------*/
 h1 {
   font-size: clamp(2rem, 4.25vw, 4.06rem);
-  line-height: clamp(2.400rem, 4.25vw, 4.875rem);
+  line-height: clamp(2.4rem, 4.25vw, 4.875rem);
 }
 
 h2 {
   font-size: clamp(1.75rem, 3.75vw, 4.063rem);
-  line-height: clamp(2.100rem, 3.75vw, 4.063rem);
-  
+  line-height: clamp(2.1rem, 3.75vw, 4.063rem);
 }
 
 h3 {
   font-size: clamp(1.75rem, 3.25vw, 2.813rem);
-  line-height: clamp(2.100rem, 3.25vw, 2.813rem);
+  line-height: clamp(2.1rem, 3.25vw, 2.813rem);
 }
 
 h4 {
   font-size: clamp(1.125rem, 2.75vw, 1.75rem);
-  line-height: clamp(1.350rem, 2.75vw, 2.100rem);
+  line-height: clamp(1.35rem, 2.75vw, 2.1rem);
 }
 
 p {
   font-size: clamp(1rem, 2.25vw, 1.375rem);
-  line-height: clamp(1.300rem, 2.25vw, 1.788rem);
+  line-height: clamp(1.3rem, 2.25vw, 1.788rem);
 }
 
-ol, ul {
+ol,
+ul {
   font-size: clamp(1rem, 2.25vw, 1.375rem);
-  line-height: clamp(1.300rem, 2.25vw, 1.788rem);
+  line-height: clamp(1.3rem, 2.25vw, 1.788rem);
   li {
     margin-bottom: 0.6rem;
   }
@@ -82,17 +71,23 @@ body {
   font-family: 'Precious Sans Two Light';
 }
 
-h1, h3 {
+h1,
+h3 {
   text-transform: uppercase;
 }
-h2, h4 {
+h2,
+h4 {
   text-transform: capitalize;
 }
 h1 {
   margin-top: 60px !important;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: 'Precious Sans Two Thin';
 }
 

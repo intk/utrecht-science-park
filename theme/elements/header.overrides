@@ -23,7 +23,7 @@
     .logo-nav-wrapper {
       display: flex;
       justify-content: space-between;
-      background: url('http://localhost:3000/en/test/header-gradient.svg/@@images/50db7508-6e21-4134-b7d2-a8bdc92747cb.svg') no-repeat top left;
+      background: url('./assets/images/header-gradient.svg') no-repeat top left;
 
       .logo {
         .verticalAlign();

@@ -1,6 +1,9 @@
 /********   Customn Overrides   ********/
 
 // hide the breadcrumbs on view pages
+.ui.breadcrumbs {
+  display: none;
+}
 .view-viewview.has-image {
   #main > .breadcrumbs {
     display: none !important;
@@ -184,7 +187,7 @@ p.smaller {
     article.tileItem {
       background-color: @white;
       padding: 1.25rem 1.563rem;
-      margin-bottom: .25rem;
+      margin-bottom: 0.25rem;
       h2 {
         font-size: clamp(1.25rem, 2.75vw, 1.875rem);
         line-height: clamp(1.5rem, 2.75vw, 2.625rem);
@@ -198,7 +201,6 @@ p.smaller {
         font-size: 1.25rem;
         line-height: 1.563rem;
       }
-
     }
   }
 }

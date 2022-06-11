@@ -156,6 +156,9 @@ export class UnconnectedAttachedImageWidget extends Component {
                       <input {...getInputProps()} />
                       <div className="discreet">Click to upload</div>
                       <img src={imageBlockSVG} alt="" />
+                      <div className="discreet">
+                        Or select an already uploaded image
+                      </div>
                       <UrlWidget {...this.props} wrapped={false} />
                     </Item>
                   </center>

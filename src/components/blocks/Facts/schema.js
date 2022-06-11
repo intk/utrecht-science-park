@@ -13,33 +13,51 @@ const messages = defineMessages({
     id: 'title',
     defaultMessage: 'Title',
   },
+  image: {
+    id: 'image',
+    defaultMessage: 'Image',
+  },
   subtitle: {
     id: 'subtitle',
     defaultMessage: 'SubTitle',
   },
   LinkTo: {
     id: 'LinkTo',
-    defaultMessage: 'Call to action link',
+    defaultMessage: 'Action link',
+  },
+  Cards: {
+    id: 'Cards',
+    defaultMessage: 'Cards',
+  },
+  Card: {
+    id: 'Card',
+    defaultMessage: 'Card',
+  },
+  linkToDescription: {
+    id: 'linkToDescription',
+    defaultMessage: 'Destination for the call to action button',
   },
 });
 
 const CardSchema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
+  title: intl.formatMessage(messages.Card),
   fieldsets: [
     {
       id: 'default',
       fields: ['title', 'subtitle', 'url'],
+      title: 'Default',
     },
   ],
 
   properties: {
     title: {
-      title: messages.title,
+      title: intl.formatMessage(messages.title),
     },
     subtitle: {
-      title: messages.subtitle,
+      title: intl.formatMessage(messages.subtitle),
     },
     url: {
-      title: 'Image',
+      title: intl.formatMessage(messages.image),
       widget: 'attachedimage',
     },
   },
@@ -50,18 +68,25 @@ const schema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
   fieldsets: [
     {
       id: 'default',
-      fields: ['href', 'cards'],
+      fields: ['title', 'href', 'cards'],
+      title: 'Basics',
     },
   ],
 
   properties: {
+    title: {
+      title: intl.formatMessage(messages.title),
+      description: 'Main block title',
+    },
     cards: {
+      title: intl.formatMessage(messages.Cards),
       widget: 'object_list',
       schema: CardSchema({ onChangeBlock, intl, data, openObjectBrowser }),
     },
 
     href: {
       title: intl.formatMessage(messages.LinkTo),
+      description: intl.formatMessage(messages.linkToDescription),
       icon: data.href ? clearSVG : navTreeSVG,
       iconAction: data.href
         ? () => {
@@ -71,6 +96,10 @@ const schema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
             });
           }
         : () => openObjectBrowser({ mode: 'link' }),
+    },
+    callToAction: {
+      title: 'Link title',
+      description: 'Text for the call to action button',
     },
   },
   required: [],

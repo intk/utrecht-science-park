@@ -10,6 +10,7 @@
   }
 }
 // Floated content design
+
 .content-area {
   // float h3s to left
   h3 {
@@ -35,6 +36,17 @@
       float: none;
     }
   }
+}
+// clear floats for edit view
+.view-editview {
+  h3 {
+    max-width: 100%;
+    float: none;
+  }
+  p {
+    margin-left: unset;
+  }
+
 }
 
 .view-editview {

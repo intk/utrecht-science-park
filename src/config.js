@@ -1,9 +1,13 @@
+import AttachedImageWidget from './components/widgets/AttachedImageWidget';
+import installBlocks from './components/blocks';
+
 // All your imports required for the config here BEFORE this line
 import '@plone/volto/config';
 
 export default function applyConfig(config) {
   // Add here your project's configuration here by modifying `config` accordingly
 
+  config.widgets.widget.attachedimage = AttachedImageWidget;
   config.settings.isMultilingual = true;
   config.settings.supportedLanguages = ['en', 'nl'];
   config.settings.defaultLanguage = 'en';
@@ -144,5 +148,6 @@ export default function applyConfig(config) {
       href: 'https://Linkedin.com',
     },
   ];
-  return config;
+
+  return installBlocks(config);
 }

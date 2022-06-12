@@ -40,6 +40,7 @@
   "workspaces": [],
   "addons": [
     "volto-slate:minimalDefault,simpleLink",
+    "volto-dropdownmenu",
     "volto-form-block"
   ],
   "jest": {
@@ -149,6 +150,7 @@
     "react-slick": "0.25.2",
     "react-text-truncate": "0.19.0",
     "slick-carousel": "1.8.1",
+    "volto-dropdownmenu": "2.4.2",
     "volto-form-block": "2.3.6",
     "volto-slate": "6.1.0"
   },

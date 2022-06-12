@@ -38,18 +38,16 @@
   }
 }
 // clear floats for edit view
-.view-editview {
+.cms-ui {
   h3 {
     max-width: 100%;
     float: none;
   }
+
   p {
     margin-left: unset;
   }
 
-}
-
-.view-editview {
   #main > .breadcrumbs {
     display: none !important;
   }
@@ -59,6 +57,9 @@
       display: none;
     }
   }
+}
+
+.view-editview {
 }
 /********   Other typography   ********/
 // P2 Body Copy Desktop

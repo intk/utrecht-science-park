@@ -39,7 +39,8 @@
   "private": false,
   "workspaces": [],
   "addons": [
-    "volto-slate:minimalDefault,simpleLink"
+    "volto-slate:minimalDefault,simpleLink",
+    "volto-form-block"
   ],
   "jest": {
     "modulePathIgnorePatterns": [
@@ -142,6 +143,7 @@
   "dependencies": {
     "@plone/volto": "15.12.1",
     "react-lazy-load-image-component": "1.5.4",
+    "volto-form-block": "2.3.6",
     "volto-slate": "6.1.0"
   },
   "devDependencies": {

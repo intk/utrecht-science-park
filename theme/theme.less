@@ -45,7 +45,7 @@
        Fonts
 -------------------*/
 
-.loadFonts() when (@importGoogleFonts) {
+.loadFonts() {
   @import (css)
     url('@{googleProtocol}fonts.googleapis.com/css?family=@{googleFontRequest}');
 }
@@ -57,4 +57,20 @@
 .loadUIOverrides() {
   @import (optional) '@{themesFolder}/@{theme}/@{type}s/@{element}.overrides';
   @import (optional) '@{siteFolder}/@{type}s/@{element}.overrides';
+}
+
+.debug(@var) {
+  &:after {
+    content: '@{var}';
+    font-size: 20px;
+    background-color: #fff;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    color: red;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
 }

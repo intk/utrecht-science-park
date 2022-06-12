@@ -1,5 +1,11 @@
 /********   Site Variables   ********/
 
+@importGoogleFonts: true;
+
+@googleFontName    : Poppins;
+@googleFontSizes   : '400,700,400italic,700italic';
+@googleSubset      : 'latin';
+
 @fontName: 'Precious Sans Medium';
 @headerFont: 'Precious Sans Bold', 'Helvetica Neue', Arial, Helvetica,
   sans-serif;

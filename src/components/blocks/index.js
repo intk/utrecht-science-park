@@ -1,10 +1,14 @@
-// import installImageBlock from './Image';
+import installImageBlock from './Image';
 import installFactsBlock from './Facts';
-
-const installImageBlock = (config) => config;
+import installListingBlock from './Listing';
+import { compose } from 'redux';
 
 const installBlocks = (config) => {
-  return installImageBlock(installFactsBlock(config));
+  return compose(
+    installListingBlock,
+    installImageBlock,
+    installFactsBlock,
+  )(config);
 };
 
 export default installBlocks;

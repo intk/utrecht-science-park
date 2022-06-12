@@ -1,6 +1,6 @@
-import ResourcesSummary from './ResourcesTemplate';
+// import ResourcesSummary from './ResourcesTemplate';
 import CardListing from './CardListing';
-import EventListing from './EventListing';
+// import EventListing from './EventListing';
 import SimpleListing, { simpleListingSchemaEnhancer } from './SimpleListing';
 import MiniCardListing, { miniCardListingSchemaEnhancer } from './MiniCard';
 import CarouselSpotlight, {
@@ -11,7 +11,7 @@ import HorizontalCarousel, {
 } from './HorizontalCarousel';
 import SummaryTemplate from './SummaryTemplate';
 import DetailedSummary from './DetailedSummary';
-import NewsSummary from './NewsSummaryTemplate';
+// import NewsSummary from './NewsSummaryTemplate';
 
 export default (config) => {
   config.blocks.blocksConfig.listing.schemaEnhancer = ({ schema }) => {
@@ -47,11 +47,11 @@ export default (config) => {
       template: HorizontalCarousel,
       schemaEnhancer: horizontalCarouselSchemaEnhancer,
     },
-    {
-      id: 'eventListing',
-      title: 'Event Listing',
-      template: EventListing,
-    },
+    // {
+    //   id: 'eventListing',
+    //   title: 'Event Listing',
+    //   template: EventListing,
+    // },
     {
       id: 'carouselSpotlight',
       title: 'Carousel spotlight',
@@ -68,16 +68,16 @@ export default (config) => {
       title: 'Detailed Summary',
       template: DetailedSummary,
     },
-    {
-      id: 'newsSummary',
-      title: 'News Summary',
-      template: NewsSummary,
-    },
-    {
-      id: 'resourcesSummary',
-      title: 'Resources Summary',
-      template: ResourcesSummary,
-    },
+    // {
+    //   id: 'newsSummary',
+    //   title: 'News Summary',
+    //   template: NewsSummary,
+    // },
+    // {
+    //   id: 'resourcesSummary',
+    //   title: 'Resources Summary',
+    //   template: ResourcesSummary,
+    // },
   ];
 
   const addHeadline = (WrappedComponent) => (props) => {

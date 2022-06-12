@@ -1,13 +1,18 @@
 import React from 'react';
-import { Image, Grid } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
 import { UniversalLink } from '@plone/volto/components';
 import lightBulb from '@package/static/logo.svg';
+import cx from 'classnames';
 
-const Card = ({ title, subtitle, icon }) => {
+import './facts.less';
+
+const Card = ({ title, subtitle, icon, size }) => {
   return (
-    <div className="fact-card">
-      <div className="title">{title}</div>
-      <div className="subtitle">{subtitle}</div>
+    <div className={cx('fact-card', { big: size === 'big' })}>
+      <div>
+        <div className="title">{title}</div>
+        <div className="subtitle">{subtitle}</div>
+      </div>
       <Image src={icon} size="small" />
     </div>
   );
@@ -23,9 +28,15 @@ const FactsView = (props) => {
             View all
           </UniversalLink>
         </div>
-        <Card icon={lightBulb} title="130" subtitle="Businesses" />
-        <Card icon={lightBulb} title="51.000" subtitle="Students per day" />
-        <Card icon={lightBulb} title="3.000" subtitle="Student accomodations" />
+        <Card icon={lightBulb} size="big" title="130" subtitle="Businesses" />
+        <div className="facts-grid">
+          <Card icon={lightBulb} title="51.000" subtitle="Students per day" />
+          <Card
+            icon={lightBulb}
+            title="3.000"
+            subtitle="Student accomodations"
+          />
+        </div>
       </div>
       <div className="facts-row">
         <Card icon={lightBulb} title="27000" subtitle="Staff members per day" />

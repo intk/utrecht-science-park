@@ -1,0 +1,37 @@
+@smallHeight: 10em;
+@bigHeight: 20em;
+@gap: 6px;
+@cardBg: white;
+
+.facts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: @gap;
+
+  .facts-row {
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    display: grid;
+    gap: @gap;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    .fact-header {
+      height: @bigHeight;
+      padding-right: 1em;
+    }
+
+    .fact-card {
+      display: flex;
+      height: @smallHeight;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1em;
+      background-color: @cardBg;
+    }
+
+    .fact-card.big {
+      height: @bigHeight;
+    }
+  }
+}

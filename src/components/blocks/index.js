@@ -1,26 +1,10 @@
-import downloadSVG from '@plone/volto/icons/download.svg';
+// import installImageBlock from './Image';
+import installFactsBlock from './Facts';
 
-import FactsView from './Facts/FactsView';
-import FactsEdit from './Facts/FactsEdit';
+const installImageBlock = (config) => config;
 
 const installBlocks = (config) => {
-  config.blocks.blocksConfig.facts = {
-    id: 'facts',
-    title: 'Facts',
-    icon: downloadSVG,
-    group: 'common',
-    view: FactsView,
-    edit: FactsEdit,
-    restricted: false,
-    mostUsed: false,
-    sidebarTab: 1,
-    security: {
-      addPermission: [],
-      view: [],
-    },
-  };
-
-  return config;
+  return installImageBlock(installFactsBlock(config));
 };
 
 export default installBlocks;

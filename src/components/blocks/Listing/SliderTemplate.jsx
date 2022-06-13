@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { Image } from 'semantic-ui-react';
 import loadable from '@loadable/component';
-import ResponsiveContainer from '@eeacms/volto-block-image-cards/ImageCards/ResponsiveContainer';
+import { ResponsiveContainer } from '@package/components';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

@@ -5,11 +5,14 @@ import useDeepCompareEffect from 'use-deep-compare-effect';
 import useSize from '@react-hook/size';
 import TextTruncate from 'react-text-truncate';
 
+import { PreviewImage } from '@package/components';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { UniversalLink, Icon } from '@plone/volto/components';
 
 import galleryLeftSVG from '@plone/volto/icons/left-key.svg';
 import galleryRightSVG from '@plone/volto/icons/right-key.svg';
+
+import './less/horizontal-carousel.less';
 
 function usePrevious(value) {
   const ref = React.useRef();
@@ -24,6 +27,7 @@ const ItemCard = ({ item }) => {
     <Card>
       <Card.Content>
         <Card.Header>
+          <PreviewImage item={item} />
           <UniversalLink href={flattenToAppURL(item['@id'])} title={item.title}>
             <TextTruncate
               key={item['@id']}

@@ -7,6 +7,11 @@ import '@plone/volto/config';
 export default function applyConfig(config) {
   // Add here your project's configuration here by modifying `config` accordingly
 
+  config.settings = {
+    ...config.settings,
+    navDepth: 2,
+  };
+
   config.widgets.widget.attachedimage = AttachedImageWidget;
   config.settings.isMultilingual = true;
   config.settings.supportedLanguages = ['en', 'nl'];

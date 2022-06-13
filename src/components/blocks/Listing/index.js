@@ -11,6 +11,15 @@ import HorizontalCarousel, {
 } from './HorizontalCarousel';
 import SummaryTemplate from './SummaryTemplate';
 import DetailedSummary from './DetailedSummary';
+import TestimonialsListingBlockTemplate from './TestimonialsTemplate';
+import SliderBlockTemplate from './SliderTemplate';
+import SliderListingBlockTemplate from './SliderListing';
+import HeaderCarouselTemplate from './HeaderCarousel';
+import ListingsBlockTemplate from './ListingTemplate';
+import ListingsBlockTemplateTwoColumns from './ListingTemplateTwoColumns';
+import ListingsBlockSquaresTemplate from './ListingTemplateSquares';
+import ListingsBlockFourSquaresTemplate from './ListingTemplateFourSquares';
+import ButtonsBlockTemplate from './ButtonsTemplate';
 // import NewsSummary from './NewsSummaryTemplate';
 
 export default (config) => {
@@ -24,6 +33,63 @@ export default (config) => {
 
   config.blocks.blocksConfig.listing.variations = [
     ...config.blocks.blocksConfig.listing.variations,
+
+    {
+      id: 'testimonials',
+      isDefault: false,
+      title: 'Testimonials',
+      template: TestimonialsListingBlockTemplate,
+    },
+    {
+      id: 'listings',
+      isDefault: false,
+      title: 'Listings',
+      template: ListingsBlockTemplate,
+    },
+    {
+      id: 'listings_two_columns',
+      isDefault: false,
+      title: 'Listings (Two columns)',
+      template: ListingsBlockTemplateTwoColumns,
+    },
+    {
+      id: 'listings_squares',
+      isDefault: false,
+      title: 'Listings (Squares)',
+      template: ListingsBlockSquaresTemplate,
+    },
+    {
+      id: 'listings_four_squares',
+      isDefault: false,
+      title: 'Listings (Four squares)',
+      template: ListingsBlockFourSquaresTemplate,
+    },
+    {
+      id: 'buttons',
+      isDefault: false,
+      title: 'Buttons',
+      template: ButtonsBlockTemplate,
+    },
+    {
+      id: 'slider',
+      isDefault: false,
+      title: 'Slider (ronded)',
+      template: SliderBlockTemplate,
+    },
+    {
+      id: 'slider_listing',
+      isDefault: false,
+      title: 'Slider (listing)',
+      template: SliderListingBlockTemplate,
+    },
+    {
+      id: 'slider_header',
+      isDefault: false,
+      title: 'Slider (Header)',
+      template: HeaderCarouselTemplate,
+    },
+    // end museum variations
+
     {
       id: 'simpleListing',
       title: 'Simple listing',

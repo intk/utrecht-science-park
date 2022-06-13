@@ -7,7 +7,7 @@ import { ResponsiveContainer } from '@package/components';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './SliderTemplate.less';
+import './less/SliderTemplate.less';
 
 const Slider = loadable(() => import('react-slick'));
 

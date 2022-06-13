@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './SliderListing.less';
+import './less/SliderListing.less';
 
 const Slider = loadable(() => import('react-slick'));
 

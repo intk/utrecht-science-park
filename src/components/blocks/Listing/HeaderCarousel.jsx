@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { flattenToAppURL } from '@plone/volto/helpers';
-import { Image, Label, Icon } from 'semantic-ui-react';
+import { Image, Label } from 'semantic-ui-react';
 import loadable from '@loadable/component';
 import { ResponsiveContainer } from '@package/components';
 import { Link } from 'react-router-dom';
@@ -9,10 +9,10 @@ import clockSVG from './clock.svg';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './HeaderCarousel.less';
+import './less/HeaderCarousel.less';
 import {
   When,
-  Recurrence,
+  // Recurrence,
 } from '@plone/volto/components/theme/View/EventDatesInfo';
 
 const Slider = loadable(() => import('react-slick'));

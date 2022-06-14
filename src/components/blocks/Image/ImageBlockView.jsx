@@ -43,7 +43,9 @@ const ViewImage = (props) => {
                     ? // Backwards compat in the case that the block is storing the full server URL
                       (() => {
                         if (data.size === 'l')
-                          return `${flattenToAppURL(data.url)}/@@images/image`;
+                          return `${flattenToAppURL(
+                            data.url,
+                          )}/@@images/image/large`;
                         if (data.size === 'm')
                           return `${flattenToAppURL(
                             data.url,
@@ -52,7 +54,9 @@ const ViewImage = (props) => {
                           return `${flattenToAppURL(
                             data.url,
                           )}/@@images/image/mini`;
-                        return `${flattenToAppURL(data.url)}/@@images/image`;
+                        return `${flattenToAppURL(
+                          data.url,
+                        )}/@@images/image/large`;
                       })()
                     : data.url
                 }

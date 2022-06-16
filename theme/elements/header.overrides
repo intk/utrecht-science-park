@@ -27,6 +27,7 @@
       display: flex;
       justify-content: space-between;
       background: url('./assets/images/header-gradient.svg') no-repeat top left;
+      background-size: contain;
 
       .logo {
         .verticalAlign();

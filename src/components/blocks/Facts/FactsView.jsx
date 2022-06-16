@@ -23,7 +23,7 @@ const FactsView = (props) => {
     <div className="facts-grid">
       <div className="facts-row">
         <div className="fact-header">
-          <h2>Facts & figures</h2>
+          <h2>Facts & <br></br>figures</h2>
           <UniversalLink as="button" href="/">
             View all
           </UniversalLink>

@@ -35,3 +35,21 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .facts-grid {
+    .fact-header {
+      height: unset !important;
+      grid-column: span 2;
+      grid-template-columns: 1fr 1fr;
+      display: grid;
+      h2 {
+        margin: unset !important;
+      }
+      a {
+        text-align: right;
+        align-self: flex-end;
+      }
+    }
+  }
+}

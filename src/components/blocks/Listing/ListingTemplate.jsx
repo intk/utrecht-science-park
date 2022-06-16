@@ -20,26 +20,6 @@ const ListingTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
             computer={4}
             className="listing-column"
           >
-            {item.image_field && (
-              <Segment
-                basic
-                className={`listing-item listing-block ${item['@type']}`}
-              >
-                <Link to={flattenToAppURL(item['@id'])}>
-                  <Image
-                    alt={item.title}
-                    src={flattenToAppURL(
-                      `${item['@id']}/@@images/${item.image_field}/teaser`,
-                    )}
-                    loading="lazy"
-                  />
-
-                  {item.youtube_id && (
-                    <Icon name="play" size="huge" color="white" />
-                  )}
-                </Link>
-              </Segment>
-            )}
             <Segment basic className="listing-item-content">
               <h2>
                 <Link to={flattenToAppURL(item['@id'])} title={item.title}>
@@ -60,6 +40,26 @@ const ListingTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
                 ''
               )}
             </Segment>
+            {item.image_field && (
+              <Segment
+                basic
+                className={`listing-item listing-block ${item['@type']}`}
+              >
+                <Link to={flattenToAppURL(item['@id'])}>
+                  <Image
+                    alt={item.title}
+                    src={flattenToAppURL(
+                      `${item['@id']}/@@images/${item.image_field}/teaser`,
+                    )}
+                    loading="lazy"
+                  />
+
+                  {item.youtube_id && (
+                    <Icon name="play" size="huge" color="white" />
+                  )}
+                </Link>
+              </Segment>
+            )}
           </Grid.Column>
         ))}
       </Grid>

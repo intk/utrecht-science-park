@@ -43,7 +43,7 @@ export default (config) => {
     {
       id: 'listings',
       isDefault: false,
-      title: 'Listings',
+      title: 'Multiple Listings',
       template: ListingsBlockTemplate,
     },
     {

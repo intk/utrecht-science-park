@@ -217,3 +217,40 @@ p.smaller {
     }
   }
 }
+
+/********   Listings   ********/
+.listing-item img {
+  margin-right: unset;
+}
+
+/********   Listings > Listings   ********/
+.listings {
+  .ui.segment {
+    padding: unset;
+    margin: unset;
+  }
+  .ui.grid > .column:not(.row),
+  .ui.grid > .row > .column {
+    padding-left: unset;
+    padding-right: unset;
+    padding-right: 3px;
+    .listing-item img {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      object-fit: cover;
+    }
+    .listing-item-content {
+      background-color: @white;
+      aspect-ratio: 2 / 1;
+      h2 {
+        margin: unset;
+        padding: 1.5rem;
+        font-size: 2.188rem;
+        line-height: 2.813rem;
+        a {
+          color: @black;
+        }
+      }
+    }
+  }
+}

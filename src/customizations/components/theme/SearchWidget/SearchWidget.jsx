@@ -124,6 +124,7 @@ class SearchWidget extends Component {
     return (
       <Popup
         wide
+        size="huge"
         content={
           <Form action="/search" onSubmit={this.onSubmit}>
             <Form.Field className="searchbox">

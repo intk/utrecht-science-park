@@ -1,0 +1,7 @@
+.ui.form .searchbox.field {
+  display: flex;
+  padding-left: unset;
+  border-left: unset;
+  /* padding-left: 1em; */
+  /* border-left: 1px solid #B8C6C8; */
+}

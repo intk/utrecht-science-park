@@ -40,7 +40,6 @@
   "workspaces": [],
   "addons": [
     "volto-slate:minimalDefault,simpleLink",
-    "volto-dropdownmenu",
     "volto-form-block"
   ],
   "jest": {

@@ -1,5 +1,5 @@
-@smallHeight: 10em;
-@bigHeight: calc(20em + 6px);
+@smallHeight: 15em;
+@bigHeight: calc(30em + 6px);
 @gap: 6px;
 @cardBg: white;
 
@@ -28,16 +28,36 @@
       justify-content: space-between;
       padding: 1em;
       background-color: @cardBg;
+      img {
+        height: 100%;
+        width: auto;
+        align-self: flex-start;
+        max-height: 140px;
+      }
     }
 
     .fact-card.big {
       height: @bigHeight;
+      img {
+        height: unset;
+        width: auto;
+        max-height: 140px;
+      }
     }
     .subfacts-grid {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
+  }
+  .title {
+    font-size: clamp(2rem, 4.25vw, 4.06rem);
+    line-height: clamp(2.4rem, 4.25vw, 4.875rem);
+  }
+  .subtitle {
+    font-size: clamp(0.875rem, 4.25vw, 1.25rem);
+    line-height: clamp(1.026rem, 4.25vw, 1.465rem);
+    margin-bottom: 0.75rem;
   }
 }
 
@@ -55,6 +75,9 @@
         text-align: right;
         align-self: flex-end;
       }
+    }
+    .fact-card {
+      height: 20rem !important;
     }
     .fact-card.big {
       display: grid;

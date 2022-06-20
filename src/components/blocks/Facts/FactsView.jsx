@@ -29,7 +29,7 @@ const FactsView = (props) => {
           </UniversalLink>
         </div>
         <Card icon={lightBulb} size="big" title="130" subtitle="Businesses" />
-        <div className="facts-grid">
+        <div className="subfacts-grid">
           <Card icon={lightBulb} title="51.000" subtitle="Students per day" />
           <Card
             icon={lightBulb}

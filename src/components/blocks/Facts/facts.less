@@ -33,10 +33,15 @@
     .fact-card.big {
       height: @bigHeight;
     }
+    .subfacts-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1070px) {
   .facts-grid {
     .fact-header {
       height: unset !important;
@@ -50,6 +55,19 @@
         text-align: right;
         align-self: flex-end;
       }
+    }
+    .fact-card.big {
+      display: grid;
+      grid-column: span 2;
+      img {
+        align-self: end;
+      }
+    }
+    .subfacts-grid {
+      display: grid !important;
+      grid-column: span 2;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
     }
   }
 }

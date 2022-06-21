@@ -16,7 +16,7 @@
   padding: 1rem;
 
   .header {
-    width: calc(100% - 5rem);
+    width: 100%;
     background-color: white;
 
     .ui.container {
@@ -68,4 +68,11 @@
 
 .ui.segment.content-area {
   margin-top: 60px;
+}
+@media only screen and (min-width: 767px) {
+  body.has-toolbar {
+    .header {
+      width: calc(100% - 5rem);
+    }
+  }
 }

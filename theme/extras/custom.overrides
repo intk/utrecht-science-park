@@ -80,7 +80,10 @@ p.smaller {
   line-height: clamp(1.35rem, 2.75vw, 2.1rem);
   font-family: 'Precious Sans Two Bold';
 }
-
+// White space in blocks chooser CMS
+.blocks-chooser .ui.accordion .title ~ .content, .blocks-chooser .ui.accordion .accordion .title ~ .content {
+  display: unset !important;
+}
 /********   Footer   ********/
 #main .footer {
   .footer-top {
@@ -254,3 +257,4 @@ p.smaller {
     }
   }
 }
+

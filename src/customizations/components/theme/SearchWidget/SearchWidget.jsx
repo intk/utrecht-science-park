@@ -155,7 +155,7 @@ class SearchWidget extends Component {
         pinned
         trigger={
           <Button aria-label={this.props.intl.formatMessage(messages.search)}>
-            <Icon name={zoomSVG} size="18px" />
+            <Icon name={zoomSVG} size="24px" />
           </Button>
         }
       />

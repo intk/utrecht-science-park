@@ -46,11 +46,20 @@
             a {
               color: @darkgrey;
             }
+            // a.selected {
+            //   border-bottom: 1px solid @darkgrey;
+            // }
+            // a:not(:last-child)::after {
+            //   border-bottom: 1px solid @white;
+            // }
           }
         }
 
         .search-wrapper {
           .verticalAlign();
+          svg {
+            width: 24px !important;
+          }
         }
       }
     }

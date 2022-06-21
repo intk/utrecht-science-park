@@ -19,3 +19,9 @@
   color: unset;
 
 }
+
+.search-wrapper {
+  .ui.button {
+    background-color: unset;
+  }
+}

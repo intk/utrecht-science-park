@@ -16,7 +16,7 @@
 --------------------*/
 @black: #000000;
 @darkgrey: #706f6f;
-@lightGrey: #f1f1f1;
+@lightergrey: #f1f1f1;
 @yellow: #fbba00;
 @pink: #EF12A6;
 @blueLight: #28B9F7;

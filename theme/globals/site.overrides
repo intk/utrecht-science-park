@@ -75,5 +75,5 @@ h4 {
       Colors
 --------------------*/
 body {
-  background-color: @lightGrey;
+  background-color: @lightergrey;
 }

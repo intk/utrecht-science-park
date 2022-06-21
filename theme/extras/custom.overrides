@@ -82,7 +82,7 @@ p.smaller {
 }
 // White space in blocks chooser CMS
 .blocks-chooser .ui.accordion .title ~ .content, .blocks-chooser .ui.accordion .accordion .title ~ .content {
-  display: unset !important;
+  display: contents !important;
 }
 /********   Footer   ********/
 #main .footer {

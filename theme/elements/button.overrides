@@ -1,7 +1,6 @@
 /********   Button Overrides   ********/
 
-.ui.primary.buttons .button,
-.ui.primary.button {
+.greenlined {
     background-color: unset;
     color: @black;
     border-bottom: 4px @greenLight solid;
@@ -13,8 +12,7 @@
     font-size: 1.25rem;
 }
 
-.ui.primary.buttons .button:hover,
-.ui.primary.button:hover {
+.greenlined:hover {
   background-color: @white;
   color: unset;
 

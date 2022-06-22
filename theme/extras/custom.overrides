@@ -26,7 +26,15 @@
   p {
     margin-left: 30%;
   }
+  h3:not(:first-child) {
+    margin-top: 3rem;
+  }
 }
+
+.content-area h3+p {
+  margin-top: 4.375rem;
+}
+
 
 @media only screen and (max-width: @largestMobileScreen) {
   .content-area {
@@ -81,7 +89,8 @@ p.smaller {
   font-family: 'Precious Sans Two Bold';
 }
 // White space in blocks chooser CMS
-.blocks-chooser .ui.accordion .title ~ .content, .blocks-chooser .ui.accordion .accordion .title ~ .content {
+.blocks-chooser .ui.accordion .title ~ .content,
+.blocks-chooser .ui.accordion .accordion .title ~ .content {
   display: contents !important;
 }
 /********   Footer   ********/
@@ -257,4 +266,3 @@ p.smaller {
     }
   }
 }
-

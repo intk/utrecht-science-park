@@ -67,8 +67,9 @@
 }
 
 .ui.segment.content-area {
-  margin-top: 60px;
+  //margin-top: 60px;
 }
+/********   toolbar hack so nav displays ok  ********/
 @media only screen and (min-width: 767px) {
   body.has-toolbar {
     .header {

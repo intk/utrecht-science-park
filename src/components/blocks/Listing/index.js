@@ -20,7 +20,7 @@ import ListingsBlockTemplateTwoColumns from './ListingTemplateTwoColumns';
 import ListingsBlockSquaresTemplate from './ListingTemplateSquares';
 import ListingsBlockFourSquaresTemplate from './ListingTemplateFourSquares';
 import ButtonsBlockTemplate from './ButtonsTemplate';
-// import NewsSummary from './NewsSummaryTemplate';
+import NewsListingStatic from './NewsListingStatic';
 
 export default (config) => {
   config.blocks.blocksConfig.listing.schemaEnhancer = ({ schema }) => {
@@ -134,11 +134,11 @@ export default (config) => {
       title: 'Detailed Summary',
       template: DetailedSummary,
     },
-    // {
-    //   id: 'newsSummary',
-    //   title: 'News Summary',
-    //   template: NewsSummary,
-    // },
+    {
+      id: 'newsListingStatic',
+      title: 'NewsListingStatic',
+      template: NewsListingStatic,
+    },
     // {
     //   id: 'resourcesSummary',
     //   title: 'Resources Summary',

@@ -26,9 +26,9 @@ const ListingTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
                   {item.title ? item.title : item.id}
                 </Link>
               </h2>
-              {item.description && (
+              {/* {item.description && (
                 <p className="item-description">{item.description}</p>
-              )}
+              )} */}
               {['Event'].includes(item['@type']) ? (
                 <When
                   start={item.start}

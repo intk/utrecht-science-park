@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import AttachedImageWidget from './components/widgets/AttachedImageWidget';
 import installBlocks from './components/blocks';
 
@@ -10,6 +11,11 @@ export default function applyConfig(config) {
   config.settings = {
     ...config.settings,
     navDepth: 3,
+  };
+
+  config.settings.loadables = {
+    ...config.settings.loadables,
+    dateFns: loadable.lib(() => import('date-fns')),
   };
 
   config.widgets.widget.attachedimage = AttachedImageWidget;

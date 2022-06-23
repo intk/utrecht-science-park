@@ -38,12 +38,7 @@ const ListingTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
               ) : (
                 ''
               )}
-            </Segment>
-            {item.image_field && (
-              <Segment
-                basic
-                className={`listing-item listing-block ${item['@type']}`}
-              >
+              {item.image_field && (
                 <Link to={flattenToAppURL(item['@id'])}>
                   <Image
                     alt={item.title}
@@ -57,8 +52,8 @@ const ListingTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
                     <Icon name="play" size="huge" color="white" />
                   )}
                 </Link>
-              </Segment>
-            )}
+              )}
+            </Segment>
           </Grid.Column>
         ))}
       </Grid>

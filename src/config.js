@@ -1,3 +1,4 @@
+import installStyleMenu from 'volto-slate/editor/plugins/StyleMenu';
 import loadable from '@loadable/component';
 import AttachedImageWidget from './components/widgets/AttachedImageWidget';
 import installBlocks from './components/blocks';
@@ -8,6 +9,8 @@ import '@plone/volto/config';
 export default function applyConfig(config) {
   // Add here your project's configuration here by modifying `config` accordingly
 
+  installStyleMenu(config);
+
   config.settings = {
     ...config.settings,
     navDepth: 3,
@@ -16,6 +19,14 @@ export default function applyConfig(config) {
   config.settings.loadables = {
     ...config.settings.loadables,
     dateFns: loadable.lib(() => import('date-fns')),
+  };
+
+  config.settings.slate.styleMenu = {
+    inlineStyles: [],
+    blockStyles: [
+      { cssClass: 'discreetBlock', label: 'Discreet' },
+      { cssClass: 'p2', label: 'Secondary' },
+    ],
   };
 
   config.widgets.widget.attachedimage = AttachedImageWidget;

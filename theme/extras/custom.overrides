@@ -93,9 +93,6 @@
   display: contents !important;
 }
 
-.quoteFooter {
-}
-
 /********   Footer   ********/
 #main .footer {
   .footer-top {

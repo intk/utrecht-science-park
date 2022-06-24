@@ -30,6 +30,7 @@ h4 {
 p {
   font-size: clamp(1rem, 2.25vw, 1.375rem);
   line-height: clamp(1.3rem, 2.25vw, 1.788rem);
+  letter-spacing: 0.02em;
 }
 
 ol,

@@ -68,15 +68,15 @@
 
 .view-editview {
 }
-/********   Other typography   ********/
+/********   Other typography/styles   ********/
 // P2 Body Copy Desktop
-p.smaller {
+.p2 {
   font-size: clamp(0.875rem, 2.25vw, 1.125rem);
   line-height: clamp(1.026rem, 2.25vw, 1.318rem);
 }
 
 // discreet Desktop
-.discreet {
+.discreetBlock {
   font-size: clamp(0.75rem, 2.25vw, 0.875rem);
   line-height: clamp(0.975rem, 2.25vw, 1.026rem);
 }
@@ -92,6 +92,24 @@ p.smaller {
 .blocks-chooser .ui.accordion .accordion .title ~ .content {
   display: contents !important;
 }
+
+// Blockquote & Blockquote footer
+blockquote.callout {
+  padding-left: 7.5rem;
+  margin-left: 30%;
+  box-shadow: unset;
+  border: unset;
+  background: url('./assets/images/quotes.svg') no-repeat top left;
+  font-size: clamp(1.125rem, 2.75vw, 1.75rem);
+  line-height: clamp(1.35rem, 2.75vw, 2.1rem);
+}
+
+.quoteFooter {
+
+}
+
+
+
 /********   Footer   ********/
 #main .footer {
   .footer-top {

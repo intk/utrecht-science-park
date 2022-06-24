@@ -5,7 +5,7 @@ import { withBlockExtensions } from '@plone/volto/helpers';
 import './view.less';
 
 export const Simple = (props) => (
-  <div className="quoteBlock">
+  <div className="quoteBlock-wrapper">
     <GroupBlockView {...props} />
   </div>
 );
@@ -43,7 +43,7 @@ export const Simple = (props) => (
 // );
 
 export const Surrounded = (props) => (
-  <div className="quoteBlockmarks">
+  <div className="quoteBlock-wrapper quoteBlock-quoteMarks">
     {/* <QuoteOpen /> */}
     <GroupBlockView {...props} />
     {/* <QuoteClose /> */}

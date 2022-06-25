@@ -23,7 +23,7 @@
     text-transform: none;
     font-family: 'Precious Sans Two Bold';
   }
-  p {
+  p, ol, ul, table {
     margin-left: 30%;
   }
   h3:not(:first-child) {
@@ -51,7 +51,7 @@
     float: none;
   }
 
-  p {
+  p, ol, ul, table {
     margin-left: unset;
   }
 

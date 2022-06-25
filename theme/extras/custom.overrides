@@ -11,25 +11,34 @@
 }
 // Floated content design
 
-.content-area {
+@leftColumnSize: 30%;
+@rightColumnSize: 70%;
+
+#page-document {
   // float h3s to left
-  h3 {
-    max-width: 30%;
+  & > h3 {
+    max-width: @leftColumnSize;
     float: left;
     margin-top: 0px;
     padding-right: 1em;
     font-size: clamp(1.125rem, 2.75vw, 1.563rem);
     line-height: clamp(1.35rem, 2.75vw, 1.875rem);
     text-transform: none;
-    font-family: 'Precious Sans Two Bold';
+    font-family: @headerFont;
   }
-  p,
-  ol,
-  ul,
-  table {
-    margin-left: 30%;
+
+  & > p,
+  & > ol,
+  & > ul {
+    margin-left: @leftColumnSize;
   }
-  h3:not(:first-child) {
+
+  & > table {
+    width: @rightColumnSize;
+    margin-left: @leftColumnSize;
+  }
+
+  & > h3:not(:first-child) {
     margin-top: 3rem;
   }
 }

@@ -41,6 +41,7 @@
   "addons": [
     "volto-slate:minimalDefault,simpleLink",
     "@eeacms/volto-group-block",
+    "@eeacms/volto-block-image-cards",
     "@eeacms/volto-block-toc",
     "volto-form-block"
   ],

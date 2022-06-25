@@ -1,1 +1,10 @@
-{}
+{
+  "volto-block-image-cards": {
+    "url": "git@github.com:eea/volto-block-image-cards.git",
+    "https": "https://github.com/eea/volto-block-image-cards.git",
+    "package": "@eeacms/volto-block-image-cards",
+    "branch": "develop",
+    "develop": true,
+    "path": "src"
+  }
+}

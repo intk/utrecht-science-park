@@ -42,7 +42,7 @@
           .language-selector {
             text-transform: uppercase;
             font-size: 1.125rem;
-            line-height: 1.318rem;
+            // line-height: 1.318rem;
             a {
               color: @darkgrey;
             }

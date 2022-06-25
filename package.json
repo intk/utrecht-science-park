@@ -41,6 +41,7 @@
   "addons": [
     "volto-slate:minimalDefault,simpleLink",
     "@eeacms/volto-group-block",
+    "@eeacms/volto-block-toc",
     "volto-form-block"
   ],
   "jest": {
@@ -142,6 +143,7 @@
     "node": "^12 || ^14 || ^16"
   },
   "dependencies": {
+    "@eeacms/volto-block-toc": "3.0.0",
     "@eeacms/volto-group-block": "4.3.5",
     "@fortawesome/fontawesome-svg-core": "6.1.1",
     "@fortawesome/free-solid-svg-icons": "6.1.1",

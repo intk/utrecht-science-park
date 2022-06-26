@@ -79,6 +79,7 @@ h4 {
 
 strong {
   font-family: @headerFont;
+  font-weight: normal;
 }
 
 /*-------------------

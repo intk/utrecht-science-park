@@ -6,10 +6,10 @@
 @googleFontSizes   : '400,700,400italic,700italic';
 @googleSubset      : 'latin';
 
-@fontName: 'Precious Sans Medium';
-@headerFont: 'Precious Sans Bold', 'Helvetica Neue', Arial, Helvetica,
+@fontName: 'Precious Sans Two Medium';
+@headerFont: 'Precious Sans Two Bold', 'Helvetica Neue', Arial, Helvetica,
   sans-serif;
-@pageFont: 'Precious Sans Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont: 'Precious Sans Two Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 /*-------------------
       Site Colors
@@ -27,12 +27,6 @@
 --------------------*/
 @emSize: 16px;
 @fontSize: clamp(1rem, 2.25vw, 1.375rem);
-
-
-
-
-
-
 
 /*-------------------
       Other

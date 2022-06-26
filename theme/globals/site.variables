@@ -6,9 +6,8 @@
 @googleFontSizes   : '400,700,400italic,700italic';
 @googleSubset      : 'latin';
 
-@fontName: 'Precious Sans Two Medium';
-@headerFont: 'Precious Sans Two Bold', 'Helvetica Neue', Arial, Helvetica,
-  sans-serif;
+@fontName: 'Precious Sans Two Medium', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@headerFont: 'Precious Sans Two Bold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 @pageFont: 'Precious Sans Two Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 /*-------------------

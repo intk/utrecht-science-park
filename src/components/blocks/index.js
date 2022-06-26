@@ -2,6 +2,7 @@ import installImageBlock from './Image';
 import installFactsBlock from './Facts';
 import installListingBlock from './Listing';
 import installQuoteBlock from './Quote';
+import installImageCards from './ImageCards';
 import { compose } from 'redux';
 
 const installBlocks = (config) => {
@@ -10,6 +11,7 @@ const installBlocks = (config) => {
     installImageBlock,
     installFactsBlock,
     installQuoteBlock,
+    installImageCards,
   )(config);
 };
 

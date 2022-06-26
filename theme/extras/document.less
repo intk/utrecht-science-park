@@ -24,7 +24,8 @@
 
   & > p,
   & > ol,
-  & > ul {
+  & > ul,
+  & > div.block.video {
     margin-left: @leftColumnSize;
   }
 
@@ -34,26 +35,26 @@
     margin-left: @leftColumnSize;
   }
 
-  h3 + *:not(:first-child) {
+  & > h3 + *:not(:first-child) {
     margin-top: @h3MarginTop;
   }
 
-  h3 + .ui.divider {
+  & > h3 + .ui.divider {
     margin-top: calc(@h3MarginTop * 1.4);
     margin-bottom: calc(@h3MarginTop * 1);
   }
 
-  .ui.divider:not(.vertical):not(.horizontal) {
+  & > .ui.divider:not(.vertical):not(.horizontal) {
     border-top: 1px solid black;
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
   }
 
-  .ui.divider.short {
+  & > .ui.divider.short {
     width: @rightColumnSize;
     margin-left: @leftColumnSize;
   }
 
-  h2 {
+  & > h2 {
     margin-top: 1em;
   }
 }

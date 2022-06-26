@@ -1,19 +1,19 @@
 /********   Menu Overrides   ********/
 .ui.menu {
-    font-family: 'Precious Sans Two Light'
+  font-family: @pageFont;
 }
 
 .navigation {
-    .ui.secondary.pointing.menu {
-        margin-left: clamp(2rem, 5vw, 10rem);
-        .item {
-            border: none;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            font-size: 1.125rem;
-            line-height: 1.318rem;
-            letter-spacing: 0.05em;
-            padding: 1.063rem 0 0.75rem 0;
-        }
+  .ui.secondary.pointing.menu {
+    margin-left: clamp(2rem, 5vw, 10rem);
+    .item {
+      border: none;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-size: 1.125rem;
+      line-height: 1.318rem;
+      letter-spacing: 0.05em;
+      padding: 1.063rem 0 0.75rem 0;
     }
+  }
 }

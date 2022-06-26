@@ -1,0 +1,67 @@
+.view-editview {
+}
+
+// Floated content design
+
+#page-document {
+  // float h3s to left
+  & > h3 {
+    max-width: @leftColumnSize;
+    padding-right: 1em;
+    margin-top: 0px;
+    float: left;
+    font-family: @headerFont;
+    font-size: clamp(1.125rem, 2.75vw, 1.563rem);
+    line-height: clamp(1.35rem, 2.75vw, 1.875rem);
+    text-transform: none;
+
+    &:not(:first-child) {
+      margin-top: 3rem;
+    }
+  }
+
+  & > p,
+  & > ol,
+  & > ul {
+    margin-left: @leftColumnSize;
+  }
+
+  & > table {
+    width: @rightColumnSize;
+    margin-left: @leftColumnSize;
+  }
+}
+
+.content-area h3 + p {
+  margin-top: 4.375rem;
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .content-area {
+    // un-float h3s to left
+    h3 {
+      max-width: 100%;
+      float: none;
+    }
+  }
+}
+
+/********   Other typography/styles   ********/
+// P2 Body Copy Desktop
+.p2 {
+  font-size: clamp(0.875rem, 2.25vw, 1.125rem);
+  line-height: clamp(1.026rem, 2.25vw, 1.318rem);
+}
+
+// discreet Desktop
+.discreetBlock {
+  font-size: clamp(0.75rem, 2.25vw, 0.875rem);
+  line-height: clamp(0.975rem, 2.25vw, 1.026rem);
+}
+
+// Description below h1 title
+.content-description {
+  font-family: @headerFont;
+  font-size: clamp(1.125rem, 2.75vw, 1.75rem);
+  line-height: clamp(1.35rem, 2.75vw, 2.1rem);
+}

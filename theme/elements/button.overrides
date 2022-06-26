@@ -1,21 +1,7 @@
 /********   Button Overrides   ********/
 
 .greenlined {
-    background-color: unset;
-    color: @black;
-    border-bottom: 4px @greenLight solid;
-    border-radius: unset;
-    padding: unset;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    text-transform: uppercase;
-    font-size: 1.25rem;
-}
-
-.greenlined:hover {
-  background-color: @white;
-  color: unset;
-
+  .greenLined();
 }
 
 .search-wrapper {

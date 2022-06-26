@@ -59,6 +59,23 @@
   @import (optional) '@{siteFolder}/@{type}s/@{element}.overrides';
 }
 
+.greenLined() {
+  background-color: unset;
+  color: @black;
+  border-bottom: 4px @greenLight solid;
+  border-radius: unset;
+  padding: unset;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+
+  &:hover {
+    background-color: @white;
+    color: unset;
+  }
+}
+
 .debug(@var) {
   &:after {
     content: '@{var}';

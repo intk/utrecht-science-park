@@ -43,6 +43,7 @@
     "@eeacms/volto-group-block",
     "@eeacms/volto-block-image-cards",
     "@eeacms/volto-block-toc",
+    "@eeacms/volto-block-divider",
     "volto-form-block"
   ],
   "jest": {
@@ -144,6 +145,7 @@
     "node": "^12 || ^14 || ^16"
   },
   "dependencies": {
+    "@eeacms/volto-block-divider": "3.0.0",
     "@eeacms/volto-block-image-cards": "0.6.3",
     "@eeacms/volto-block-toc": "3.0.0",
     "@eeacms/volto-group-block": "4.3.5",

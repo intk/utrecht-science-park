@@ -26,14 +26,15 @@
     margin-left: @leftColumnSize;
   }
 
-  & > table {
+  & > table,
+  .table-of-contents {
     width: @rightColumnSize;
     margin-left: @leftColumnSize;
   }
-}
 
-.content-area h3 + p {
-  margin-top: 4.375rem;
+  h3 + *:not(:first-child) {
+    margin-top: 4.375rem;
+  }
 }
 
 @media only screen and (max-width: @largestMobileScreen) {

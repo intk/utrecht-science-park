@@ -2298,6 +2298,13 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
+"@eeacms/volto-block-divider@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@eeacms/volto-block-divider/-/volto-block-divider-3.0.0.tgz#b82fb722c920fe5f82858b6f93f00f0b09d4575e"
+  integrity sha512-rBgsXnaTpv71i5JmjxPn+VPuCk2rGB82KoNm6atgER0bAZoOrudDjfSx8bK3XQBRdF5j5Ffh10SYhO3WaVKr2w==
+  dependencies:
+    react-color "~2.18.1"
+
 "@eeacms/volto-block-image-cards@0.6.3":
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/@eeacms/volto-block-image-cards/-/volto-block-image-cards-0.6.3.tgz#47602bfc59052259cbc65df88af4c8fc07b47b8b"

@@ -42,11 +42,16 @@
     margin-top: calc(@h3MarginTop * 1.4);
     margin-bottom: calc(@h3MarginTop * 1);
   }
-}
 
-.ui.divider:not(.vertical):not(.horizontal) {
-  border-top: 1px solid black;
-  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  .ui.divider:not(.vertical):not(.horizontal) {
+    border-top: 1px solid black;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  }
+
+  .ui.divider.short {
+    width: @rightColumnSize;
+    margin-left: @leftColumnSize;
+  }
 }
 
 @media only screen and (max-width: @largestMobileScreen) {

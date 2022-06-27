@@ -1,0 +1,61 @@
+@type: 'extra';
+@element: 'custom';
+
+@import (multiple, reference, optional) '../../theme.config';
+
+.title-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .title-cards-header {
+    display: flex;
+
+    h1 {
+      flex-grow: 1;
+    }
+
+    .link-more {
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column-reverse;
+      margin: calc(2rem - 0.14285714em) 0em 1rem;
+
+      a {
+        .greenLined();
+      }
+    }
+  }
+
+  .title-card,
+  .title-card a {
+    display: flex;
+    gap: 1em;
+    background-color: @white;
+    padding: 1em 2em;
+    color: @black;
+
+    & > * {
+      flex-grow: 1;
+    }
+
+    .title-card-text {
+      width: 50%;
+      flex-grow: 0;
+    }
+
+    .title-card-image {
+      display: flex;
+      flex-direction: row-reverse;
+
+      img {
+        flex-grow: 0;
+        width: 6em;
+      }
+    }
+  }
+
+  .title-card a {
+    margin: -1em -2em;
+  }
+}

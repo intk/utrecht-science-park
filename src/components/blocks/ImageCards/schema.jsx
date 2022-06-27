@@ -48,3 +48,22 @@ export const ImageCarouselSchema = ({ data, schema, intl }) => {
     },
   };
 };
+
+export const TitleCardsSchema = ({ data, schema, intl }) => {
+  return {
+    fieldsets: [],
+    properties: {
+      linkHref: {
+        title: 'Call to action Link',
+        widget: 'object_browser',
+        mode: 'link',
+        selectedItemAttrs: ['Title', 'Description'],
+        allowExternals: true,
+      },
+      linkTitle: {
+        title: 'Link title',
+      },
+    },
+    required: [],
+  };
+};

@@ -29,4 +29,30 @@
 .ui.form input[type='file']:focus,
 .ui.form input[type='url']:focus {
   color: @darkgrey;
+  border-bottom: 2px solid @black;
+}
+
+.view-viewview .block.form {
+  .ui.segment {
+    background: @lightergrey !important;
+    box-shadow: unset;
+    border: unset;
+  }
+  label {
+    font-family: @headerFont;
+  }
+  .ui.input {
+    align-items: center;
+    input {
+      height: 40px !important;
+      padding: 0.625rem;
+    }
+  }
+}
+
+.view-viewview .ui.form {
+  textarea {
+    height: 180px;
+    padding: 0.625rem;
+  }
 }

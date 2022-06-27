@@ -29,7 +29,6 @@
 .ui.form input[type='file']:focus,
 .ui.form input[type='url']:focus {
   color: @darkgrey;
-  border-bottom: 2px solid @black;
 }
 
 .view-viewview .block.form {

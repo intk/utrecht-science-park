@@ -29,7 +29,12 @@
 .ui.form input[type='file']:focus,
 .ui.form input[type='url']:focus {
   color: @darkgrey;
+  border-bottom: 2px solid @black;
 }
+.ui.form textarea:focus {
+  border-bottom: 1px solid @black;
+}
+
 
 .view-viewview .block.form {
   .ui.segment {
@@ -52,7 +57,7 @@
   }
 
   button {
-    .greenLined();
+    .blueLined();
   }
 }
 

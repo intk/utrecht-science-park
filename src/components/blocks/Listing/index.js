@@ -21,6 +21,7 @@ import ListingsBlockSquaresTemplate from './ListingTemplateSquares';
 import ListingsBlockFourSquaresTemplate from './ListingTemplateFourSquares';
 import ButtonsBlockTemplate from './ButtonsTemplate';
 import NewsListingStatic from './NewsListingStatic';
+import AgendaListingTemplate from './AgendaListing';
 
 export default (config) => {
   config.blocks.blocksConfig.listing.schemaEnhancer = ({ schema }) => {
@@ -34,6 +35,12 @@ export default (config) => {
   config.blocks.blocksConfig.listing.variations = [
     ...config.blocks.blocksConfig.listing.variations,
 
+    {
+      id: 'agenda',
+      isDefault: false,
+      title: 'Agenda Listing',
+      template: AgendaListingTemplate,
+    },
     {
       id: 'testimonials',
       isDefault: false,

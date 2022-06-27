@@ -45,8 +45,7 @@ const Card = ({ card = {}, image_scale }) => {
 
 const TitleCards = (props) => {
   const { data = {}, editable = false } = props;
-  const { cards = [], title, linkHref, linkTitle } = data;
-  console.log(LinkMore);
+  const { cards = [], title, linkHref } = data;
   // {callToActionLink ? <UniversalLink href={callToActionLink} /> : ''}
 
   return !cards.length ? (

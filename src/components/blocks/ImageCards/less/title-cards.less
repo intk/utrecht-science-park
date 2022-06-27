@@ -34,14 +34,21 @@
     background-color: @white;
     padding: 1em 2em;
     color: @black;
+    align-items: center;
+    h2 {
+      flex: 33%;
+      margin: unset;
+    }
 
     & > * {
       flex-grow: 1;
     }
 
     .title-card-text {
-      width: 50%;
+      flex: 40%;
       flex-grow: 0;
+      font-size: clamp(0.875rem, 2.75vw, 1.25rem);
+      line-height: clamp(1rem, 2.75vw, 1.5rem);
     }
 
     .title-card-image {
@@ -57,5 +64,20 @@
 
   .title-card a {
     margin: -1em -2em;
+  }
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .title-cards {
+    .title-card,
+    .title-card a {
+      flex-wrap: wrap;
+      h2 {
+        flex: 50% !important;
+      }
+      .title-card-text {
+        flex: 50% !important;
+      }
+    }
   }
 }

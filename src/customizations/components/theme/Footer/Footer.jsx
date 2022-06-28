@@ -196,13 +196,69 @@ export function Footer(props) {
           </div>
         </div>
         <div className="footer-bottom-right">
-          <Grid>
-            <Grid.Column width={12} className="links">
-              {siteActions.map((item) => (
-                <Action key={item.id} item={item} />
-              ))}
-            </Grid.Column>
-          </Grid>
+          <div className="footer-logos">
+            <h4>Partners / founders</h4>
+            <div className="logos">
+              <img
+                height="auto"
+                title="Utrecht University"
+                src={UtrechtUnivLogo}
+                alt="Utrecht University"
+                className="logo-partner"
+              />
+              <img
+                height="auto"
+                title="City of Utrecht"
+                src={CityUtrechtLogo}
+                alt="City of Utrecht"
+                className="logo-partner"
+              />
+              <img
+                height="auto"
+                title="UMC Utrecht"
+                src={UMCUtrechtLogo}
+                alt="UMC Utrecht"
+                className="logo-partner"
+              />
+              <img
+                height="auto"
+                title="University of Applied Sciences Utrecht"
+                src={UnivApplScienceLogo}
+                alt="University of Applied Sciences Utrecht"
+                className="logo-partner"
+              />
+              <img
+                height="auto"
+                title="Provincie Utrecht"
+                src={ProvUtrechtLogo}
+                alt="Provincie Utrecht"
+                className="logo-partner"
+              />
+            </div>
+            <h4> Supported by</h4>
+            <div className="logos">
+              <img
+                height="auto"
+                title="Ondernemers fonds Utrecht"
+                src={OnderFondsLogo}
+                alt="Ondernemers fonds Utrecht"
+                className="logo-partner"
+              />
+              <img
+                height="auto"
+                title="European Fund for regional Development"
+                src={EuroRegDevLogo}
+                alt="European Fund for regional Development"
+                className="logo-partner"
+              />
+            </div>
+          </div>
+          <div className="links">
+            <p>2022 © Utrecht Science Park </p>
+            {siteActions.map((item) => (
+              <Action key={item.id} item={item} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

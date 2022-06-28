@@ -24,6 +24,7 @@ export function Footer(props) {
         <div className="footer">
             <div className="footer-top">
                 <div className="footer-top-text">
+                    <p><strong>In Short</strong></p>
                     <p>
                         Utrecht Science Park is the beating heart of one of Europe's most
                         competitive regions. We bring competence from business, industry and
@@ -38,34 +39,9 @@ export function Footer(props) {
                         <Action key={item.id} item={item} />
                     ))}
                 </div>
-                <div className="footer-top-contact-address">
-                    <p>
-                        Address <br />
-                        <strong>
-                            Utrecht Science Park Foundation <br />
-                            Heidelberglaan 11 <br />
-                            3584 CS Utrecht
-                        </strong>{' '}
-                        <br />
-                    </p>
-                    <p>
-                        KvK <br />
-                        <strong>56652488 </strong>
-                    </p>
-                </div>
-                <div className="footer-top-contact-details">
-                    <p>
-                        Phone
-                        <br />
-                        <strong> +31 30 800 4499</strong>{' '}
-                    </p>
-                    <p>
-                        E-mail
-                        <br /> <strong>info @ utrechtsciencepark.nl</strong>
-                    </p>
-                </div>
+                
             </div>
-            <div className="footer-social">
+            {/* <div className="footer-social">
                 {socialLinks.map(({ id, title, href }) => (
                     <UniversalLink key={id} href={href}>
                         {title}
@@ -131,10 +107,37 @@ export function Footer(props) {
                     />
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="footer-bottom">
                 <Grid stackable>
-                    <Grid.Column width={6}>2022 @ Utrecht Science Park</Grid.Column>
+                    <Grid.Column width={6}>
+                    <div className="footer-top-contact-address">
+                    <p>
+                        Address <br />
+                        <strong>
+                            Utrecht Science Park Foundation <br />
+                            Heidelberglaan 11 <br />
+                            3584 CS Utrecht
+                        </strong>{' '}
+                        <br />
+                    </p>
+                    <p>
+                        KvK <br />
+                        <strong>56652488 </strong>
+                    </p>
+                </div>
+                <div className="footer-top-contact-details">
+                    <p>
+                        Phone
+                        <br />
+                        <strong> +31 30 800 4499</strong>{' '}
+                    </p>
+                    <p>
+                        E-mail
+                        <br /> <strong>info @ utrechtsciencepark.nl</strong>
+                    </p>
+                </div>
+                        2022 @ Utrecht Science Park</Grid.Column>
                     <Grid.Column width={6} className="links">
                         {siteActions.map((item) => (
                             <Action key={item.id} item={item} />

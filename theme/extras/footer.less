@@ -1,20 +1,20 @@
 /********   Footer   ********/
 #main .footer {
   .footer-top {
-    background-color: @blueLight;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    min-height: 300px;
+    grid-template-columns: 2fr 1fr;
+    min-height: 350px;
 
     p {
       margin-left: unset;
-      font-size: clamp(0.875rem, 2.25vw, 1.125rem);
-      line-height: clamp(1rem, 2.25vw, 1.31rem);
+      font-size: clamp(0.875rem, 2.25vw, 1.875rem);
+      line-height: clamp(1rem, 2.25vw, 2.256rem);
     }
 
     .footer-top-text {
       border-right: 1px solid #000000;
       padding: 1.25rem 1.25rem 0 1.25rem;
+      background-color: @white;
     }
 
     .footer-top-menu {
@@ -24,6 +24,7 @@
       flex-direction: column;
       font-size: clamp(1.75rem, 2.25vw, 2.5rem);
       gap: clamp(0.875rem, 2.25vw, 1.5rem);
+      background-color: @greenLight;
 
       a {
         color: black;
@@ -122,6 +123,14 @@
       align-items: center;
       justify-content: flex-end;
       gap: 1.25rem;
+    }
+  }
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+  #main .footer {
+    .footer-top {
+      grid-template-columns: 1fr;
     }
   }
 }

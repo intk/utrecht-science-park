@@ -14,29 +14,37 @@ import './less/SliderListing.less';
 
 const Slider = loadable(() => import('react-slick'));
 
-const SliderNavigation = ({ sliderRef }) => {
+const SliderNavigation = ({ sliderRef, slideCount, slideIndex }) => {
   const slider = sliderRef.current;
 
   return (
     <div className="slider-nav">
-      <button
-        className="slider-nav-arrow slider-nav-arrow-prev"
-        onClick={() => slider && slider.slickPrev()}
-      >
-        <Icon name={backSVG} size="32px" />
-      </button>
-      <button
-        className="slider-nav-arrow slider-nav-arrow-next"
-        onClick={() => slider && slider.slickNext()}
-      >
-        <Icon name={aheadSVG} size="32px" />
-      </button>
+      {slideIndex > 0 && (
+        <button
+          className="slider-nav-arrow slider-nav-arrow-prev"
+          onClick={() => slider && slider.slickPrev()}
+        >
+          <Icon name={backSVG} size="32px" />
+        </button>
+      )}
+      {slideIndex < slideCount && (
+        <button
+          className="slider-nav-arrow slider-nav-arrow-next"
+          onClick={() => slider && slider.slickNext()}
+        >
+          <Icon name={aheadSVG} size="32px" />
+        </button>
+      )}
     </div>
   );
 };
 
 const SliderListing = ({ items, linkTitle, linkHref, isEditMode }) => {
+  const [slideIndex, setSlideIndex] = React.useState(0);
+  const sliderRef = React.useRef();
+
   const carouselSettings = {
+    afterChange: (current) => setSlideIndex(current),
     dots: false,
     arrows: false, // we use custom navigation
     lazyLoad: 'progressive',
@@ -66,9 +74,6 @@ const SliderListing = ({ items, linkTitle, linkHref, isEditMode }) => {
     ],
   };
 
-  const sliderRef = React.useRef();
-  console.log('items', items);
-
   return (
     <div className="slider-carousel-container slider-listing">
       <ResponsiveContainer>
@@ -84,7 +89,11 @@ const SliderListing = ({ items, linkTitle, linkHref, isEditMode }) => {
                   <Card item={item} key={i} />
                 ))}
               </Slider>
-              <SliderNavigation sliderRef={sliderRef} />
+              <SliderNavigation
+                sliderRef={sliderRef}
+                slideIndex={slideIndex}
+                slideCount={items.length}
+              />
             </div>
           ) : (
             ''

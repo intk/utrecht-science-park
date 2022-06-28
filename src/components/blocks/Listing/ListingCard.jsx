@@ -1,15 +1,7 @@
 import React from 'react';
 import { flattenToAppURL } from '@plone/volto/helpers';
-import { Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { PreviewImage } from '@plone/volto/components';
-
-//          <Image
-//            alt={item.title}
-//            src={flattenToAppURL(
-//              `${item['@id']}/@@images/${image_field}/${size}`,
-//            )}
-//          />
+import { FormattedDate, PreviewImage } from '@plone/volto/components';
 
 const Card = ({ item }) => {
   const { image_field } = item;
@@ -36,4 +28,40 @@ const Card = ({ item }) => {
   );
 };
 
-export default Card;
+const NewsItemCard = ({ item }) => {
+  const { image_field } = item;
+  const size = 'teaser';
+  return (
+    <section className="slider-card listing-card">
+      <div className="slide-details">
+        <h4 className="title">
+          <Link to={flattenToAppURL(item['@id'])} title={item.title}>
+            {item.title}
+          </Link>
+        </h4>
+        {!!item.effective && <FormattedDate date={item.effective} />}
+      </div>
+      <div className="image-container">
+        <Link
+          to={flattenToAppURL(item['@id'])}
+          title={item.title}
+          className="link-img-wrapper"
+        >
+          {!!image_field && <PreviewImage item={item} size={size} />}
+        </Link>
+      </div>
+    </section>
+  );
+};
+
+const cardTypes = {
+  default: Card,
+  'News Item': NewsItemCard,
+};
+
+const UniversalCard = ({ item }) => {
+  const CardImpl = cardTypes[item['@type']] || cardTypes['default'];
+  return <CardImpl item={item} />;
+};
+
+export default UniversalCard;

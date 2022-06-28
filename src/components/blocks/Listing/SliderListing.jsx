@@ -67,6 +67,7 @@ const SliderListing = ({ items, linkTitle, linkHref, isEditMode }) => {
   };
 
   const sliderRef = React.useRef();
+  console.log('items', items);
 
   return (
     <div className="slider-carousel-container slider-listing">

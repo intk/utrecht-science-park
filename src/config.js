@@ -2,6 +2,8 @@ import installStyleMenu from 'volto-slate/editor/plugins/StyleMenu';
 import loadable from '@loadable/component';
 import AttachedImageWidget from './components/widgets/AttachedImageWidget';
 import installBlocks from './components/blocks';
+import MultipleContentView from './components/theme/View/MultipleContentView';
+import Layouts from '@plone/volto/constants/Layouts';
 
 // All your imports required for the config here BEFORE this line
 import '@plone/volto/config';
@@ -28,6 +30,9 @@ export default function applyConfig(config) {
       { cssClass: 'p2', label: 'Secondary' },
     ],
   };
+
+  config.views.layoutViews.multiple_content = MultipleContentView;
+  Layouts.multiple_content = 'Section layout';
 
   config.widgets.widget.attachedimage = AttachedImageWidget;
   config.settings.isMultilingual = true;

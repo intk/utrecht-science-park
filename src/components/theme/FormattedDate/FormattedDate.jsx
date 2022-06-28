@@ -125,8 +125,3 @@ export const FormattedDateRange = injectLazyLibs(['dateFns'])(
     );
   },
 );
-
-// {`${dateFns.formatRelative(endD, now)} ${dateFns.format(
-//   endD,
-//   'O',
-// )}`}

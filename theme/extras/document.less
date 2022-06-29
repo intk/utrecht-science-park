@@ -1,7 +1,12 @@
-.view-editview {
+@h3MarginTop: 4.375rem;
+
+.ui.segment.content-area {
+  margin-top: 4em;
 }
 
-.content-area #view {
+.ui.segment.content-area #view {
+  min-height: 30em;
+
   a {
     color: @black;
   }
@@ -9,12 +14,24 @@
   p a {
     text-decoration: underline;
   }
+
+  // Volto default blockquote
+  blockquote.callout {
+    min-height: 3em;
+    padding-right: 5rem;
+    padding-left: 7.5rem;
+    margin-left: 30%;
+    background: url('@{assetsFolder}/images/quotes.svg') no-repeat top left;
+    font-size: clamp(1.125rem, 2.75vw, 1.75rem);
+    line-height: clamp(1.35rem, 2.75vw, 2.1rem);
+    border: unset;
+    box-shadow: unset;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 // Floated content design
-
-@h3MarginTop: 4.375rem;
-
 #page-document {
   // float h3s to left
   & > h3 {
@@ -91,10 +108,6 @@
   }
 }
 
-.ui.segment.content-area {
-  margin-top: 4em;
-}
-
 /********   Other typography/styles   ********/
 // P2 Body Copy Desktop
 .p2 {
@@ -115,27 +128,17 @@
   line-height: clamp(1.35rem, 2.75vw, 2.1rem);
 }
 
-.contenttype-event {
-  #page-document {
-    margin-top: 4em;
+// no borders on h1
+.documentFirstHeading {
+  border: unset;
+
+  &::before {
+    border: unset;
   }
 }
 
-// Volto default blockquote
-#view blockquote.callout {
-  min-height: 3em;
-  padding-right: 5rem;
-  padding-left: 7.5rem;
-  margin-left: 30%;
-  background: url('@{assetsFolder}/images/quotes.svg') no-repeat top left;
-  font-size: clamp(1.125rem, 2.75vw, 1.75rem);
-  line-height: clamp(1.35rem, 2.75vw, 2.1rem);
-  border: unset;
-  box-shadow: unset;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-#view {
-  min-height: 30em;
-}
+// .contenttype-event {
+//   #page-document {
+//     margin-top: 4em;
+//   }
+// }

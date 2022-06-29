@@ -41,17 +41,21 @@ const NewsItemCard = ({ item }) => {
             {item.title}
           </Link>
         </h4>
-        {!!item.effective && <FormattedDate isoDate={item.effective} format="long" />}
+        {!!item.effective && (
+          <FormattedDate isoDate={item.effective} format="long" />
+        )}
       </div>
-      <div className="image-container">
-        <Link
-          to={flattenToAppURL(item['@id'])}
-          title={item.title}
-          className="link-img-wrapper"
-        >
-          {!!image_field && <PreviewImage item={item} size={size} />}
-        </Link>
-      </div>
+      {!!image_field && (
+        <div className="image-container">
+          <Link
+            to={flattenToAppURL(item['@id'])}
+            title={item.title}
+            className="link-img-wrapper"
+          >
+            <PreviewImage item={item} size={size} />
+          </Link>
+        </div>
+      )}
     </section>
   );
 };

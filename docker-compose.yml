@@ -4,11 +4,11 @@ version: "3"
 
 services:
   plone:
-    image: plone/plone-backend:6.0.0a4
+    image: plone/plone-backend:6.0.0a6
     ports:
       - "8080:8080"
     environment:
-      ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport"
+      ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport plone.namedfile==6.0.0a4"
 
     # build: ./api
     # image: tiberiuichim/utrecht-website:1.4

@@ -28,6 +28,7 @@ export default function applyConfig(config) {
     blockStyles: [
       { cssClass: 'discreetBlock', label: 'Discreet' },
       { cssClass: 'p2', label: 'Secondary' },
+      { cssClass: 'buttonSec', label: 'Secondary button' },
     ],
   };
 

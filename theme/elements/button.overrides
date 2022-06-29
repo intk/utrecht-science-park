@@ -9,3 +9,15 @@
     background-color: unset;
   }
 }
+
+.buttonSec {
+  font-size: 1.563rem;
+  background-color: @blueLight;
+  color: @black;
+  display: inline-block;
+  padding: 1rem 2rem 0.75rem 2rem;
+  cursor: pointer;
+  &:hover {
+    background-color: @white;
+  }
+}

@@ -10,6 +10,13 @@
     display: none !important;
   }
 }
+// no borders on h1
+.documentFirstHeading {
+  border: unset;
+}
+.documentFirstHeading::before {
+  border: unset;
+}
 
 // clear floats for edit view
 .cms-ui {

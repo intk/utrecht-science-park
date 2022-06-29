@@ -17,8 +17,6 @@ import { CSSTransition } from 'react-transition-group';
 import NavItems from '@plone/volto/components/theme/Navigation/NavItems';
 import TopLevelItems from './TopLevelItems';
 
-import './nav.less';
-
 const messages = defineMessages({
   closeMobileMenu: {
     id: 'Close menu',

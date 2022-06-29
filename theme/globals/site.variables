@@ -34,3 +34,24 @@
 // left/right column design for normal pages.
 @leftColumnSize: 30%;
 @rightColumnSize: 70%;
+
+.animate(@property) {
+  transition: @property 0.4s ease-in-out;
+}
+
+.animateCssTransition(@className) {
+  .@{className}-enter {
+    opacity: 0;
+  }
+  .@{className}-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+  .@{className}-exit {
+    opacity: 1;
+  }
+  .@{className}-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+}

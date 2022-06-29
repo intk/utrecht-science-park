@@ -31,7 +31,7 @@ const PopupMenu = (props) => {
       classNames="popup-menu"
       unmountOnExit
     >
-      <Portal>
+      <Portal node={document && document.getElementById('#main')}>
         <div
           role="presentation"
           onClick={(e) => {

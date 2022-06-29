@@ -1,8 +1,9 @@
 import React from 'react';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { Link } from 'react-router-dom';
-import { FormattedDate, PreviewImage } from '@plone/volto/components';
+import { PreviewImage } from '@plone/volto/components';
 import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
+import { FormattedDate } from '@package/components';
 
 const Card = ({ item }) => {
   const { image_field } = item;
@@ -40,7 +41,7 @@ const NewsItemCard = ({ item }) => {
             {item.title}
           </Link>
         </h4>
-        {!!item.effective && <FormattedDate date={item.effective} />}
+        {!!item.effective && <FormattedDate isoDate={item.effective} format="long" />}
       </div>
       <div className="image-container">
         <Link

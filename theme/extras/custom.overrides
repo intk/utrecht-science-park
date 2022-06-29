@@ -55,6 +55,16 @@
   box-shadow: unset;
 }
 
+// headline-with-listing (used for agenda)
+.headline-with-listing {
+  h5 {
+    font-family: @fontName;
+    font-size: clamp(1.75rem, 3.75vw, 4.063rem);
+    line-height: clamp(2.1rem, 3.75vw, 4.063rem);
+    text-transform: uppercase;
+  }
+}
+
 @import './document.less';
 @import './listing.less';
 @import './footer.less';

@@ -1,19 +1,19 @@
 import React from 'react';
 import {
   PreviewImage,
-  FormattedDate,
+  //FormattedDate,
   UniversalLink,
 } from '@plone/volto/components';
-
+import { FormattedDate } from '@package/components';
 import './less/agenda-listing.less';
 
 const SecondaryItem = ({ item }) => {
   return (
     <div className="secondary-item">
       <UniversalLink item={item}>
-        {!!item.start && <FormattedDate date={item.start} format="long" />}
+        {!!item.start && <FormattedDate isoDate={item.start} format="long" />}
         <h3>{item.title}</h3>
-        <strong>{item.description}</strong>
+        {/* <strong>{item.description}</strong> */}
       </UniversalLink>
     </div>
   );
@@ -25,10 +25,10 @@ const PrimaryItem = ({ item }) => {
       <div className="primary-item-header">
         <UniversalLink item={item}>
           <div className="date">
-            {!!item.start && <FormattedDate date={item.start} format="long" />}
+            {!!item.start && <FormattedDate isoDate={item.start} format="long" />}
           </div>
           <h3>{item.title}</h3>
-          <strong>{item.description}</strong>
+          {/* <strong>{item.description}</strong> */}
         </UniversalLink>
       </div>
 

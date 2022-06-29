@@ -34,4 +34,3 @@
 // left/right column design for normal pages.
 @leftColumnSize: 30%;
 @rightColumnSize: 70%;
-

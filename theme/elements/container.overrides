@@ -1,0 +1,6 @@
+/********   Container Overrides   ********/
+@media only screen and (max-width: @largestTabletScreen) {
+  .tools-search-wrapper {
+    display: none !important;
+  }
+}

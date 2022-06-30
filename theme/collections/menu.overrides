@@ -2,3 +2,25 @@
 .ui.menu {
   font-family: @pageFont;
 }
+
+.mobile-menu-nav .ui.pointing.secondary.stackable.menu .item.level-0 {
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-family: @headerFont;
+  align-items: flex-start;
+}
+.mobile-menu-nav .ui.pointing.secondary.stackable.menu .item.level-1 {
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-family: @fontName;
+  align-items: flex-start;
+}
+.mobile-menu-nav .ui.pointing.secondary.stackable.menu .item.level-2 {
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-family: @pageFont;
+  align-items: flex-start;
+}

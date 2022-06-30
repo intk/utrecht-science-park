@@ -15,7 +15,7 @@
     text-decoration: underline;
   }
 
-  // Volto default blockquote
+  // Volto default blockquote & callout
   blockquote.callout {
     min-height: 3em;
     padding-right: 5rem;
@@ -28,6 +28,17 @@
     box-shadow: unset;
     padding-top: 0;
     padding-bottom: 0;
+  }
+  p.callout {
+    border: unset;
+    box-shadow: unset;
+    border-left: 4px @blueLight solid;
+    padding: 0 4rem 0 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0px;
+    font-size: clamp(1.125rem, 2.75vw, 1.75rem);
+    line-height: clamp(1.35rem, 2.75vw, 2.1rem);
   }
 }
 

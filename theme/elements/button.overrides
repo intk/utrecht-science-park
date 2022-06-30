@@ -12,26 +12,10 @@
 
 p.buttonSec {
   display: inline-block;
-  border-bottom: 4px @greenLight solid;
   margin: 0;
   color: @black;
   cursor: pointer;
   font-size: 1.563rem;
 
-  &:after {
-    display: block;
-    border-bottom: solid 4px #019fb6;
-    margin-bottom: -4px;
-    content: '';
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-  }
-
-  &.fromLeft:after {
-    transform-origin: 0% 50%;
-  }
-
-  &:hover:after {
-    transform: scaleX(1);
-  }
+  .animateBorder(@greenLight, #019fb6, 4px, after, bottom);
 }

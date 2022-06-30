@@ -1,5 +1,6 @@
 import ImageCarousel from './Carousel';
 import TitleCards from './TitleCards';
+import VideoCarousel, { VideoCardSchema } from './VideoCarousel';
 
 export default function install(config) {
   config.blocks.blocksConfig.imagecards.blockRenderers = {
@@ -15,6 +16,12 @@ export default function install(config) {
       schema: null,
       view: TitleCards,
       schemaExtender: TitleCards.schemaExtender,
+    },
+    videoCarousel: {
+      title: 'Video Carousel',
+      view: VideoCarousel,
+      schema: VideoCardSchema,
+      // schemaExtender: VideoCarousel.schemaExtender,
     },
   };
 

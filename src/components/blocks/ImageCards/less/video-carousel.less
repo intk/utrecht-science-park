@@ -1,0 +1,116 @@
+@type: 'extra';
+@element: 'custom';
+
+@import (multiple, reference, optional) '../../theme.config';
+
+.block.imagecards-videocarousel {
+  height: 100vh;
+
+  .slider-wrapper {
+    height: 100vh !important;
+
+    .slick-slider {
+      height: 100%;
+
+      .slick-list {
+        .slick-track {
+          .slick-slide {
+            .slider-slide {
+              .video-inner {
+                height: 100vh;
+
+                .embed {
+                  padding-bottom: 100% !important;
+
+                  img.placeholder {
+                    object-fit: cover;
+                  }
+                }
+              }
+
+              .slider-caption {
+                position: absolute;
+                bottom: 2em;
+
+                h2 {
+                  color: white !important;
+                }
+
+                .ui.button {
+                  .blueLined();
+                  color: white !important;
+
+                  &:hover {
+                    color: black !important;
+                  }
+                }
+              }
+
+              .slider-action {
+                position: absolute;
+                display: flex;
+                top: calc(50% - 64px);
+                left: calc(50% - 64px);
+
+                // .ui.button {
+                //   color: white !important;
+                //
+                //   &:hover {
+                //     color: black !important;
+                //     background-color: transparent !important;
+                //   }
+                //   &:active {
+                //     color: black !important;
+                //     background-color: transparent !important;
+                //   }
+                // }
+              }
+            }
+          }
+        }
+      }
+
+      .slick-dots {
+        bottom: 1em;
+        display: flex;
+        padding-right: 4em;
+        gap: 2em;
+        text-align: right;
+
+        li {
+          width: 8%;
+          min-width: 20px;
+          max-width: 80px;
+          height: unset;
+          background: #ffffff66;
+
+          button {
+            height: 6px;
+            padding: 0px;
+
+            &:before {
+              content: '';
+            }
+          }
+
+          &.slick-active {
+            background: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.contenttype-lrf.has-video-carousel {
+  .content-area {
+    padding-top: 0em;
+    margin: 0em !important;
+  }
+}
+
+body.has-toolbar {
+  .slider-caption {
+    padding-left: 5em !important;
+  }
+}

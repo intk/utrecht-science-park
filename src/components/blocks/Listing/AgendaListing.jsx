@@ -25,14 +25,18 @@ const PrimaryItem = ({ item }) => {
       <div className="primary-item-header">
         <UniversalLink item={item}>
           <div className="date">
-            {!!item.start && <FormattedDate isoDate={item.start} format="long" />}
+            {!!item.start && (
+              <FormattedDate isoDate={item.start} format="long" />
+            )}
           </div>
           <h3>{item.title}</h3>
           {/* <strong>{item.description}</strong> */}
         </UniversalLink>
       </div>
 
-      <PreviewImage item={item} size="large" />
+      <div className="image-container">
+        <PreviewImage item={item} size="large" />
+      </div>
     </div>
   );
 };

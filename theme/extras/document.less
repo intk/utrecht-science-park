@@ -108,14 +108,44 @@
     }
   }
 }
-
+//remove page margins for mobile
 @media only screen and (max-width: @largestMobileScreen) {
-  .content-area {
+  #page-document {
     // un-float h3s to left
-    h3 {
+    & > h3 {
       max-width: 100%;
-      float: none;
+      float: unset;
     }
+    & > p,
+    & > ol,
+    & > ul,
+    & > div.block.video {
+      margin-left: unset;
+  
+      &.full {
+        margin-left: unset;
+      }
+    }
+    & > .ui.divider.short {
+      margin-left: unset;
+    }
+    & > table,
+    .table-of-contents {
+      width: 100%;
+      margin-left: unset;
+    }
+    .quoteBlock-wrapper {
+      margin-left: unset;
+    }
+    & > h3 + *:not(:first-child) {
+      margin-top: unset;
+    }
+  
+    & > h3 + .ui.divider {
+      margin-top: unset;
+      margin-bottom: unset;
+    }
+  
   }
 }
 

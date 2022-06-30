@@ -17,5 +17,5 @@ p.buttonSec {
   cursor: pointer;
   font-size: 1.563rem;
 
-  .animateBorder(@greenLight, #019fb6, 4px, after, bottom);
+  .animateBorder(@greenLight, #019fb6, 4px, bottom);
 }

@@ -24,6 +24,10 @@ const PopupMenu = (props) => {
     };
   });
 
+  const [isClient, setIsClient] = React.useState();
+
+  React.useEffect(() => setIsClient(true), []);
+
   return (
     <CSSTransition
       in={open}
@@ -31,7 +35,7 @@ const PopupMenu = (props) => {
       classNames="popup-menu"
       unmountOnExit
     >
-      <Portal node={document && document.getElementById('#main')}>
+      <Portal node={isClient && document && document.getElementById('#main')}>
         <div
           role="presentation"
           onClick={(e) => {

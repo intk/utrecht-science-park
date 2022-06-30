@@ -105,15 +105,15 @@
     overflow: hidden;
     position: relative;
     z-index: 0;
+  }
 
-    img {
-      // See https://w3bits.com/css-image-hover-zoom/
-      transition: transform .2s ease;
-    }
+  img {
+    // See https://w3bits.com/css-image-hover-zoom/
+    transition: transform .2s ease;
+  }
 
-    &:hover img {
-      transform: scale(1.1);
-    }
+  &:hover img {
+    transform: scale(1.1);
   }
 
 }

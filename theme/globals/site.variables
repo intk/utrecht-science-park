@@ -97,7 +97,8 @@
   overflow: hidden;
 
   img {
-      transition: transform .2s ease;
+    // See https://w3bits.com/css-image-hover-zoom/
+    transition: transform .2s ease;
   }
 
   &:hover img {

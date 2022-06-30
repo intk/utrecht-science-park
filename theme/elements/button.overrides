@@ -10,14 +10,27 @@
   }
 }
 
-.buttonSec {
+p.buttonSec {
   font-size: 1.563rem;
-  background-color: @blueLight;
+  //background-color: @blueLight;
   color: @black;
   display: inline-block;
-  padding: 1rem 2rem 0.75rem 2rem;
+  // padding: 1rem 2rem 0.75rem 2rem;
   cursor: pointer;
+  margin: 0;
+  border-bottom: 4px @greenLight solid;
   &:hover {
-    background-color: @white;
+    //background-color: @white;
   }
 }
+
+p.buttonSec:after {
+  display:block;
+  margin-bottom: -4px;
+  content: '';
+  border-bottom: solid 4px #019fb6;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+p.buttonSec.fromLeft:after{  transform-origin:  0% 50%; }
+p.buttonSec:hover:after { transform: scaleX(1); }

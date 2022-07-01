@@ -20,7 +20,7 @@
 @pink: #EF12A6;
 @blueLight: #28B9F7;
 @greenLight: #97CC0A;
-
+//@inputColor: #706f6f;
 /*-------------------
       Base Sizes (see site.overrides for h1 to h4)
 --------------------*/

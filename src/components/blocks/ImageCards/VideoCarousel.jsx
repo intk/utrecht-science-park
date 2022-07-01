@@ -1,9 +1,9 @@
 import React from 'react';
 import loadable from '@loadable/component';
 import { Message } from 'semantic-ui-react';
-import { UniversalLink } from '@plone/volto/components';
-// import readySVG from '@plone/volto/icons/ready.svg';
-import VideoBody from '@plone/volto/components/manage/Blocks/Video/Body';
+import { Icon, UniversalLink } from '@plone/volto/components';
+import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
+import readySVG from '@plone/volto/icons/ready.svg';
 
 import cx from 'classnames';
 
@@ -16,16 +16,58 @@ import { BodyClass } from '@plone/volto/helpers';
 
 const Slider = loadable(() => import('react-slick'));
 
-const VideoSlide = ({ card, image_scale }) => {
+const VideoEmbed = ({ url, placeholder, height, width }) => {
+  const embedId = url.match(/.be\//)
+    ? url.match(/^.*\.be\/(.*)/)[1]
+    : url.match(/^.*\?v=(.*)$/)[1];
+
+  const [play, setIsPlay] = React.useState();
+
+  return (
+    <div className="video-responsive">
+      {play ? (
+        <iframe
+          width={width}
+          height={height}
+          src={`https://www.youtube.com/embed/${embedId}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="Embedded youtube"
+        />
+      ) : (
+        <div className="placeholder-image">
+          <img src={placeholder} className="placeholder" alt="Placeholder" />
+          <Icon
+            name={readySVG}
+            size={`${height / 10}px`}
+            color="white"
+            onClick={() => setIsPlay(true)}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+const VideoSlide = ({ card, image_scale, height }) => {
+  const preview_image = getPath(card.attachedimage);
+  let placeholder = preview_image
+    ? isInternalURL(preview_image)
+      ? `${flattenToAppURL(preview_image)}/@@images/image`
+      : preview_image
+    : null;
+
+  const embedSettings = {
+    url: card.videoUrl,
+    placeholder,
+    height,
+    width: '100%',
+  };
+
   return (
     <div className="slider-slide">
-      <VideoBody
-        data={{
-          url: card.videoUrl,
-          preview_image: getPath(card.attachedimage),
-        }}
-      />
-
+      <VideoEmbed {...embedSettings} />
       <div className="slider-caption">
         <div className="slide-body">
           {card.linkHref?.[0] ? (
@@ -48,6 +90,8 @@ const VideoSlide = ({ card, image_scale }) => {
 
 const VideoCarousel = ({ data }) => {
   const sliderRef = React.useRef();
+  const nodeRef = React.useRef();
+
   const { cards = [], image_scale = 'large' } = data;
 
   var settings = React.useMemo(
@@ -60,7 +104,7 @@ const VideoCarousel = ({ data }) => {
       autoplaySpeed: 10000,
       slidesToShow: 1,
       slidesToScroll: 1,
-      adaptiveHeight: true,
+      adaptiveHeight: false,
       vertical: false,
       lazyLoad: 'ondemand',
       arrows: false,
@@ -69,8 +113,11 @@ const VideoCarousel = ({ data }) => {
     [],
   );
 
+  const slideHeight = nodeRef.current && nodeRef.current.clientHeight;
+
   return (
     <div
+      ref={nodeRef}
       className={cx(
         'block align imagecards-block imagecards-carousel imagecards-videocarousel',
         {
@@ -86,10 +133,20 @@ const VideoCarousel = ({ data }) => {
         })}
       >
         <div className="slider-wrapper">
-          {cards.length ? (
-            <Slider {...settings} ref={sliderRef} listHeight="100vh">
+          {cards.length && slideHeight ? (
+            <Slider
+              {...settings}
+              slideHeight={slideHeight}
+              ref={sliderRef}
+              listHeight="100vh"
+            >
               {cards.map((card, i) => (
-                <VideoSlide card={card} key={i} image_scale={image_scale} />
+                <VideoSlide
+                  card={card}
+                  key={i}
+                  image_scale={image_scale}
+                  height={slideHeight}
+                />
               ))}
             </Slider>
           ) : (

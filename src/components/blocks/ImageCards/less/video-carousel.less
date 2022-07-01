@@ -4,27 +4,41 @@
 @import (multiple, reference, optional) '../../theme.config';
 
 .block.imagecards-videocarousel {
-  height: 100vh;
-
   .slider-wrapper {
-    height: 100vh !important;
+    height: 100vh;
 
     .slick-slider {
       height: 100%;
 
       .slick-list {
+        height: 100%;
+
         .slick-track {
+          height: 100%;
+
           .slick-slide {
+            & > div {
+              height: 100%;
+            }
+
             .slider-slide {
-              .video-inner {
-                height: 100vh;
+              height: 100%;
 
-                .embed {
-                  padding-bottom: 100% !important;
+              .video-responsive {
+                width: 100%;
+                height: 100%;
 
-                  img.placeholder {
-                    object-fit: cover;
-                  }
+                .icon {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                }
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
                 }
               }
 
@@ -105,7 +119,7 @@
 body.contenttype-lrf.has-video-carousel {
   .content-area {
     padding-top: 0em;
-    margin: 0em !important;
+    margin-top: 0em !important;
   }
 }
 

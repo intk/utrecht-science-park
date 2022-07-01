@@ -134,7 +134,7 @@ class SearchWidget extends Component {
           open={this.state.showPopup}
           onClose={() => this.setState({ showPopup: false })}
         >
-          <div className="hover-menu">
+          <div className="hover-menu search-widget">
             <div className="hover-menu-inner">
               <Form action="/search" onSubmit={this.onSubmit}>
                 <Form.Field className="searchbox">

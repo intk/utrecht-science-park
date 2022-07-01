@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
 import config from '@plone/volto/registry';
+import { Menu } from 'semantic-ui-react';
 
 import DesktopNavItems from './DesktopNavItems';
 import PopupMenu from './PopupMenu';
@@ -11,7 +12,7 @@ import downKeySVG from '@plone/volto/icons/down-key.svg';
 const HOME = ['', '/', '/en', '/nl'];
 
 export default function TopLevelItems(props) {
-  const { items, lang } = props;
+  const { items, lang, closeMobileMenu } = props;
   const { settings } = config;
 
   const handleClick = (item) => (e) => {
@@ -23,7 +24,13 @@ export default function TopLevelItems(props) {
   const [topItem, setTopItem] = React.useState();
 
   return (
-    <>
+    <Menu
+      stackable
+      pointing
+      secondary
+      className="computer large screen widescreen only"
+      onClick={closeMobileMenu}
+    >
       {items
         .filter((item) => HOME.indexOf(item.url) === -1)
         .map((item) => (
@@ -59,18 +66,6 @@ export default function TopLevelItems(props) {
           </div>
         </div>
       </PopupMenu>
-    </>
+    </Menu>
   );
 }
-
-// import { isMouseOver } from './utils';
-// const nodeRef = React.useRef();
-// ref={nodeRef} onMouseOut={handleMouseOut}
-// const handleMouseOut = React.useCallback((e) => {
-//   const over = isMouseOver(nodeRef.current, e);
-//
-//   if (!over) {
-//     console.log('out', over);
-//     setTopItem(null);
-//   }
-// }, []);

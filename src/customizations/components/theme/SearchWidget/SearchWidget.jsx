@@ -9,7 +9,7 @@ import { Ref, Button, Form, Input } from 'semantic-ui-react';
 import { compose } from 'redux';
 import { PropTypes } from 'prop-types';
 import { defineMessages, injectIntl } from 'react-intl';
-import PopupMenu from '../Navigation/PopupMenu';
+import PopupMenu from '@package/components/theme/Navigation/PopupMenu';
 
 import { Icon } from '@plone/volto/components';
 import zoomSVG from '@plone/volto/icons/zoom.svg';

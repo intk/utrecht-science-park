@@ -20,8 +20,8 @@ const messages = defineMessages({
     defaultMessage: 'Search',
   },
   searchSite: {
-    id: 'Search Site',
-    defaultMessage: 'Search Site',
+    id: 'Search',
+    defaultMessage: 'Search',
   },
 });
 

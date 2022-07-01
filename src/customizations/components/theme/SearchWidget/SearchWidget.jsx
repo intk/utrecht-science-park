@@ -9,6 +9,7 @@ import { Ref, Button, Popup, Form, Input } from 'semantic-ui-react';
 import { compose } from 'redux';
 import { PropTypes } from 'prop-types';
 import { defineMessages, injectIntl } from 'react-intl';
+import PopupMenu from '../Navigation/PopupMenu';
 
 import { Icon } from '@plone/volto/components';
 import zoomSVG from '@plone/volto/icons/zoom.svg';
@@ -122,48 +123,65 @@ class SearchWidget extends Component {
    */
   render() {
     return (
-      <Popup
-        wide
-        size="huge"
-        content={
-          <Form action="/search" onSubmit={this.onSubmit}>
-            <Form.Field className="searchbox">
-              <Ref
-                innerRef={(ref) =>
-                  !this.state.inputRef && this.setState({ inputRef: ref })
-                }
-              >
-                <Input
-                  aria-label={this.props.intl.formatMessage(messages.search)}
-                  onChange={this.onChangeText}
-                  name="SearchableText"
-                  value={this.state.text}
-                  transparent
-                  focus
-                  autoComplete="off"
-                  placeholder={this.props.intl.formatMessage(
-                    messages.searchSite,
-                  )}
-                  title={this.props.intl.formatMessage(messages.search)}
-                />
-              </Ref>
-            </Form.Field>
-          </Form>
-        }
-        on="click"
-        position="bottom center"
-        pinned
-        trigger={
-          <Button aria-label={this.props.intl.formatMessage(messages.search)}>
-            <Icon name={zoomSVG} size="24px" />
-          </Button>
-        }
-      />
+      <>
+        <Button
+          aria-label={this.props.intl.formatMessage(messages.search)}
+          onClick={() => this.setState({ showPopup: true })}
+        >
+          <Icon name={zoomSVG} size="24px" />
+        </Button>
+        <PopupMenu
+          open={this.state.showPopup}
+          onClose={() => this.setState({ showPopup: false })}
+        >
+          <div className="hover-menu">
+            <div className="hover-menu-inner">
+              <Form action="/search" onSubmit={this.onSubmit}>
+                <Form.Field className="searchbox">
+                  <Ref
+                    innerRef={(ref) =>
+                      !this.state.inputRef && this.setState({ inputRef: ref })
+                    }
+                  >
+                    <Input
+                      aria-label={this.props.intl.formatMessage(
+                        messages.search,
+                      )}
+                      onChange={this.onChangeText}
+                      name="SearchableText"
+                      value={this.state.text}
+                      transparent
+                      focus
+                      autoComplete="off"
+                      placeholder={this.props.intl.formatMessage(
+                        messages.searchSite,
+                      )}
+                      title={this.props.intl.formatMessage(messages.search)}
+                    />
+                  </Ref>
+                </Form.Field>
+              </Form>
+            </div>
+          </div>
+        </PopupMenu>
+      </>
     );
   }
 }
 
 export default compose(withRouter, injectIntl)(SearchWidget);
+
+//<Popup
+//  wide
+//  size="huge"
+//  content={
+//  }
+//  on="click"
+//  position="bottom center"
+//  pinned
+//  trigger={
+//  }
+///>
 
 // /**
 //  * Search widget component.

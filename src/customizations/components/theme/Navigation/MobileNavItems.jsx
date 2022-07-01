@@ -9,6 +9,7 @@ import clearSVG from '@plone/volto/icons/clear.svg';
 
 const MobileNavItems = ({ items, closeMobileMenu, isActive }) => {
   const isMobileMenuOpen = true;
+
   return (
     <Menu
       stackable

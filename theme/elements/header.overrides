@@ -110,8 +110,6 @@ nav.navigation .hamburger-wrapper {
   }
 
   .mobile-menu {
-    background: url('./assets/images/header-gradient.svg') no-repeat top left @lightergrey;
-    background-size: contain;
     // border: 3px solid #000000;
     display: flex;
     flex-direction: column;
@@ -129,6 +127,8 @@ nav.navigation .hamburger-wrapper {
       max-width: 670px;
     }
     .mobile-menu-top {
+      background: url('./assets/images/header-gradient.svg') repeat-x top left @lightergrey;
+      background-size: contain;
       display: flex;
       gap: 1.25rem;
       align-items: center;

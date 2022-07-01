@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
 import config from '@plone/volto/registry';
 
-import NavItems from './NavItems';
+import DesktopNavItems from './DesktopNavItems';
 import PopupMenu from './PopupMenu';
 
 import downKeySVG from '@plone/volto/icons/down-key.svg';
@@ -49,7 +49,7 @@ export default function TopLevelItems(props) {
           <div tabIndex="-1" role="button" className="hover-menu-inner">
             <div className="">
               {!!topItem && (
-                <NavItems
+                <DesktopNavItems
                   items={topItem.items || []}
                   lang={props.lang}
                   onClose={() => setTopItem(null)}

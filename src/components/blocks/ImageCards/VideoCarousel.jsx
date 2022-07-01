@@ -17,11 +17,13 @@ import { BodyClass } from '@plone/volto/helpers';
 const Slider = loadable(() => import('react-slick'));
 
 const VideoEmbed = ({ url, placeholder, height, width }) => {
+  const [play, setIsPlay] = React.useState();
+
+  if (!url) return null;
+
   const embedId = url.match(/.be\//)
     ? url.match(/^.*\.be\/(.*)/)[1]
     : url.match(/^.*\?v=(.*)$/)[1];
-
-  const [play, setIsPlay] = React.useState();
 
   return (
     <div className="video-responsive">

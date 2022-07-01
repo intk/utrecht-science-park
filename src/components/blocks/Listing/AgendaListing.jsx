@@ -10,11 +10,13 @@ import './less/agenda-listing.less';
 const SecondaryItem = ({ item }) => {
   return (
     <div className="secondary-item">
-      <UniversalLink item={item}>
-        {!!item.start && <FormattedDate isoDate={item.start} format="long" />}
-        <h3>{item.title}</h3>
-        {/* <strong>{item.description}</strong> */}
-      </UniversalLink>
+      <div className="inner">
+        <UniversalLink item={item}>
+          {!!item.start && <FormattedDate isoDate={item.start} format="long" />}
+          <h3>{item.title}</h3>
+          {/* <strong>{item.description}</strong> */}
+        </UniversalLink>
+      </div>
     </div>
   );
 };

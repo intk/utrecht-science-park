@@ -3,6 +3,8 @@
  * @module components/theme/Navigation/Navigation
  */
 
+import { isMatch } from 'lodash';
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -14,8 +16,9 @@ import { BodyClass, getBaseUrl, hasApiExpander } from '@plone/volto/helpers';
 import config from '@plone/volto/registry';
 import { getNavigation } from '@plone/volto/actions';
 import { CSSTransition } from 'react-transition-group';
-import NavItems from '@plone/volto/components/theme/Navigation/NavItems';
+// import NavItems from '@plone/volto/components/theme/Navigation/NavItems';
 import TopLevelItems from './TopLevelItems';
+import MobileNavItems from './MobileNavItems';
 
 const messages = defineMessages({
   closeMobileMenu: {
@@ -61,9 +64,17 @@ class Navigation extends Component {
     super(props);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     this.closeMobileMenu = this.closeMobileMenu.bind(this);
+    this.isActive = this.isActive.bind(this);
     this.state = {
       isMobileMenuOpen: false,
     };
+  }
+
+  isActive(url) {
+    return (
+      (url === '' && this.props.pathname === '/') ||
+      (url !== '' && isMatch(this.props.pathname.split('/'), url.split('/')))
+    );
   }
 
   componentDidMount() {
@@ -166,25 +177,34 @@ class Navigation extends Component {
         >
           <TopLevelItems items={this.props.items} lang={this.props.lang} />
         </Menu>
-        <CSSTransition
-          in={this.state.isMobileMenuOpen}
-          timeout={500}
-          classNames="mobile-menu"
-          unmountOnExit
-        >
-          <div key="mobile-menu-key" className="mobile-menu">
-            <BodyClass className="has-mobile-menu-open" />
-            <div className="mobile-menu-nav">
-              <Menu stackable pointing secondary onClick={this.closeMobileMenu}>
-                <NavItems items={this.props.items} lang={this.props.lang} />
-              </Menu>
-            </div>
-          </div>
-        </CSSTransition>
+
+        {this.state.isMobileMenuOpen && (
+          <MobileNavItems
+            items={this.props.items}
+            closeMobileMenu={this.closeMobileMenu}
+            isActive={this.isActive}
+          />
+        )}
       </nav>
     );
   }
 }
+
+//<CSSTransition
+//  in={this.state.isMobileMenuOpen}
+//  timeout={500}
+//  classNames="mobile-menu"
+//  unmountOnExit
+//>
+//  <div key="mobile-menu-key" className="mobile-menu">
+//    <BodyClass className="has-mobile-menu-open" />
+//    <div className="mobile-menu-nav">
+//      {/* <Menu stackable pointing secondary onClick={this.closeMobileMenu}> */}
+//      {/*   <NavItems items={this.props.items} lang={this.props.lang} /> */}
+//      {/* </Menu> */}
+//    </div>
+//  </div>
+//</CSSTransition>
 
 export default compose(
   injectIntl,

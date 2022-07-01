@@ -31,7 +31,7 @@
   }
 
   .primary-item {
-    .animateBorder(white, #019fb6, 4px, top);
+    .animateBorder(transparent, #019fb6, 4px, top);
     .animateBackgroundImage();
 
     .primary-item-header {
@@ -71,27 +71,31 @@
   }
 
   .secondary-item {
-    .animateBorder(white, #019fb6, 4px, top);
+    .animateBorder(transparent, #019fb6, 4px, top);
 
-    padding: 1em;
     display: flex;
     flex-direction: column;
     background-color: @white;
     min-height: calc(25%-4px);
-    time {
-      text-transform: uppercase;
-      font-family: @headerFont;
-    }
-    h3 {
-      font-size: clamp(1.125rem, 2.75vw, 1.875rem);
-      line-height: clamp(1.563rem, 2.75vw, 2.625rem);
-      text-transform: none;
-      font-family: @pageFont;
-      margin: 0;
-    }
 
-    a {
-      color: @black;
+    .inner {
+      padding: 1em;
+
+      time {
+        text-transform: uppercase;
+        font-family: @headerFont;
+      }
+      h3 {
+        font-size: clamp(1.125rem, 2.75vw, 1.875rem);
+        line-height: clamp(1.563rem, 2.75vw, 2.625rem);
+        text-transform: none;
+        font-family: @pageFont;
+        margin: 0;
+      }
+
+      a {
+        color: @black;
+      }
     }
   }
 }

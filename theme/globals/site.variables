@@ -134,11 +134,11 @@
   }
 
   &:hover {
-    background-color: @white;
+    //background-color: @white;
     color: unset;
   }
 
-  .animateBorder(@greenLight, @blueLight, 4px, bottom)
+  .animateBorder(@greenLight, @white, 4px, bottom)
 }
 
 .blueLined() {
@@ -146,6 +146,6 @@
 
   // border-bottom: 4px @blueLight solid;
 
-  .animateBorder(@blueLight, @greenLight, 4px, top)
+  .animateBorder(@blueLight, @white, 4px, bottom)
 
 }

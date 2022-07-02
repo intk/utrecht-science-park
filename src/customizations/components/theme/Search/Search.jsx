@@ -19,6 +19,7 @@ import config from '@plone/volto/registry';
 import { Helmet } from '@plone/volto/helpers';
 import { searchContent } from '@plone/volto/actions';
 import { SearchTags, Toolbar, Icon } from '@plone/volto/components';
+import SearchWidget from '@package/components/theme/SearchWidget/SearchWidget';
 
 import paginationLeftSVG from '@plone/volto/icons/left-key.svg';
 import paginationRightSVG from '@plone/volto/icons/right-key.svg';
@@ -149,22 +150,26 @@ class Search extends Component {
         <div className="container">
           <article id="content">
             <header>
-              <h1 className="documentFirstHeading">
-                {this.props.searchableText ? (
-                  <FormattedMessage
-                    id="Search results for {term}"
-                    defaultMessage="Search results for {term}"
-                    values={{
-                      term: <q>{this.props.searchableText}</q>,
-                    }}
-                  />
-                ) : (
-                  <FormattedMessage
-                    id="Search results"
-                    defaultMessage="Search results"
-                  />
-                )}
-              </h1>
+              {/* <h1 className="documentFirstHeading"> */}
+              {/*   {this.props.searchableText ? ( */}
+              {/*     <FormattedMessage */}
+              {/*       id="Search results for {term}" */}
+              {/*       defaultMessage="Search results for {term}" */}
+              {/*       values={{ */}
+              {/*         term: <q>{this.props.searchableText}</q>, */}
+              {/*       }} */}
+              {/*     /> */}
+              {/*   ) : ( */}
+              {/*     <FormattedMessage */}
+              {/*       id="Search results" */}
+              {/*       defaultMessage="Search results" */}
+              {/*     /> */}
+              {/*   )} */}
+              {/* </h1> */}
+
+              <div id="page-search-widget">
+                <SearchWidget />
+              </div>
 
               <SearchTags />
 

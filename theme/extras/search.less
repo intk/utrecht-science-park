@@ -27,18 +27,32 @@
 /********   Header Search widget   ********/
 .hover-menu.search-widget {
   height: 10rem;
+
   .hover-menu-inner {
     padding: 4.5rem 1.25rem 1.25rem 1.25rem;
-    .field.searchbox {
-      border-bottom: 2px solid black;
-      input {
-        font-size: 4.063rem;
-        line-height: 4.875rem;
-        text-transform: uppercase;
-        color: @darkgrey !important;
-        font-family: @fontName;
-        margin-left: 2rem;
-      }
-    }
   }
+}
+
+.field.searchbox {
+  display: flex;
+
+  border-bottom: 2px solid black;
+  padding-left: unset !important;
+  border-left: unset !important;
+  /* padding-left: 1em; */
+  /* border-left: 1px solid #B8C6C8; */
+
+  input {
+    font-size: 4.063rem;
+    line-height: 4.875rem;
+    text-transform: uppercase;
+    color: @darkgrey !important;
+    font-family: @fontName;
+    margin-left: 2rem;
+  }
+}
+
+#page-search-widget {
+  padding: 1em;
+  background-color: @white;
 }

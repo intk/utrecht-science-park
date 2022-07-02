@@ -25,7 +25,7 @@ const SearchWidgetWrapper = (props) => {
 
   const { children } = props;
   return (
-    <>
+    <div id="global-search-widget">
       <Button
         aria-label={intl.formatMessage(messages.search)}
         onClick={() => setShowPopup(true)}
@@ -37,7 +37,7 @@ const SearchWidgetWrapper = (props) => {
           <div className="hover-menu-inner">{children}</div>
         </div>
       </PopupMenu>
-    </>
+    </div>
   );
 };
 

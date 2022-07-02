@@ -58,7 +58,7 @@ nav.navigation {
   body.has-toolbar {
     .hover-menu {
       width: calc(100% - 5rem);
-      left: 2.5rem;
+      left: 5rem;
     }
   }
 }
@@ -73,7 +73,7 @@ nav.navigation {
   // background-color: red;
 
   .hover-menu-inner {
-    margin-top: 48px;
+    margin-top: 60px;
     background-color: white;
     padding: 1rem;
 

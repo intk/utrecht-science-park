@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Ref, Form, Input } from 'semantic-ui-react';
-import { compose } from 'redux';
-import { PropTypes } from 'prop-types';
-import { defineMessages, injectIntl } from 'react-intl';
+import { defineMessages, useIntl } from 'react-intl';
 
 const messages = defineMessages({
   search: {
@@ -33,130 +31,53 @@ const Lens = () => (
   </svg>
 );
 
-/**
- * SearchWidget component class.
- * @class SearchWidget
- * @extends Component
- */
-class SearchWidget extends Component {
-  /**
-   * Property types.
-   * @property {Object} propTypes Property types.
-   * @static
-   */
-  static propTypes = {
-    pathname: PropTypes.string.isRequired,
-  };
+const SearchWidget = (props) => {
+  const inputRef = React.useRef();
+  const [text, setText] = React.useState('');
+  const intl = useIntl();
+  const { pathname, history } = props;
 
-  /**
-   * Constructor
-   * @method constructor
-   * @param {Object} props Component properties
-   * @constructs WysiwygEditor
-   */
-  constructor(props) {
-    super(props);
-    this.onChangeText = this.onChangeText.bind(this);
-    this.onChangeSection = this.onChangeSection.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.state = {
-      text: '',
-      section: false,
-      inputRef: null,
-    };
-  }
-
-  /**
-   * On change text
-   * @method onChangeText
-   * @param {object} event Event object.
-   * @param {string} value Text value.
-   * @returns {undefined}
-   */
-  onChangeText(event, { value }) {
-    this.setState({
-      text: value,
-    });
-  }
-
-  /**
-   * On change section
-   * @method onChangeSection
-   * @param {object} event Event object.
-   * @param {bool} checked Section checked.
-   * @returns {undefined}
-   */
-  onChangeSection(event, { checked }) {
-    this.setState({
-      section: checked,
-    });
-  }
-
-  /**
-   * Submit handler
-   * @method onSubmit
-   * @param {event} event Event object.
-   * @returns {undefined}
-   */
-  onSubmit(event) {
-    // const section = this.state.section ? `&path=${this.props.pathname}` : '';
-    const path =
-      this.props.pathname?.length > 0
-        ? `&path=${encodeURIComponent(this.props.pathname)}`
-        : '';
-    const text = encodeURIComponent(this.state.text);
-    this.props.history.push(`/search?SearchableText=${text}${path}`);
-    event.preventDefault();
-  }
-
-  offset = ({ placement, popper }) => {
-    if (placement === 'bottom') {
-      return [0, popper.height / 2];
-    }
-
-    return [];
-  };
-
-  componentDidUpdate() {
-    if (this.state.inputRef) {
-      const input = this.state.inputRef.getElementsByTagName('input')[0];
+  React.useEffect(() => {
+    if (inputRef.current) {
+      const input = inputRef.current.getElementsByTagName('input')[0];
       input.focus();
     }
-  }
+  }, []);
 
-  /**
-   * Render method.
-   * @method render
-   * @returns {string} Markup for the component.
-   */
-  render() {
-    return (
-      <Form action="/search" onSubmit={this.onSubmit}>
-        <Form.Field className="searchbox">
-          <div>
-            <Lens />
-          </div>
-          <Ref
-            innerRef={(ref) =>
-              !this.state.inputRef && this.setState({ inputRef: ref })
-            }
-          >
-            <Input
-              aria-label={this.props.intl.formatMessage(messages.search)}
-              onChange={this.onChangeText}
-              name="SearchableText"
-              value={this.state.text}
-              transparent
-              focus
-              autoComplete="off"
-              placeholder={this.props.intl.formatMessage(messages.searchSite)}
-              title={this.props.intl.formatMessage(messages.search)}
-            />
-          </Ref>
-        </Form.Field>
-      </Form>
-    );
-  }
-}
+  const onSubmit = React.useCallback(
+    (event) => {
+      const l = pathname ? pathname.length : 0;
+      // const section = this.state.section ? `&path=${this.props.pathname}` : '';
+      const path = l > 0 ? `&path=${encodeURIComponent(pathname)}` : '';
+      const encodedText = encodeURIComponent(text);
+      history.push(`/search?SearchableText=${encodedText}${path}`);
+      event.preventDefault();
+    },
+    [pathname, text, history],
+  );
 
-export default compose(withRouter, injectIntl)(SearchWidget);
+  return (
+    <Form action="/search" onSubmit={onSubmit}>
+      <Form.Field className="searchbox">
+        <div>
+          <Lens />
+        </div>
+        <Ref innerRef={inputRef}>
+          <Input
+            aria-label={intl.formatMessage(messages.search)}
+            onChange={(event, { value }) => setText(value)}
+            name="SearchableText"
+            value={text}
+            transparent
+            focus
+            autoComplete="off"
+            placeholder={intl.formatMessage(messages.searchSite)}
+            title={intl.formatMessage(messages.search)}
+          />
+        </Ref>
+      </Form.Field>
+    </Form>
+  );
+};
+
+export default withRouter(SearchWidget);

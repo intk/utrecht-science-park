@@ -7,6 +7,7 @@ import { CSSTransition } from 'react-transition-group';
 import { BodyClass } from '@plone/volto/helpers';
 import NavItem from '@plone/volto/components/theme/Navigation/NavItem';
 import closeSVG from '@plone/volto/icons/clear.svg';
+import SiteLogo from '@package/static/logo.svg';
 
 const MenuItem = ({ item, lang, level = 0 }) => {
   return item.items?.length > 0 ? (
@@ -42,10 +43,19 @@ const MobileNavItems = ({
       unmountOnExit
     >
       <div key="mobile-menu-key" className="mobile-menu">
-        <BodyClass className="has-mobile-menu-open" />
-        <Button basic className="close-button" onClick={closeMobileMenu}>
-          <Icon name={closeSVG} />
-        </Button>
+        <div className='mobile-menu-top'>
+          <img
+            height="auto"
+            title="Utrecht Science Park"
+            src={SiteLogo}
+            alt="Utrecht Science Park"
+            className="logo-mobile-nav"
+          />
+          <BodyClass className="has-mobile-menu-open" />
+          <Button basic className="close-button" onClick={closeMobileMenu}>
+            <Icon name={closeSVG} />
+          </Button>
+        </div>
         <div className="mobile-menu-nav">
           <Menu stackable pointing secondary>
             <NavItems items={items} lang={lang} />

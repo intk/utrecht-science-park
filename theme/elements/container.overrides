@@ -1,5 +1,5 @@
 /********   Container Overrides   ********/
-@media only screen and (max-width: @largestTabletScreen) {
+@media only screen and (max-width: 1071px) {
   .tools-search-wrapper {
     display: none !important;
   }

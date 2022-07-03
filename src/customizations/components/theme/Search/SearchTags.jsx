@@ -43,7 +43,7 @@ class SearchTags extends Component {
    */
   render() {
     return this.props.terms && this.props.terms.length > 0 ? (
-      <div>
+      <div id="search-tags">
         {this.props.terms.map((term) => (
           <Link
             className="ui label"

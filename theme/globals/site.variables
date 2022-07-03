@@ -118,6 +118,15 @@
 
 }
 
+
+@toReset: background-color, margin, padding, color, border, border-radius;
+
+.resetStyle() {
+  each(@toReset, {
+    @{value}: unset;
+  });
+}
+
 .greenLined() {
   background-color: unset;
   color: @black;
@@ -148,4 +157,9 @@
 
   .animateBorder(@blueLight, @white, 4px, bottom)
 
+}
+
+.isBtn() {
+  .resetStyle();
+  .greenLined();
 }

@@ -9,11 +9,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { UniversalLink } from '@plone/volto/components';
 import { asyncConnect } from '@plone/volto/helpers';
-import { FormattedMessage } from 'react-intl';
+import { injectIntl, defineMessages, FormattedMessage } from 'react-intl';
 import { Portal } from 'react-portal';
 import { Container, Pagination, Button, Header } from 'semantic-ui-react';
 import qs from 'query-string';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 
 import config from '@plone/volto/registry';
 import { Helmet } from '@plone/volto/helpers';
@@ -24,17 +24,14 @@ import SearchWidget from '@package/components/theme/SearchWidget/SearchWidget';
 import paginationLeftSVG from '@plone/volto/icons/left-key.svg';
 import paginationRightSVG from '@plone/volto/icons/right-key.svg';
 
-/**
- * Search class.
- * @class SearchComponent
- * @extends Component
- */
+const messages = defineMessages({
+  searchResultsCount: {
+    id: 'SearchResults',
+    defaultMessage: '{count} results for {search}',
+  },
+});
+
 class Search extends Component {
-  /**
-   * Property types.
-   * @property {Object} propTypes Property types.
-   * @static
-   */
   static propTypes = {
     searchContent: PropTypes.func.isRequired,
     searchableText: PropTypes.string,
@@ -51,11 +48,6 @@ class Search extends Component {
     pathname: PropTypes.string.isRequired,
   };
 
-  /**
-   * Default properties.
-   * @property {Object} defaultProps Default properties.
-   * @static
-   */
   static defaultProps = {
     items: [],
     searchableText: null,
@@ -67,37 +59,16 @@ class Search extends Component {
     super(props);
     this.state = { currentPage: 1, isClient: false, active: 'relevance' };
   }
-
-  /**
-   * Component did mount
-   * @method componentDidMount
-   * @returns {undefined}
-   */
   componentDidMount() {
     this.doSearch();
     this.setState({ isClient: true });
   }
 
-  /**
-   * Component will receive props
-   * @method componentWillReceiveProps
-   * @param {Object} nextProps Next properties
-   * @returns {undefined}
-   */
   UNSAFE_componentWillReceiveProps = (nextProps) => {
     if (this.props.location.search !== nextProps.location.search) {
       this.doSearch();
     }
   };
-
-  /**
-   * Search based on the given searchableText, subject and path.
-   * @method doSearch
-   * @param {string} searchableText The searchable text string
-   * @param {string} subject The subject (tag)
-   * @param {string} path The path to restrict the search to
-   * @returns {undefined}
-   */
 
   doSearch = () => {
     const options = qs.parse(this.props.history.location.search);
@@ -137,36 +108,16 @@ class Search extends Component {
     });
   };
 
-  /**
-   * Render method.
-   * @method render
-   * @returns {string} Markup for the component.
-   */
   render() {
     const { settings } = config;
+    const { intl } = this.props;
+
     return (
       <Container id="page-search">
         <Helmet title="Search" />
         <div className="container">
           <article id="content">
             <header>
-              {/* <h1 className="documentFirstHeading"> */}
-              {/*   {this.props.searchableText ? ( */}
-              {/*     <FormattedMessage */}
-              {/*       id="Search results for {term}" */}
-              {/*       defaultMessage="Search results for {term}" */}
-              {/*       values={{ */}
-              {/*         term: <q>{this.props.searchableText}</q>, */}
-              {/*       }} */}
-              {/*     /> */}
-              {/*   ) : ( */}
-              {/*     <FormattedMessage */}
-              {/*       id="Search results" */}
-              {/*       defaultMessage="Search results" */}
-              {/*     /> */}
-              {/*   )} */}
-              {/* </h1> */}
-
               <div id="page-search-widget">
                 <SearchWidget />
               </div>
@@ -174,68 +125,11 @@ class Search extends Component {
               <SearchTags />
 
               {this.props.search?.items_total > 0 ? (
-                <div className="items_total">
-                  {this.props.search.items_total}{' '}
-                  <FormattedMessage
-                    id="results found"
-                    defaultMessage="results"
-                  />
-                  <Header>
-                    <Header.Content className="header-content">
-                      <div className="sort-by">
-                        <FormattedMessage
-                          id="Sort By:"
-                          defaultMessage="Sort by:"
-                        />
-                      </div>
-                      <Button
-                        onClick={(event) => {
-                          this.onSortChange(event);
-                        }}
-                        name="relevance"
-                        size="tiny"
-                        className={classNames('button-sort', {
-                          'button-active': this.state.active === 'relevance',
-                        })}
-                      >
-                        <FormattedMessage
-                          id="Relevance"
-                          defaultMessage="Relevance"
-                        />
-                      </Button>
-                      <Button
-                        onClick={(event) => {
-                          this.onSortChange(event);
-                        }}
-                        name="sortable_title"
-                        size="tiny"
-                        className={classNames('button-sort', {
-                          'button-active':
-                            this.state.active === 'sortable_title',
-                        })}
-                      >
-                        <FormattedMessage
-                          id="Alphabetically"
-                          defaultMessage="Alphabetically"
-                        />
-                      </Button>
-                      <Button
-                        onClick={(event) => {
-                          this.onSortChange(event, 'reverse');
-                        }}
-                        name="effective"
-                        size="tiny"
-                        className={classNames('button-sort', {
-                          'button-active': this.state.active === 'effective',
-                        })}
-                      >
-                        <FormattedMessage
-                          id="Date (newest first)"
-                          defaultMessage="Date (newest first)"
-                        />
-                      </Button>
-                    </Header.Content>
-                  </Header>
+                <div className="search-results-count">
+                  {intl.formatMessage(messages.searchResultsCount, {
+                    count: this.props.search.items_total,
+                    search: <strong>{this.props.searchableText}</strong>,
+                  })}
                 </div>
               ) : (
                 <div>
@@ -246,6 +140,7 @@ class Search extends Component {
                 </div>
               )}
             </header>
+
             <section id="content-core">
               {this.props.items.map((item) => (
                 <article className="tileItem" key={item['@id']}>
@@ -331,6 +226,7 @@ export const __test__ = connect(
 )(Search);
 
 export default compose(
+  injectIntl,
   connect(
     (state, props) => ({
       items: state.search.items,
@@ -352,3 +248,58 @@ export default compose(
     },
   ]),
 )(Search);
+
+// <section>
+//   <Header>
+//     <Header.Content className="header-content">
+//       <div className="sort-by">
+//         <FormattedMessage id="Sort By:" defaultMessage="Sort by:" />
+//       </div>
+//       <Button
+//         onClick={(event) => {
+//           this.onSortChange(event);
+//         }}
+//         name="relevance"
+//         size="tiny"
+//         className={classNames('button-sort', {
+//           'button-active': this.state.active === 'relevance',
+//         })}
+//       >
+//         <FormattedMessage
+//           id="Relevance"
+//           defaultMessage="Relevance"
+//         />
+//       </Button>
+//       <Button
+//         onClick={(event) => {
+//           this.onSortChange(event);
+//         }}
+//         name="sortable_title"
+//         size="tiny"
+//         className={classNames('button-sort', {
+//           'button-active': this.state.active === 'sortable_title',
+//         })}
+//       >
+//         <FormattedMessage
+//           id="Alphabetically"
+//           defaultMessage="Alphabetically"
+//         />
+//       </Button>
+//       <Button
+//         onClick={(event) => {
+//           this.onSortChange(event, 'reverse');
+//         }}
+//         name="effective"
+//         size="tiny"
+//         className={classNames('button-sort', {
+//           'button-active': this.state.active === 'effective',
+//         })}
+//       >
+//         <FormattedMessage
+//           id="Date (newest first)"
+//           defaultMessage="Date (newest first)"
+//         />
+//       </Button>
+//     </Header.Content>
+//   </Header>
+// </section>

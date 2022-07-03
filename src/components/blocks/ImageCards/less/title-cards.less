@@ -3,32 +3,33 @@
 
 @import (multiple, reference, optional) '../../theme.config';
 
+.listing-block-header {
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    flex-grow: 1;
+  }
+
+  .link-more {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-grow: 0;
+    margin: calc(2rem - 0.14285714em) 0em 1rem;
+
+    a {
+      padding: 0px;
+      text-decoration: none;
+
+      .greenLined();
+    }
+  }
+}
+
 .title-cards {
   display: flex;
   flex-direction: column;
   gap: 4px;
-
-  .title-cards-header {
-    display: flex;
-
-    h1 {
-      flex-grow: 1;
-    }
-
-    .link-more {
-      display: flex;
-      flex-direction: column-reverse;
-      flex-grow: 0;
-      margin: calc(2rem - 0.14285714em) 0em 1rem;
-
-      a {
-        padding: 0px;
-        text-decoration: none;
-
-        .greenLined();
-      }
-    }
-  }
 
   .title-card,
   .title-card a {

@@ -4,6 +4,7 @@ import {
   //FormattedDate,
   UniversalLink,
 } from '@plone/volto/components';
+import { LinkMore } from '@plone/volto/components';
 import { FormattedDate } from '@package/components';
 import './less/agenda-listing.less';
 
@@ -43,23 +44,24 @@ const PrimaryItem = ({ item }) => {
   );
 };
 
-const AgendaListingTemplate = ({
-  items,
-  linkTitle,
-  linkHref,
-  isEditMode,
-  ...rest
-}) => {
+const AgendaListingTemplate = (data) => {
+  const { items, linkHref, headline } = data;
   const [primaryItem, ...secondaryItems] = items;
   return (
     <div className="agenda-listing">
-      <div className="column-one">
-        <PrimaryItem item={primaryItem} />
+      <div className="listing-block-header">
+        <h1>{headline}</h1>
+        {linkHref ? <LinkMore data={data} /> : ''}
       </div>
-      <div className="column-two">
-        {secondaryItems.map((item, i) => (
-          <SecondaryItem item={item} key={i} />
-        ))}
+      <div className="agenda-listing-content">
+        <div className="column-one">
+          <PrimaryItem item={primaryItem} />
+        </div>
+        <div className="column-two">
+          {secondaryItems.map((item, i) => (
+            <SecondaryItem item={item} key={i} />
+          ))}
+        </div>
       </div>
     </div>
   );

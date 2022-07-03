@@ -6,7 +6,7 @@ import loadable from '@loadable/component';
 
 import 'slick-carousel/slick/slick.css';
 import './less/image-carousel.less';
-// import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import { ImageCarouselSchema } from './schema';
 import { getScaleUrl, getPath } from './utils';

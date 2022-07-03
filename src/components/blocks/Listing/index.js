@@ -177,19 +177,18 @@ export default (config) => {
     // },
   ];
 
-  const addHeadline = (WrappedComponent) => (props) => {
-    return props.data?.headline ? (
-      <div className="headline-with-listing">
-        <h5>{props.data.headline}</h5>
-        <WrappedComponent {...props} />
-      </div>
-    ) : (
-      <WrappedComponent {...props} />
-    );
-  };
-
-  const { view } = config.blocks.blocksConfig.listing;
-  config.blocks.blocksConfig.listing.view = addHeadline(view);
+  // const addHeadline = (WrappedComponent) => (props) => {
+  //   return props.data?.headline ? (
+  //     <div className="headline-with-listing">
+  //       <h5>{props.data.headline}</h5>
+  //       <WrappedComponent {...props} />
+  //     </div>
+  //   ) : (
+  //     <WrappedComponent {...props} />
+  //   );
+  // };
+  // const { view } = config.blocks.blocksConfig.listing;
+  // config.blocks.blocksConfig.listing.view = addHeadline(view);
 
   return config;
 };

@@ -56,7 +56,7 @@ const TitleCards = (props) => {
     )
   ) : (
     <div className="title-cards">
-      <div className="title-cards-header">
+      <div className="listing-block-header">
         <h1>{title}</h1>
         {linkHref ? <LinkMore data={data} /> : ''}
       </div>

@@ -16,9 +16,9 @@
     }
 
     .link-more {
-      flex-grow: 0;
       display: flex;
       flex-direction: column-reverse;
+      flex-grow: 0;
       margin: calc(2rem - 0.14285714em) 0em 1rem;
 
       a {
@@ -33,11 +33,16 @@
   .title-card,
   .title-card a {
     display: flex;
-    gap: 1em;
-    background-color: @white;
-    padding: 1em 2em;
-    color: @black;
     align-items: center;
+    padding: 1em 2em;
+    background-color: @white;
+    color: @black;
+    gap: 1em;
+
+    &:hover {
+      background-color: @yellow;
+      transition: background-color 1.4s;
+    }
 
     h2 {
       flex: 33%;
@@ -60,8 +65,8 @@
       flex-direction: row-reverse;
 
       img {
-        flex-grow: 0;
         width: 6em;
+        flex-grow: 0;
       }
     }
   }
@@ -76,9 +81,11 @@
     .title-card,
     .title-card a {
       flex-wrap: wrap;
+
       h2 {
         flex: 50% !important;
       }
+
       .title-card-text {
         flex: 50% !important;
       }

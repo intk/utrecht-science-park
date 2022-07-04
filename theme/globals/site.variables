@@ -136,6 +136,8 @@
   padding: unset;
   padding-top: 0.5rem;
   text-transform: uppercase;
+  border-left: 0px;   // unset browser stylesheet
+  border-right: 0px;
   font-size: 1.25rem;
 
   // border-bottom: 4px @greenLight solid;

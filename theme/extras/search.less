@@ -42,7 +42,7 @@
   /* padding-left: 1em; */
   /* border-left: 1px solid #B8C6C8; */
 
-  input {
+  .ui.input input {
     font-size: 4.063rem;
     line-height: 4.875rem;
     text-transform: uppercase;
@@ -53,11 +53,12 @@
 }
 
 #page-search-widget {
-  padding: 1em;
+  padding: 4.5rem 1.25rem 1.25rem 1.25rem;
   background-color: @white;
 }
 
 #search-tags {
+  margin-top: 1rem;
   display: flex;
   gap: 1em;
 
@@ -67,4 +68,10 @@
 }
 
 .search-results-count {
+  font-size: 2.813rem;
+  margin: 5.5rem 0rem 4rem 0rem;
+  text-transform: uppercase;
+  strong {
+    color: @greenLight;
+  }
 }

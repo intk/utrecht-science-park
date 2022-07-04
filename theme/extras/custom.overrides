@@ -52,8 +52,12 @@
   }
 }
 //margin top for events
-.contenttype-event aside {
-    margin-top: 120px !important;
+.contenttype-event #view aside {
+  margin-top: 120px !important;
+}
+.contenttype-event #view aside.ui.segment {
+  border: unset !important;
+  box-shadow: unset !important;
 }
 @import './document.less';
 @import './listing.less';

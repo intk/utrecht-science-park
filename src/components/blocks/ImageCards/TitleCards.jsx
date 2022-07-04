@@ -3,9 +3,7 @@ import { Image, Message } from 'semantic-ui-react';
 import { TitleCardsSchema } from './schema';
 import { getScaleUrl, getPath } from './utils';
 import { serializeNodes } from 'volto-slate/editor/render';
-import { UniversalLink } from '@plone/volto/components';
-
-import { LinkMore } from '@plone/volto/components';
+import { ListingBlockHeader } from '@package/components';
 
 import './less/title-cards.less';
 
@@ -45,8 +43,7 @@ const Card = ({ card = {}, image_scale }) => {
 
 const TitleCards = (props) => {
   const { data = {}, editable = false } = props;
-  const { cards = [], title, linkHref } = data;
-  // {callToActionLink ? <UniversalLink href={callToActionLink} /> : ''}
+  const { cards = [] } = data;
 
   return !cards.length ? (
     editable ? (
@@ -56,10 +53,7 @@ const TitleCards = (props) => {
     )
   ) : (
     <div className="title-cards">
-      <div className="listing-block-header">
-        <h1>{title}</h1>
-        {linkHref ? <LinkMore data={data} /> : ''}
-      </div>
+      <ListingBlockHeader data={data} />
       {cards.map((card, i) => (
         <Card key={i} card={card} />
       ))}
@@ -77,7 +71,6 @@ TitleCards.schemaExtender = (schema, data, intl) => {
     properties: { ...schema.properties, ...Custom.properties },
     fieldsets: [...schema.fieldsets, ...Custom.fieldsets],
   };
-  console.log('out', out);
   return out;
 };
 

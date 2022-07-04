@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import loadable from '@loadable/component';
-import { ResponsiveContainer } from '@package/components';
+import { ResponsiveContainer, ListingBlockHeader } from '@package/components';
 import { Icon } from '@plone/volto/components';
 import cx from 'classnames';
 
 import UniversalCard from './ListingCard';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
 import aheadSVG from '@plone/volto/icons/ahead.svg';
 import backSVG from '@plone/volto/icons/back.svg';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './less/SliderListing.less';
 
 const Slider = loadable(() => import('react-slick'));
@@ -62,7 +63,8 @@ const getSlideIndex = (sliderRef, slideIndex, settings) => {
   return slideIndex + settings.slidesToShow;
 };
 
-const SliderListing = ({ items, linkTitle, linkHref, isEditMode }) => {
+const SliderListing = (data) => {
+  const { items } = data;
   const [slideIndex, setSlideIndex] = React.useState(0);
   const sliderRef = React.useRef();
 
@@ -102,6 +104,7 @@ const SliderListing = ({ items, linkTitle, linkHref, isEditMode }) => {
 
   return (
     <div className="slider-carousel-container slider-listing">
+      <ListingBlockHeader data={data} />
       <ResponsiveContainer>
         {({ parentWidth }) =>
           parentWidth ? (

@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  PreviewImage,
-  //FormattedDate,
-  UniversalLink,
-} from '@plone/volto/components';
-import { LinkMore } from '@plone/volto/components';
-import { FormattedDate } from '@package/components';
+import { PreviewImage, UniversalLink } from '@plone/volto/components';
+import { ListingBlockHeader, FormattedDate } from '@package/components';
 import './less/agenda-listing.less';
 
 const SecondaryItem = ({ item }) => {
@@ -45,14 +40,11 @@ const PrimaryItem = ({ item }) => {
 };
 
 const AgendaListingTemplate = (data) => {
-  const { items, linkHref, headline } = data;
+  const { items } = data;
   const [primaryItem, ...secondaryItems] = items;
   return (
     <div className="agenda-listing">
-      <div className="listing-block-header">
-        <h1>{headline}</h1>
-        {linkHref ? <LinkMore data={data} /> : ''}
-      </div>
+      <ListingBlockHeader data={data} />
       <div className="agenda-listing-content">
         <div className="column-one">
           <PrimaryItem item={primaryItem} />

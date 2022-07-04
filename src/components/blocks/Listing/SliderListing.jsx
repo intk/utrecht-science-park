@@ -102,6 +102,8 @@ const SliderListing = (data) => {
     [],
   );
 
+  const currentSlide = getSlideIndex(sliderRef, slideIndex, carouselSettings);
+
   return (
     <div className="slider-carousel-container slider-listing">
       <ListingBlockHeader data={data} />
@@ -118,16 +120,18 @@ const SliderListing = (data) => {
                   <UniversalCard item={item} key={i} />
                 ))}
               </Slider>
-              <SliderNavigation
-                sliderRef={sliderRef}
-                slideIndex={getSlideIndex(
-                  sliderRef,
-                  slideIndex,
-                  carouselSettings,
-                )}
-                slideCount={items.length}
-                settings={carouselSettings}
-              />
+              <div className="slider-carousel-footer">
+                <Pagination
+                  slideIndex={slideIndex + 1}
+                  slideCount={items.length}
+                />
+                <SliderNavigation
+                  sliderRef={sliderRef}
+                  slideIndex={currentSlide}
+                  slideCount={items.length}
+                  settings={carouselSettings}
+                />
+              </div>
             </div>
           ) : (
             ''
@@ -138,10 +142,12 @@ const SliderListing = (data) => {
   );
 };
 
-SliderListing.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.any).isRequired,
-  linkMore: PropTypes.any,
-  isEditMode: PropTypes.bool,
+const Pagination = ({ slideIndex, slideCount }) => {
+  return (
+    <div className="slider-pagination">
+      {slideIndex} / {slideCount}
+    </div>
+  );
 };
 
 export default SliderListing;

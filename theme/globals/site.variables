@@ -21,6 +21,7 @@
 @blueLight: #28B9F7;
 @greenLight: #97CC0A;
 //@inputColor: #706f6f;
+
 /*-------------------
       Base Sizes (see site.overrides for h1 to h4)
 --------------------*/
@@ -104,6 +105,7 @@
   .image-container {
     overflow: hidden;
     position: relative;
+    height: 100%;
     z-index: 0;
   }
 
@@ -130,13 +132,14 @@
 .greenLined() {
   background-color: unset;
   color: @black;
-  // border-bottom: 4px @greenLight solid;
   border-radius: unset;
   padding: unset;
   padding-top: 0.5rem;
-  // padding-bottom: 0.5rem;
   text-transform: uppercase;
   font-size: 1.25rem;
+
+  // border-bottom: 4px @greenLight solid;
+  // padding-bottom: 0.5rem;
 
   a {
     text-decoration: none !important;

@@ -21,8 +21,8 @@ import { searchContent } from '@plone/volto/actions';
 import { SearchTags, Toolbar, Icon } from '@plone/volto/components';
 import SearchWidget from '@package/components/theme/SearchWidget/SearchWidget';
 
-import paginationLeftSVG from '@plone/volto/icons/left-key.svg';
-import paginationRightSVG from '@plone/volto/icons/right-key.svg';
+import paginationLeftSVG from '@plone/volto/icons/back.svg';
+import paginationRightSVG from '@plone/volto/icons/ahead.svg';
 
 const messages = defineMessages({
   searchResultsCount: {
@@ -181,7 +181,7 @@ class Search extends Component {
                     firstItem={null}
                     lastItem={null}
                     prevItem={{
-                      content: <Icon name={paginationLeftSVG} size="18px" />,
+                      content: <Icon name={paginationLeftSVG} size="35px" />,
                       icon: true,
                       'aria-disabled': !this.props.search.batching.prev,
                       className: !this.props.search.batching.prev
@@ -189,7 +189,7 @@ class Search extends Component {
                         : null,
                     }}
                     nextItem={{
-                      content: <Icon name={paginationRightSVG} size="18px" />,
+                      content: <Icon name={paginationRightSVG} size="35px" />,
                       icon: true,
                       'aria-disabled': !this.props.search.batching.next,
                       className: !this.props.search.batching.next

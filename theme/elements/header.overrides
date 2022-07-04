@@ -118,6 +118,7 @@ nav.navigation .hamburger-wrapper {
     right: 0px;
     left: auto;
     height: ~'calc(100vh - @{topDelta})';
+    background-color: @lightergrey;
 
     @media (max-width: @largestTabletScreen) {
       // border: 2px solid #000000;
@@ -127,7 +128,8 @@ nav.navigation .hamburger-wrapper {
       max-width: 670px;
     }
     .mobile-menu-top {
-      background: url('./assets/images/header-gradient.svg') repeat-x top left @lightergrey;
+      background: url('./assets/images/header-gradient.svg') repeat-x top left
+        @lightergrey;
       background-size: contain;
       display: flex;
       gap: 1.25rem;
@@ -144,7 +146,7 @@ nav.navigation .hamburger-wrapper {
       .close-button {
         align-self: flex-end;
         width: 36px;
-        height: 36px
+        height: 36px;
       }
       @media (max-width: @largestTabletScreen) {
         //margin-left: 1rem;
@@ -169,7 +171,7 @@ nav.navigation .hamburger-wrapper {
     padding-top: 1.5rem;
     //padding-left: 1rem;
     background-color: @white;
- 
+
     .ui.pointing.secondary.stackable.menu {
       flex-direction: column;
       margin-left: 0px;
@@ -187,17 +189,17 @@ nav.navigation .hamburger-wrapper {
 
       .item {
         width: 100% !important;
-        color: #000000;
+        color: @black;
         // font-family: 'Antonio', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         // font-weight: 700;
         // font-size: 55px;
         // text-transform: uppercase;
         // -webkit-transition: color 0.2s;
         // transition: color 0.2s;
-        align-items: flex-start;
+        align-items: center;
         justify-content: left;
         line-height: 1.09;
-        letter-spacing: -0.02em;
+        letter-spacing: 0.05em;
 
         margin: 0px;
         padding-top: 12px;
@@ -226,10 +228,31 @@ nav.navigation .hamburger-wrapper {
           padding-top: 7px !important;
           padding-bottom: 7px !important;
         }
+        a:hover {
+          text-decoration: none;
+        }
+
+        .divider.text {
+          align-self: end;
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
       .level-0 {
         border-bottom: 2px @blueLight solid;
+        font-size: 1.125rem;
+        line-height: 1.35rem;
+        font-family: @fontName;
       }
+      .level-1 {
+        font-family: @fontName;
+        text-transform: uppercase !important;
+      }
+      .level-2 {
+        color: @darkgrey;
+      }
+
 
       div.text {
         &:hover,
@@ -261,6 +284,9 @@ nav.navigation .hamburger-wrapper {
         i.dropdown.icon {
           color: black;
           height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
           // width: 50px;
           // height: 100% !important;
           // font-weight: 700;
@@ -270,7 +296,7 @@ nav.navigation .hamburger-wrapper {
 
           &:before {
             color: #000000;
-            font-size: 16px;
+            font-size: 21px;
             height: 100%;
           }
 

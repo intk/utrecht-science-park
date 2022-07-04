@@ -1,6 +1,8 @@
 import React from 'react';
 import { Popup, Image, Message } from 'semantic-ui-react';
 import ResponsiveContainer from '@eeacms/volto-block-image-cards/ImageCards/ResponsiveContainer';
+import { ListingBlockHeader } from '@package/components';
+import cx from 'classnames';
 
 import loadable from '@loadable/component';
 
@@ -58,6 +60,7 @@ const ImageCarousel = (props) => {
     autoplay = false,
     autoplaySpeed = 3000,
     image_scale = 'large',
+    display = '',
   } = data;
 
   const carouselSettings = {
@@ -107,7 +110,8 @@ const ImageCarousel = (props) => {
       ''
     )
   ) : (
-    <div className="image-carousel">
+    <div className={cx('image-carousel', `image-carousel-${display}`)}>
+      <ListingBlockHeader data={data} />
       <ResponsiveContainer>
         {({ parentWidth }) => {
           return parentWidth && isClient ? (

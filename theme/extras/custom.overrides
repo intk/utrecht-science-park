@@ -51,7 +51,10 @@
     text-transform: uppercase;
   }
 }
-
+//margin top for events
+.contenttype-event aside {
+    margin-top: 120px !important;
+}
 @import './document.less';
 @import './listing.less';
 @import './footer.less';

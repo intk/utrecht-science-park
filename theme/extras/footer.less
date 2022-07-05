@@ -73,12 +73,15 @@
       .footer-bottom-newsletter {
         padding: 1.25rem;
         a {
+          padding: 0px;
+          text-decoration: none;
+          display: inline-block;
           .greenLined();
           color: @white;
         }
-        a:hover {
-          color: @black;
-        }
+        // a:hover {
+        //   color: @black;
+        // }
         @media only screen and (max-width: @largestMobileScreen) {
           display: none;
         }

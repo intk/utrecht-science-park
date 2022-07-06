@@ -2,13 +2,16 @@
 
 @importGoogleFonts: true;
 
-@googleFontName    : Poppins;
-@googleFontSizes   : '400,700,400italic,700italic';
-@googleSubset      : 'latin';
+@googleFontName: Poppins;
+@googleFontSizes: '400,700,400italic,700italic';
+@googleSubset: 'latin';
 
-@fontName: 'Precious Sans Two Medium', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@headerFont: 'Precious Sans Two Bold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont: 'Precious Sans Two Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@fontName: 'Precious Sans Two Medium', 'Helvetica Neue', Arial, Helvetica,
+  sans-serif;
+@headerFont: 'Precious Sans Two Bold', 'Helvetica Neue', Arial, Helvetica,
+  sans-serif;
+@pageFont: 'Precious Sans Two Light', 'Helvetica Neue', Arial, Helvetica,
+  sans-serif;
 
 /*-------------------
       Site Colors
@@ -17,9 +20,9 @@
 @darkgrey: #706f6f;
 @lightergrey: #f1f1f1;
 @yellow: #fbba00;
-@pink: #EF12A6;
-@blueLight: #28B9F7;
-@greenLight: #97CC0A;
+@pink: #ef12a6;
+@blueLight: #28b9f7;
+@greenLight: #97cc0a;
 //@inputColor: #706f6f;
 
 /*-------------------
@@ -57,7 +60,6 @@
   }
 }
 
-
 .innerBorderAnimate(@startColor, @endColor, @size, @margin, @side) {
   border-@{margin}: @size @startColor solid;
 
@@ -91,7 +93,6 @@
     @side: before;
     .innerBorderAnimate(@startColor, @endColor, @size, @margin, @side);
   }
-
 }
 
 .animateBackgroundImage() {
@@ -112,15 +113,13 @@
 
   img {
     // See https://w3bits.com/css-image-hover-zoom/
-    transition: transform .2s ease;
+    transition: transform 0.2s ease;
   }
 
   &:hover img {
     transform: scale(1.1);
   }
-
 }
-
 
 @toReset: background-color, margin, padding, color, border, border-radius;
 
@@ -137,7 +136,7 @@
   padding: unset;
   padding-top: 0.5rem;
   text-transform: uppercase;
-  border-left: 0px;   // unset browser stylesheet
+  border-left: 0px; // unset browser stylesheet
   border-right: 0px;
   font-size: 1.25rem;
 
@@ -153,7 +152,7 @@
     color: unset;
   }
 
-  .animateBorder(@greenLight, @white, 4px, bottom)
+  .animateBorder(@greenLight, @white, 4px, bottom);
 }
 
 .blueLined() {
@@ -161,8 +160,7 @@
 
   // border-bottom: 4px @blueLight solid;
 
-  .animateBorder(@blueLight, @white, 4px, bottom)
-
+  .animateBorder(@blueLight, @white, 4px, bottom);
 }
 
 .isBtn() {
@@ -179,5 +177,19 @@
 .fullWidthOnMobile() {
   @media only screen and (max-width: @largestMobileScreen) {
     width: 100%;
+  }
+}
+
+.isBtnSec() {
+  .resetStyle();
+  display: inline-block;
+  color: @black;
+  cursor: pointer;
+  font-size: 1.563rem;
+  background-color: @white;
+  padding: 1.3rem 2rem 1rem 2rem;
+  &:hover {
+    background-color: @blueLight;
+    color: unset;
   }
 }

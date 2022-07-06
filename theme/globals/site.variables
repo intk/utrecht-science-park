@@ -169,6 +169,9 @@
   .greenLined();
 
   display: inline-block;
+
+  font-family: @headerFont !important;
+  text-decoration: none !important;
 }
 
 .fullWidthOnMobile() {

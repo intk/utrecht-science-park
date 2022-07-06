@@ -99,15 +99,8 @@
   & > h2 {
     margin-top: 1em;
   }
-
-  & > .block.hero {
-    .link-more {
-      a {
-        .greenLined();
-      }
-    }
-  }
 }
+
 //remove page margins for mobile
 @media only screen and (max-width: @largestMobileScreen) {
   #page-document {
@@ -121,7 +114,7 @@
     & > ul,
     & > div.block.video {
       margin-left: unset;
-  
+
       &.full {
         margin-left: unset;
       }
@@ -140,7 +133,7 @@
     & > h3 + *:not(:first-child) {
       margin-top: unset;
     }
-  
+
     & > h3 + .ui.divider {
       margin-top: unset;
       margin-bottom: unset;
@@ -148,7 +141,6 @@
     blockquote.callout {
       margin-left: unset !important;
     }
-  
   }
 }
 

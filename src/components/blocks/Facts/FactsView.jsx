@@ -35,7 +35,7 @@ const FactsView = (props) => {
   return (
     <div className="facts-grid">
       <div className="facts-grid-block-title">
-        <h2>{title}</h2>
+        <h1>{title}</h1>
 
         {linkHref ? <LinkMore data={data} /> : ''}
       </div>

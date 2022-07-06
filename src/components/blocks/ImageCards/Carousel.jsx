@@ -22,7 +22,7 @@ const Caption = ({ card }) => {
 
   return (
     <div className="slide-caption">
-      {!!title && <h4>{title}</h4>}
+      {!!title && <h5>{title}</h5>}
       {!!text && serializeNodes(text)}
     </div>
   );
@@ -140,17 +140,29 @@ const ImageCarousel = (props) => {
   ) : (
     <div className={cx('image-carousel', `image-carousel-${display}`)}>
       <ListingBlockHeader data={data} />
-      <Slider {...carouselSettings} ref={sliderRef}>
-        {cards.map((card, i) => (
-          <Card
-            key={i}
-            mode={editable ? 'edit' : 'view'}
-            card={card}
-            height={height}
-            image_scale={image_scale}
-          />
-        ))}
-      </Slider>
+
+      <ResponsiveContainer>
+        {({ parentWidth }) => {
+          return (
+            parentWidth &&
+            isClient && (
+              <div style={{ width: `${parentWidth}px`, margin: '0 auto' }}>
+                <Slider {...carouselSettings} ref={sliderRef}>
+                  {cards.map((card, i) => (
+                    <Card
+                      key={i}
+                      mode={editable ? 'edit' : 'view'}
+                      card={card}
+                      height={height}
+                      image_scale={image_scale}
+                    />
+                  ))}
+                </Slider>
+              </div>
+            )
+          );
+        }}
+      </ResponsiveContainer>
       {!!sliderRef.current && carouselSettings.slidesToShow === 1 && (
         <Caption card={cards[slideIndex]} />
       )}

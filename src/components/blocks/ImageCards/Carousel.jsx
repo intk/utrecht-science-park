@@ -31,41 +31,33 @@ const Caption = ({ card }) => {
 const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
   const { link, title } = card;
 
-  const LinkWrapper =
-    link && mode === 'view'
-      ? ({ children }) => (
-          <a href={link} target="_blank" rel="noreferrer" title={title}>
-            {children}
-          </a>
-        )
-      : ({ children }) => children;
-  const PopupWrapper = React.useMemo(
+  const LinkWrapper = React.useMemo(
     () =>
-      title
+      link && mode === 'view'
         ? ({ children }) => (
-            <Popup content={title} trigger={children} on="hover" />
+            <a href={link} target="_blank" rel="noreferrer" title={title}>
+              {children}
+            </a>
           )
         : ({ children }) => children,
-    [title],
+    [link, mode, title],
   );
 
   return (
     <div className="slide-img" style={{ height }}>
-      <PopupWrapper>
-        <LinkWrapper>
-          {card.attachedimage ? (
-            <Image
-              className="bg-image"
-              src={getScaleUrl(
-                getPath(card.attachedimage),
-                image_scale || 'large',
-              )}
-            />
-          ) : (
-            <Placeholder />
-          )}
-        </LinkWrapper>
-      </PopupWrapper>
+      <LinkWrapper>
+        {card.attachedimage ? (
+          <Image
+            className="bg-image"
+            src={getScaleUrl(
+              getPath(card.attachedimage),
+              image_scale || 'large',
+            )}
+          />
+        ) : (
+          <Placeholder />
+        )}
+      </LinkWrapper>
     </div>
   );
 };
@@ -88,46 +80,56 @@ const ImageCarousel = (props) => {
     display = '',
   } = data;
 
-  const carouselSettings = {
-    afterChange: (current) => setSlideIndex(current),
-    // speed: 800,
-    infinite: true,
-    slidesToShow: Math.min(cards.length, itemsPerRow),
-    slidesToScroll: 1,
-    dots: itemsPerRow > 1 && !hideNavigationDots,
-    autoplay: itemsPerRow > 1 && autoplay && !editable,
-    autoplaySpeed,
-    fade: false,
-    useTransform: false,
-    lazyLoad: 'ondemand',
+  const carouselSettings = React.useMemo(
+    () => ({
+      afterChange: (current) => setSlideIndex(current),
+      // speed: 800,
+      infinite: true,
+      slidesToShow: Math.min(cards.length, itemsPerRow),
+      slidesToScroll: 1,
+      dots: itemsPerRow > 1 && !hideNavigationDots,
+      autoplay: itemsPerRow > 1 && autoplay && !editable,
+      autoplaySpeed,
+      fade: false,
+      useTransform: false,
+      lazyLoad: 'ondemand',
 
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+          },
         },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
         },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
         },
-      },
+      ],
+    }),
+    [
+      autoplay,
+      autoplaySpeed,
+      cards.length,
+      editable,
+      hideNavigationDots,
+      itemsPerRow,
     ],
-  };
+  );
 
   return !cards.length ? (
     editable ? (
@@ -138,27 +140,17 @@ const ImageCarousel = (props) => {
   ) : (
     <div className={cx('image-carousel', `image-carousel-${display}`)}>
       <ListingBlockHeader data={data} />
-      <ResponsiveContainer>
-        {({ parentWidth }) => {
-          return parentWidth && isClient ? (
-            <div style={{ width: `${parentWidth}px`, margin: '0 auto' }}>
-              <Slider {...carouselSettings} ref={sliderRef}>
-                {cards.map((card, i) => (
-                  <Card
-                    key={i}
-                    mode={editable ? 'edit' : 'view'}
-                    card={card}
-                    height={height}
-                    image_scale={image_scale}
-                  />
-                ))}
-              </Slider>
-            </div>
-          ) : (
-            ''
-          );
-        }}
-      </ResponsiveContainer>
+      <Slider {...carouselSettings} ref={sliderRef}>
+        {cards.map((card, i) => (
+          <Card
+            key={i}
+            mode={editable ? 'edit' : 'view'}
+            card={card}
+            height={height}
+            image_scale={image_scale}
+          />
+        ))}
+      </Slider>
       {!!sliderRef.current && carouselSettings.slidesToShow === 1 && (
         <Caption card={cards[slideIndex]} />
       )}

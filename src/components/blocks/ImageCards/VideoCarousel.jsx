@@ -1,6 +1,6 @@
 import React from 'react';
 import loadable from '@loadable/component';
-import { Message } from 'semantic-ui-react';
+import { Message, Button } from 'semantic-ui-react';
 import { Icon, UniversalLink } from '@plone/volto/components';
 import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
 import readySVG from '@plone/volto/icons/ready.svg';
@@ -16,7 +16,7 @@ import { BodyClass } from '@plone/volto/helpers';
 
 const Slider = loadable(() => import('react-slick'));
 
-const VideoEmbed = ({ url, placeholder, height, width }) => {
+const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
   const [play, setIsPlay] = React.useState();
 
   if (!url) return null;
@@ -31,7 +31,7 @@ const VideoEmbed = ({ url, placeholder, height, width }) => {
         <iframe
           width={width}
           height={height}
-          src={`https://www.youtube.com/embed/${embedId}`}
+          src={`https://www.youtube.com/embed/${embedId}?autoplay=1`}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -40,19 +40,22 @@ const VideoEmbed = ({ url, placeholder, height, width }) => {
       ) : (
         <div className="placeholder-image">
           <img src={placeholder} className="placeholder" alt="Placeholder" />
-          <Icon
-            name={readySVG}
-            size={`${height / 10}px`}
-            color="white"
-            onClick={() => setIsPlay(true)}
-          />
+          <Button
+            basic
+            onClick={() => {
+              sliderRef.current.slickPause();
+              setIsPlay(true);
+            }}
+          >
+            <Icon name={readySVG} size={`${height / 10}px`} color="white" />
+          </Button>
         </div>
       )}
     </div>
   );
 };
 
-const VideoSlide = ({ card, image_scale, height }) => {
+const VideoSlide = ({ card, image_scale, height, sliderRef }) => {
   const preview_image = getPath(card.attachedimage);
   let placeholder = preview_image
     ? isInternalURL(preview_image)
@@ -69,7 +72,6 @@ const VideoSlide = ({ card, image_scale, height }) => {
 
   return (
     <div className="slider-slide">
-      <VideoEmbed {...embedSettings} />
       <div className="slider-caption">
         <div className="slide-body">
           {card.linkHref?.[0] ? (
@@ -86,12 +88,15 @@ const VideoSlide = ({ card, image_scale, height }) => {
           </UniversalLink>
         )}
       </div>
+      <VideoEmbed {...embedSettings} sliderRef={sliderRef} />
     </div>
   );
 };
 
 const VideoCarousel = ({ data }) => {
   const sliderRef = React.useRef();
+
+  const [slideHeight, setSlideHeight] = React.useState();
   const nodeRef = React.useRef();
 
   const { cards = [], image_scale = 'large' } = data;
@@ -103,7 +108,7 @@ const VideoCarousel = ({ data }) => {
       infinite: true,
       autoplay: true,
       pauseOnHover: true,
-      autoplaySpeed: 10000,
+      autoplaySpeed: 5000,
       slidesToShow: 1,
       slidesToScroll: 1,
       adaptiveHeight: false,
@@ -115,7 +120,9 @@ const VideoCarousel = ({ data }) => {
     [],
   );
 
-  const slideHeight = nodeRef.current && nodeRef.current.clientHeight;
+  React.useEffect(() => {
+    setSlideHeight(nodeRef.current && nodeRef.current.clientHeight);
+  }, []);
 
   return (
     <div
@@ -148,6 +155,7 @@ const VideoCarousel = ({ data }) => {
                   key={i}
                   image_scale={image_scale}
                   height={slideHeight}
+                  sliderRef={sliderRef}
                 />
               ))}
             </Slider>

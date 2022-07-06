@@ -68,7 +68,7 @@ const schema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
   fieldsets: [
     {
       id: 'default',
-      fields: ['title', 'linkTitle', 'linkHref', 'cards'],
+      fields: ['title', 'linkTitle', 'linkHref'], // 'cards'
       title: 'Basics',
     },
   ],

@@ -1,8 +1,8 @@
 import { defineMessages } from 'react-intl';
-// import { flattenToAppURL } from '@plone/volto/helpers';
 
-import clearSVG from '@plone/volto/icons/clear.svg';
-import navTreeSVG from '@plone/volto/icons/nav.svg';
+// import { flattenToAppURL } from '@plone/volto/helpers';
+// import clearSVG from '@plone/volto/icons/clear.svg';
+// import navTreeSVG from '@plone/volto/icons/nav.svg';
 
 const messages = defineMessages({
   icon: {
@@ -68,7 +68,7 @@ const schema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
   fieldsets: [
     {
       id: 'default',
-      fields: ['title', 'href', 'cards'],
+      fields: ['title', 'linkTitle', 'linkHref', 'cards'],
       title: 'Basics',
     },
   ],
@@ -84,22 +84,15 @@ const schema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
       schema: CardSchema({ onChangeBlock, intl, data, openObjectBrowser }),
     },
 
-    href: {
-      title: intl.formatMessage(messages.LinkTo),
-      description: intl.formatMessage(messages.linkToDescription),
-      icon: data.href ? clearSVG : navTreeSVG,
-      iconAction: data.href
-        ? () => {
-            onChangeBlock(data.block, {
-              ...data,
-              href: '',
-            });
-          }
-        : () => openObjectBrowser({ mode: 'link' }),
+    linkHref: {
+      title: 'Call to action',
+      widget: 'object_browser',
+      mode: 'link',
+      selectedItemAttrs: ['Title', 'Description'],
+      allowExternals: true,
     },
-    callToAction: {
-      title: 'Link title',
-      description: 'Text for the call to action button',
+    linkTitle: {
+      title: 'Button title',
     },
   },
   required: [],

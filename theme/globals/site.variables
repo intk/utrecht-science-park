@@ -167,6 +167,8 @@
 .isBtn() {
   .resetStyle();
   .greenLined();
+
+  display: inline-block;
 }
 
 .fullWidthOnMobile() {

@@ -123,7 +123,9 @@ class Search extends Component {
               </div>
 
               <SearchTags />
+            </header>
 
+            <section id="content-core">
               {this.props.search?.items_total > 0 ? (
                 <div className="search-results-count">
                   {intl.formatMessage(messages.searchResultsCount, {
@@ -139,9 +141,6 @@ class Search extends Component {
                   />
                 </div>
               )}
-            </header>
-
-            <section id="content-core">
               {this.props.items.map((item) => (
                 <article className="tileItem" key={item['@id']}>
                   <h2 className="tileHeadline">

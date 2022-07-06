@@ -158,15 +158,6 @@ class Search extends Component {
                       <span className="description">{item.description}</span>
                     </div>
                   )}
-                  <div className="tileFooter">
-                    <UniversalLink item={item}>
-                      <FormattedMessage
-                        id="Read More…"
-                        defaultMessage="Read More…"
-                      />
-                    </UniversalLink>
-                  </div>
-                  <div className="visualClear" />
                 </article>
               ))}
 

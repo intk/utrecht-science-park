@@ -3,6 +3,7 @@ import TitleCards from './TitleCards';
 import VideoCarousel, { VideoCardSchema } from './VideoCarousel';
 
 export default function install(config) {
+  config.blocks.blocksConfig.imagecards.defaultRendererName = 'imageCards';
   config.blocks.blocksConfig.imagecards.blockRenderers = {
     ...config.blocks.blocksConfig.imagecards.blockRenderers,
     titleCards: {

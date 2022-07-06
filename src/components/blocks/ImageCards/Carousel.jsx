@@ -2,6 +2,8 @@ import React from 'react';
 import { Popup, Image, Message } from 'semantic-ui-react';
 import ResponsiveContainer from '@eeacms/volto-block-image-cards/ImageCards/ResponsiveContainer';
 import { ListingBlockHeader } from '@package/components';
+import { Placeholder } from 'semantic-ui-react';
+import { serializeNodes } from 'volto-slate/editor/render';
 import cx from 'classnames';
 
 import loadable from '@loadable/component';
@@ -15,6 +17,17 @@ import { getScaleUrl, getPath } from './utils';
 
 const Slider = loadable(() => import('react-slick'));
 
+const Caption = ({ card }) => {
+  const { title, text } = card;
+
+  return (
+    <div className="slide-caption">
+      {!!title && <h4>{title}</h4>}
+      {!!text && serializeNodes(text)}
+    </div>
+  );
+};
+
 const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
   const { link, title } = card;
 
@@ -26,21 +39,31 @@ const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
           </a>
         )
       : ({ children }) => children;
-  const PopupWrapper = title
-    ? ({ children }) => <Popup content={title} trigger={children} on="hover" />
-    : ({ children }) => children;
+  const PopupWrapper = React.useMemo(
+    () =>
+      title
+        ? ({ children }) => (
+            <Popup content={title} trigger={children} on="hover" />
+          )
+        : ({ children }) => children,
+    [title],
+  );
 
   return (
     <div className="slide-img" style={{ height }}>
       <PopupWrapper>
         <LinkWrapper>
-          <Image
-            className="bg-image"
-            src={getScaleUrl(
-              getPath(card.attachedimage),
-              image_scale || 'large',
-            )}
-          />
+          {card.attachedimage ? (
+            <Image
+              className="bg-image"
+              src={getScaleUrl(
+                getPath(card.attachedimage),
+                image_scale || 'large',
+              )}
+            />
+          ) : (
+            <Placeholder />
+          )}
         </LinkWrapper>
       </PopupWrapper>
     </div>
@@ -49,6 +72,8 @@ const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
 
 const ImageCarousel = (props) => {
   const { data = {}, editable = false } = props;
+  const sliderRef = React.useRef();
+  const [slideIndex, setSlideIndex] = React.useState(0);
   const [isClient, setIsClient] = React.useState(false);
 
   React.useEffect(() => setIsClient(true), []);
@@ -64,6 +89,7 @@ const ImageCarousel = (props) => {
   } = data;
 
   const carouselSettings = {
+    afterChange: (current) => setSlideIndex(current),
     // speed: 800,
     infinite: true,
     slidesToShow: Math.min(cards.length, itemsPerRow),
@@ -116,7 +142,7 @@ const ImageCarousel = (props) => {
         {({ parentWidth }) => {
           return parentWidth && isClient ? (
             <div style={{ width: `${parentWidth}px`, margin: '0 auto' }}>
-              <Slider {...carouselSettings}>
+              <Slider {...carouselSettings} ref={sliderRef}>
                 {cards.map((card, i) => (
                   <Card
                     key={i}
@@ -133,6 +159,7 @@ const ImageCarousel = (props) => {
           );
         }}
       </ResponsiveContainer>
+      {!!sliderRef.current && <Caption card={cards[slideIndex]} />}
     </div>
   );
 };

@@ -159,7 +159,9 @@ const ImageCarousel = (props) => {
           );
         }}
       </ResponsiveContainer>
-      {!!sliderRef.current && <Caption card={cards[slideIndex]} />}
+      {!!sliderRef.current && carouselSettings.slidesToShow === 1 && (
+        <Caption card={cards[slideIndex]} />
+      )}
     </div>
   );
 };

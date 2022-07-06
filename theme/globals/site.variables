@@ -172,6 +172,7 @@
   display: inline-block;
 
   font-family: @headerFont !important;
+  font-weight: normal;
   text-decoration: none !important;
 }
 

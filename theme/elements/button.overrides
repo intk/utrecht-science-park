@@ -14,6 +14,7 @@ p.buttonSec {
   a {
     .isBtn();
   }
+
   // display: inline-block;
   // margin: 0;
   // color: @black;

@@ -23,6 +23,7 @@
   flex-direction: column;
 
   .animateBorder(white, #019fb6, 4px, top);
+  // .cycleBorder(top);
   .animateBackgroundImage();
 
   .image-container {
@@ -46,6 +47,7 @@
     h4 {
       margin: 0;
     }
+
     time {
       margin-top: auto;
     }
@@ -73,15 +75,17 @@
 
     button {
       outline: none;
-      .greenLined();
-      border-color: transparent;
+      .isBtn();
 
       &:hover {
         .greenLined();
       }
+
       &.hidden {
         visibility: hidden;
       }
+
+      border-color: transparent;
     }
   }
 }

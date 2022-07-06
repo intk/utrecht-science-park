@@ -23,7 +23,10 @@
 @pink: #ef12a6;
 @blueLight: #28b9f7;
 @greenLight: #97cc0a;
-//@inputColor: #706f6f;
+
+@cycleColors: @pink, @yellow, @blueLight, @greenLight;
+
+// @inputColor: #706f6f;
 
 /*-------------------
       Base Sizes (see site.overrides for h1 to h4)
@@ -60,6 +63,27 @@
   }
 }
 
+.innerCycleBorder(@margin, @side) {
+  @len: length(@cycleColors);
+
+  // repeat the colors for every nth child
+  each(@cycleColors,  {
+    &:nth-child(@{len}n+@{index}):@{side} {
+      border-@{margin}-color: @value !important;
+    }
+  });
+}
+
+.cycleBorder(@margin) {
+  & when (@margin = top) {
+    .innerCycleBorder(@margin, before);
+  }
+
+  & when (@margin = bottom) {
+    .innerCycleBorder(@margin, after);
+  }
+}
+
 .innerBorderAnimate(@startColor, @endColor, @size, @margin, @side) {
   border-@{margin}: @size @startColor solid;
 
@@ -79,7 +103,6 @@
   }
 }
 
-// @side,
 .animateBorder(@startColor, @endColor, @size, @margin) {
   @side: after;
 
@@ -130,18 +153,28 @@
 }
 
 .greenLined() {
-  background-color: unset;
+  .animateBorder(@greenLight, @white, 4px, bottom);
+}
+
+.blueLined() {
+  // border-bottom: 4px @blueLight solid;
+
+  .animateBorder(@blueLight, @white, 4px, bottom);
+}
+
+.isBtn() {
+  .resetStyle();
+
   color: @black;
   border-radius: unset;
-  padding: unset;
   padding-top: 0.5rem;
   text-transform: uppercase;
-  border-left: 0px; // unset browser stylesheet
-  border-right: 0px;
   font-size: 1.25rem;
+  display: inline-block;
 
-  // border-bottom: 4px @greenLight solid;
-  // padding-bottom: 0.5rem;
+  font-family: @headerFont !important;
+  font-weight: normal;
+  text-decoration: none !important;
 
   a {
     text-decoration: none !important;
@@ -152,26 +185,12 @@
     color: unset;
   }
 
-  .animateBorder(@greenLight, @white, 4px, bottom);
-}
-
-.blueLined() {
   .greenLined();
 
-  // border-bottom: 4px @blueLight solid;
-
-  .animateBorder(@blueLight, @white, 4px, bottom);
-}
-
-.isBtn() {
-  .resetStyle();
-  .greenLined();
-
-  display: inline-block;
-
-  font-family: @headerFont !important;
-  font-weight: normal;
-  text-decoration: none !important;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-left: 0px; // unset browser stylesheet
+  border-right: 0px;
 }
 
 .fullWidthOnMobile() {
@@ -182,12 +201,14 @@
 
 .isBtnSec() {
   .resetStyle();
+
   display: inline-block;
   color: @black;
   cursor: pointer;
   font-size: 1.563rem;
   background-color: @white;
   padding: 1.3rem 2rem 1rem 2rem;
+
   &:hover {
     background-color: @blueLight;
     color: unset;

@@ -30,7 +30,12 @@ const getEmbedUrl = (url) => {
     return [
       `//player.vimeo.com/video/${videoId}`,
       '?api=false',
-      `&amp;autoplay=true`,
+      `&amp;dnt=1`,
+      `&amp;loop=1`,
+      `&amp;autopause=1`,
+      `&amp;muted=1`,
+      `&amp;background=1`,
+      `&amp;autoplay=1`,
       '&amp;byline=false',
       '&amp;portrait=false',
       '&amp;title=false',

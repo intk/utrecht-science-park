@@ -36,6 +36,7 @@
                   transform: translate(-50%, -50%);
                   border: 3px solid white;
                   border-radius: 0px;
+                  padding: 1.25rem 0.5rem 1.25rem 1.75rem;
 
                   &:hover {
                     background-color: transparent !important;
@@ -89,9 +90,15 @@
                 .video-slider-caption {
                   h2 {
                     color: white !important;
+                    font-size: clamp(1.875rem, 3.75vw, 3.125rem);
+                    line-height: clamp(2.25rem, 3.75vw, 3.750rem);
+                    text-transform: uppercase;
+                    width: 75%;
+
                   }
 
                   .ui.button {
+                    font-size: clamp(0.825rem, 2vw, 1.25rem) !important;
                     .isBtn();
                     .blueLined();
 

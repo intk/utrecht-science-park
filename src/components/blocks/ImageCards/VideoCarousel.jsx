@@ -19,14 +19,36 @@ export { VideoCardSchema } from './schema';
 
 const Slider = loadable(() => import('react-slick'));
 
+// <iframe src="https://player.vimeo.com/video/706175904?h=1c4118bf74" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+// <p><a href="https://vimeo.com/706175904">The Kites</a> from <a href="https://vimeo.com/user85705276">Seyed Payam Hosseini</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+const getEmbedUrl = (url) => {
+  let videoId;
+
+  if (url.match('vimeo')) {
+    videoId = url.match(/^.*\.com\/(.*)/)[1];
+    return [
+      `//player.vimeo.com/video/${videoId}`,
+      '?api=false',
+      `&amp;autoplay=true`,
+      '&amp;byline=false',
+      '&amp;portrait=false',
+      '&amp;title=false',
+    ].join('');
+  }
+  videoId = url.match(/.be\//)
+    ? url.match(/^.*\.be\/(.*)/)[1]
+    : url.match(/^.*\?v=(.*)$/)[1];
+
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+};
+
 const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
   const [play, setIsPlay] = React.useState();
 
   if (!url) return null;
 
-  const embedId = url.match(/.be\//)
-    ? url.match(/^.*\.be\/(.*)/)[1]
-    : url.match(/^.*\?v=(.*)$/)[1];
+  const embedUrl = getEmbedUrl(url);
 
   return (
     <div className="video-responsive">
@@ -34,11 +56,11 @@ const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
         <iframe
           width={width}
           height={height}
-          src={`https://www.youtube.com/embed/${embedId}?autoplay=1`}
+          src={embedUrl}
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "
           allowFullScreen
-          title="Embedded youtube"
+          title="Embedded video"
         />
       ) : (
         <div className="placeholder-image">

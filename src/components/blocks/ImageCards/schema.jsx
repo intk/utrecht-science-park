@@ -87,7 +87,7 @@ export const VideoCardSchema = (args) => {
       videoUrl: {
         widget: 'text',
         title: 'Video URL',
-        description: 'Youtube video URL',
+        description: 'Youtube/Vimeo video URL',
       },
       linkTitle: {
         title: 'Button title',

@@ -23,7 +23,7 @@ const Card = ({ card = {}, image_scale }) => {
   return (
     <div className="title-card">
       <LinkWrapper link={link} title={title}>
-        <h2>{title || 'null'}</h2>
+        <h3>{title || 'null'}</h3>
         <div className="title-card-text">
           {text ? serializeNodes(text) : ''}
         </div>

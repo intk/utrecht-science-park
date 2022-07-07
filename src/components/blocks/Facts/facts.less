@@ -20,10 +20,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr 2fr 2fr;
     grid-template-areas:
-    'block-title block-title'
-    'tall tall'
-    '. .'
-    '. wide';
+      'block-title block-title'
+      'tall tall'
+      '. .'
+      '. wide';
   }
 }
 
@@ -61,22 +61,21 @@
 #view .facts-grid-block-title {
   // .factCard();
   grid-area: block-title;
-  
-  h1 {
+
+  h2 {
     margin-top: unset !important;
   }
+
   @media only screen and (max-width: @largestMobileScreen) {
     display: flex;
     justify-content: space-between;
     align-items: center;
     //flex-wrap: wrap;
-    h1 {
+    //
+    h2 {
       margin: unset;
       margin-top: 1rem !important;
       width: 10ch;
-    }
-    .link-more {
-      //align-self: flex-end;
     }
   }
 }

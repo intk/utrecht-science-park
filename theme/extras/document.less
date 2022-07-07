@@ -188,9 +188,38 @@
       }
 
       p {
-        margin-top: 60px !important;
         width: 50%;
+        margin-top: 60px !important;
       }
+    }
+  }
+}
+
+.listing-block-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 11.5rem;
+  margin-bottom: 4rem;
+
+  h2 {
+    flex-grow: 1;
+    margin-bottom: 0px;
+    font-family: @mediumFont;
+    text-transform: uppercase;
+    // line-height: 0px;
+  }
+
+  .link-more {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-grow: 0;
+    // margin: calc(2rem - 0.14285714em) 0em 1rem;
+
+    a {
+      padding: 0px;
+      text-decoration: none;
+
+      .isBtn();
     }
   }
 }

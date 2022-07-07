@@ -12,6 +12,7 @@
   sans-serif;
 @pageFont: 'Precious Sans Two Light', 'Helvetica Neue', Arial, Helvetica,
   sans-serif;
+@mediumFont: @fontName;
 
 /*-------------------
       Site Colors

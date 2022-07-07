@@ -6,7 +6,7 @@ const ListingBlockHeader = ({ data }) => {
 
   return head ? (
     <div className="listing-block-header">
-      <h1>{head}</h1>
+      <h2>{head}</h2>
       {linkHref ? <LinkMore data={data} /> : ''}
     </div>
   ) : (

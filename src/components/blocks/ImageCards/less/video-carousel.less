@@ -51,23 +51,53 @@
                 }
               }
 
-              .slider-caption {
+              .slider-footer {
                 position: absolute;
                 z-index: 1;
                 bottom: 2em;
+                display: flex;
+                justify-content: space-between;
+                width: 90%;
+                left: 5%;
 
-                h2 {
-                  color: white !important;
+                .video-carousel-dots {
+                  // background-color: red;
+                  display: flex;
+                  flex-direction: column-reverse;
+
+                  .inner {
+                    display: flex;
+                    gap: 6px;
+
+                    button {
+                      width: 80px;
+                      height: 10px;
+                      background-color: #ffffff33;
+                      font-size: 0;
+                      border: 0px;
+                      cursor: pointer;
+
+                      &.slick-active {
+                        background-color: white;
+                      }
+                    }
+                  }
                 }
 
-                .ui.button {
-                  .isBtn();
-                  .blueLined();
+                .video-slider-caption {
+                  h2 {
+                    color: white !important;
+                  }
 
-                  color: white !important;
+                  .ui.button {
+                    .isBtn();
+                    .blueLined();
 
-                  &:hover {
-                    color: black !important;
+                    color: white !important;
+
+                    &:hover {
+                      color: black !important;
+                    }
                   }
                 }
               }

@@ -67,3 +67,44 @@ export const TitleCardsSchema = ({ data, schema, intl }) => {
     required: [],
   };
 };
+
+export const VideoCardSchema = (args) => {
+  return {
+    title: 'Video Card',
+    fieldsets: [
+      {
+        id: 'default',
+        title: 'Default',
+        fields: ['title', 'videoUrl', 'linkHref', 'linkTitle', 'attachedimage'],
+      },
+    ],
+
+    properties: {
+      title: {
+        type: 'string',
+        title: 'Message',
+      },
+      videoUrl: {
+        widget: 'text',
+        title: 'Video URL',
+        description: 'Youtube video URL',
+      },
+      linkTitle: {
+        title: 'Button title',
+      },
+      linkHref: {
+        title: 'Call to action',
+        widget: 'object_browser',
+        mode: 'link',
+        selectedItemAttrs: ['Title', 'Description'],
+        allowExternals: true,
+      },
+      attachedimage: {
+        widget: 'attachedimage',
+        title: 'Preview image',
+      },
+    },
+
+    required: ['attachedimage'],
+  };
+};

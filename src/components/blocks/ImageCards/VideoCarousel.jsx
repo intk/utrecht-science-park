@@ -3,7 +3,8 @@ import loadable from '@loadable/component';
 import { Message, Button } from 'semantic-ui-react';
 import { Icon, UniversalLink } from '@plone/volto/components';
 import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
-import readySVG from '@plone/volto/icons/ready.svg';
+
+import playSVG from '@plone/volto/icons/play.svg';
 
 import cx from 'classnames';
 
@@ -13,6 +14,8 @@ import './less/video-carousel.less';
 import { getPath } from './utils';
 
 import { BodyClass } from '@plone/volto/helpers';
+
+export { VideoCardSchema } from './schema';
 
 const Slider = loadable(() => import('react-slick'));
 
@@ -47,7 +50,7 @@ const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
               setIsPlay(true);
             }}
           >
-            <Icon name={readySVG} size={`${height / 10}px`} color="white" />
+            <Icon name={playSVG} size={`${height / 10}px`} color="white" />
           </Button>
         </div>
       )}
@@ -55,7 +58,14 @@ const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
   );
 };
 
-const VideoSlide = ({ card, image_scale, height, sliderRef }) => {
+const VideoSlide = ({
+  card,
+  image_scale,
+  height,
+  sliderRef,
+  slideIndex,
+  slideCount,
+}) => {
   const preview_image = getPath(card.attachedimage);
   let placeholder = preview_image
     ? isInternalURL(preview_image)
@@ -72,30 +82,58 @@ const VideoSlide = ({ card, image_scale, height, sliderRef }) => {
 
   return (
     <div className="slider-slide">
-      <div className="slider-caption">
-        <div className="slide-body">
-          {card.linkHref?.[0] ? (
-            <UniversalLink href={card.linkHref[0]['@id']}>
+      <div className="slider-footer">
+        <div className="video-slider-caption">
+          <div className="slide-body">
+            {card.linkHref?.[0] ? (
+              <UniversalLink href={card.linkHref[0]['@id']}>
+                <h2 className="slide-title">{card.title || ''}</h2>
+              </UniversalLink>
+            ) : (
               <h2 className="slide-title">{card.title || ''}</h2>
+            )}
+          </div>
+          {!!card.linkHref?.[0] && (
+            <UniversalLink href={card.linkHref[0]['@id']} className="ui button">
+              {card.linkTitle || '...'}
             </UniversalLink>
-          ) : (
-            <h2 className="slide-title">{card.title || ''}</h2>
           )}
         </div>
-        {!!card.linkHref?.[0] && (
-          <UniversalLink href={card.linkHref[0]['@id']} className="ui button">
-            {card.linkTitle || '...'}
-          </UniversalLink>
-        )}
+
+        <Dots
+          sliderRef={sliderRef}
+          slideIndex={slideIndex}
+          slideCount={slideCount}
+        />
       </div>
       <VideoEmbed {...embedSettings} sliderRef={sliderRef} />
     </div>
   );
 };
 
+const Dots = ({ sliderRef, settings, slideIndex, slideCount }) => {
+  return (
+    <div className="video-carousel-dots">
+      <div className="inner">
+        {new Array(slideCount).fill(null).map((_, k) => (
+          <button
+            className={cx({ 'slick-active': slideIndex === k })}
+            key={k}
+            onClick={(e) => {
+              sliderRef.current && sliderRef.current.slickGoTo(k);
+              e.preventDefault();
+            }}
+          >
+            {slideIndex}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const VideoCarousel = ({ data }) => {
   const sliderRef = React.useRef();
-
   const [slideHeight, setSlideHeight] = React.useState();
   const nodeRef = React.useRef();
 
@@ -103,6 +141,7 @@ const VideoCarousel = ({ data }) => {
 
   var settings = React.useMemo(
     () => ({
+      // afterChange: (current) => setSlideIndex(current),
       fade: true,
       speed: 800,
       infinite: true,
@@ -115,7 +154,7 @@ const VideoCarousel = ({ data }) => {
       vertical: false,
       lazyLoad: 'ondemand',
       arrows: false,
-      dots: true,
+      dots: false,
     }),
     [],
   );
@@ -143,22 +182,26 @@ const VideoCarousel = ({ data }) => {
       >
         <div className="slider-wrapper">
           {cards.length && slideHeight ? (
-            <Slider
-              {...settings}
-              slideHeight={slideHeight}
-              ref={sliderRef}
-              listHeight="100vh"
-            >
-              {cards.map((card, i) => (
-                <VideoSlide
-                  card={card}
-                  key={i}
-                  image_scale={image_scale}
-                  height={slideHeight}
-                  sliderRef={sliderRef}
-                />
-              ))}
-            </Slider>
+            <>
+              <Slider
+                {...settings}
+                slideHeight={slideHeight}
+                ref={sliderRef}
+                listHeight="100vh"
+              >
+                {cards.map((card, i) => (
+                  <VideoSlide
+                    card={card}
+                    key={i}
+                    image_scale={image_scale}
+                    height={slideHeight}
+                    sliderRef={sliderRef}
+                    slideIndex={i}
+                    slideCount={cards.length}
+                  />
+                ))}
+              </Slider>
+            </>
           ) : (
             <Message>No image cards</Message>
           )}
@@ -169,43 +212,3 @@ const VideoCarousel = ({ data }) => {
 };
 
 export default VideoCarousel;
-
-export const VideoCardSchema = (args) => {
-  return {
-    title: 'Video Card',
-    fieldsets: [
-      {
-        id: 'default',
-        title: 'Default',
-        fields: ['title', 'videoUrl', 'linkHref', 'linkTitle', 'attachedimage'],
-      },
-    ],
-
-    properties: {
-      title: {
-        type: 'string',
-        title: 'Message',
-      },
-      videoUrl: {
-        widget: 'text',
-        title: 'Video URL',
-      },
-      linkTitle: {
-        title: 'Button title',
-      },
-      linkHref: {
-        title: 'Call to action',
-        widget: 'object_browser',
-        mode: 'link',
-        selectedItemAttrs: ['Title', 'Description'],
-        allowExternals: true,
-      },
-      attachedimage: {
-        widget: 'attachedimage',
-        title: 'Preview image',
-      },
-    },
-
-    required: ['attachedimage'],
-  };
-};

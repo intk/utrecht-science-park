@@ -71,7 +71,7 @@ const ImageCarousel = (props) => {
   React.useEffect(() => setIsClient(true), []);
   const {
     cards = [],
-    height = '120px',
+    height = '233px',
     itemsPerRow = 4,
     hideNavigationDots = false,
     autoplay = false,

@@ -4,7 +4,7 @@
 @import (multiple, reference, optional) '../../theme.config';
 
 #page-document {
-  // float h3s to left
+  // float elements to left
   & > .image-carousel {
     // max-width: @leftColumnSize;
     margin-left: @leftColumnSize;
@@ -82,5 +82,22 @@
       font-size: 3rem;
       text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
     }
+  }
+}
+.image-carousel.image-carousel-imageCarousel {
+    .slide-img {
+      align-items: center;
+      flex-direction: row;
+      background-color: @white;
+      margin-right: 0.25rem;
+      padding-right:0em;
+      img.bg-image {
+        // width: 306px;
+        height: unset;
+        max-height: 100%;
+        // margin: auto auto;
+        object-fit: contain;
+      }
+
   }
 }

@@ -16,14 +16,15 @@
     '. wide wide';
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+
   @media only screen and (max-width: @largestMobileScreen) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr 2fr 2fr;
     grid-template-areas:
       'block-title block-title'
       'tall tall'
       '. .'
       '. wide';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
   }
 }
 
@@ -58,7 +59,7 @@
   .factsGrid();
 }
 
-#view .facts-grid-block-title {
+.facts-grid-block-title {
   // .factCard();
   grid-area: block-title;
 
@@ -73,7 +74,7 @@
     justify-content: space-between;
     align-items: center;
     //flex-wrap: wrap;
-    //
+
     h2 {
       margin: unset;
       margin-top: 1rem !important;
@@ -93,82 +94,3 @@
 .fact-card {
   .factCard();
 }
-
-// .facts-grid {
-//   display: flex;
-//   flex-direction: column;
-//   .factGridContainer(@gap);
-//
-//   .facts-row {
-//     // display: flex;
-//     // flex-direction: row;
-//     // flex-wrap: wrap;
-//     // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-//
-//     .fact-header {
-//       height: @bigHeight;
-//       padding-right: 1em;
-//     }
-//
-//
-//     .fact-card.big {
-//       height: @bigHeight;
-//       img {
-//         height: unset;
-//         width: auto;
-//         max-height: 140px;
-//       }
-//     }
-//     .subfacts-grid {
-//       display: flex;
-//       flex-direction: column;
-//       gap: 6px;
-//     }
-//   }
-//   .title {
-//     font-size: clamp(2rem, 4.25vw, 4.06rem);
-//     line-height: clamp(2.4rem, 4.25vw, 4.875rem);
-//   }
-//   .subtitle {
-//     font-size: clamp(0.875rem, 4.25vw, 1.25rem);
-//     line-height: clamp(1.026rem, 4.25vw, 1.465rem);
-//     margin-bottom: 0.75rem;
-//   }
-// }
-//
-// @media only screen and (max-width: 1070px) {
-//   .facts-grid {
-//     .fact-header {
-//       height: unset !important;
-//       grid-column: span 2;
-//       grid-template-columns: 1fr 1fr;
-//       display: grid;
-//       h2 {
-//         margin: unset !important;
-//       }
-//       a {
-//         text-align: right;
-//         align-self: flex-end;
-//       }
-//     }
-//
-//     .fact-card {
-//       height: 20rem !important;
-//     }
-//
-//     .fact-card.big {
-//       display: grid;
-//       grid-column: span 2;
-//       img {
-//         align-self: end;
-//       }
-//     }
-//
-//     .subfacts-grid {
-//       display: grid !important;
-//       grid-column: span 2;
-//       grid-template-columns: 1fr 1fr;
-//       gap: 6px;
-//     }
-//   }
-// }

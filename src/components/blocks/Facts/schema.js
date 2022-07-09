@@ -1,9 +1,5 @@
 import { defineMessages } from 'react-intl';
 
-// import { flattenToAppURL } from '@plone/volto/helpers';
-// import clearSVG from '@plone/volto/icons/clear.svg';
-// import navTreeSVG from '@plone/volto/icons/nav.svg';
-
 const messages = defineMessages({
   icon: {
     id: 'icon',
@@ -44,7 +40,7 @@ const CardSchema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
   fieldsets: [
     {
       id: 'default',
-      fields: ['title', 'subtitle', 'url'],
+      fields: ['title', 'subtitle'], //  'url'
       title: 'Default',
     },
   ],
@@ -56,10 +52,10 @@ const CardSchema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
     subtitle: {
       title: intl.formatMessage(messages.subtitle),
     },
-    url: {
-      title: intl.formatMessage(messages.image),
-      widget: 'attachedimage',
-    },
+    // url: {
+    //   title: intl.formatMessage(messages.image),
+    //   widget: 'attachedimage',
+    // },
   },
   required: [],
 });
@@ -68,7 +64,7 @@ const schema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
   fieldsets: [
     {
       id: 'default',
-      fields: ['title', 'linkTitle', 'linkHref'], // 'cards'
+      fields: ['title', 'linkTitle', 'linkHref', 'cards'],
       title: 'Basics',
     },
   ],

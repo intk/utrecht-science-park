@@ -6,20 +6,18 @@ import Card from './ListingCard';
 
 const ListingTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
   return (
-    <>
-      <Grid stackable columns={2} className="listings two-columns">
-        {items.map((item, i) => (
-          <Grid.Column
-            mobile={12}
-            tablet={6}
-            computer={4}
-            className="listing-column"
-          >
-            <Card item={item} key={i} />
-          </Grid.Column>
-        ))}
-      </Grid>
-    </>
+    <Grid stackable columns={2} className="listings two-columns">
+      {items.map((item, i) => (
+        <Grid.Column
+          mobile={12}
+          tablet={6}
+          computer={4}
+          className="listing-column"
+        >
+          <Card item={item} key={i} />
+        </Grid.Column>
+      ))}
+    </Grid>
   );
 };
 

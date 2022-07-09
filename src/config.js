@@ -3,6 +3,7 @@ import loadable from '@loadable/component';
 import AttachedImageWidget from './components/widgets/AttachedImageWidget';
 import installBlocks from './components/blocks';
 import MultipleContentView from './components/theme/View/MultipleContentView';
+import ListingView from './components/theme/View/ListingView';
 import Layouts from '@plone/volto/constants/Layouts';
 
 // All your imports required for the config here BEFORE this line
@@ -33,6 +34,7 @@ export default function applyConfig(config) {
   };
 
   config.views.layoutViews.multiple_content = MultipleContentView;
+  config.views.layoutViews.listing_view = ListingView;
   Layouts.multiple_content = 'Section layout';
 
   config.widgets.widget.attachedimage = AttachedImageWidget;

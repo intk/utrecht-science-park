@@ -35,27 +35,29 @@ export default (config) => {
   };
 
   config.blocks.blocksConfig.listing.variations = [
-    ...config.blocks.blocksConfig.listing.variations,
+    // ...config.blocks.blocksConfig.listing.variations,
 
     {
-      id: 'agenda',
-      isDefault: false,
-      title: 'Agenda Listing',
-      template: AgendaListingTemplate,
-    },
-    {
       id: 'listings',
-      isDefault: false,
-      title: 'Multiple Listings',
+      isDefault: true,
+      title: 'Cards',
       template: ListingsBlockTemplate,
     },
     {
       id: 'slider_listing',
       isDefault: false,
-      title: 'Slider (listing)',
+      title: 'Slider',
       template: SliderListingBlockTemplate,
     },
+    {
+      id: 'agenda',
+      isDefault: false,
+      title: 'Agenda',
+      template: AgendaListingTemplate,
+    },
   ];
+
+  // config.blocks.blocksConfig.listing.variations[0].isDefault = false;
 
   return config;
 };

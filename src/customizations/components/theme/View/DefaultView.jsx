@@ -1,17 +1,12 @@
-/**
- * Document view component.
- * @module components/theme/View/DefaultView
- */
-
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { RenderBlocks } from '@plone/volto/components';
 import { Container, Image } from 'semantic-ui-react';
-// import { map } from 'lodash';
-// import config from '@plone/volto/registry';
 
 import { hasBlocksData, getBaseUrl } from '@plone/volto/helpers';
+
+// Customized to hide the title and description blocks, as they are included in
+// the header
 
 function filterBlocks(content, types) {
   if (!(content.blocks && content.blocks_layout?.items)) return content;
@@ -27,17 +22,11 @@ function filterBlocks(content, types) {
   };
 }
 
-/**
- * Component to display the default view.
- * @function DefaultView
- * @param {Object} content Content object.
- * @returns {string} Markup of the component.
- */
 const DefaultView = (props) => {
   const { content, location } = props;
   const path = getBaseUrl(location?.pathname || '');
 
-  const hasLeadImage = content?.image;
+  const hasLeadImage = content?.preview_image;
   const filteredContent = hasLeadImage
     ? filterBlocks(content, ['title', 'description'])
     : content;
@@ -52,10 +41,10 @@ const DefaultView = (props) => {
       {content.description && (
         <p className="documentDescription">{content.description}</p>
       )}
-      {content.image && (
+      {content.preview_image && (
         <Image
           className="document-image"
-          src={content.image.scales.thumb.download}
+          src={content.preview_image.scales.thumb.download}
           floated="right"
         />
       )}
@@ -74,36 +63,6 @@ const DefaultView = (props) => {
       )}
     </Container>
   );
-};
-
-/**
- * Property types.
- * @property {Object} propTypes Property types.
- * @static
- */
-DefaultView.propTypes = {
-  /**
-   * Content of the object
-   */
-  content: PropTypes.shape({
-    /**
-     * Title of the object
-     */
-    title: PropTypes.string,
-    /**
-     * Description of the object
-     */
-    description: PropTypes.string,
-    /**
-     * Text of the object
-     */
-    text: PropTypes.shape({
-      /**
-       * Data of the text of the object
-       */
-      data: PropTypes.string,
-    }),
-  }).isRequired,
 };
 
 export default DefaultView;

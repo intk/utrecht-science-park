@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import loadable from '@loadable/component';
 import { ResponsiveContainer, ListingBlockHeader } from '@package/components';
 import { Icon } from '@plone/volto/components';
@@ -12,7 +11,8 @@ import backSVG from '@plone/volto/icons/back.svg';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './less/SliderListing.less';
+
+import './less/slider-listing.less';
 
 const Slider = loadable(() => import('react-slick'));
 

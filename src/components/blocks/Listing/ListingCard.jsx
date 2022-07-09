@@ -5,6 +5,8 @@ import { PreviewImage } from '@plone/volto/components';
 import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
 import { FormattedDate } from '@package/components';
 
+// see extras/listing.less for less
+
 const Card = ({ item }) => {
   const { image_field } = item;
   const size = 'teaser';

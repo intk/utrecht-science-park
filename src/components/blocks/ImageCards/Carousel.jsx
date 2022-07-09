@@ -1,9 +1,9 @@
 import React from 'react';
-import { Popup, Image, Message } from 'semantic-ui-react';
-import ResponsiveContainer from '@eeacms/volto-block-image-cards/ImageCards/ResponsiveContainer';
+import { Image, Message } from 'semantic-ui-react';
 import { ListingBlockHeader } from '@package/components';
 import { Placeholder } from 'semantic-ui-react';
 import { serializeNodes } from 'volto-slate/editor/render';
+import { ResponsiveContainer } from '@package/components';
 import cx from 'classnames';
 
 import loadable from '@loadable/component';
@@ -80,12 +80,14 @@ const ImageCarousel = (props) => {
     display = '',
   } = data;
 
+  const slidesToShow = Math.min(cards.length, itemsPerRow);
+
   const carouselSettings = React.useMemo(
     () => ({
       afterChange: (current) => setSlideIndex(current),
       // speed: 800,
       infinite: true,
-      slidesToShow: Math.min(cards.length, itemsPerRow),
+      slidesToShow,
       slidesToScroll: 1,
       dots: itemsPerRow > 1 && !hideNavigationDots,
       autoplay: itemsPerRow > 1 && autoplay && !editable,
@@ -98,8 +100,8 @@ const ImageCarousel = (props) => {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: Math.min(slidesToShow, 3),
+            slidesToScroll: Math.min(slidesToShow, 3),
             infinite: true,
             dots: true,
           },
@@ -107,9 +109,9 @@ const ImageCarousel = (props) => {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2,
+            slidesToShow: Math.min(slidesToShow, 2),
+            slidesToScroll: Math.min(slidesToShow, 2),
+            initialSlide: Math.min(slidesToShow, 2),
           },
         },
         {
@@ -124,10 +126,10 @@ const ImageCarousel = (props) => {
     [
       autoplay,
       autoplaySpeed,
-      cards.length,
       editable,
       hideNavigationDots,
       itemsPerRow,
+      slidesToShow,
     ],
   );
 

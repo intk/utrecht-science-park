@@ -12,9 +12,9 @@
 
   .ui.grid > .column:not(.row),
   .ui.grid > .row > .column {
-    padding-left: unset;
-    padding-right: unset;
     padding-right: 3px;
+    padding-left: unset;
+
     .listing-item img {
       width: 100%;
       aspect-ratio: 2 / 1;
@@ -22,12 +22,12 @@
     }
 
     .listing-item-content {
-      background-color: @white;
       aspect-ratio: 2 / 1;
+      background-color: @white;
 
       h2 {
-        margin: unset;
         padding: 1.5rem;
+        margin: unset;
         font-size: 2.188rem;
         line-height: 2.813rem;
 
@@ -39,48 +39,47 @@
   }
 }
 
-/********   Listings > NewsListingStatic   ********/
-.newsListingStatic {
-  .ui.segment {
-    padding: unset;
-    margin: unset;
-  }
-
-  .ui.grid > .column:not(.row),
-  .ui.grid > .row > .column {
-    padding-left: unset;
-    padding-right: unset;
-    padding-right: 3px;
-
-    .listing-item-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background-color: @white;
-      aspect-ratio: 1 / 1.33;
-
-      h2 {
-        margin: unset;
-        padding: 1.25rem;
-        font-size: 1.875rem;
-        line-height: 2.625rem;
-
-        a {
-          color: @black;
-        }
-      }
-
-      time {
-        margin-top: auto;
-        font-size: 1.25rem;
-        padding: 1.25rem;
-      }
-
-      img {
-        width: 100%;
-        aspect-ratio: 1.5 / 1;
-        object-fit: cover;
-      }
-    }
-  }
-}
+// /********   Listings > NewsListingStatic   ********/
+// .newsListingStatic {
+//   .ui.segment {
+//     padding: unset;
+//     margin: unset;
+//   }
+//
+//   .ui.grid > .column:not(.row),
+//   .ui.grid > .row > .column {
+//     padding-right: 3px;
+//     padding-left: unset;
+//
+//     .listing-item-content {
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: space-between;
+//       aspect-ratio: 1 / 1.33;
+//       background-color: @white;
+//
+//       h2 {
+//         padding: 1.25rem;
+//         margin: unset;
+//         font-size: 1.875rem;
+//         line-height: 2.625rem;
+//
+//         a {
+//           color: @black;
+//         }
+//       }
+//
+//       time {
+//         padding: 1.25rem;
+//         margin-top: auto;
+//         font-size: 1.25rem;
+//       }
+//
+//       img {
+//         width: 100%;
+//         aspect-ratio: 1.5 / 1;
+//         object-fit: cover;
+//       }
+//     }
+//   }
+// }

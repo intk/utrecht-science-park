@@ -12,7 +12,7 @@ import backSVG from '@plone/volto/icons/back.svg';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import './less/slider-listing.less';
+// import './less/slider-listing.less';
 
 const Slider = loadable(() => import('react-slick'));
 

@@ -7,52 +7,9 @@
 
 @import (multiple, reference, optional) '../../theme.config';
 
-@cardBg: white;
-
 .slider-listing {
   .slick-slide.slick-active:last-child {
     margin-right: 0em;
-  }
-}
-.slick-slide {
-  
-}
-.listing-card {
-  margin-right: 0.25rem;
-  background-color: @cardBg;
-  aspect-ratio: 0.7518797;
-  display: flex;
-  flex-direction: column;
-
-  .animateBorder(white, #019fb6, 4px, top);
-  .cycleBorder(top);
-  .animateBackgroundImage();
-
-  .image-container {
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      aspect-ratio: 1.5;
-    }
-  }
-
-  .slide-details {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0.625rem 1rem 0.625rem 1rem;
-    background-color: @cardBg;
-    height: 150px;
-
-    h4 {
-      margin: 0;
-    }
-
-    time {
-      margin-top: auto;
-    }
   }
 }
 
@@ -90,23 +47,6 @@
       }
 
       border-color: transparent;
-    }
-  }
-}
-
-.slider-listing .image-container {
-  max-height: 50%;
-}
-
-.slider-listing .newsitem-card {
-  .slide-details {
-    h4 {
-      font-size: 1.875rem;
-      line-height: 2.625rem;
-      font-size: clamp(1.125rem, 2.25vw, 1.875rem);
-      line-height: clamp(1.563rem, 2.25vw, 2.625rem);
-      font-family: @pageFont;
-      text-transform: none;
     }
   }
 }

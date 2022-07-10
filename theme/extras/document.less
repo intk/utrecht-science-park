@@ -18,17 +18,17 @@
   // Volto default blockquote & callout
   blockquote.callout {
     min-height: 3em;
+    padding: 0;
     padding-right: 5rem;
     padding-left: 7.5rem;
+    border: unset;
     margin-left: @leftColumnSize;
     background: url('@{assetsFolder}/images/quotes.svg') no-repeat top left;
+    box-shadow: unset;
     font-size: clamp(1.125rem, 2.75vw, 1.75rem);
     line-height: clamp(1.35rem, 2.75vw, 2.1rem);
-    border: unset;
-    box-shadow: unset;
-    padding-top: 0;
-    padding-bottom: 0;
   }
+
   p.callout {
     border: unset;
     box-shadow: unset;
@@ -243,5 +243,11 @@
 
       .isBtn();
     }
+  }
+}
+
+.view-viewview main #view {
+  h1.documentFirstHeading {
+    display: none; // it is displayed as part of the HeroSection
   }
 }

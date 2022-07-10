@@ -125,15 +125,15 @@ nav.navigation .hamburger-wrapper {
     }
 
     .mobile-menu-top {
-      background: @gradientImg repeat-x top left @lightergrey;
-      background-size: contain;
       display: flex;
-      gap: 1.25rem;
+      width: 100%;
       align-items: center;
       justify-content: space-between;
-      background-color: @white;
-      width: 100%;
       padding-left: 1rem;
+      background: @gradientImg repeat-x top left @lightergrey;
+      // background-color: @white;
+      background-size: contain;
+      gap: 1.25rem;
 
       .logo-mobile-nav {
         max-width: 70%;
@@ -144,9 +144,9 @@ nav.navigation .hamburger-wrapper {
       }
 
       .close-button {
-        align-self: flex-end;
         width: 36px;
         height: 36px;
+        align-self: flex-end;
       }
 
       @media (max-width: @largestTabletScreen) {
@@ -174,30 +174,24 @@ nav.navigation .hamburger-wrapper {
       margin-left: 0px;
 
       @media (max-width: @largestTabletScreen) {
-        padding-left: 5px;
-        padding-right: 20px;
         width: 100%;
+        padding-right: 20px;
+        padding-left: 5px;
       }
 
       .item {
         width: 100% !important;
-        color: @black;
         align-items: center;
         justify-content: left;
-        line-height: 1.09;
-        letter-spacing: 0.05em;
-
+        padding: 12px 1rem;
         margin: 0px;
-        padding-top: 12px;
-        padding-bottom: 12px;
-        padding-left: 1rem;
-        padding-right: 1rem;
-
-        //border-bottom: 0px !important;
+        color: @black;
+        letter-spacing: 0.05em;
+        line-height: 1.09;
 
         &.active {
-          color: #000000 !important;
           background: transparent !important;
+          color: #000000 !important;
         }
 
         &:active:hover {
@@ -229,22 +223,26 @@ nav.navigation .hamburger-wrapper {
       }
 
       .level-0 {
-        border-bottom: 2px @blueLight solid;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        .cycleBorderNoside(bottom);
+
+        // border-bottom: 2px @blueLight solid;
+        font-family: @fontName;
         font-size: 1.125rem;
         line-height: 1.35rem;
-        font-family: @fontName;
       }
 
       .level-1 {
-        font-family: @fontName;
-        text-transform: uppercase !important;
         display: flex !important;
         border-top: 1px @lightergrey solid;
+        font-family: @fontName;
+        text-transform: uppercase !important;
       }
 
       .level-1:hover {
-        text-decoration: none;
         background: @white !important;
+        text-decoration: none;
       }
 
       a.level-2 {

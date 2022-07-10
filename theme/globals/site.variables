@@ -96,6 +96,17 @@
   }
 }
 
+.cycleBorderNoside(@margin) {
+  @len: length(@cycleColors);
+
+  // repeat the colors for every nth child
+  each(@cycleColors,  {
+    &:nth-child(@{len}n+@{index}) {
+      border-@{margin}-color: @value !important;
+    }
+  });
+}
+
 .innerBorderAnimate(@startColor, @endColor, @size, @margin, @side) {
   border-@{margin}: @size @startColor solid;
 

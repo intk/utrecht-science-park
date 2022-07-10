@@ -1,0 +1,200 @@
+// /********   Listings > NewsListingStatic   ********/
+// .newsListingStatic {
+//   .ui.segment {
+//     padding: unset;
+//     margin: unset;
+//   }
+//
+//   .ui.grid > .column:not(.row),
+//   .ui.grid > .row > .column {
+//     padding-right: 3px;
+//     padding-left: unset;
+//
+//     .listing-item-content {
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: space-between;
+//       aspect-ratio: 1 / 1.33;
+//       background-color: @white;
+//
+//       h2 {
+//         padding: 1.25rem;
+//         margin: unset;
+//         font-size: 1.875rem;
+//         line-height: 2.625rem;
+//
+//         a {
+//           color: @black;
+//         }
+//       }
+//
+//       time {
+//         padding: 1.25rem;
+//         margin-top: auto;
+//         font-size: 1.25rem;
+//       }
+//
+//       img {
+//         width: 100%;
+//         aspect-ratio: 1.5 / 1;
+//         object-fit: cover;
+//       }
+//     }
+//   }
+// }
+
+//    {/* <div className="footer-social">
+//              {socialLinks.map(({ id, title, href }) => (
+//                  <UniversalLink key={id} href={href}>
+//                      {title}
+//                  </UniversalLink>
+//              ))}
+//          </div>
+//          <div className="footer-logos">
+//              <div className='footer-logos-partners'>
+//                  <h4>Partners / founders</h4>
+//                  <div className='logos'><img
+//                      height="auto"
+//                      title="Utrecht University"
+//                      src={UtrechtUnivLogo}
+//                      alt="Utrecht University"
+//                      className="logo-partner"
+//                  />
+//                  <img
+//                      height="auto"
+//                      title="City of Utrecht"
+//                      src={CityUtrechtLogo}
+//                      alt="City of Utrecht"
+//                      className="logo-partner"
+//                  />
+//                  <img
+//                      height="auto"
+//                      title="UMC Utrecht"
+//                      src={UMCUtrechtLogo}
+//                      alt="UMC Utrecht"
+//                      className="logo-partner"
+//                  />
+//                  <img
+//                      height="auto"
+//                      title="University of Applied Sciences Utrecht"
+//                      src={UnivApplScienceLogo}
+//                      alt="University of Applied Sciences Utrecht"
+//                      className="logo-partner"
+//                  />
+//                  <img
+//                      height="auto"
+//                      title="Provincie Utrecht"
+//                      src={ProvUtrechtLogo}
+//                      alt="Provincie Utrecht"
+//                      className="logo-partner"
+//                  />
+//                  </div>
+//              </div>
+//              <div className='footer-logos-supporters'>
+//                  <h4> Supported by</h4>
+//                  <div className='logos'>
+//                  <img
+//                      height="auto"
+//                      title="Ondernemers fonds Utrecht"
+//                      src={OnderFondsLogo}
+//                      alt="Ondernemers fonds Utrecht"
+//                      className="logo-partner"
+//                  />
+//                  <img
+//                      height="auto"
+//                      title="European Fund for regional Development"
+//                      src={EuroRegDevLogo}
+//                      alt="European Fund for regional Development"
+//                      className="logo-partner"
+//                  />
+//                  </div>
+//              </div>
+//          </div> */}
+
+// @media only screen and (max-width: @largestMobileScreen) {
+//   #main .footer {
+//     .footer-top {
+//       grid-template-columns: 1fr;
+//     }
+//
+//     .footer-bottom {
+//       grid-template-columns: 1fr;
+//     }
+//   }
+// }
+
+/********   Footer Overrides END   ********/
+
+// display: flex;
+// align-items: center;
+// justify-content: flex-end;
+// gap: 1.25rem;
+
+// .footer-logos {
+//   display: grid;
+//   grid-template-columns: 3fr 2fr;
+//   min-height: 150px;
+
+//   .footer-logos-partners {
+//     border-right: 1px solid #000000;
+//     padding: 1.25rem 1.25rem 0 1.25rem;
+
+//     h4 {
+//       font-family: @pageFont;
+//       font-size: clamp(0.688rem, 2.25vw, 1rem);
+//     }
+
+//     .logos {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+
+//       img {
+//         height: 100%;
+//       }
+//     }
+//   }
+
+//   .footer-logos-supporters {
+//     padding: 1.25rem 0 0 1.25rem;
+
+//     h4 {
+//       font-family: @pageFont;
+//       font-size: clamp(0.688rem, 2.25vw, 1rem);
+//     }
+
+//     .logos {
+//       display: flex;
+//       align-items: center;
+//       gap: 10;
+
+//       img {
+//         height: 100%;
+//       }
+//     }
+//   }
+// }
+// a:hover {
+//   color: @black;
+// }
+// display: grid;
+// grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+// a {
+//   border-width: 1px 1px 1px 0;
+//   border-style: solid;
+//   border-color: #000000;
+//   padding: 1.5rem 0;
+//   color: black;
+//   font-size: clamp(0.875rem, 2.25vw, 1.125rem);
+// }
+// .footer-top {
+//   display: grid;
+//   min-height: 350px;
+//   grid-template-columns: 2fr 1fr;
+// }
+// .footer-bottom {
+//   display: grid;
+//   color: white;
+//   font-size: clamp(0.813rem, 2.25vw, 1.142rem);
+//   grid-template-columns: 2fr 1fr;
+//   }

@@ -109,6 +109,7 @@
       max-width: 100%;
       float: unset;
     }
+
     & > p,
     & > ol,
     & > ul,
@@ -119,17 +120,21 @@
         margin-left: unset;
       }
     }
+
     & > .ui.divider.short {
       margin-left: unset;
     }
+
     & > table,
     .table-of-contents {
       width: 100%;
       margin-left: unset;
     }
+
     .quoteBlock-wrapper {
       margin-left: unset;
     }
+
     & > h3 + *:not(:first-child) {
       margin-top: unset;
     }
@@ -138,6 +143,7 @@
       margin-top: unset;
       margin-bottom: unset;
     }
+
     blockquote.callout {
       margin-left: unset !important;
     }
@@ -215,11 +221,12 @@
   margin-bottom: 4rem;
 
   h2 {
+    max-width: 45% !important;
     flex-grow: 1;
     margin-bottom: 0px;
     // font-family: @mediumFont;
     text-transform: uppercase;
-    max-width: 45% !important;
+
     .h3Text();
     // line-height: 0px;
   }

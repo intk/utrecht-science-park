@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
+import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
 
 function HeroSection(props) {
   const { image_url, content } = props;
@@ -23,6 +24,7 @@ function HeroSection(props) {
       </div>
       <Container>
         <h1 className="content-title">{content_title}</h1>
+        {!!content?.start && <When start={content.start} end={content.end} />}
         {content_description && (
           <p className={'content-description'}>{content_description}</p>
         )}

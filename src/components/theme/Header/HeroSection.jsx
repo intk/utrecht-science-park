@@ -33,5 +33,4 @@ function HeroSection(props) {
   );
 }
 
-// HeroSection.displayName = 'HeroSection';
 export default HeroSection;

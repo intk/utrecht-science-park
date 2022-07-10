@@ -1,7 +1,7 @@
 // Customized to use the HeroSection
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   LanguageSelector,
   Logo,
@@ -13,14 +13,18 @@ import { HeroSection } from '@package/components'; // , StickyHeader
 import usePreviewImage from './usePreviewImage';
 
 const Header = (props) => {
-  const { content, pathname, navigationItems } = props;
+  const { pathname, navigationItems } = props;
+
+  const content = useSelector((state) => state.content.data);
 
   const previewImage = usePreviewImage(pathname);
 
   const previewImageUrl = previewImage?.scales?.huge?.download;
   const contentTitle = content?.title;
-  const contentImageCaption = content?.image_caption;
   const contentDescription = content?.description;
+
+  // const contentImageCaption = content?.image_caption;
+
   const contentType = content?.['@type'];
   const isHomePage = contentType === 'Plone Site' || contentType === 'LRF';
   const cmsView = isCmsUi(pathname);
@@ -66,7 +70,6 @@ const Header = (props) => {
           <div className={'header-container'} style={{ position: 'relative' }}>
             <HeroSection
               image_url={previewImageUrl}
-              image_caption={contentImageCaption}
               content_title={contentTitle}
               content_description={contentDescription}
             />
@@ -77,9 +80,4 @@ const Header = (props) => {
   );
 };
 
-export default connect(
-  (state) => ({
-    content: state.content.data,
-  }),
-  {},
-)(Header);
+export default Header;

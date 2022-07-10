@@ -16,13 +16,13 @@ const parent = (path) => {
 const usePreviewImage = (pathname) => {
   const dispatch = useDispatch();
   const contentData = useSelector((state) => state.content.data);
+  const contentId = flattenToAppURL(contentData?.['@id'] || '');
+  const subrequestId = `${contentId}-preview_image_request}`;
   const subrequest = useSelector(
-    (state) => state.content.subrequests?.preview_image_request,
+    (state) => state.content.subrequests?.[subrequestId],
   );
   const preview_image =
     contentData?.preview_image || subrequest?.data?.preview_image;
-
-  // console.log('subrequest', subrequest);
 
   const parentPath = parent(
     subrequest?.data
@@ -30,14 +30,11 @@ const usePreviewImage = (pathname) => {
       : flattenToAppURL(contentData?.['@id']),
   );
 
-  // console.log(preview_image, parentPath);
-
   React.useEffect(() => {
     if (!preview_image && parentPath) {
-      dispatch(getContent(parentPath, null, 'preview_image_request'));
+      dispatch(getContent(parentPath, null, subrequestId));
     }
-  }, [preview_image, parentPath, dispatch]);
-  // previewImage: state?.content?.data?.preview_image,
+  }, [preview_image, parentPath, dispatch, subrequestId]);
 
   return preview_image;
 };

@@ -12,7 +12,7 @@ const ButtonSchema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
   fieldsets: [
     {
       id: 'default',
-      fields: ['linkTitle', 'linkHref'], //  'url'
+      fields: ['linkTitle', 'linkHref', 'btnStyle'], //  'url'
       title: 'Default',
     },
   ],
@@ -27,6 +27,13 @@ const ButtonSchema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
       mode: 'link',
       selectedItemAttrs: ['Title', 'Description'],
       allowExternals: true,
+    },
+    btnStyle: {
+      title: 'Style',
+      choices: [
+        ['primary', 'Primary'],
+        ['secondary', 'Secondary'],
+      ],
     },
   },
   required: [],

@@ -37,6 +37,9 @@ export default function applyConfig(config) {
 
   config.views.layoutViews.multiple_content = MultipleContentView;
   config.views.layoutViews.listing_view = ListingView;
+  config.views.layoutViews.listing_view = ListingView;
+  config.views.contentTypesViews.Event = config.views.defaultView;
+
   Layouts.multiple_content = 'Section layout';
 
   config.widgets.widget.attachedimage = AttachedImageWidget;

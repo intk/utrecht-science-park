@@ -20,9 +20,6 @@ const Header = (props) => {
   const previewImage = usePreviewImage(pathname);
 
   const previewImageUrl = previewImage?.scales?.huge?.download;
-  const contentTitle = content?.title;
-  const contentDescription = content?.description;
-
   // const contentImageCaption = content?.image_caption;
 
   const contentType = content?.['@type'];
@@ -68,11 +65,7 @@ const Header = (props) => {
       {!(cmsView || isHomePage) && (
         <div className="header-bg">
           <div className={'header-container'} style={{ position: 'relative' }}>
-            <HeroSection
-              image_url={previewImageUrl}
-              content_title={contentTitle}
-              content_description={contentDescription}
-            />
+            <HeroSection image_url={previewImageUrl} content={content} />
           </div>
         </div>
       )}

@@ -368,3 +368,11 @@ strong {
 body {
   background-color: @lightergrey;
 }
+
+// utilities
+.verticalAlign() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+

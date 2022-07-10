@@ -35,6 +35,12 @@ function isActive(url, pathname) {
   );
 }
 
+function LocalDimmer({ active }) {
+  return active ? (
+    <div className="ui dimmer" style={{ display: 'block' }}></div>
+  ) : null;
+}
+
 function Navigation({ pathname, intl, items, lang }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState();
 
@@ -47,6 +53,7 @@ function Navigation({ pathname, intl, items, lang }) {
 
   return (
     <nav className="navigation" id="navigation" aria-label="navigation">
+      <LocalDimmer active={isMobileMenuOpen} />
       <div className="hamburger-wrapper mobile tablet only">
         <button
           className={cx('hamburger hamburger--spin', {

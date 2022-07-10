@@ -13,7 +13,7 @@ import config from '@plone/volto/registry';
 import closeSVG from '@plone/volto/icons/clear.svg';
 import SiteLogo from '@package/static/logo.svg';
 
-const NavItem = ({ item, lang, level }) => {
+const NavItem = ({ item, lang, level, closeMobileMenu }) => {
   const { settings } = config;
   // The item.url in the root is ''
   // TODO: make more consistent it everywhere (eg. reducers to return '/' instead of '')
@@ -29,6 +29,7 @@ const NavItem = ({ item, lang, level }) => {
         exact={
           settings.isMultilingual ? item.url === `/${lang}` : item.url === ''
         }
+        onClick={closeMobileMenu}
       >
         {item.title}
       </NavLink>
@@ -47,21 +48,44 @@ const NavItem = ({ item, lang, level }) => {
   }
 };
 
-const MenuItem = ({ item, lang, level = 0 }) => {
+const MenuItem = ({ item, lang, level = 0, closeMobileMenu }) => {
+  const [isOpened, setIsOpened] = React.useState(false);
   return item.items?.length > 0 ? (
-    <Dropdown text={item.title} className={cx('item', `level-${level}`)}>
+    <Dropdown
+      text={item.title}
+      className={cx('item', `level-${level}`)}
+      onClick={() => setIsOpened(!isOpened)}
+      open={isOpened}
+    >
       <Dropdown.Menu>
-        <NavItems items={item.items} lang={lang} level={level + 1} />
+        <NavItems
+          items={item.items}
+          lang={lang}
+          level={level + 1}
+          closeMobileMenu={closeMobileMenu}
+        />
       </Dropdown.Menu>
     </Dropdown>
   ) : (
-    <NavItem item={item} lang={lang} key={item.url} level={level} />
+    <NavItem
+      item={item}
+      lang={lang}
+      key={item.url}
+      level={level}
+      closeMobileMenu={closeMobileMenu}
+    />
   );
 };
 
-const NavItems = ({ items, lang, level = 0 }) => {
+const NavItems = ({ items, lang, level = 0, closeMobileMenu }) => {
   return items.map((item, key) => (
-    <MenuItem key={key} level={level} lang={lang} item={item} />
+    <MenuItem
+      key={key}
+      level={level}
+      lang={lang}
+      item={item}
+      closeMobileMenu={closeMobileMenu}
+    />
   ));
 };
 
@@ -96,7 +120,11 @@ const MobileNavItems = ({
         </div>
         <div className="mobile-menu-nav">
           <Menu stackable pointing secondary>
-            <NavItems items={items} lang={lang} />
+            <NavItems
+              items={items}
+              lang={lang}
+              closeMobileMenu={closeMobileMenu}
+            />
           </Menu>
         </div>
       </div>

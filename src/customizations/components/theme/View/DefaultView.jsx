@@ -37,17 +37,7 @@ const DefaultView = (props) => {
     </div>
   ) : (
     <Container id="page-document">
-      <h1 className="documentFirstHeading">{content.title}</h1>
-      {content.description && (
-        <p className="documentDescription">{content.description}</p>
-      )}
-      {content.preview_image && (
-        <Image
-          className="document-image"
-          src={content.preview_image.scales.thumb.download}
-          floated="right"
-        />
-      )}
+      {/* default title+description blocks are inserted by the HeroSection */}
       {content.remoteUrl && (
         <span>
           The link address is:
@@ -64,5 +54,17 @@ const DefaultView = (props) => {
     </Container>
   );
 };
+
+//    <h1 className="documentFirstHeading">{content.title}</h1>
+//    {content.description && (
+//      <p className="documentDescription">{content.description}</p>
+//    )}
+//    {content.preview_image && (
+//      <Image
+//        className="document-image"
+//        src={content.preview_image.scales.thumb.download}
+//        floated="right"
+//      />
+//    )}
 
 export default DefaultView;

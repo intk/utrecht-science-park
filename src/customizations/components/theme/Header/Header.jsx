@@ -10,9 +10,12 @@ import {
 } from '@plone/volto/components';
 import { BodyClass, isCmsUi } from '@plone/volto/helpers';
 import { HeroSection } from '@package/components'; // , StickyHeader
+import usePreviewImage from './usePreviewImage';
 
 const Header = (props) => {
-  const { content, previewImage, pathname, navigationItems } = props;
+  const { content, pathname, navigationItems } = props;
+
+  const previewImage = usePreviewImage(pathname);
 
   const previewImageUrl = previewImage?.scales?.huge?.download;
   const contentTitle = content?.title;
@@ -26,7 +29,7 @@ const Header = (props) => {
   return (
     <div className="portal-top">
       {homePageView && <BodyClass className="homepage-view" />}
-      {previewImageUrl && !cmsView && <BodyClass className="has-image" />}
+      {!cmsView && <BodyClass className="has-image" />}
       <div
         className={`header-wrapper ${
           homePageView ? 'homepage' : 'contentpage'
@@ -76,7 +79,6 @@ const Header = (props) => {
 
 export default connect(
   (state) => ({
-    previewImage: state?.content?.data?.preview_image,
     content: state.content.data,
   }),
   {},

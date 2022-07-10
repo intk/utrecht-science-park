@@ -1,9 +1,9 @@
 /********   Customn Overrides   ********/
 
 // hide the breadcrumbs on view pages
-.ui.breadcrumbs {
-  display: none;
-}
+// .ui.breadcrumbs {
+//   display: none;
+// }
 
 .view-viewview.has-image {
   #main > .breadcrumbs {

@@ -14,6 +14,8 @@ export default function applyConfig(config) {
 
   installStyleMenu(config);
 
+  config.blocks.blocksConfig.title.view = () => null;
+
   config.settings = {
     ...config.settings,
     navDepth: 3,

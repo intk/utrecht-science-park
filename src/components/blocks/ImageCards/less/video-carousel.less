@@ -58,10 +58,10 @@
                 position: absolute;
                 z-index: 1;
                 bottom: 2em;
+                left: 10%;
                 display: flex;
+                width: 80%;
                 justify-content: space-between;
-                width: 90%;
-                left: 5%;
 
                 .video-carousel-dots {
                   // background-color: red;
@@ -75,10 +75,10 @@
                     button {
                       width: 80px;
                       height: 6px;
-                      background-color: #ffffff33;
-                      font-size: 0;
                       border: 0px;
+                      background-color: #ffffff33;
                       cursor: pointer;
+                      font-size: 0;
 
                       &.slick-active {
                         background-color: white;
@@ -89,23 +89,26 @@
 
                 .video-slider-caption {
                   h2 {
+                    width: 75%;
                     color: white !important;
                     font-size: clamp(1.875rem, 3.75vw, 3.125rem);
-                    line-height: clamp(2.25rem, 3.75vw, 3.750rem);
+                    line-height: clamp(2.25rem, 3.75vw, 3.75rem);
                     text-transform: uppercase;
-                    width: 75%;
-
                   }
 
-                  .ui.button {
-                    font-size: clamp(0.825rem, 2vw, 1.25rem) !important;
-                    .isBtn();
-                    .blueLined();
+                  .slide-button {
+                    text-align: left;
 
-                    color: white !important;
+                    .ui.button {
+                      .isBtn();
+                      .blueLined();
 
-                    &:hover {
                       color: white !important;
+                      font-size: clamp(0.825rem, 2vw, 1.25rem) !important;
+
+                      &:hover {
+                        color: white !important;
+                      }
                     }
                   }
                 }
@@ -113,9 +116,9 @@
 
               .slider-action {
                 position: absolute;
-                display: flex;
                 top: calc(50% - 64px);
                 left: calc(50% - 64px);
+                display: flex;
 
                 // .ui.button {
                 //   color: white !important;

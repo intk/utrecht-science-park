@@ -1,6 +1,6 @@
 /********   header Overrides   ********/
 
-@topDelta: 0px;
+@topDelta: 10px;
 @gradientImg: url('./assets/images/header-gradient.svg');
 
 .header-wrapper {
@@ -110,7 +110,7 @@ nav.navigation .hamburger-wrapper {
     left: auto;
     display: flex;
     max-width: 670px;
-    height: ~'calc(100vh - @{topDelta})';
+    height: ~'calc(100vh - 2 * @{topDelta})';
     flex-direction: column;
     align-items: center;
     padding-top: 0px;
@@ -129,8 +129,9 @@ nav.navigation .hamburger-wrapper {
       width: 100%;
       align-items: center;
       justify-content: space-between;
+      padding-top: 1rem;
       padding-left: 1rem;
-      background: @gradientImg repeat-x top left @lightergrey;
+      background: @gradientImg repeat-x top left @white;
       // background-color: @white;
       background-size: contain;
       gap: 1.25rem;
@@ -138,9 +139,9 @@ nav.navigation .hamburger-wrapper {
       .logo-mobile-nav {
         max-width: 70%;
 
-        @media (min-width: 992px) {
-          display: none;
-        }
+        // @media (min-width: 992px) {
+        //   display: none;
+        // }
       }
 
       .close-button {
@@ -223,7 +224,7 @@ nav.navigation .hamburger-wrapper {
       }
 
       .level-0 {
-        border-bottom-width: 2px;
+        border-bottom-width: 1px;
         border-bottom-style: solid;
         .cycleBorderNoside(bottom);
 

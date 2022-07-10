@@ -120,11 +120,16 @@ const VideoSlide = ({
               <h2 className="slide-title">{card.title || ''}</h2>
             )}
           </div>
-          {!!card.linkHref?.[0] && (
-            <UniversalLink href={card.linkHref[0]['@id']} className="ui button">
-              {card.linkTitle || '...'}
-            </UniversalLink>
-          )}
+          <div className="slide-button">
+            {!!card.linkHref?.[0] && (
+              <UniversalLink
+                href={card.linkHref[0]['@id']}
+                className="ui button"
+              >
+                {card.linkTitle || '...'}
+              </UniversalLink>
+            )}
+          </div>
         </div>
 
         <Dots

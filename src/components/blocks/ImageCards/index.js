@@ -13,13 +13,13 @@ export default function install(config) {
       schemaExtender: TitleCards.schemaExtender,
     },
     imageCards: {
-      title: 'Image Cards',
+      title: 'Logo Cards',
       schema: null,
       view: ImageCarousel,
       schemaExtender: ImageCarousel.schemaExtender,
     },
     imageCarousel: {
-      title: 'Image carousel',
+      title: 'Image Carousel',
       schema: null,
       view: ImageCarousel,
       schemaExtender: ImageCarousel.schemaExtender,

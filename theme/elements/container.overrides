@@ -4,3 +4,9 @@
     display: none !important;
   }
 }
+
+#main .ui.grid > .column:not(.row),
+#main .ui.grid > .row > .column {
+  padding-left: 3px;
+  padding-right: 3px;
+}

@@ -27,7 +27,7 @@
 
 @cycleColors: @pink, @yellow, @blueLight, @greenLight;
 
-// @inputColor: #706f6f;
+/* @inputColor: #706f6f; */
 
 /*-------------------
       Base Sizes (see site.overrides for h1 to h4)
@@ -39,7 +39,7 @@
       Other
 --------------------*/
 
-// left/right column design for normal pages.
+/* left/right column design for normal pages. */
 @leftColumnSize: 30%;
 @rightColumnSize: 70%;
 
@@ -386,4 +386,3 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-

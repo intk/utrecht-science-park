@@ -78,7 +78,6 @@ const ImageCarousel = (props) => {
     cards = [],
     height = '233px',
     itemsPerRow = 4,
-    hideNavigationDots = false,
     autoplay = false,
     autoplaySpeed = 3000,
     image_scale = 'large',
@@ -129,14 +128,7 @@ const ImageCarousel = (props) => {
         },
       ],
     }),
-    [
-      autoplay,
-      autoplaySpeed,
-      editable,
-      hideNavigationDots,
-      itemsPerRow,
-      slidesToShow,
-    ],
+    [autoplay, autoplaySpeed, editable, itemsPerRow, slidesToShow],
   );
   const currentSlide = getSlideIndex(sliderRef, slideIndex, carouselSettings);
 

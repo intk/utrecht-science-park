@@ -10,3 +10,7 @@
   padding-left: 3px;
   padding-right: 3px;
 }
+// fix for news items folder listing top colored borders 
+.ui.container {
+  margin-top: .5rem;
+}

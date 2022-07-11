@@ -1,4 +1,10 @@
-@h3MarginTop: 4.375rem;
+// @h3MarginTop: 4.375rem;
+@h3MarginTop: 3rem;
+
+.h3Spacer() {
+  padding-top: @h3MarginTop;
+  margin-top: 0rem;
+}
 
 .ui.segment.content-area {
   margin-top: 4em;
@@ -56,7 +62,7 @@
     text-transform: none;
 
     &:not(:first-child) {
-      margin-top: 3rem;
+      .h3Spacer();
     }
   }
 
@@ -83,7 +89,9 @@
   }
 
   & > h3 + *:not(:first-child) {
-    margin-top: @h3MarginTop;
+    .h3Spacer();
+    // margin-top: @h3MarginTop;
+    // padding-top: @h3MarginTop;
   }
 
   & > h3 + .ui.divider {
@@ -141,12 +149,14 @@
     }
 
     & > h3 + *:not(:first-child) {
+      padding-top: unset;
       margin-top: unset;
     }
 
     & > h3 + .ui.divider {
       margin-top: unset;
       margin-bottom: unset;
+      // padding-top: unset;
     }
 
     blockquote.callout {

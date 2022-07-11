@@ -7,10 +7,18 @@
 
 #main .ui.grid > .column:not(.row),
 #main .ui.grid > .row > .column {
-  padding-left: 3px;
   padding-right: 3px;
+  padding-left: 3px;
 }
-// fix for news items folder listing top colored borders 
+
+// fix for news items folder listing top colored borders
 .ui.container {
-  margin-top: .25rem;
+  margin-top: 0.25rem;
+}
+
+// fix for login page dialog
+#main #page-login .ui.grid > .column:not(.row),
+#main #page-login .ui.grid > .row > .column {
+  padding-right: 1em;
+  padding-left: 1em;
 }

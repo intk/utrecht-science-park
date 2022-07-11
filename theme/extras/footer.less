@@ -8,6 +8,16 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: min-content min-content;
 
+  @media only screen and (max-width: @largestMobileScreen) {
+    grid-template-areas:
+      'footer-top-left'
+      'footer-top-right'
+      'footer-bottom-left'
+      'footer-bottom-right';
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
   .footer-bottom-right {
     grid-area: footer-bottom-right;
   }
@@ -45,7 +55,7 @@
   flex-direction: column;
 
   .footer-logos {
-    padding: 1.5rem 1.5rem 1.5rem 4rem;
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
     background-color: @white;
     @media only screen and (max-width: @largestMobileScreen) {
       padding: 0.625rem;

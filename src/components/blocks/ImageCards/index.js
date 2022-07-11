@@ -1,4 +1,5 @@
 import ImageCarousel from './Carousel';
+import LogoCardsCarousel from './LogoCarousel';
 import TitleCards from './TitleCards';
 import VideoCarousel, { VideoCardSchema } from './VideoCarousel';
 
@@ -15,8 +16,8 @@ export default function install(config) {
     imageCards: {
       title: 'Logo Cards',
       schema: null,
-      view: ImageCarousel,
-      schemaExtender: ImageCarousel.schemaExtender,
+      view: LogoCardsCarousel,
+      schemaExtender: LogoCardsCarousel.schemaExtender,
     },
     imageCarousel: {
       title: 'Image Carousel',

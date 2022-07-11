@@ -16,7 +16,12 @@ import './less/slider-listing.less';
 
 const Slider = loadable(() => import('react-slick'));
 
-const SliderNavigation = ({ sliderRef, slideCount, slideIndex, settings }) => {
+export const SliderNavigation = ({
+  sliderRef,
+  slideCount,
+  slideIndex,
+  settings,
+}) => {
   const slider = sliderRef.current;
 
   return (
@@ -43,7 +48,7 @@ const SliderNavigation = ({ sliderRef, slideCount, slideIndex, settings }) => {
   );
 };
 
-const getSlideIndex = (sliderRef, slideIndex, settings) => {
+export const getSlideIndex = (sliderRef, slideIndex, settings) => {
   if (!sliderRef.current) return slideIndex + settings.slidesToShow;
 
   const curBreak = sliderRef.current.state?.breakpoint;
@@ -61,6 +66,14 @@ const getSlideIndex = (sliderRef, slideIndex, settings) => {
   }
 
   return slideIndex + settings.slidesToShow;
+};
+
+export const Pagination = ({ slideIndex, slideCount }) => {
+  return (
+    <div className="slider-pagination">
+      {slideIndex} / {slideCount}
+    </div>
+  );
 };
 
 const SliderListing = (data) => {
@@ -138,14 +151,6 @@ const SliderListing = (data) => {
           )
         }
       </ResponsiveContainer>
-    </div>
-  );
-};
-
-const Pagination = ({ slideIndex, slideCount }) => {
-  return (
-    <div className="slider-pagination">
-      {slideIndex} / {slideCount}
     </div>
   );
 };

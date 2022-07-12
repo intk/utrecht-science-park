@@ -3,7 +3,7 @@
 
 @import (multiple, reference, optional) '../../theme.config';
 
-@factsCardGap: 6px;
+@factsCardGap: 4px;
 @cardBg: white;
 
 .factsGrid() {
@@ -33,12 +33,12 @@
   // height: @smallHeight;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1em;
+  padding: clamp(0.75rem, 2.25vw, 1.5rem);
   background-color: @cardBg;
 
   .title {
-    font-size: clamp(2rem, 4.25vw, 4.06rem);
-    line-height: clamp(2.4rem, 4.25vw, 4.875rem);
+    font-size: clamp(1.75rem, 4.25vw, 4.06rem);
+    line-height: clamp(2.1rem, 4.25vw, 4.875rem);
   }
 
   .subtitle {
@@ -50,7 +50,7 @@
   img {
     width: auto;
     height: 100%;
-    max-height: 140px;
+    max-height: 100px;
     align-self: flex-start;
   }
 }

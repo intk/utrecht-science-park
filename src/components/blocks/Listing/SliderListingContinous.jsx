@@ -16,25 +16,19 @@ import './less/slider-listing.less';
 
 const Slider = loadable(() => import('react-slick'));
 
-const getSliderSetting = (slider, settings, name) => {
-  const curBreak = slider.current.state?.breakpoint;
-  const index = settings.responsive.findIndex(
-    ({ breakpoint }) => breakpoint === curBreak,
-  );
-
-  return index > -1
-    ? settings.responsive?.[index]?.settings?.[name] ?? settings[name]
-    : settings[name];
-};
-
-export const SliderNavigation = ({ sliderRef, count, index, settings }) => {
+export const SliderNavigation = ({
+  sliderRef,
+  slideCount,
+  slideIndex,
+  settings,
+}) => {
   const slider = sliderRef.current;
 
   return (
     <div className="slider-nav">
       <button
         className={cx(
-          { hidden: index <= settings.slidesToShow },
+          { hidden: slideIndex <= settings.slidesToShow },
           'slider-nav-arrow slider-nav-arrow-prev',
         )}
         onClick={() => slider && slider.slickPrev()}
@@ -43,7 +37,7 @@ export const SliderNavigation = ({ sliderRef, count, index, settings }) => {
       </button>
       <button
         className={cx(
-          { hidden: index >= count },
+          { hidden: slideIndex >= slideCount },
           'slider-nav-arrow slider-nav-arrow-next',
         )}
         onClick={() => slider && slider.slickNext()}
@@ -54,40 +48,30 @@ export const SliderNavigation = ({ sliderRef, count, index, settings }) => {
   );
 };
 
-// in this type of carousel, acts as Page navigation, rather then slide by
-// slide
 export const getSlideIndex = (sliderRef, slideIndex, settings) => {
   if (!sliderRef.current) return slideIndex + settings.slidesToShow;
 
-  // const curBreak = sliderRef.current.state?.breakpoint;
-  //
-  // if (curBreak) {
-  //   const index = settings.responsive.findIndex(
-  //     ({ breakpoint }) => breakpoint === curBreak,
-  //   );
-  //
-  //   let slidesToShow =
-  //     index > -1
-  //       ? settings.responsive[index]?.settings?.slidesToShow ??
-  //         settings.slidesToShow
-  //       : settings.slidesToShow;
-  //
-  //   return slidesToShow + slideIndex;
-  // }
+  const curBreak = sliderRef.current.state?.breakpoint;
 
-  const slidesToShow = getSliderSetting(
-    sliderRef.current,
-    settings,
-    'slidesToShow',
-  );
+  if (curBreak) {
+    const index = settings.responsive.findIndex(
+      ({ breakpoint }) => breakpoint === curBreak,
+    );
+    let slidesToShow =
+      index > -1
+        ? settings.responsive[index]?.settings?.slidesToShow ||
+          settings.slidesToShow
+        : settings.slidesToShow;
+    return slidesToShow + slideIndex;
+  }
 
-  return slideIndex + slidesToShow;
+  return slideIndex + settings.slidesToShow;
 };
 
-export const Pagination = ({ index, count }) => {
+export const Pagination = ({ slideIndex, slideCount }) => {
   return (
     <div className="slider-pagination">
-      {index} / {count}
+      {slideIndex} / {slideCount}
     </div>
   );
 };
@@ -106,28 +90,24 @@ const SliderListing = (data) => {
       autoplay: false,
       infinite: false,
       slidesToShow: 4,
-      slidesToScroll: 4,
       draggable: false,
       responsive: [
         {
           breakpoint: 991,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
           },
         },
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
           },
         },
         {
           breakpoint: 340,
           settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
+            slidesToShow: 3,
           },
         },
       ],

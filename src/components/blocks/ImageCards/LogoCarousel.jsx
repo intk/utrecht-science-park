@@ -9,7 +9,6 @@ import cx from 'classnames';
 import loadable from '@loadable/component';
 
 import {
-  getSlideIndex,
   Pagination,
   SliderNavigation,
 } from '@package/components/blocks/Listing/SliderListing';
@@ -21,6 +20,26 @@ import './less/image-carousel.less';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Slider = loadable(() => import('react-slick'));
+
+export const getSlideIndex = (sliderRef, slideIndex, settings) => {
+  if (!sliderRef.current) return slideIndex + settings.slidesToShow;
+
+  const curBreak = sliderRef.current.state?.breakpoint;
+
+  if (curBreak) {
+    const index = settings.responsive.findIndex(
+      ({ breakpoint }) => breakpoint === curBreak,
+    );
+    let slidesToShow =
+      index > -1
+        ? settings.responsive[index]?.settings?.slidesToShow ||
+          settings.slidesToShow
+        : settings.slidesToShow;
+    return slidesToShow + slideIndex;
+  }
+
+  return slideIndex + settings.slidesToShow;
+};
 
 const Caption = ({ card }) => {
   const { title, text } = card;

@@ -58,14 +58,22 @@
   .title-cards {
     .title-card,
     .title-card a {
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-areas:'title image'
+      'desc image';
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
 
-      h2 {
-        flex: 50% !important;
+      h3 {
+        grid-area: title;
       }
 
       .title-card-text {
-        flex: 50% !important;
+        grid-area: desc;
+      }
+
+      .title-card-image {
+        grid-area: image;
       }
     }
   }

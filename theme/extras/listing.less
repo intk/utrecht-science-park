@@ -38,6 +38,8 @@
 
     h4 {
       .h2Font();
+      .elipsisOverflow(4);
+
       margin: 0;
     }
 
@@ -48,23 +50,19 @@
     }
   }
 
-  &.newsitem-card {
-    .card-details {
-      h4 {
-        font-size: 1.875rem;
-        line-height: 2.625rem;
-        font-size: clamp(1.125rem, 2.25vw, 1.875rem);
-        line-height: clamp(1.563rem, 2.25vw, 2.625rem);
-        font-family: @pageFont;
-        text-transform: none;
-        overflow: hidden;
-        -webkit-line-clamp: 4;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-      }
-      overflow: hidden;
-    }
-  }
+  // &.newsitem-card {
+  //   .card-details {
+  //     h4 {
+  //       font-size: 1.875rem;
+  //       line-height: 2.625rem;
+  //       font-size: clamp(1.125rem, 2.25vw, 1.875rem);
+  //       line-height: clamp(1.563rem, 2.25vw, 2.625rem);
+  //       font-family: @pageFont;
+  //       text-transform: none;
+  //     }
+  //     overflow: hidden;
+  //   }
+  // }
 }
 
 /********   Listings   ********/

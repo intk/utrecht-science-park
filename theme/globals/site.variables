@@ -390,3 +390,10 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+.elipsisOverflow(@lines) {
+  overflow: hidden;
+  -webkit-line-clamp: @lines;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

@@ -9,15 +9,18 @@ import UniversalCard from './ListingCard';
 import aheadSVG from '@plone/volto/icons/ahead.svg';
 import backSVG from '@plone/volto/icons/back.svg';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 
 import './less/slider-listing.less';
 
 const Slider = loadable(() => import('react-slick'));
 
 const getSliderSetting = (slider, settings, name) => {
-  const curBreak = slider.current.state?.breakpoint;
+  const curBreak = slider.current?.state?.breakpoint;
+
+  if (!curBreak) return settings[name];
+
   const index = settings.responsive.findIndex(
     ({ breakpoint }) => breakpoint === curBreak,
   );
@@ -34,7 +37,7 @@ export const SliderNavigation = ({ sliderRef, count, index, settings }) => {
     <div className="slider-nav">
       <button
         className={cx(
-          { hidden: index <= settings.slidesToShow },
+          { hidden: index === 1 },
           'slider-nav-arrow slider-nav-arrow-prev',
         )}
         onClick={() => slider && slider.slickPrev()}
@@ -56,32 +59,14 @@ export const SliderNavigation = ({ sliderRef, count, index, settings }) => {
 
 // in this type of carousel, acts as Page navigation, rather then slide by
 // slide
-export const getSlideIndex = (sliderRef, slideIndex, settings) => {
-  if (!sliderRef.current) return slideIndex + settings.slidesToShow;
+export const getPages = (sliderRef, slideIndex, settings, items) => {
+  const slidesToShow =
+    getSliderSetting(sliderRef, settings, 'slidesToShow') || 1;
 
-  // const curBreak = sliderRef.current.state?.breakpoint;
-  //
-  // if (curBreak) {
-  //   const index = settings.responsive.findIndex(
-  //     ({ breakpoint }) => breakpoint === curBreak,
-  //   );
-  //
-  //   let slidesToShow =
-  //     index > -1
-  //       ? settings.responsive[index]?.settings?.slidesToShow ??
-  //         settings.slidesToShow
-  //       : settings.slidesToShow;
-  //
-  //   return slidesToShow + slideIndex;
-  // }
+  const totalPages = Math.ceil(Math.max(items.length / slidesToShow, 1));
+  const currentPage = Math.floor(slideIndex / slidesToShow) + 1; // humanize
 
-  const slidesToShow = getSliderSetting(
-    sliderRef.current,
-    settings,
-    'slidesToShow',
-  );
-
-  return slideIndex + slidesToShow;
+  return { totalPages, currentPage };
 };
 
 export const Pagination = ({ index, count }) => {
@@ -135,14 +120,19 @@ const SliderListing = (data) => {
     [],
   );
 
-  const currentSlide = getSlideIndex(sliderRef, slideIndex, carouselSettings);
+  const { totalPages, currentPage } = getPages(
+    sliderRef,
+    slideIndex,
+    carouselSettings,
+    items,
+  );
 
   return (
     <div className="slider-carousel-container slider-listing">
       <ListingBlockHeader data={data} />
       <ResponsiveContainer>
         {({ parentWidth }) =>
-          parentWidth ? (
+          !!parentWidth && (
             <div style={{ width: `${parentWidth}px`, margin: '0 auto' }}>
               <Slider
                 ref={sliderRef}
@@ -154,20 +144,15 @@ const SliderListing = (data) => {
                 ))}
               </Slider>
               <div className="slider-carousel-footer">
-                <Pagination
-                  slideIndex={slideIndex + 1}
-                  slideCount={items.length}
-                />
+                <Pagination index={currentPage} count={totalPages} />
                 <SliderNavigation
                   sliderRef={sliderRef}
-                  slideIndex={currentSlide}
-                  slideCount={items.length}
+                  index={currentPage}
+                  count={totalPages}
                   settings={carouselSettings}
                 />
               </div>
             </div>
-          ) : (
-            ''
           )
         }
       </ResponsiveContainer>

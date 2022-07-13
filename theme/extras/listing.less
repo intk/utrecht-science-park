@@ -42,7 +42,7 @@
 
     time {
       margin-top: auto;
-      font-size: clamp(.75rem, 2.25vw, 1.25rem);
+      font-size: clamp(0.75rem, 2.25vw, 1.25rem);
       line-height: clamp(1rem, 2.25vw, 1.625rem);
     }
   }
@@ -57,6 +57,9 @@
         font-family: @pageFont;
         text-transform: none;
         overflow: hidden;
+        -webkit-line-clamp: 4;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
       }
       overflow: hidden;
     }

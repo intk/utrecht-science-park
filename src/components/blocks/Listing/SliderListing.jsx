@@ -127,6 +127,8 @@ const SliderListing = (data) => {
     items,
   );
 
+  // TODO: add resize event watcher to update the pagination numbers
+
   return (
     <div className="slider-carousel-container slider-listing">
       <ListingBlockHeader data={data} />

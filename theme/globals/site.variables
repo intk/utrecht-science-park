@@ -12,7 +12,10 @@
   sans-serif;
 @pageFont: 'Precious Sans Two Light', 'Helvetica Neue', Arial, Helvetica,
   sans-serif;
+
+@boldFont: @headerFont;
 @mediumFont: @fontName;
+@lightFont: @pageFont;
 
 /*-------------------
       Site Colors
@@ -195,7 +198,7 @@
   font-size: 1.25rem;
   display: inline-block;
 
-  font-family: @headerFont !important;
+  font-family: @boldFont !important;
   font-weight: normal;
   text-decoration: none !important;
 
@@ -264,7 +267,7 @@
 }
 
 .h1Font() {
-  font-family: @fontName;
+  font-family: @mediumFont;
   text-transform: uppercase;
 }
 
@@ -274,7 +277,7 @@
 }
 
 .h2Font() {
-  font-family: @pageFont;
+  font-family: @lightFont;
   text-transform: capitalize;
 }
 
@@ -282,8 +285,9 @@
   font-size: clamp(1.75rem, 3.25vw, 2.813rem);
   line-height: clamp(2.1rem, 3.25vw, 2.813rem);
 }
+
 .h3Font() {
-  font-family: @fontName;
+  font-family: @mediumFont;
   text-transform: uppercase;
 }
 
@@ -293,7 +297,7 @@
 }
 
 .h4Font() {
-  font-family: @headerFont;
+  font-family: @boldFont;
   text-transform: capitalize;
 }
 
@@ -303,7 +307,7 @@
 }
 
 .h5Font() {
-  font-family: @fontName;
+  font-family: @mediumFont;
 }
 
 .pText() {
@@ -369,7 +373,7 @@ h5 {
 }
 
 strong {
-  font-family: @headerFont;
+  font-family: @boldFont;
   font-weight: normal;
 }
 

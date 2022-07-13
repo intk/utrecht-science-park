@@ -23,15 +23,23 @@
 }
 
 .slider-listing {
+  .slick-track {
+    & > div.slick-slide {
+      .animateBorder(transparent, #019fb6, 4px, top);
+      .cycleBorder(top);
+      // border-top: 0px; // we want the animation to affect just the border color
+    }
+  }
+
   .slick-slide {
-    padding-left: 3px;
     padding-right: 3px;
+    padding-left: 3px;
   }
 
   .slider-carousel-footer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 
   .slider-nav {
@@ -41,8 +49,8 @@
     transition: opacity 0.2s ease-in-out;
 
     button {
-      outline: none;
       cursor: pointer;
+      outline: none;
 
       .isBtn();
 
@@ -54,7 +62,9 @@
         visibility: hidden;
       }
 
-      border-color: transparent;
+      & {
+        border-color: transparent;
+      }
     }
   }
 }

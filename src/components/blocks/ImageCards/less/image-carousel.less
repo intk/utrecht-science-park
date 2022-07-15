@@ -35,10 +35,10 @@
 
   .slide-img {
     display: flex;
-    padding-right: 1em;
-    // gap: 1em;
     flex-direction: column;
     justify-content: center;
+    padding-right: 1em;
+    // gap: 1em;
     // padding: 1em;
 
     .ui.placeholder {
@@ -48,12 +48,11 @@
 
     a {
       display: flex;
+      max-width: 100%;
+      max-height: 100%;
       flex-direction: column;
       justify-content: center;
       margin: 0 auto;
-
-      max-height: 100%;
-      max-width: 100%;
     }
 
     img.bg-image {
@@ -69,10 +68,14 @@
     display: unset !important;
     z-index: 1;
     left: 10px;
+    width: 50%;
+    height: 100%;
+    text-align: left;
 
     &.slick-next {
-      left: unset;
       right: 55px;
+      left: unset;
+      text-align: right;
     }
 
     &.slick-prev:before,
@@ -84,6 +87,7 @@
     }
   }
 }
+
 #page-document .image-carousel.image-carousel-imageCards {
   .slide-img {
     align-items: center;
@@ -99,8 +103,10 @@
       object-fit: contain;
     }
   }
+
   .slider-carousel-footer {
     justify-content: flex-end;
+
     .slider-pagination {
       display: none !important;
       color: red;

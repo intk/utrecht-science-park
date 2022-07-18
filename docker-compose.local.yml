@@ -3,30 +3,18 @@ version: "3"
 # See https://github.com/plone/plone-backend/tree/6.0.x
 
 services:
-  zeo:
-    image: plone/plone-zeo:latest
-    restart: always
-    volumes:
-      - ./data:/data
-    ports:
-      - "8100:8100"
-
   plone:
     image: plone/plone-backend:6.0.0a6
     ports:
       - "8080:8080"
-    restart: always
-    depends_on:
-      - zeo
     environment:
-      ZEO_ADDRESS: zeo:8100
       ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport"
     volumes:
-      - cache:/data
+      - ./data:/data
     labels:
       ofelia.enabled: "true"
-      ofelia.job-exec.weekly-backup.schedule: "@weekly"
-      ofelia.job-exec.weekly-backup.command: "/app/bin/zeopack -h zeo -p 8100 -d 1"
+      ofelia.job-exec.weekly-backup.schedule: "@every 5s"
+      ofelia.job-exec.weekly-backup.command: "uname -a"
     # entrypoint: sh -c "tail -f /dev/null"
 
 #     DEBUG_MODE: "off"
@@ -44,6 +32,7 @@ services:
     # TODO: set proper env here
     # environment:
     #   - "CORS_ALLOW_ORIGIN=https://utrecht.intk.com"
+    #
 
   ofelia:
     image: mcuadros/ofelia:latest
@@ -52,6 +41,6 @@ services:
     command: daemon --docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-
-volumes:
-  cache: {}
+    # labels:
+    #   ofelia.job-local.my-test-job.schedule: "@every 5s"
+    #   ofelia.job-local.my-test-job.command: "date"

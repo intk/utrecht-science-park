@@ -187,7 +187,9 @@ const NewsletterDetails = () => (
   </>
 );
 
-const Copyright = () => <p>2022 © Utrecht Science Park </p>;
+const Copyright = () => (
+  <p>{new Date().getFullYear()} © Utrecht Science Park </p>
+);
 
 function FooterLinks(props) {
   const currentLang = useSelector((state) => state.intl.locale);

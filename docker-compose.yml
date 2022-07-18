@@ -29,22 +29,7 @@ services:
       ofelia.job-exec.weekly-backup.command: "/app/bin/zeopack -h zeo -p 8100 -d 1"
     # entrypoint: sh -c "tail -f /dev/null"
 
-#     DEBUG_MODE: "off"
-#     VERBOSE_SECURITY: "off"
-#     SECURITY_POLICY_IMPLEMENTATION: "c"
-#     DEFAULT_ZPUBLISHER_ENCODING: "utf-8"
-
-    # build: ./api
-    # image: tiberiuichim/utrecht-website:1.4
-    # volumes:
-    #   - ./api/src:/plone/instance/src
-    #   - ./api/custom.cfg:/plone/instance/custom.cfg
-    #   - ./data:/data
-    # entrypoint: sh -c "tail -f /dev/null"
-    # TODO: set proper env here
-    # environment:
-    #   - "CORS_ALLOW_ORIGIN=https://utrecht.intk.com"
-
+  # See https://github.com/mcuadros/ofelia
   ofelia:
     image: mcuadros/ofelia:latest
     depends_on:

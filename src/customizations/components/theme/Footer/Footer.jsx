@@ -1,5 +1,9 @@
+import React from 'react';
 import { UniversalLink } from '@plone/volto/components';
+import { useSelector, useDispatch } from 'react-redux';
 import config from '@plone/volto/registry';
+import { getContent } from '@plone/volto/actions';
+// import { useLocation } from 'react-router';
 
 import UtrechtUnivLogo from '@package/static/Utrecht University.png';
 import CityUtrechtLogo from '@package/static/City of Utrecht.png';
@@ -187,8 +191,34 @@ const NewsletterDetails = () => (
 
 const Copyright = () => <p>2022 © Utrecht Science Park </p>;
 
+function FooterLinks(props) {
+  const dispatch = useDispatch();
+  const footerLinks = useSelector(
+    (state) => state.content.subrequests?.footer?.data?.items || [],
+  );
+
+  const currentLang = useSelector((state) => state.intl.locale);
+
+  const footerUrl = `/${currentLang}/footer-links`;
+
+  React.useEffect(() => {
+    dispatch(getContent(footerUrl, null, 'footer')).catch((e) => {
+      // eslint-disable-next-line
+      console.log(
+        `Footer page not found: ${footerUrl}. Please create as folder`,
+      );
+    });
+  }, [dispatch, footerUrl]);
+
+  return footerLinks.map((item) => (
+    <UniversalLink key={item.id} item={item}>
+      {item.title}
+    </UniversalLink>
+  ));
+}
+
 export function Footer(props) {
-  const { footerLinks, socialLinks, siteActions } = config.settings;
+  const { siteActions } = config.settings;
 
   return (
     <div className="footer">
@@ -196,9 +226,7 @@ export function Footer(props) {
         <InShort />
       </div>
       <div className="footer-top-right footer-top-menu">
-        {footerLinks.map((item) => (
-          <Action key={item.id} item={item} />
-        ))}
+        <FooterLinks />
       </div>
       <div className="footer-bottom-left">
         <div className="footer-bottom-address">

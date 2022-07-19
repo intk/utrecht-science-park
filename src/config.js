@@ -6,6 +6,7 @@ import MultipleContentView from './components/theme/View/MultipleContentView';
 import ListingView from './components/theme/View/ListingView';
 import Layouts from '@plone/volto/constants/Layouts';
 import { getContent } from '@plone/volto/actions';
+import installFooter from './footer';
 
 // All your imports required for the config here BEFORE this line
 import '@plone/volto/config';
@@ -14,13 +15,21 @@ export default function applyConfig(config) {
   // Add here your project's configuration here by modifying `config` accordingly
 
   installStyleMenu(config);
+
   const DEFAULT_LANG = 'en';
 
   config.settings.isMultilingual = true;
   config.settings.supportedLanguages = ['en', 'nl'];
   config.settings.defaultLanguage = DEFAULT_LANG;
 
+  config.settings.footerPageId = 'footer-content';
+  config.settings.actionBlockIds = [
+    ['footerLinks', 'Footer Links'],
+    ['siteActions', 'Site Actions'],
+  ];
+
   config.blocks.blocksConfig.title.view = () => null;
+  config.blocks.groupBlocksOrder.push({ id: 'site', title: 'Site' });
 
   config.settings = {
     ...config.settings,
@@ -59,7 +68,7 @@ export default function applyConfig(config) {
               return;
             }
 
-            const url = `/${currentLang}/footer-links`;
+            const url = `/${currentLang}/${config.settings.footerPageId}`;
             const action = getContent(url, null, `footer-${currentLang}`);
             return store.dispatch(action).catch((e) => {
               // eslint-disable-next-line
@@ -83,143 +92,6 @@ export default function applyConfig(config) {
   Layouts.multiple_content = 'Section layout';
 
   config.widgets.widget.attachedimage = AttachedImageWidget;
-  config.settings.siteActions = [
-    {
-      id: 'Newsletter',
-      links: {
-        en: {
-          title: 'Newsletter',
-          path: '/en/contact',
-        },
-        nl: {
-          title: 'Newsletter-NL',
-          path: '/nl/contact',
-        },
-      },
-    },
-    {
-      id: 'Disclaimer',
-      links: {
-        en: {
-          title: 'Disclaimer',
-          path: '/en/contact',
-        },
-        nl: {
-          title: 'Disclaimer-NL',
-          path: '/nl/contact',
-        },
-      },
-    },
-    {
-      id: 'Privacy policy',
-      links: {
-        en: {
-          title: 'Privacy policy',
-          path: '/en/contact',
-        },
-        nl: {
-          title: 'Privacy policy-NL',
-          path: '/nl/contact',
-        },
-      },
-    },
-    {
-      id: 'Login',
-      links: {
-        en: {
-          title: 'Login',
-          path: '/en/login',
-        },
-        nl: {
-          title: 'Login',
-          path: '/nl/login',
-        },
-      },
-    },
-  ];
 
-  config.settings.footerLinks = [
-    {
-      id: 'Contacts',
-      links: {
-        en: {
-          title: 'Contacts',
-          path: '/en/contact',
-        },
-        nl: {
-          title: 'Contacts-NL',
-          path: '/nl/contact',
-        },
-      },
-    },
-    {
-      id: 'Vacancies',
-      links: {
-        en: {
-          title: 'Vacancies',
-          path: '/en/vacancies',
-        },
-        nl: {
-          title: 'Vacancies-NL',
-          path: '/nl/vacancies',
-        },
-      },
-    },
-    {
-      id: 'FAQ',
-      links: {
-        en: {
-          title: 'FAQ',
-          path: '/en/faq',
-        },
-        nl: {
-          title: 'FAQ-NL',
-          path: '/nl/faq',
-        },
-      },
-    },
-    {
-      id: 'About',
-      links: {
-        en: {
-          title: 'About',
-          path: '/en/about',
-        },
-        nl: {
-          title: 'About-NL',
-          path: '/nl/about',
-        },
-      },
-    },
-  ];
-
-  config.settings.socialLinks = [
-    {
-      id: 'Facebook',
-      title: 'Facebook',
-      href: 'https://facebook.com',
-    },
-    {
-      id: 'Instagram',
-      title: 'Instagram',
-      href: 'https://Instagram.com',
-    },
-    {
-      id: 'Twitter',
-      title: 'Twitter',
-      href: 'https://Twitter.com',
-    },
-    {
-      id: 'Youtube',
-      title: 'Youtube',
-      href: 'https://Youtube.com',
-    },
-    {
-      id: 'Linkedin',
-      title: 'Linkedin',
-      href: 'https://Linkedin.com',
-    },
-  ];
-
-  return installBlocks(config);
+  return installFooter(installBlocks(config));
 }

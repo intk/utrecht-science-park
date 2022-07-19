@@ -4,6 +4,7 @@ import installListingBlock from './Listing';
 import installQuoteBlock from './Quote';
 import installImageCards from './ImageCards';
 import installButtonBlock from './Button';
+import installActionLinks from './ActionLinks';
 
 import { compose } from 'redux';
 
@@ -15,6 +16,7 @@ const installBlocks = (config) => {
     installQuoteBlock,
     installImageCards,
     installButtonBlock,
+    installActionLinks,
   )(config);
 };
 

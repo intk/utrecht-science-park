@@ -1,5 +1,5 @@
 import React from 'react';
-import { UniversalLink } from '@plone/volto/components';
+import { RenderBlocks } from '@plone/volto/components';
 import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
 
@@ -16,13 +16,13 @@ import TwitterLogo from '@package/static/twiter.svg';
 import YouTubeLogo from '@package/static/youtube.svg';
 import LinkedInLogo from '@package/static/linkedin.svg';
 
-const Action = ({ item }) => {
-  return (
-    <UniversalLink href={item.links.en.path}>
-      {item.links.en.title}
-    </UniversalLink>
-  );
-};
+// const Action = ({ item }) => {
+//   return (
+//     <UniversalLink href={item.links.en.path}>
+//       {item.links.en.title}
+//     </UniversalLink>
+//   );
+// };
 
 const FooterLogos = () => (
   <>
@@ -134,21 +134,21 @@ const SocialLinks = () => (
   </>
 );
 
-const InShort = () => (
-  <>
-    <p>
-      <strong>In Short</strong>
-    </p>
-    <p>
-      Utrecht Science Park is the beating heart of one of Europe's most
-      competitive regions. We bring competence from business, industry and
-      academia together in order to design and create healthier, safer and more
-      sustainable cities for today and for subsequent generations. Utrecht
-      Science Park provides a vibrant, dynamic and exciting place to work, to
-      study and to interact
-    </p>
-  </>
-);
+// const InShort = () => (
+//   <>
+//     <p>
+//       <strong>In Short</strong>
+//     </p>
+//     <p>
+//       Utrecht Science Park is the beating heart of one of Europe's most
+//       competitive regions. We bring competence from business, industry and
+//       academia together in order to design and create healthier, safer and more
+//       sustainable cities for today and for subsequent generations. Utrecht
+//       Science Park provides a vibrant, dynamic and exciting place to work, to
+//       study and to interact
+//     </p>
+//   </>
+// );
 
 const Address = () => (
   <>
@@ -191,30 +191,66 @@ const Copyright = () => (
   <p>{new Date().getFullYear()} © Utrecht Science Park </p>
 );
 
-function FooterLinks(props) {
+const useFooter = () => {
   const currentLang = useSelector((state) => state.intl.locale);
-  const footerLinks = useSelector(
-    (state) =>
-      state.content.subrequests?.[`footer-${currentLang}`]?.data?.items || [],
+  const content = useSelector(
+    (state) => state.content.subrequests?.[`footer-${currentLang}`]?.data || {},
   );
 
-  return footerLinks.map((item, i) => (
-    <UniversalLink key={`${item.id}-${i}`} item={item}>
-      {item.title}
-    </UniversalLink>
-  ));
-}
+  return content;
+};
+
+const useFooterBlock = (globalId) => {
+  const footer = useFooter();
+  const { blocks = {} } = footer;
+  // blocks[id]['@type'] === 'actionLinks' &&
+  const blockId = Object.keys(blocks).find(
+    (id) => blocks[id].globalId === globalId,
+  );
+  return blockId ? [blockId, blocks[blockId]] : [];
+};
+
+const FooterLinks = ({ globalId }) => {
+  const [blockId, block] = useFooterBlock(globalId);
+  const properties = {
+    blocks: { [blockId]: block },
+    blocks_layout: { items: [blockId] },
+  };
+
+  return blockId ? <RenderBlocks content={properties} /> : null;
+};
+
+const FooterBlocks = ({
+  excludeIds = [],
+  excludeTypes = ['title', 'actionLinks'],
+}) => {
+  const footer = useFooter();
+  const { blocks = {}, blocks_layout } = footer;
+  const filtered = blocks_layout?.items?.filter(
+    // TODO: filter by excludeIds
+    (id) => !excludeTypes.includes(blocks[id]?.['@type']),
+  );
+  const properties = {
+    blocks,
+    blocks_layout: {
+      ...blocks_layout,
+      items: filtered,
+    },
+  };
+  return <RenderBlocks content={properties} />;
+};
 
 export function Footer(props) {
-  const { siteActions } = config.settings;
-
   return (
     <div className="footer">
       <div className="footer-top-left footer-top-text">
-        <InShort />
+        <FooterBlocks
+          excludeIds={config.settings.actionBlockIds}
+          excludeTypes={['title', 'actionLinks']}
+        />
       </div>
       <div className="footer-top-right footer-top-menu">
-        <FooterLinks />
+        <FooterLinks globalId="footerLinks" />
       </div>
       <div className="footer-bottom-left">
         <div className="footer-bottom-address">
@@ -234,9 +270,7 @@ export function Footer(props) {
         </div>
         <div className="links">
           <Copyright />
-          {siteActions.map((item) => (
-            <Action key={item.id} item={item} />
-          ))}
+          <FooterLinks globalId="siteActions" />
         </div>
       </div>
     </div>

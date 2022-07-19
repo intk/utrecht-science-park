@@ -31,9 +31,12 @@
   ul {
     padding: 0;
     margin: 0;
+    font-size: clamp(1.750rem, 2.75vw, 2.5rem);
+    line-height: clamp(2.625rem, 2.75vw, 3.75rem);
 
     li {
       list-style-type: none;
+      margin-bottom: 1rem;
     }
   }
 }
@@ -46,14 +49,18 @@
 }
 
 .footer-top-right.footer-top-menu {
-  display: flex;
-  flex-direction: column;
   padding: 1.25rem;
   padding-bottom: 3rem;
   background-color: @greenLight;
   font-size: clamp(1.75rem, 2.25vw, 2.5rem);
-  gap: clamp(0.875rem, 2.25vw, 1.5rem);
+
   grid-area: footer-top-right;
+
+  .action-links-block {
+    display: flex;
+    flex-direction: column;
+    //gap: clamp(0.875rem, 2.25vw, 1.5rem);
+  }
 
   a {
     color: black;
@@ -96,8 +103,8 @@
 
     p,
     a {
-      font-size: clamp(0.813rem, 2.25vw, 1.125rem);
-      line-height: clamp(0.925rem, 2.25vw, 1.313rem);
+      font-size: clamp(0.813rem, 2.25vw, 1.125rem) !important;
+      line-height: clamp(0.925rem, 2.25vw, 1.313rem) !important;
     }
 
     a {

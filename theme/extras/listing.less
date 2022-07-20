@@ -49,20 +49,6 @@
       line-height: clamp(1rem, 2.25vw, 1.625rem);
     }
   }
-
-  // &.newsitem-card {
-  //   .card-details {
-  //     h4 {
-  //       font-size: 1.875rem;
-  //       line-height: 2.625rem;
-  //       font-size: clamp(1.125rem, 2.25vw, 1.875rem);
-  //       line-height: clamp(1.563rem, 2.25vw, 2.625rem);
-  //       font-family: @pageFont;
-  //       text-transform: none;
-  //     }
-  //     overflow: hidden;
-  //   }
-  // }
 }
 
 /********   Listings   ********/
@@ -132,18 +118,19 @@
     max-width: 45% !important;
     flex-grow: 1;
     margin-bottom: 0px;
-    // font-family: @mediumFont;
     text-transform: uppercase;
 
     .h3Text();
-    // line-height: 0px;
+
+    @media only screen and (min-width: @largestMobileScreen) {
+      white-space: nowrap;
+    }
   }
 
   .link-more {
     display: flex;
     flex-direction: column-reverse;
     flex-grow: 0;
-    // margin: calc(2rem - 0.14285714em) 0em 1rem;
 
     a {
       padding: 0px;

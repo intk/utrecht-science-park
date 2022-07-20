@@ -16,14 +16,6 @@ import TwitterLogo from '@package/static/twiter.svg';
 import YouTubeLogo from '@package/static/youtube.svg';
 import LinkedInLogo from '@package/static/linkedin.svg';
 
-// const Action = ({ item }) => {
-//   return (
-//     <UniversalLink href={item.links.en.path}>
-//       {item.links.en.title}
-//     </UniversalLink>
-//   );
-// };
-
 const FooterLogos = () => (
   <>
     <h4>Partners / founders</h4>
@@ -133,22 +125,6 @@ const SocialLinks = () => (
     </a>
   </>
 );
-
-// const InShort = () => (
-//   <>
-//     <p>
-//       <strong>In Short</strong>
-//     </p>
-//     <p>
-//       Utrecht Science Park is the beating heart of one of Europe's most
-//       competitive regions. We bring competence from business, industry and
-//       academia together in order to design and create healthier, safer and more
-//       sustainable cities for today and for subsequent generations. Utrecht
-//       Science Park provides a vibrant, dynamic and exciting place to work, to
-//       study and to interact
-//     </p>
-//   </>
-// );
 
 const Address = () => (
   <>

@@ -21,8 +21,8 @@ const Card = ({ card = {}, image_scale }) => {
   const { link, title, text } = card;
 
   return (
-    <div className="title-card">
-      <LinkWrapper link={link} title={title}>
+    <LinkWrapper link={link} title={title}>
+      <div className="title-card">
         <h3>{title || 'null'}</h3>
         <div className="title-card-text">
           {text ? serializeNodes(text) : ''}
@@ -36,8 +36,8 @@ const Card = ({ card = {}, image_scale }) => {
             )}
           />
         </div>
-      </LinkWrapper>
-    </div>
+      </div>
+    </LinkWrapper>
   );
 };
 

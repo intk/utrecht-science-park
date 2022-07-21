@@ -2,6 +2,7 @@ import React from 'react';
 import { RenderBlocks } from '@plone/volto/components';
 import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
+import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 
 import UtrechtUnivLogo from '@package/static/Utrecht University.png';
 import CityUtrechtLogo from '@package/static/City of Utrecht.png';
@@ -16,65 +17,81 @@ import TwitterLogo from '@package/static/twiter.svg';
 import YouTubeLogo from '@package/static/youtube.svg';
 import LinkedInLogo from '@package/static/linkedin.svg';
 
-const FooterLogos = () => (
-  <>
-    <h4>Partners / founders</h4>
-    <div className="logos">
-      <img
-        height="auto"
-        title="Utrecht University"
-        src={UtrechtUnivLogo}
-        alt="Utrecht University"
-        className="logo-partner"
-      />
-      <img
-        height="auto"
-        title="City of Utrecht"
-        src={CityUtrechtLogo}
-        alt="City of Utrecht"
-        className="logo-partner"
-      />
-      <img
-        height="auto"
-        title="UMC Utrecht"
-        src={UMCUtrechtLogo}
-        alt="UMC Utrecht"
-        className="logo-partner"
-      />
-      <img
-        height="auto"
-        title="University of Applied Sciences Utrecht"
-        src={UnivApplScienceLogo}
-        alt="University of Applied Sciences Utrecht"
-        className="logo-partner"
-      />
-      <img
-        height="auto"
-        title="Provincie Utrecht"
-        src={ProvUtrechtLogo}
-        alt="Provincie Utrecht"
-        className="logo-partner"
-      />
-    </div>
-    <h4> Supported by</h4>
-    <div className="logos">
-      <img
-        height="auto"
-        title="Ondernemers fonds Utrecht"
-        src={OnderFondsLogo}
-        alt="Ondernemers fonds Utrecht"
-        className="logo-partner"
-      />
-      <img
-        height="auto"
-        title="European Fund for regional Development"
-        src={EuroRegDevLogo}
-        alt="European Fund for regional Development"
-        className="logo-partner"
-      />
-    </div>
-  </>
-);
+const messages = defineMessages({
+  UniversityOfAppliedSciences: {
+    id: 'University of Applied Sciences Utrecht',
+    defaultMessage: 'University of Applied Sciences Utrecht',
+  },
+});
+
+const FooterLogos = ({ intl }) => {
+  return (
+    <>
+      <h4>
+        <FormattedMessage
+          id="partners/founders"
+          defaultMessage="Partners / founders"
+        />
+      </h4>
+      <div className="logos">
+        <img
+          height="auto"
+          title="Utrecht University"
+          src={UtrechtUnivLogo}
+          alt="Utrecht University"
+          className="logo-partner"
+        />
+        <img
+          height="auto"
+          title="City of Utrecht"
+          src={CityUtrechtLogo}
+          alt="City of Utrecht"
+          className="logo-partner"
+        />
+        <img
+          height="auto"
+          title="UMC Utrecht"
+          src={UMCUtrechtLogo}
+          alt="UMC Utrecht"
+          className="logo-partner"
+        />
+        <img
+          height="auto"
+          title={intl.formatMessage(messages.UniversityOfAppliedSciences)}
+          src={UnivApplScienceLogo}
+          alt="University of Applied Sciences Utrecht"
+          className="logo-partner"
+        />
+        <img
+          height="auto"
+          title="Provincie Utrecht"
+          src={ProvUtrechtLogo}
+          alt="Provincie Utrecht"
+          className="logo-partner"
+        />
+      </div>
+      <h4>
+        <FormattedMessage id="supportedBy" defaultMessage="Supported by" />
+      </h4>
+      <div className="logos">
+        <img
+          height="auto"
+          title="Ondernemers fonds Utrecht"
+          src={OnderFondsLogo}
+          alt="Ondernemers fonds Utrecht"
+          className="logo-partner"
+        />
+        <img
+          height="auto"
+          title="European Fund for regional Development"
+          src={EuroRegDevLogo}
+          alt="European Fund for regional Development"
+          className="logo-partner"
+        />
+      </div>
+    </>
+  );
+};
 
 const SocialLinks = () => (
   <>
@@ -129,25 +146,24 @@ const SocialLinks = () => (
 const Address = () => (
   <>
     <p>
-      Address <br />
+      <FormattedMessage id="Address" defaultMessage="Address" /> <br />
       <strong>
         Utrecht Science Park Foundation <br />
         Heidelberglaan 11 <br />
         3584 CS Utrecht
-      </strong>{' '}
-      <br />
+      </strong>
     </p>
     <p>
-      E-mail
+      <FormattedMessage id="E-mail" defaultMessage="E-mail" />
       <br /> <strong>info @ utrechtsciencepark.nl</strong>
     </p>
     <p>
-      Phone
+      <FormattedMessage id="Phone" defaultMessage="Phone" />
       <br />
       <strong> +31 30 800 4499</strong>{' '}
     </p>
     <p>
-      KvK <br />
+      <FormattedMessage id="KvK" defaultMessage="KvK" /> <br />
       <strong>56652488 </strong>
     </p>
   </>
@@ -156,10 +172,14 @@ const Address = () => (
 const NewsletterDetails = () => (
   <>
     <p>
-      Join our mailing list to stay up to date on everything that happens at the
-      park
+      <FormattedMessage
+        id="joinOurMailing"
+        defaultMessage="Join our mailing list to stay up to date on everything that happens at the park"
+      />
     </p>
-    <a href="en/newsletter">Subscribe</a>
+    <a href="en/newsletter">
+      <FormattedMessage id="Subscribe" defaultMessage="Subscribe" />
+    </a>
   </>
 );
 
@@ -242,7 +262,7 @@ export function Footer(props) {
 
       <div className="footer-bottom-right footer-bottom">
         <div className="footer-logos">
-          <FooterLogos />
+          <FooterLogos {...props} />
         </div>
         <div className="links">
           <Copyright />
@@ -253,4 +273,4 @@ export function Footer(props) {
   );
 }
 
-export default Footer;
+export default injectIntl(Footer);

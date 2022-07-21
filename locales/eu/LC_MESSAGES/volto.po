@@ -15,3 +15,135 @@ msgstr ""
 "Language-Code: eu\n"
 "Language-Name: eu\n"
 "Preferred-Encodings: utf-8 latin1\n"
+
+#: components/blocks/ActionLinks/schema
+# defaultMessage: Action
+msgid "Action"
+msgstr ""
+
+#: components/blocks/ActionLinks/schema
+# defaultMessage: Actions
+msgid "Actions"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: Address
+msgid "Address"
+msgstr ""
+
+#: components/blocks/Image/ImageBlockEdit
+# defaultMessage: Browse the site, drop an image, or type an URL
+msgid "Browse the site, drop an image, or type an URL"
+msgstr ""
+
+#: components/blocks/Button/schema
+# defaultMessage: Button
+msgid "Button"
+msgstr ""
+
+#: components/blocks/Facts/schema
+# defaultMessage: Card
+msgid "Card"
+msgstr ""
+
+#: components/blocks/Facts/schema
+# defaultMessage: Cards
+msgid "Cards"
+msgstr ""
+
+#: components/theme/Navigation/Navigation
+# defaultMessage: Close menu
+msgid "Close menu"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: E-mail
+msgid "E-mail"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: KvK
+msgid "KvK"
+msgstr ""
+
+#: components/blocks/ActionLinks/schema
+#: components/blocks/Facts/schema
+# defaultMessage: Action link
+msgid "LinkTo"
+msgstr ""
+
+#: components/theme/Navigation/Navigation
+# defaultMessage: Open menu
+msgid "Open menu"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: Phone
+msgid "Phone"
+msgstr ""
+
+#: components/theme/SearchWidget/SearchWidget
+# defaultMessage: Search
+msgid "Search"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: Subscribe
+msgid "Subscribe"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: University of Applied Sciences Utrecht
+msgid "University of Applied Sciences Utrecht"
+msgstr ""
+
+#: components/blocks/Quote/EditBlockWrapper
+# defaultMessage: Unknown Block {block}
+msgid "Unknown Block"
+msgstr ""
+
+#: components/blocks/Quote/EditBlockWrapper
+# defaultMessage: delete
+msgid "delete"
+msgstr ""
+
+#: components/blocks/Facts/schema
+# defaultMessage: Icon
+msgid "icon"
+msgstr ""
+
+#: components/blocks/Facts/schema
+# defaultMessage: Image
+msgid "image"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: Join our mailing list to stay up to date on everything that happens at the park
+msgid "joinOurMailing"
+msgstr ""
+
+#: components/blocks/Facts/schema
+# defaultMessage: Destination for the call to action button
+msgid "linkToDescription"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: Partners / founders
+msgid "partners/founders"
+msgstr ""
+
+#: components/blocks/Facts/schema
+# defaultMessage: SubTitle
+msgid "subtitle"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: Supported by
+msgid "supportedBy"
+msgstr ""
+
+#: components/blocks/ActionLinks/schema
+#: components/blocks/Facts/schema
+# defaultMessage: Title
+msgid "title"
+msgstr ""

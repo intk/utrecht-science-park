@@ -184,7 +184,13 @@ const NewsletterDetails = () => (
 );
 
 const Copyright = () => (
-  <p>{new Date().getFullYear()} © Utrecht Science Park </p>
+  <p>
+    {new Date().getFullYear()} ©{' '}
+    <FormattedMessage
+      id="Utrecht Science Park"
+      defaultMessage="Utrecht Science Park"
+    />
+  </p>
 );
 
 const useFooter = () => {

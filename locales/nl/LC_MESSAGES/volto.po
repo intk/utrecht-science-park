@@ -116,6 +116,11 @@ msgstr "Hogeschool Utrecht"
 msgid "Unknown Block"
 msgstr ""
 
+#: components/theme/Footer/Footer
+# defaultMessage: Utrecht Science Park
+msgid "Utrecht Science Park"
+msgstr ""
+
 #: components/blocks/Quote/EditBlockWrapper
 # defaultMessage: delete
 msgid "delete"

@@ -104,7 +104,7 @@ msgstr ""
 #: components/theme/Footer/Footer
 # defaultMessage: Subscribe
 msgid "Subscribe"
-msgstr ""
+msgstr "Abonneren"
 
 #: components/theme/Footer/Footer
 # defaultMessage: University of Applied Sciences Utrecht

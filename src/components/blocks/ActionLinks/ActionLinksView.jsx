@@ -10,7 +10,9 @@ const ActionLinksView = (props) => {
       <ul className="action-links-block" id={id}>
         {actions?.map((action, i) => (
           <li key={i}>
-            <UniversalLink item={action.linkHref?.[0] || {}}>
+            <UniversalLink
+              item={{ ...action, '@id': action.href || `/#${action.id}` }}
+            >
               {action.title}
             </UniversalLink>
           </li>

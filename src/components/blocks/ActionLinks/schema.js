@@ -29,7 +29,7 @@ const ActionSchema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
   fieldsets: [
     {
       id: 'default',
-      fields: ['title', 'linkHref'], //  'url'
+      fields: ['title', 'href'], //  'url'
       title: 'Default',
     },
   ],
@@ -38,12 +38,10 @@ const ActionSchema = ({ onChangeBlock, intl, data, openObjectBrowser }) => ({
     title: {
       title: intl.formatMessage(messages.title),
     },
-    linkHref: {
-      title: 'Linked page',
-      widget: 'object_browser',
-      mode: 'link',
-      selectedItemAttrs: ['Title', 'Description'],
-      allowExternals: true,
+    href: {
+      title: 'Link',
+      description: 'Internal page or path',
+      widget: 'url',
     },
   },
   required: [],

@@ -10,6 +10,10 @@ services:
       - ./data:/data
     ports:
       - "8100:8100"
+    labels:
+      ofelia.enabled: "true"
+      ofelia.job-exec.weekly-backup.schedule: "@weekly"
+      ofelia.job-exec.weekly-backup.command: "/app/bin/repozo -B -f /app/var/filestorage/Data.fs -r /app/var/backup
 
   plone:
     image: plone/plone-backend:6.0.0a6
@@ -25,7 +29,7 @@ services:
       - cache:/data
     labels:
       ofelia.enabled: "true"
-      ofelia.job-exec.weekly-backup.schedule: "@weekly"
+      ofelia.job-exec.weekly-backup.schedule: "@monthly"
       ofelia.job-exec.weekly-backup.command: "/app/bin/zeopack -h zeo -p 8100 -d 1"
     # entrypoint: sh -c "tail -f /dev/null"
 

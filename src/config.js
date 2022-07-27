@@ -8,8 +8,16 @@ import Layouts from '@plone/volto/constants/Layouts';
 import { getContent } from '@plone/volto/actions';
 import installFooter from './footer';
 
+import TagManager from 'react-gtm-module';
+
 // All your imports required for the config here BEFORE this line
 import '@plone/volto/config';
+
+const tagManagerArgs = {
+  gtmId: 'GTM-T8SF8PJ',
+};
+
+TagManager.initialize(tagManagerArgs);
 
 export default function applyConfig(config) {
   // Add here your project's configuration here by modifying `config` accordingly

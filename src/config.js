@@ -17,7 +17,7 @@ const tagManagerArgs = {
   gtmId: 'GTM-T8SF8PJ',
 };
 
-TagManager.initialize(tagManagerArgs);
+__CLIENT__ && !__DEVELOPMENT__ && TagManager.initialize(tagManagerArgs);
 
 export default function applyConfig(config) {
   // Add here your project's configuration here by modifying `config` accordingly

@@ -1,0 +1,258 @@
+@font-face {
+    font-family: 'precious_light';
+    src: url('../fonts/precious_sans_two_light-webfont.woff2') format('woff2'),
+        url('../fonts/precious_sans_two_light-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'precious_bold';
+    src: url('../fonts/precious_sans_two_bold-webfont.eot');
+    src: url('../fonts/precious_sans_two_bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/precious_sans_two_bold-webfont.woff2') format('woff2'),
+        url('../precious_sans_two_bold-webfont.woff') format('woff'),
+        url('../fonts/precious_sans_two_bold-webfont.ttf') format('truetype'),
+        url('../fonts/precious_sans_two_bold-webfont.svg#webfontuploaded_file') format('svg');
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    font-family: 'precious_light';
+    background-color: #F1F1F1;
+    padding: 2.5rem 3rem;
+}
+
+p {
+    font-family: 'precious_light';
+}
+
+.number {
+    text-align: right;
+    margin: 4.5rem 0 1.25rem 0;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+}
+
+.header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header img {
+    padding: 1.5rem;
+}
+
+p.callout {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+}
+
+p.callout a {
+    color: black;
+    font-family: 'precious_bold';
+}
+
+p.featured-image img {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    object-fit: contain;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'precious_bold';
+    text-transform: uppercase;
+    font-size: 2.813rem;
+    line-height: 3.375rem;
+    margin-bottom: 1.25rem;
+}
+
+.heading {
+    width: 50%;
+    margin: 2rem auto;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+}
+
+a.button {
+    color: #000000;
+    border-bottom: 4px #28b9f7 solid;
+    padding-top: 0.5rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'precious_bold';
+    margin-top: 1.5rem;
+}
+
+a.button:hover {
+    border-bottom: 4px #1f93c5 solid;
+}
+
+.hero {
+    display: flex;
+    background-color: white;
+    justify-content: flex-start;
+    margin-top: 5.5rem;
+    min-height: 600px;
+}
+
+.hero-image {
+    display: block;
+    width: auto;
+    max-width: 48%;
+    height: auto;
+    aspect-ratio: 1.1;
+    object-fit: cover;
+}
+
+.hero-body {
+    display: flex;
+    flex-direction: column;
+    padding: 3.5rem 3.5rem;
+    font-size: 1.75rem;
+    line-height: 2.1rem;
+}
+
+.hero-body h2 {
+    font-family: 'precious_bold';
+    font-size: 2.875rem;
+    line-height: 3.35rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.hero-body .link-more {
+    margin-top: auto;
+}
+
+.footer {
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 7.5rem 0 3.750rem 0;
+}
+.footer a {
+    text-decoration: none !important;
+    color: black;
+}
+
+.address {
+    margin-bottom: 1rem;
+}
+strong {
+    font-family: 'precious_bold';
+}

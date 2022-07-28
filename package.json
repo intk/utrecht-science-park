@@ -39,6 +39,8 @@
   "private": false,
   "workspaces": [],
   "addons": [
+    "volto-cookie-banner",
+    "volto-multilingual-widget",
     "volto-slate:minimalDefault,simpleLink",
     "@eeacms/volto-group-block",
     "@eeacms/volto-block-image-cards",
@@ -162,8 +164,10 @@
     "react-slick": "0.25.2",
     "react-text-truncate": "0.19.0",
     "slick-carousel": "1.8.1",
+    "volto-cookie-banner": "2.1.0",
     "volto-dropdownmenu": "2.4.2",
     "volto-form-block": "2.3.6",
+    "volto-multilingual-widget": "2.2.4",
     "volto-slate": "6.1.0"
   },
   "devDependencies": {

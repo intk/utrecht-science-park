@@ -1,3 +1,6 @@
+import CookieBanner from 'volto-cookie-banner/CookieBannerContainer';
+import { MultilingualWidget } from 'volto-multilingual-widget';
+
 import installStyleMenu from 'volto-slate/editor/plugins/StyleMenu';
 import loadable from '@loadable/component';
 import AttachedImageWidget from './components/widgets/AttachedImageWidget';
@@ -100,6 +103,15 @@ export default function applyConfig(config) {
   Layouts.multiple_content = 'Section layout';
 
   config.widgets.widget.attachedimage = AttachedImageWidget;
+  config.widgets.id.cookie_consent_configuration = MultilingualWidget();
+
+  config.settings.appExtras = [
+    ...(config.settings.appExtras || []),
+    {
+      match: '',
+      component: CookieBanner,
+    },
+  ];
 
   return installFooter(installBlocks(config));
 }

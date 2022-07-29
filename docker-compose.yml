@@ -26,14 +26,18 @@ services:
       - zeo
     environment:
       ZEO_ADDRESS: zeo:8100
-      ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport collective.volto.cookieconsent"
+      ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport collective.volto.cookieconsent collective.previewimage"
+      DEVELOP: "/app/api/collective.previewimage"
     volumes:
       - cache:/data
+      - ./api:/app/api
     labels:
       ofelia.enabled: "true"
       ofelia.job-exec.monthly-pack.schedule: "0 0 0 1 * *"
       ofelia.job-exec.monthly-pack.command: "/app/bin/zeopack -h zeo -p 8100 -d 3"
-    # entrypoint: sh -c "tail -f /dev/null"
+    entrypoint: sh -c "tail -f /dev/null"
+    healthcheck:
+      disable: true
 
   # See https://github.com/mcuadros/ofelia
   ofelia:

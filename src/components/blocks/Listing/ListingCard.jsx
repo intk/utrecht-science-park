@@ -1,11 +1,26 @@
 import React from 'react';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { Link } from 'react-router-dom';
-import { PreviewImage } from '@plone/volto/components';
 import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
 import { FormattedDate } from '@package/components';
+import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
 
 // see extras/listing.less for less
+function PreviewImage(props) {
+  const { item, size = 'preview', alt, isFallback = false, ...rest } = props;
+
+  // const src = item.image_field
+  //   ? flattenToAppURL(`${item['@id']}/@@images/${item.image_field}/${size}`)
+  //   : DefaultImageSVG;
+
+  const url = flattenToAppURL(
+    `${item['@id']}/@@${isFallback ? 'fallback-image' : 'images'}/${
+      item.image_field || 'preview_image'
+    }/${size}`,
+  );
+
+  return <img src={url} alt={alt ?? item.title} {...rest} />;
+}
 
 const Card = ({ item }) => {
   const { image_field } = item;
@@ -18,7 +33,7 @@ const Card = ({ item }) => {
         </div>
         <div className="image-container">
           <span className="link-img-wrapper">
-            {!!image_field && <PreviewImage item={item} size={size} />}
+            <PreviewImage item={item} size={size} isFallback={!image_field} />
           </span>
         </div>
       </Link>
@@ -41,7 +56,7 @@ const NewsItemCard = ({ item }) => {
         {!!image_field && (
           <div className="image-container">
             <span className="link-img-wrapper">
-              <PreviewImage item={item} size={size} />
+              <PreviewImage item={item} size={size} isFallback={!image_field} />
             </span>
           </div>
         )}
@@ -67,7 +82,7 @@ const EventCard = ({ item }) => {
         </div>
         <div className="image-container">
           <span className="link-img-wrapper">
-            {!!image_field && <PreviewImage item={item} size={size} />}
+            <PreviewImage item={item} size={size} isFallback={!image_field} />
           </span>
         </div>
       </Link>

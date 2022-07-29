@@ -9,28 +9,27 @@ const empty =
 export default function PreviewImage({
   item,
   size = 'medium',
-  showFallback = true,
+  isFallback = false,
+  showPlaceholder = false,
 }) {
   const url = flattenToAppURL(
-    `${item['@id']}/@@images/${item.image_field}/large`,
+    `${item['@id']}/@@${isFallback ? 'fallback-image' : 'images'}/${
+      item.image_field || 'preview_image'
+    }/large`,
   );
-  return (
-    <>
-      {item.image_field ? (
-        <Image
-          src={empty}
-          style={{ backgroundImage: `url("${url}")` }}
-          size={size}
-          alt={item.title}
-          className={cx('preview-image', size)}
-        />
-      ) : showFallback ? (
-        <Placeholder>
-          <Placeholder.Image square></Placeholder.Image>
-        </Placeholder>
-      ) : (
-        ''
-      )}
-    </>
+  console.log('url', url);
+
+  return showPlaceholder ? (
+    <Placeholder>
+      <Placeholder.Image square></Placeholder.Image>
+    </Placeholder>
+  ) : (
+    <Image
+      src={empty}
+      style={{ backgroundImage: `url("${url}")` }}
+      size={size}
+      alt={item.title}
+      className={cx('preview-image', size)}
+    />
   );
 }

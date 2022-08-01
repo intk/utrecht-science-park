@@ -11,17 +11,12 @@ import Layouts from '@plone/volto/constants/Layouts';
 import { getContent } from '@plone/volto/actions';
 import installFooter from './footer';
 import installExpressMiddleware from './express-middleware';
-
-import TagManager from 'react-gtm-module';
+import { GTMTracker } from './components/hocs/useTagManager';
 
 // All your imports required for the config here BEFORE this line
 import '@plone/volto/config';
 
-const tagManagerArgs = {
-  gtmId: 'GTM-T8SF8PJ',
-};
-
-__CLIENT__ && !__DEVELOPMENT__ && TagManager.initialize(tagManagerArgs);
+// __CLIENT__ && !__DEVELOPMENT__ && TagManager.initialize(tagManagerArgs);
 
 export default function applyConfig(config) {
   // Add here your project's configuration here by modifying `config` accordingly
@@ -39,6 +34,7 @@ export default function applyConfig(config) {
     ['footerLinks', 'Footer Links'],
     ['siteActions', 'Site Actions'],
   ];
+  config.settings.gtmId = 'GTM-T8SF8PJ';
 
   config.blocks.blocksConfig.title.view = () => null;
   config.blocks.groupBlocksOrder.push({ id: 'site', title: 'Site' });
@@ -111,6 +107,10 @@ export default function applyConfig(config) {
     {
       match: '',
       component: CookieBanner,
+    },
+    {
+      match: '',
+      component: GTMTracker,
     },
   ];
 

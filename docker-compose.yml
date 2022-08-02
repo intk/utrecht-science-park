@@ -30,7 +30,7 @@ services:
       DEVELOP: "/app/api/collective.previewimage"
     volumes:
       - cache:/data
-      - ./api:/app/api
+      - ./code:/app/api
       - ./docker-entrypoint.sh:/app/docker-entrypoint.sh
     labels:
       ofelia.enabled: "true"

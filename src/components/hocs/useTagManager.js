@@ -9,7 +9,7 @@ const useTagManager = ({ gtmId }) => {
 };
 
 export const GTMTracker = () => {
-  useTagManager(config.settings.gtmId);
+  useTagManager({ gtmId: config.settings.gtmId });
   return null;
 };
 

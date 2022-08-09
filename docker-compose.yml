@@ -26,7 +26,7 @@ services:
       - zeo
     environment:
       ZEO_ADDRESS: zeo:8100
-      ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport collective.volto.cookieconsent collective.previewimage"
+      ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport collective.volto.cookieconsent plone.formwidget.recaptcha"
       DEVELOP: "/app/api/collective.previewimage"
     volumes:
       - cache:/data

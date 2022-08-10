@@ -6,6 +6,9 @@
             ],
             "volto-slate": [
                 "addons/volto-slate/src"
+            ],
+            "volto-form-block": [
+                "addons/volto-form-block/src"
             ]
         },
         "baseUrl": "src"

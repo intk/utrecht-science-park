@@ -24,7 +24,13 @@ function HeroSection(props) {
       </div>
       <Container>
         <h1 className="content-title">{content_title}</h1>
-        {!!content?.start && <When start={content.start} end={content.end} />}
+        {!!content?.start && (
+          <When
+            start={content.start}
+            end={content.end}
+            whole_day={content?.whole_day}
+          />
+        )}
         {content_description && (
           <p className={'content-description'}>{content_description}</p>
         )}

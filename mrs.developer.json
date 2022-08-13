@@ -9,6 +9,7 @@
   "volto-form-block": {
     "url": "git@github.com:collective/volto-form-block.git",
     "https": "https://github.com/collective/volto-form-block.git",
+    "branch": "fix_captcha_update",
     "develop": true,
     "path": "src"
   },

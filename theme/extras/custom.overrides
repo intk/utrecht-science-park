@@ -74,12 +74,15 @@
   .hero-image {
     object-fit: contain;
   }
+
   .hero-body {
     justify-content: flex-start;
     padding: 1.5rem 1.5rem 0 1.5rem;
+
     h1 {
       margin-top: unset !important;
     }
+
     .link-more {
       margin-top: auto;
     }
@@ -87,10 +90,15 @@
 }
 @media only screen and (max-width: @largestMobileScreen) {
   #view .block.hero .block-inner-wrapper {
-      flex-direction: column !important; 
-      .hero-image {
-        object-fit: cover !important;
-        max-width: 100%;
-      }
+    flex-direction: column !important;
+
+    .hero-image {
+      max-width: 100%;
+      object-fit: cover !important;
     }
   }
+}
+
+#page-add {
+  min-height: 70vh; // fixes block chooser hidden in add page
+}

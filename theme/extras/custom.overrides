@@ -100,9 +100,14 @@
 }
 
 #page-add {
-  min-height: 70vh; // fixes block chooser hidden in add page
+  //min-height: 70vh; // fixes block chooser hidden in add page
 }
 
 .volto-subblocks-wrapper button.delete-button {
   z-index: 1;
+}
+
+
+body:not(.view-editview):not(.document_wide_view):not(.is-anonymous) main {
+  overflow: unset;
 }

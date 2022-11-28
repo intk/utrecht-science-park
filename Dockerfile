@@ -1,25 +1,28 @@
 FROM node:16-slim
 
-COPY . /opt/frontend/
-COPY entrypoint.sh /opt/frontend/entrypoint.sh
-WORKDIR /opt/frontend/
-
 # Update apt packages
-RUN runDeps="openssl ca-certificates patch gosu git tmux locales-all curl" \
+RUN runDeps="openssl ca-certificates patch gosu git tmux locales-all curl python3 build-essential" \
     && apt-get update \
     && apt-get install -y --no-install-recommends $runDeps \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && npm install -g mrs-developer \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY . /opt/frontend/
+
+RUN npm install -g mrs-developer \
     && mkdir -p /opt/frontend/src/addons \
-    && rm -rf /opt/frontend/src/addons/* \
-    && find /opt/frontend -not -user node -exec chown node {} \+
+    && rm -rf /opt/frontend/src/addons/*
+
+RUN chown -R node /opt/frontend
 
 USER node
+
+COPY entrypoint.sh /opt/frontend/entrypoint.sh
 
 WORKDIR /opt/frontend/
 
 RUN cd /opt/frontend \
+    && rm -rf /opt/frontend/src/addons/* \
     && make develop \
     && yarn \
     && RAZZLE_API_PATH=VOLTO_API_PATH RAZZLE_INTERNAL_API_PATH=VOLTO_INTERNAL_API_PATH yarn build \

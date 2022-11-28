@@ -9,3 +9,5 @@ omelette
 *.log
 *.yml
 code/*
+Dockerfile
+src/addons/

@@ -157,6 +157,7 @@
     "slick-carousel": "1.8.1",
     "volto-cookie-banner": "2.1.0",
     "volto-form-block": "3.0.0",
+    "volto-subblocks": "2.0.0",
     "volto-multilingual-widget": "3.0.0"
   },
   "devDependencies": {

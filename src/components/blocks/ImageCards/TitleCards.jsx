@@ -2,7 +2,7 @@ import { Image, Message } from 'semantic-ui-react';
 
 import { TitleCardsSchema } from './schema';
 import { getScaleUrl, getPath } from './utils';
-import { serializeNodes } from 'volto-slate/editor/render';
+import { serializeNodes } from '@plone/volto-slate/editor/render';
 import { ListingBlockHeader } from '@package/components';
 
 import './less/title-cards.less';

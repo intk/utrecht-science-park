@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Message } from 'semantic-ui-react';
 import { ListingBlockHeader } from '@package/components';
 import { Placeholder } from 'semantic-ui-react';
-import { serializeNodes } from 'volto-slate/editor/render';
+import { serializeNodes } from '@plone/volto-slate/editor/render';
 import { ResponsiveContainer } from '@package/components';
 import cx from 'classnames';
 

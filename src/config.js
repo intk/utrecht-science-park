@@ -1,16 +1,16 @@
 import CookieBanner from 'volto-cookie-banner/CookieBannerContainer';
 import { MultilingualWidget } from 'volto-multilingual-widget';
 
-import installStyleMenu from 'volto-slate/editor/plugins/StyleMenu';
+// import installStyleMenu from 'volto-slate/editor/plugins/StyleMenu';
 import loadable from '@loadable/component';
 import AttachedImageWidget from './components/widgets/AttachedImageWidget';
 import installBlocks from './components/blocks';
 import MultipleContentView from './components/theme/View/MultipleContentView';
 import ListingView from './components/theme/View/ListingView';
-import Layouts from '@plone/volto/constants/Layouts';
+// import Layouts from '@plone/volto/constants/Layouts';
 import { getContent } from '@plone/volto/actions';
 import installFooter from './footer';
-import installExpressMiddleware from './express-middleware';
+// import installExpressMiddleware from './express-middleware';
 import { GTMTracker } from './components/hocs/useTagManager';
 
 // All your imports required for the config here BEFORE this line
@@ -21,7 +21,7 @@ import '@plone/volto/config';
 export default function applyConfig(config) {
   // Add here your project's configuration here by modifying `config` accordingly
 
-  installStyleMenu(config);
+  // installStyleMenu(config);
 
   const DEFAULT_LANG = 'en';
 
@@ -97,7 +97,7 @@ export default function applyConfig(config) {
   config.views.layoutViews.listing_view = ListingView;
   config.views.contentTypesViews.Event = config.views.defaultView;
 
-  Layouts.multiple_content = 'Section layout';
+  // Layouts.multiple_content = 'Section layout';
 
   config.widgets.widget.attachedimage = AttachedImageWidget;
   config.widgets.id.cookie_consent_configuration = MultilingualWidget();
@@ -114,5 +114,6 @@ export default function applyConfig(config) {
     },
   ];
 
-  return installExpressMiddleware(installFooter(installBlocks(config)));
+  // installExpressMiddleware(
+  return installFooter(installBlocks(config));
 }

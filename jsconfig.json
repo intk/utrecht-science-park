@@ -1,9 +1,10 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@eeacms/volto-block-image-cards": ["addons/volto-block-image-cards/src"],
-      "volto-form-block": ["addons/volto-form-block/src"]
-    },
-    "baseUrl": "src"
-  }
+    "compilerOptions": {
+        "paths": {
+            "@eeacms/volto-block-image-cards": [
+                "addons/volto-block-image-cards/src"
+            ]
+        },
+        "baseUrl": "src"
+    }
 }

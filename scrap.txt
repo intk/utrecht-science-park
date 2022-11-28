@@ -198,3 +198,10 @@
 //   font-size: clamp(0.813rem, 2.25vw, 1.142rem);
 //   grid-template-columns: 2fr 1fr;
 //   }
+    "volto-cookie-banner",
+    "volto-multilingual-widget",
+    "@eeacms/volto-group-block",
+    "@eeacms/volto-block-image-cards",
+    "@eeacms/volto-block-toc",
+    "@eeacms/volto-block-divider",
+    "volto-form-block"

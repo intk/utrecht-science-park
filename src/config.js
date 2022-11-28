@@ -96,8 +96,7 @@ export default function applyConfig(config) {
   config.views.layoutViews.listing_view = ListingView;
   config.views.layoutViews.listing_view = ListingView;
   config.views.contentTypesViews.Event = config.views.defaultView;
-
-  // Layouts.multiple_content = 'Section layout';
+  config.views.layoutViewsNamesMapping.multiple_content = 'Section layout';
 
   config.widgets.widget.attachedimage = AttachedImageWidget;
   config.widgets.id.cookie_consent_configuration = MultilingualWidget();

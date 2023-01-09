@@ -7,7 +7,6 @@ node_modules
 omelette
 .env
 *.log
-*.yml
 code/*
 Dockerfile
 src/addons/

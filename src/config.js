@@ -113,6 +113,14 @@ export default function applyConfig(config) {
     },
   ];
 
+  // config.settings.apiExpanders = [
+  //   ...config.settings.apiExpanders,
+  //   {
+  //     match: '',
+  //     GET_CONTENT: ['navigation'],
+  //   },
+  // ];
+
   // installExpressMiddleware(
   return installFooter(installBlocks(config));
 }

@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { defineMessages, injectIntl } from 'react-intl';
 import cx from 'classnames';
-import { getBaseUrl, hasApiExpander } from '@plone/volto/helpers';
+import { getBaseUrl } from '@plone/volto/helpers';
 import config from '@plone/volto/registry';
 import { getNavigation } from '@plone/volto/actions';
 
@@ -41,15 +41,13 @@ function LocalDimmer({ active }) {
   ) : null;
 }
 
-function Navigation({ pathname, intl, items, lang }) {
+function Navigation({ pathname, intl, items, token, lang, getNavigation }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState();
 
   React.useEffect(() => {
     const { settings } = config;
-    if (!hasApiExpander('navigation', getBaseUrl(pathname))) {
-      getNavigation(getBaseUrl(pathname), settings.navDepth);
-    }
-  }, [pathname]);
+    getNavigation(getBaseUrl(pathname), settings.navDepth);
+  }, [pathname, token, lang, getNavigation]);
 
   return (
     <nav className="navigation" id="navigation" aria-label="navigation">

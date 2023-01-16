@@ -2,4 +2,7 @@ services:
   frontend:
     build: .
   plone:
-    entrypoint: sh -c "tail -f /dev/null"
+    user: root
+    command: bash
+    tty: true
+    # entrypoint: sh -c "tail -f /dev/null"

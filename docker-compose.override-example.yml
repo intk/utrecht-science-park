@@ -1,3 +1,5 @@
 services:
   frontend:
     build: .
+  plone:
+    entrypoint: sh -c "tail -f /dev/null"

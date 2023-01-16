@@ -2,7 +2,7 @@ import { LinkMore } from '@plone/volto/components';
 
 const ListingBlockHeader = ({ data }) => {
   const { title, headline, linkHref } = data;
-  const head = title || headline;
+  const head = headline || title;
 
   return head ? (
     <div className="listing-block-header">

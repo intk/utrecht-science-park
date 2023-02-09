@@ -27,7 +27,7 @@ services:
     environment:
       ZEO_ADDRESS: zeo:8100
       ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport collective.volto.cookieconsent plone.formwidget.recaptcha"
-      DEVELOP: "/app/api/collective.previewimage /app/api/intk_usp"
+      DEVELOP: "/app/api/collective.previewimage -e /app/api/intk_usp"
     volumes:
       - cache:/data
       - ./code:/app/api
@@ -41,7 +41,7 @@ services:
       disable: true
 
   frontend:
-    image: tiberiuichim/utrecht-science-part:1.2
+    image: tiberiuichim/utrecht-science-part:1.3
     depends_on:
     - plone
     environment:

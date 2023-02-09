@@ -10,7 +10,7 @@ import ListingView from './components/theme/View/ListingView';
 // import Layouts from '@plone/volto/constants/Layouts';
 import { getContent } from '@plone/volto/actions';
 import installFooter from './footer';
-// import installExpressMiddleware from './express-middleware';
+import installExpressMiddleware from './express-middleware';
 import { GTMTracker } from './components/hocs/useTagManager';
 
 // All your imports required for the config here BEFORE this line
@@ -121,6 +121,5 @@ export default function applyConfig(config) {
   //   },
   // ];
 
-  // installExpressMiddleware(
-  return installFooter(installBlocks(config));
+  return installExpressMiddleware(installFooter(installBlocks(config)));
 }

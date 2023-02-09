@@ -92,3 +92,6 @@ src/addons/*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+*.tgz
+docker-compose.override.yml
+*.egg-info

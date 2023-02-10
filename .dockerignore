@@ -10,3 +10,7 @@ omelette
 code/*
 Dockerfile
 src/addons/
+*.tgz
+data/
+data-old
+data-incoming

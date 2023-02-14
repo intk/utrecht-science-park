@@ -44,8 +44,8 @@ services:
     image: tiberiuichim/utrecht-science-part:1.3
     depends_on:
     - plone
-    environment:
-      RAZZLE_INTERNAL_API_PATH: "http://plone:8080/Plone"
+    # environment:
+      # RAZZLE_INTERNAL_API_PATH: "http://plone:8080/Plone"
 
 
   # See https://github.com/mcuadros/ofelia

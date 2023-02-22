@@ -3,6 +3,8 @@ import loadable from '@loadable/component';
 import { Message, Button } from 'semantic-ui-react';
 import { Icon, UniversalLink } from '@plone/volto/components';
 import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
+import YouTube from 'react-youtube';
+import config from '@plone/volto/registry';
 
 import playSVG from '@plone/volto/icons/play.svg';
 
@@ -14,6 +16,40 @@ import './less/video-carousel.less';
 import { getPath } from './utils';
 
 import { BodyClass } from '@plone/volto/helpers';
+
+const VideoPlayer = ({ videoId, width, height }) => {
+  const playerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (playerRef.current) {
+      playerRef.current.internalPlayer.playVideo();
+    }
+  }, [playerRef]);
+
+  const onReady = (event) => {
+    event.target.playVideo();
+  };
+
+  const opts = {
+    height: height || '390',
+    width: width || '640',
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      origin: config.settings.apiPath,
+      playsinline: 1,
+      modestbranding: 1,
+      controls: 0,
+      enablejsapi: 1,
+      rel: 0,
+    },
+  };
+  console.log('opts', opts);
+
+  return (
+    <YouTube videoId={videoId} opts={opts} onReady={onReady} ref={playerRef} />
+  );
+};
 
 export { VideoCardSchema } from './schema';
 
@@ -27,25 +63,33 @@ const getEmbedUrl = (url) => {
 
   if (url.match('vimeo')) {
     videoId = url.match(/^.*\.com\/(.*)/)[1];
-    return [
-      `//player.vimeo.com/video/${videoId}`,
-      '?api=false',
-      `&amp;dnt=1`,
-      `&amp;loop=1`,
-      `&amp;autopause=1`,
-      `&amp;muted=1`,
-      `&amp;background=1`,
-      `&amp;autoplay=1`,
-      '&amp;byline=false',
-      '&amp;portrait=false',
-      '&amp;title=false',
-    ].join('');
+    return {
+      type: 'vimeo',
+      videoId,
+      url: [
+        `//player.vimeo.com/video/${videoId}`,
+        '?api=false',
+        `&amp;dnt=1`,
+        `&amp;loop=1`,
+        `&amp;autopause=1`,
+        `&amp;muted=1`,
+        `&amp;background=1`,
+        `&amp;autoplay=1`,
+        '&amp;byline=false',
+        '&amp;portrait=false',
+        '&amp;title=false',
+      ].join(''),
+    };
   }
   videoId = url.match(/.be\//)
     ? url.match(/^.*\.be\/(.*)/)[1]
     : url.match(/^.*\?v=(.*)$/)[1];
 
-  return `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1`;
+  return {
+    type: 'youtube',
+    videoId,
+    url: `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1`,
+  };
 };
 
 const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
@@ -54,20 +98,24 @@ const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
 
   if (!url) return null;
 
-  const embedUrl = getEmbedUrl(url);
+  const embed = getEmbedUrl(url);
 
   return (
     <div className="video-responsive">
       {play ? (
-        <iframe
-          width={width}
-          height={height}
-          src={embedUrl}
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "
-          allowFullScreen
-          title="Embedded video"
-        />
+        embed.type === 'youtube' ? (
+          <VideoPlayer videoId={embed.videoId} width={width} height={height} />
+        ) : (
+          <iframe
+            width={width}
+            height={height}
+            src={embed.url}
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "
+            allowFullScreen
+            title="Embedded video"
+          />
+        )
       ) : (
         <div className="placeholder-image">
           <img src={placeholder} className="placeholder" alt="Placeholder" />
@@ -133,11 +181,13 @@ const VideoSlide = ({
           </div>
         </div>
 
-        <Dots
-          sliderRef={sliderRef}
-          slideIndex={slideIndex}
-          slideCount={slideCount}
-        />
+        {slideCount > 1 ? (
+          <Dots
+            sliderRef={sliderRef}
+            slideIndex={slideIndex}
+            slideCount={slideCount}
+          />
+        ) : null}
       </div>
       <VideoEmbed {...embedSettings} sliderRef={sliderRef} />
     </div>
@@ -170,6 +220,7 @@ const VideoCarousel = ({ data }) => {
   const [slideHeight, setSlideHeight] = React.useState();
   const nodeRef = React.useRef();
 
+  console.log('data', data);
   const { cards = [], image_scale = 'large' } = data;
 
   var settings = React.useMemo(
@@ -214,27 +265,41 @@ const VideoCarousel = ({ data }) => {
         })}
       >
         <div className="slider-wrapper">
-          {cards.length && slideHeight ? (
-            <>
-              <Slider
-                {...settings}
-                slideHeight={slideHeight}
-                ref={sliderRef}
-                listHeight="100vh"
-              >
-                {cards.map((card, i) => (
-                  <VideoSlide
-                    card={card}
-                    key={i}
-                    image_scale={image_scale}
-                    height={slideHeight}
-                    sliderRef={sliderRef}
-                    slideIndex={i}
-                    slideCount={cards.length}
-                  />
-                ))}
-              </Slider>
-            </>
+          {cards.length ? (
+            slideHeight ? (
+              <>
+                <Slider
+                  {...settings}
+                  slideHeight={slideHeight}
+                  ref={sliderRef}
+                  listHeight="100vh"
+                >
+                  {cards.map((card, i) => (
+                    <VideoSlide
+                      card={card}
+                      key={i}
+                      image_scale={image_scale}
+                      height={slideHeight}
+                      sliderRef={sliderRef}
+                      slideIndex={i}
+                      slideCount={cards.length}
+                    />
+                  ))}
+                </Slider>
+              </>
+            ) : (
+              cards.map((card, i) => (
+                <VideoSlide
+                  card={card}
+                  key={i}
+                  image_scale={image_scale}
+                  height={slideHeight}
+                  sliderRef={sliderRef}
+                  slideIndex={i}
+                  slideCount={cards.length}
+                />
+              ))
+            )
           ) : (
             <Message>No image cards</Message>
           )}

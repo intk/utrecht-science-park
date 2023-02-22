@@ -45,11 +45,12 @@ const getEmbedUrl = (url) => {
     ? url.match(/^.*\.be\/(.*)/)[1]
     : url.match(/^.*\?v=(.*)$/)[1];
 
-  return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  return `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1`;
 };
 
 const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
-  const [play, setIsPlay] = React.useState();
+  const autoplay = !placeholder; // if we don't have a placeholder, then we autoplay
+  const [play, setIsPlay] = React.useState(autoplay);
 
   if (!url) return null;
 

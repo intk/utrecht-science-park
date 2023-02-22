@@ -44,7 +44,6 @@ const VideoPlayer = ({ videoId, width, height }) => {
       rel: 0,
     },
   };
-  console.log('opts', opts);
 
   return (
     <YouTube videoId={videoId} opts={opts} onReady={onReady} ref={playerRef} />
@@ -220,7 +219,6 @@ const VideoCarousel = ({ data }) => {
   const [slideHeight, setSlideHeight] = React.useState();
   const nodeRef = React.useRef();
 
-  console.log('data', data);
   const { cards = [], image_scale = 'large' } = data;
 
   var settings = React.useMemo(

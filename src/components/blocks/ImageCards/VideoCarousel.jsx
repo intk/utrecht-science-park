@@ -44,9 +44,34 @@ const VideoPlayer = ({ videoId, width, height }) => {
       rel: 0,
     },
   };
+  const containerStyle = {
+    height: '100vh',
+    width: '100vw',
+    overflow: 'hidden',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
+  const videoStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+  };
 
   return (
-    <YouTube videoId={videoId} opts={opts} onReady={onReady} ref={playerRef} />
+    <div style={containerStyle}>
+      <YouTube
+        videoId={videoId}
+        opts={opts}
+        onReady={onReady}
+        ref={playerRef}
+        style={videoStyle}
+      />
+    </div>
   );
 };
 

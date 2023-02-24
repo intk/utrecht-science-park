@@ -30,4 +30,139 @@ msgstr ""
 "Language-Name: Nederlands\n"
 "Preferred-Encodings: utf-8\n"
 
+#: components/blocks/ActionLinks/schema
+# defaultMessage: Action
+msgid "Action"
+msgstr “Actie”
 
+#: components/blocks/ActionLinks/schema
+# defaultMessage: Actions
+msgid "Actions"
+msgstr “Acties”
+
+#: components/theme/Footer/Footer
+# defaultMessage: Address
+msgid "Address"
+msgstr “Adres”
+
+#: components/blocks/Image/ImageBlockEdit
+# defaultMessage: Browse the site, drop an image, or type an URL
+msgid "Browse the site, drop an image, or type an URL"
+msgstr “Bekijk de website, plaats een afbeelding of typ een URL“
+
+#: components/blocks/Button/schema
+# defaultMessage: Button
+msgid "Button"
+msgstr “Knop”
+
+#: components/blocks/Facts/schema
+# defaultMessage: Card
+msgid "Card"
+msgstr “Kaart”
+
+#: components/blocks/Facts/schema
+# defaultMessage: Cards
+msgid "Cards"
+msgstr “Kaarten”
+
+#: components/theme/Navigation/Navigation
+# defaultMessage: Close menu
+msgid "Close menu"
+msgstr “Sliut menu”
+
+#: components/theme/Footer/Footer
+# defaultMessage: E-mail
+msgid "E-mail"
+msgstr “E-mail”
+
+#: components/theme/Footer/Footer
+# defaultMessage: KvK
+msgid "KvK"
+msgstr “KvK”
+
+#: components/blocks/ActionLinks/schema
+#: components/blocks/Facts/schema
+# defaultMessage: Action link
+msgid "LinkTo"
+msgstr “LinkNaar”
+
+#: components/theme/Navigation/Navigation
+# defaultMessage: Open menu
+msgid "Open menu"
+msgstr “Open menu“
+
+#: components/theme/Footer/Footer
+# defaultMessage: Phone
+msgid "Phone"
+msgstr “Telefoon”
+
+#: components/theme/SearchWidget/SearchWidget
+# defaultMessage: Search
+msgid "Search"
+msgstr “Zoeken”
+
+#: components/theme/Footer/Footer
+# defaultMessage: Subscribe
+msgid "Subscribe"
+msgstr "Abonneren"
+
+#: components/theme/Footer/Footer
+# defaultMessage: University of Applied Sciences Utrecht
+msgid "University of Applied Sciences Utrecht"
+msgstr "Hogeschool Utrecht"
+
+#: components/blocks/Quote/EditBlockWrapper
+# defaultMessage: Unknown Block {block}
+msgid "Unknown Block"
+msgstr “Onbekend blok”
+
+#: components/theme/Footer/Footer
+# defaultMessage: Utrecht Science Park
+msgid "Utrecht Science Park"
+msgstr “Utrecht Science Park“
+
+#: components/blocks/Quote/EditBlockWrapper
+# defaultMessage: delete
+msgid "delete"
+msgstr “verwijder”
+
+#: components/blocks/Facts/schema
+# defaultMessage: Icon
+msgid "icon"
+msgstr “icoon”
+
+#: components/blocks/Facts/schema
+# defaultMessage: Image
+msgid "image"
+msgstr “afbeelding”
+
+#: components/theme/Footer/Footer
+# defaultMessage: Join our mailing list to stay up to date on everything that happens at the park
+msgid "joinOurMailing"
+msgstr "Word lid van onze mailinglijst om op de hoogte te blijven van alles wat er op het park gebeurt"
+
+#: components/blocks/Facts/schema
+# defaultMessage: Destination for the call to action button
+msgid "linkToDescription"
+msgstr “linkNaarBeschrijving”
+
+#: components/theme/Footer/Footer
+# defaultMessage: Partners / founders
+msgid "partners/founders"
+msgstr “partners/founders”
+
+#: components/blocks/Facts/schema
+# defaultMessage: SubTitle
+msgid "subtitle"
+msgstr “ondertitel”
+
+#: components/theme/Footer/Footer
+# defaultMessage: Supported by
+msgid "supportedBy"
+msgstr "Ondersteund door"
+
+#: components/blocks/ActionLinks/schema
+#: components/blocks/Facts/schema
+# defaultMessage: Title
+msgid "title"
+msgstr “titel”

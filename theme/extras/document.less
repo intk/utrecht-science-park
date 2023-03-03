@@ -36,15 +36,15 @@
   }
 
   p.callout {
-    border: unset;
-    box-shadow: unset;
     //border-left: 4px @blueLight solid;
     padding: @h3MarginTop 4rem 0 4rem;
+    border: unset;
     border-radius: 0px;
-    font-size: clamp(1.125rem, 2.75vw, 1.75rem);
-    line-height: clamp(1.35rem, 2.75vw, 2.1rem);
+    box-shadow: unset;
     font-family: @fontName;
+    font-size: clamp(1.125rem, 2.75vw, 1.75rem);
     font-style: italic;
+    line-height: clamp(1.35rem, 2.75vw, 2.1rem);
   }
 }
 
@@ -64,6 +64,21 @@
     &:not(:first-child) {
       .h3Spacer();
     }
+
+    // fix case when the document starts with an h3
+    &:first-child + p {
+      padding-top: 0em !important;
+    }
+
+    & + *:not(:first-child) {
+      .h3Spacer();
+      // margin-top: @h3MarginTop;
+      // padding-top: @h3MarginTop;
+    }
+
+    & + p.block.image.align {
+      clear: none;
+    }
   }
 
   & > p,
@@ -79,19 +94,15 @@
 
   & .btn-block.primary,
   & .btn-block.secondary {
+    display: unset;
     margin-left: @leftColumnSize;
+    line-height: 2em;
   }
 
   & > table,
   .table-of-contents {
     width: @rightColumnSize;
     margin-left: @leftColumnSize;
-  }
-
-  & > h3 + *:not(:first-child) {
-    .h3Spacer();
-    // margin-top: @h3MarginTop;
-    // padding-top: @h3MarginTop;
   }
 
   & > h3 + .ui.divider {
@@ -162,6 +173,11 @@
     blockquote.callout {
       margin-left: unset !important;
     }
+
+    & .btn-block.primary,
+    & .btn-block.secondary {
+      margin-left: unset;
+    }
   }
 }
 
@@ -229,4 +245,16 @@
 .view-addview .header-bg,
 .view-editview .header-bg {
   display: none;
+}
+
+// fix editing image blocks
+.block-editor-image p {
+  min-height: 2px;
+  background-color: red;
+  cursor: pointer;
+}
+
+// fix alignment of inline image in paragraph
+.block.image.align:has(+ p) {
+  margin-bottom: 0em;
 }

@@ -94,7 +94,7 @@
 
   & .btn-block.primary,
   & .btn-block.secondary {
-    display: unset;
+    // display: unset;
     margin-left: @leftColumnSize;
     line-height: 2em;
   }
@@ -122,6 +122,14 @@
 
   & > h2 {
     margin-top: 1em;
+  }
+
+  & > .btn-block {
+    display: block;
+  }
+
+  & > .btn-block:has(+ p) {
+    margin-bottom: 2em;
   }
 }
 

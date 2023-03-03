@@ -22,10 +22,10 @@ p.buttonSec {
   }
 }
 
-.ui.button.btn-block.primary {
+.btn-block.primary a {
   .isBtn();
 }
 
-.ui.button.btn-block.secondary {
+.btn-block.secondary a {
   .isBtnSec();
 }

@@ -7,26 +7,24 @@ import cx from 'classnames';
 const ButtonView = ({ data, mode = 'view' }) => {
   let href = data.linkHref?.[0]?.['@id'] || '';
   const isEditMode = mode === 'edit';
-  const classNames = cx('ui button btn-block', data.btnStyle || 'primary');
+  const classNames = cx('btn-block', data.btnStyle || 'primary');
 
   return isInternalURL(href) ? (
     isEditMode ? (
       <div className={classNames}>{data.linkTitle || href}</div>
     ) : (
-      <ConditionalLink
-        to={flattenToAppURL(href)}
-        condition={!isEditMode}
-        className={classNames}
-      >
-        {data.linkTitle || href}
-      </ConditionalLink>
+      <div className={classNames}>
+        <ConditionalLink to={flattenToAppURL(href)} condition={!isEditMode}>
+          {data.linkTitle || href}
+        </ConditionalLink>
+      </div>
     )
   ) : href ? (
-    <UniversalLink href={href} className={classNames}>
-      {data.linkTitle || href}
-    </UniversalLink>
+    <div className={classNames}>
+      <UniversalLink href={href}>{data.linkTitle || href}</UniversalLink>
+    </div>
   ) : isEditMode ? (
-    'Button block'
+    <div className={classNames}>Button block</div>
   ) : null;
 };
 export default ButtonView;

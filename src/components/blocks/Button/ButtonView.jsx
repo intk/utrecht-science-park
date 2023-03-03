@@ -11,11 +11,13 @@ const ButtonView = ({ data, mode = 'view' }) => {
 
   return isInternalURL(href) ? (
     isEditMode ? (
-      <div className={classNames}>{data.linkTitle || href}</div>
+      <div className={classNames}>
+        <span>{data.linkTitle || href}</span>
+      </div>
     ) : (
       <div className={classNames}>
         <ConditionalLink to={flattenToAppURL(href)} condition={!isEditMode}>
-          {data.linkTitle || href}
+          <span>{data.linkTitle || href}</span>
         </ConditionalLink>
       </div>
     )

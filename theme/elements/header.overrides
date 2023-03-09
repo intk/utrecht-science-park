@@ -26,6 +26,10 @@
       .logo {
         .verticalAlign();
         margin: 0em 1em;
+        a img {
+          height: 100%;
+          width: 100%;
+        }
       }
 
       .tools-search-wrapper {

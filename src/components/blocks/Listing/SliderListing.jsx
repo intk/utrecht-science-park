@@ -30,10 +30,17 @@ const getSliderSetting = (slider, settings, name) => {
     : settings[name];
 };
 
-export const SliderNavigation = ({ sliderRef, count, index, settings }) => {
+export const SliderNavigation = ({
+  sliderRef,
+  count,
+  index,
+  settings,
+  slidesToShow,
+}) => {
   const slider = sliderRef.current;
+  const show = slidesToShow ? count > slidesToShow : true;
 
-  return (
+  return show ? (
     <div className="slider-nav">
       <button
         className={cx(
@@ -54,7 +61,7 @@ export const SliderNavigation = ({ sliderRef, count, index, settings }) => {
         <Icon name={aheadSVG} size="32px" />
       </button>
     </div>
-  );
+  ) : null;
 };
 
 // in this type of carousel, acts as Page navigation, rather then slide by

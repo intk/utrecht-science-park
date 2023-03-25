@@ -127,7 +127,7 @@ const ImageCarousel = (props) => {
             slidesToShow: Math.min(slidesToShow, 3),
             slidesToScroll: Math.min(slidesToShow, 3),
             infinite: true,
-            dots: true,
+            dots: false,
           },
         },
         {
@@ -169,6 +169,11 @@ const ImageCarousel = (props) => {
 
       <ResponsiveContainer>
         {({ parentWidth }) => {
+          const breakpoint = carouselSettings.responsive.find(
+            ({ breakpoint }) => parentWidth < breakpoint,
+          );
+          const toShow = breakpoint?.settings?.slidesToShow || slidesToShow;
+          // console.log('breakpoint', breakpoint);
           return (
             parentWidth &&
             isClient && (
@@ -192,8 +197,9 @@ const ImageCarousel = (props) => {
                   <SliderNavigation
                     sliderRef={sliderRef}
                     slideIndex={currentSlide}
-                    slideCount={cards.length}
+                    count={cards.length}
                     settings={carouselSettings}
+                    slidesToShow={toShow}
                   />
                 </div>
               </div>

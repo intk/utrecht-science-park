@@ -34,6 +34,7 @@
     "@eeacms/volto-block-image-cards",
     "@eeacms/volto-block-toc",
     "@eeacms/volto-block-divider",
+    "@eeacms/volto-columns-block",
     "volto-form-block"
   ],
   "jest": {
@@ -139,6 +140,7 @@
   "dependencies": {
     "@eeacms/volto-block-divider": "5.0.0",
     "@eeacms/volto-block-toc": "3.0.3",
+    "@eeacms/volto-columns-block": "6.0.2",
     "@eeacms/volto-group-block": "5.0.1",
     "@fortawesome/fontawesome-svg-core": "6.1.1",
     "@fortawesome/free-solid-svg-icons": "6.1.1",

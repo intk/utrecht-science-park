@@ -18,7 +18,7 @@ services:
       ofelia.job-exec.weekly-backup.command: "/app/bin/repozo -B -f /app/var/filestorage/Data.fs -r /app/var/backup"
 
   plone:
-    image: plone/plone-backend:6.0.0b1
+    image: plone/plone-backend:6.0.2
     ports:
       - "8080:8080"
     restart: always

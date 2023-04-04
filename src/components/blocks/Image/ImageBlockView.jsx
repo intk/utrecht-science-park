@@ -12,6 +12,30 @@ const Source = ({ source = '', sourceHref }) => (
   </div>
 );
 
+const sizes = {
+  l: 'huge',
+  m: 'preview',
+  s: 'mini',
+  fallback: 'huge',
+};
+
+//                      if (data.size === 'l')
+//                        return `${flattenToAppURL(
+//                          data.url,
+//                        )}/@@images/image/large`;
+//                      if (data.size === 'm')
+//                        return `${flattenToAppURL(
+//                          data.url,
+//                        )}/@@images/image/preview`;
+//                      if (data.size === 's')
+//                        return `${flattenToAppURL(
+//                          data.url,
+//                        )}/@@images/image/mini`;
+//                      return `${flattenToAppURL(
+//                        data.url,
+//                      )}/@@images/image/huge`;
+//                    }
+
 const ViewImage = (props) => {
   const { data = {}, detached } = props;
   const { source, sourceHref, imageCaption } = data;
@@ -41,23 +65,10 @@ const ViewImage = (props) => {
                 src={
                   isInternalURL(data.url)
                     ? // Backwards compat in the case that the block is storing the full server URL
-                      (() => {
-                        if (data.size === 'l')
-                          return `${flattenToAppURL(
-                            data.url,
-                          )}/@@images/image/large`;
-                        if (data.size === 'm')
-                          return `${flattenToAppURL(
-                            data.url,
-                          )}/@@images/image/preview`;
-                        if (data.size === 's')
-                          return `${flattenToAppURL(
-                            data.url,
-                          )}/@@images/image/mini`;
-                        return `${flattenToAppURL(
-                          data.url,
-                        )}/@@images/image/large`;
-                      })()
+                      (() =>
+                        `${flattenToAppURL(data.url)}/@@images/image/${
+                          sizes[data.size || 'fallback']
+                        }`)()
                     : data.url
                 }
                 alt={data.alt || ''}

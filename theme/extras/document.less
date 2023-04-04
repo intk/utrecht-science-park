@@ -81,6 +81,10 @@
     }
   }
 
+  & > p.block.image.align.center {
+    margin-left: unset;
+  }
+
   & > p,
   & > ol,
   & > ul,
@@ -260,10 +264,13 @@
 }
 
 // fix editing image blocks
-.block-editor-image p {
-  min-height: 2px;
-  background-color: red;
-  cursor: pointer;
+.block-editor-image {
+  p.align.left,
+  p.align.right {
+    min-height: 2px;
+    background-color: red;
+    cursor: pointer;
+  }
 }
 
 // fix alignment of inline image in paragraph

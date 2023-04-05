@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Ref, Form, Input } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
+import { useSelector } from 'react-redux';
 
 const messages = defineMessages({
   search: {
@@ -33,7 +34,7 @@ const Lens = () => (
 
 const SearchWidget = (props) => {
   const inputRef = React.useRef();
-  const [text, setText] = React.useState('');
+  const [text, setText] = React.useState(props.text || '');
   const intl = useIntl();
   const { pathname, history } = props;
 
@@ -43,6 +44,7 @@ const SearchWidget = (props) => {
       input.focus();
     }
   }, []);
+  const currentLang = useSelector((state) => state.intl.locale);
 
   const onSubmit = React.useCallback(
     (event) => {
@@ -50,14 +52,16 @@ const SearchWidget = (props) => {
       // const section = this.state.section ? `&path=${this.props.pathname}` : '';
       const path = l > 0 ? `&path=${encodeURIComponent(pathname)}` : '';
       const encodedText = encodeURIComponent(text);
-      history.push(`/search?SearchableText=${encodedText}${path}`);
+      history.push(
+        `${currentLang}/search?SearchableText=${encodedText}${path}`,
+      );
       event.preventDefault();
     },
-    [pathname, text, history],
+    [pathname, text, history, currentLang],
   );
 
   return (
-    <Form action="/search" onSubmit={onSubmit}>
+    <Form action={`/${currentLang}/search`} onSubmit={onSubmit}>
       <Form.Field className="searchbox">
         <div>
           <Lens />

@@ -2,6 +2,7 @@
 #page-search {
   #content-core {
     margin: 0 4rem;
+
     article.tileItem {
       padding: 1.25rem 1.563rem;
       margin-bottom: 0.25rem;
@@ -36,20 +37,20 @@
 
 .field.searchbox {
   display: flex;
+  padding-left: unset !important;
 
   border-bottom: 2px solid black;
-  padding-left: unset !important;
   border-left: unset !important;
   /* padding-left: 1em; */
   /* border-left: 1px solid #B8C6C8; */
 
   .ui.input input {
+    margin-left: 2rem;
+    color: @darkgrey !important;
+    font-family: @fontName;
     font-size: 4.063rem;
     line-height: 4.875rem;
     text-transform: uppercase;
-    color: @darkgrey !important;
-    font-family: @fontName;
-    margin-left: 2rem;
   }
 }
 
@@ -59,9 +60,10 @@
 }
 
 #search-tags {
-  margin-top: .25rem;
   display: flex;
-  gap: .25rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+  gap: 0.25rem;
 
   a {
     .isBtnSec();
@@ -70,9 +72,10 @@
 }
 
 .search-results-count {
-  font-size: 2.813rem;
   margin: 5.5rem 0rem 4rem 0rem;
+  font-size: 2.813rem;
   text-transform: uppercase;
+
   strong {
     color: @greenLight;
   }
@@ -81,10 +84,11 @@
 #content-core .search-footer {
   .ui.pagination.menu {
     background: unset;
-    font-size: 2.500rem;
+    font-size: 2.5rem;
+
     .item {
-      padding: 0 !important;
       min-width: 1.5rem;
+      padding: 0 !important;
       margin: 0 0.5rem;
     }
   }

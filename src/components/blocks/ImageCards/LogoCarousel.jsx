@@ -52,7 +52,7 @@ const Caption = ({ card }) => {
   );
 };
 
-const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
+export const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
   const { link, title } = card;
 
   const LinkWrapper = React.useMemo(

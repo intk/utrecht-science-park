@@ -1,10 +1,15 @@
 import ImageCarousel from './Carousel';
 import LogoCardsCarousel from './LogoCarousel';
 import TitleCards from './TitleCards';
+import Gallery from './Gallery';
 import VideoCarousel, { VideoCardSchema } from './VideoCarousel';
 
 export default function install(config) {
   config.blocks.blocksConfig.imagecards.defaultRendererName = 'imageCards';
+  // config.blocks.blocksConfig.imagecards.tocEntry = (block, data) => {
+  //   const title = data.title || data.headline;
+  //   return title ? [1, title] : null;
+  // };
   config.blocks.blocksConfig.imagecards.blockRenderers = {
     ...config.blocks.blocksConfig.imagecards.blockRenderers,
     titleCards: {
@@ -18,6 +23,12 @@ export default function install(config) {
       schema: null,
       view: LogoCardsCarousel,
       schemaExtender: LogoCardsCarousel.schemaExtender,
+    },
+    gallery: {
+      title: 'Gallery',
+      schema: null,
+      view: Gallery,
+      schemaExtender: Gallery.schemaExtender,
     },
     imageCarousel: {
       title: 'Image Carousel',

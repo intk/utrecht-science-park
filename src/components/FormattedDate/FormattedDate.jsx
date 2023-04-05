@@ -18,7 +18,7 @@ const MONTH = 'MMMM';
 const DAY = 'dd';
 const YEAR = 'yyyy';
 
-const dformat = `${MONTH} ${DAY}, ${YEAR}`;
+const dformat = `${DAY} ${MONTH}, ${YEAR}`;
 const noYearFormat = `${MONTH} ${DAY}`;
 
 export const FormattedDate = injectLazyLibs(['dateFns'])(

@@ -1,0 +1,44 @@
+@type: 'extra';
+@element: 'custom';
+
+@import (multiple, reference, optional) '../../theme.config';
+
+#page-document {
+  & > .image-gallery {
+    margin-left: unset;
+  }
+}
+
+@card-gap: 1em;
+
+.image-gallery {
+  .image-gallery-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: @card-gap;
+
+    .card-img {
+      .animateBorder(transparent, #019fb6, 4px, top);
+      .cycleBorder(top);
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 1em;
+      // padding-right: 0em;
+      // margin-right: 0.25rem;
+      background-color: #ffffff;
+    }
+
+    .card-3x {
+      flex-basis: calc(100% / 3 - @card-gap);
+    }
+
+    .card-4x {
+      flex-basis: calc(100% / 4 - @card-gap);
+    }
+  }
+}

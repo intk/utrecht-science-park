@@ -6,8 +6,11 @@
 @factsCardGap: 4px;
 @cardBg: white;
 
+// @listingBlockHeaderMargin;
+
 .factsGrid() {
   display: grid;
+  margin-top: clamp(3rem, 11vw, 8.5rem);
   gap: @factsCardGap;
   grid-auto-flow: row;
   grid-template-areas:
@@ -71,14 +74,14 @@
 
   @media only screen and (max-width: @largestMobileScreen) {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     //flex-wrap: wrap;
 
     h2 {
+      width: 10ch;
       margin: unset;
       margin-top: 1rem !important;
-      width: 10ch;
     }
   }
 }

@@ -278,7 +278,7 @@
 
 .h2Font() {
   font-family: @lightFont;
-  text-transform: capitalize;
+  // text-transform: capitalize;
 }
 
 .h3Text() {
@@ -298,7 +298,7 @@
 
 .h4Font() {
   font-family: @boldFont;
-  text-transform: capitalize;
+  // text-transform: capitalize;
 }
 
 .h5Text() {

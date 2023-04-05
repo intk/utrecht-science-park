@@ -2,6 +2,8 @@ import React from 'react';
 import { DateTime } from 'luxon';
 // import * as dateFns from 'date-fns';
 import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
+import { useSelector } from 'react-redux';
+import nlLocale from 'date-fns/locale/nl';
 
 export const long_date_format = {
   // Thursday, December 9, 2021 at 10:39 AM
@@ -21,14 +23,23 @@ const noYearFormat = `${MONTH} ${DAY}`;
 
 export const FormattedDate = injectLazyLibs(['dateFns'])(
   ({ isoDate, format, dateFns }) => {
+    const currentLang = useSelector((state) => state.intl.locale);
+    // console.log(nlLocale);
+
     if (!isoDate) return null;
     const date = DateTime.fromISO(isoDate);
     let out;
+    const options =
+      currentLang === 'nl'
+        ? {
+            locale: nlLocale,
+          }
+        : {};
 
     if (format === 'date') {
       out = date.toLocaleString(DateTime.DATE_SHORT);
     } else if (format === 'long') {
-      out = dateFns.format(dateFns.parseISO(isoDate), dformat);
+      out = dateFns.format(dateFns.parseISO(isoDate), dformat, options);
     } else if (format) {
       out = date.toFormat(format);
     } else {

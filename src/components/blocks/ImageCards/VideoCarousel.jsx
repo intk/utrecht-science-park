@@ -102,15 +102,16 @@ const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
 
   const embed = getEmbedUrl(url);
 
+  // height={height}
+
   return (
-    <div className="video-responsive">
+    <div className="video-responsive" style={{ height: `${height}px` }}>
       {play ? (
         embed.type === 'youtube' ? (
           <VideoPlayer videoId={embed.videoId} width={width} height={height} />
         ) : (
           <iframe
             width={width}
-            height={height}
             src={embed.url}
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "

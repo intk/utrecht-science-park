@@ -61,8 +61,8 @@ const Body = ({ data, isEditMode }) => {
   const embedSettings = {
     placeholder: placeholder,
     icon: 'play',
-    defaultActive: false,
-    autoplay: true,
+    defaultActive: true,
+    autoplay: false,
     aspectRatio: '16:9',
     tabIndex: 0,
     onKeyPress: onKeyDown,

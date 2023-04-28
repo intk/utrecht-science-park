@@ -1,8 +1,13 @@
 services:
   frontend:
     build: .
+  ofelia:
+    restart: no
+  zeo:
+    restart: no
   plone:
     user: root
     command: bash
     tty: true
+    restart: no
     # entrypoint: sh -c "tail -f /dev/null"

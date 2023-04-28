@@ -11,6 +11,7 @@ code/*
 Dockerfile
 src/addons/
 *.tgz
+*.tar
 data/
 data-old
 data-incoming

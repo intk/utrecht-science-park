@@ -69,6 +69,8 @@ const getEmbedUrl = (url) => {
         `//player.vimeo.com/video/${videoId}`,
         '?dnt=1',
         '&loop=1',
+        // '&autoplay=1',
+        // '&title=0',
         '&background=1',
         // '?api=false',
         // `&dnt=1`,
@@ -105,19 +107,29 @@ const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
   // height={height}
 
   return (
-    <div className="video-responsive" style={{ height: `${height}px` }}>
+    <div className="video-responsive">
       {play ? (
         embed.type === 'youtube' ? (
           <VideoPlayer videoId={embed.videoId} width={width} height={height} />
         ) : (
-          <iframe
-            width={width}
-            src={embed.url}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "
-            allowFullScreen
-            title="Embedded video"
-          />
+          <div class="videobg">
+            <div class="videobg-width">
+              <div class="videobg-aspect">
+                <div class="videobg-make-height">
+                  <div class="videobg-hide-controls">
+                    <iframe
+                      width={width}
+                      src={embed.url}
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "
+                      allowFullScreen
+                      title="Embedded video"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         )
       ) : (
         <div className="placeholder-image">

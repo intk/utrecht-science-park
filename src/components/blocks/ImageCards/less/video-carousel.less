@@ -33,23 +33,84 @@
                 // height: 0;
                 // padding-top: 0px;
                 // padding-bottom: 56.25%;
+                //
+                //
 
-                iframe {
-                  // position: absolute;
-                  // top: 0;
-                  // left: 0;
-                  // width: 100%;
-                  // height: 100%;
-
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  width: 177.77777778vh;
-                  min-width: 100%;
-                  height: 100vh;
-                  min-height: 100%;
-                  transform: translate(-50%, -50%);
+                // based on https://codepen.io/henripeetsmann/pen/KpVVLq
+                .videobg {
+                  position: relative;
+                  overflow: hidden;
+                  width: 100%; /* Set video container element width here */
+                  height: 100%; /* Set video container element height here */
+                  background: #111; /* bg color, if video is not high enough */
                 }
+
+                /* horizontally center the video */
+                .videobg-width {
+                  position: absolute;
+                  right: -9999px;
+                  left: -9999px;
+                  width: 100%; /* Change width value to cover more area*/
+                  height: 100%;
+                  margin: auto;
+                }
+
+                /* set video aspect ratio and vertically center */
+                .videobg-aspect {
+                  position: absolute;
+                  top: -9999px;
+                  bottom: -9999px;
+                  overflow: hidden;
+                  width: 100%;
+                  height: 0;
+                  padding-bottom: 56.25%; /* 16:9 ratio */
+                  margin: auto;
+                }
+
+                .videobg-make-height {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                }
+
+                .videobg-hide-controls {
+                  position: relative;
+                  top: -55px;
+                  left: -97.7777px; /* 16:9 ratio */
+                  width: 100%;
+                  height: 100%;
+                  box-sizing: content-box;
+                  /* Vimeo timeline and play button are ~55px high */
+                  padding: 55px 97.7777px; /* 16:9 ratio */
+                }
+
+                .videobg iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: 0 none;
+                }
+
+                // iframe {
+                //   // position: absolute;
+                //   // top: 0;
+                //   // left: 0;
+                //   // width: 100%;
+                //   // height: 100%;
+                //
+                //   position: absolute;
+                //   top: 50%;
+                //   left: 50%;
+                //   width: 177.77777778vh;
+                //   min-width: 100%;
+                //   height: 100vh;
+                //   min-height: 100%;
+                //   transform: translate(-50%, -50%);
+                // }
 
                 .ui.button {
                   position: absolute;

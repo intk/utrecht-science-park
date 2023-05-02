@@ -94,6 +94,36 @@ const getEmbedUrl = (url) => {
   };
 };
 
+const VimeoPlayer = ({ width, height, embed }) => {
+  // we need to apply a correction factor of 16:9 (1.77) to the video, so that
+  // it appears to show full screen.
+  const ratio = 16 / 9; // assuming video ratio of 16/9;
+
+  let cHeight = width,
+    cWidth = height;
+
+  if (width > height * ratio) {
+    // landscape screen
+    cWidth = width;
+    cHeight = width / ratio;
+  } else {
+    // vertical screen
+    cHeight = height;
+    cWidth = height * ratio;
+  }
+  return (
+    <iframe
+      width={`${cWidth}px`}
+      height={`${cHeight}px`}
+      src={embed.url}
+      frameBorder="0"
+      allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "
+      allowFullScreen
+      title="Embedded video"
+    />
+  );
+};
+
 const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
   const autoplay = !placeholder; // if we don't have a placeholder, then we autoplay
   const [play, setIsPlay] = React.useState(autoplay);
@@ -102,22 +132,13 @@ const VideoEmbed = ({ url, placeholder, height, width, sliderRef }) => {
 
   const embed = getEmbedUrl(url);
 
-  // height={height}
-
   return (
     <div className="video-responsive" style={{ height: `${height}px` }}>
       {play ? (
         embed.type === 'youtube' ? (
           <VideoPlayer videoId={embed.videoId} width={width} height={height} />
         ) : (
-          <iframe
-            width={width}
-            src={embed.url}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "
-            allowFullScreen
-            title="Embedded video"
-          />
+          <VimeoPlayer embed={embed} width={width} height={height} />
         )
       ) : (
         <div className="placeholder-image">
@@ -141,6 +162,7 @@ const VideoSlide = ({
   card,
   image_scale,
   height,
+  width,
   sliderRef,
   slideIndex,
   slideCount,
@@ -156,7 +178,7 @@ const VideoSlide = ({
     url: card.videoUrl,
     placeholder,
     height,
-    width: '100%',
+    width: width || '100%',
   };
 
   return (
@@ -220,7 +242,7 @@ const Dots = ({ sliderRef, settings, slideIndex, slideCount }) => {
 
 const VideoCarousel = ({ data }) => {
   const sliderRef = React.useRef();
-  const [slideHeight, setSlideHeight] = React.useState();
+  const [dimension, setDimension] = React.useState();
   const nodeRef = React.useRef();
 
   const { cards = [], image_scale = 'large' } = data;
@@ -246,12 +268,16 @@ const VideoCarousel = ({ data }) => {
   );
 
   React.useEffect(() => {
-    setSlideHeight(nodeRef.current && nodeRef.current.clientHeight);
+    setDimension(
+      nodeRef.current && {
+        height: nodeRef.current.clientHeight,
+        width: nodeRef.current.clientWidth,
+      },
+    );
   }, []);
 
   return (
     <div
-      ref={nodeRef}
       className={cx(
         'block align imagecards-block imagecards-carousel imagecards-videocarousel',
         {
@@ -262,17 +288,18 @@ const VideoCarousel = ({ data }) => {
     >
       <BodyClass className="has-video-carousel" />
       <div
+        ref={nodeRef}
         className={cx({
           'full-width': data.align === 'full',
         })}
       >
         <div className="slider-wrapper">
           {cards.length ? (
-            slideHeight ? (
+            dimension?.height ? (
               <>
                 <Slider
                   {...settings}
-                  slideHeight={slideHeight}
+                  slideHeight={dimension.height}
                   ref={sliderRef}
                   listHeight="100vh"
                 >
@@ -281,7 +308,8 @@ const VideoCarousel = ({ data }) => {
                       card={card}
                       key={i}
                       image_scale={image_scale}
-                      height={slideHeight}
+                      height={dimension.height}
+                      width={dimension.width}
                       sliderRef={sliderRef}
                       slideIndex={i}
                       slideCount={cards.length}
@@ -295,7 +323,8 @@ const VideoCarousel = ({ data }) => {
                   card={card}
                   key={i}
                   image_scale={image_scale}
-                  height={slideHeight}
+                  height={dimension?.height}
+                  width={dimension?.width}
                   sliderRef={sliderRef}
                   slideIndex={i}
                   slideCount={cards.length}

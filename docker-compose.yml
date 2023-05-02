@@ -39,10 +39,10 @@ services:
     #entrypoint: sh -c "tail -f /dev/null"
     healthcheck:
       disable: true
-    deploy:
-      resources:
-        limits:
-          memory: 1000M
+#   deploy:
+#     resources:
+#       limits:
+#         memory: 1000M
 
   frontend:
     image: tiberiuichim/utrecht-science-part:2.7
@@ -69,8 +69,8 @@ services:
       - ./etc/monitrc:/etc/monitrc
       - ./etc/conf.d:/etc/monit/conf.d
     labels:
-      ofelia.job-local.restart-plone.schedule: "@every 48h"
-      ofelia.job-local.restart-plone.command: "/scripts/restart-plone.sh"
+      ofelia.job-exec.restart-plone.schedule: "@every 48h"
+      ofelia.job-exec.restart-plone.command: "/scripts/restart-plone.sh"
        
 #   ports:
 #     - "2812:2812"

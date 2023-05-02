@@ -41,7 +41,7 @@ services:
       disable: true
 
   frontend:
-    image: tiberiuichim/utrecht-science-part:2.6
+    image: tiberiuichim/utrecht-science-part:2.7
     depends_on:
     - plone
     # environment:

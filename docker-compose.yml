@@ -7,7 +7,7 @@ version: "3"
 services:
   zeo:
     image: plone/plone-zeo:latest
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./data:/data
     ports:
@@ -39,14 +39,18 @@ services:
     #entrypoint: sh -c "tail -f /dev/null"
     healthcheck:
       disable: true
+    deploy:
+      resources:
+        limits:
+          memory: 1000M
 
   frontend:
     image: tiberiuichim/utrecht-science-part:2.7
+    restart: always
     depends_on:
     - plone
     # environment:
       # RAZZLE_INTERNAL_API_PATH: "http://plone:8080/Plone"
-
 
   # See https://github.com/mcuadros/ofelia
   ofelia:
@@ -55,6 +59,24 @@ services:
     command: daemon --docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  monit:
+    # build: ./monit-docker
+    image: tiberiuichim/up-monit:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./etc/scripts:/scripts
+      - ./etc/monitrc:/etc/monitrc
+      - ./etc/conf.d:/etc/monit/conf.d
+    labels:
+      ofelia.job-local.restart-plone.schedule: "@every 48h"
+      ofelia.job-local.restart-plone.command: "/scripts/restart-plone.sh"
+       
+#   ports:
+#     - "2812:2812"
+#   depends_on:
+#     - frontend
+#     - plone
 
 volumes:
   cache: {}

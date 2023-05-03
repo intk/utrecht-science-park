@@ -63,6 +63,14 @@ export const TitleCardsSchema = ({ data, schema, intl }) => {
       linkTitle: {
         title: 'Link title',
       },
+      imageSize: {
+        title: 'Image size',
+        choices: [
+          ['small', 'Small'],
+          ['bigger', 'Bigger'],
+        ],
+        default: 'small',
+      },
     },
     required: [],
   };

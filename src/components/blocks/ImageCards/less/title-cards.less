@@ -10,13 +10,13 @@
 
   .title-card {
     display: flex;
+    //margin-bottom: .25rem;
+    min-height: 7rem;
     align-items: center;
     padding: 0rem 2rem;
     background-color: @white;
     color: @black;
     gap: 1em;
-    //margin-bottom: .25rem;
-    min-height: 7rem;
 
     &:hover {
       background-color: @yellow;
@@ -38,9 +38,9 @@
     .title-card-text {
       flex: 40%;
       flex-grow: 0;
+      padding: 1rem 0rem;
       font-size: clamp(0.875rem, 2.75vw, 1.25rem);
       line-height: clamp(1rem, 2.75vw, 1.5rem);
-      padding: 1rem 0rem;
     }
 
     .title-card-image {
@@ -49,8 +49,13 @@
 
       img {
         width: 5em;
-        flex-grow: 0;
         height: 100%;
+        flex-grow: 0;
+
+        &.bigger {
+          width: 9em;
+          margin: 1em 0;
+        }
       }
     }
   }
@@ -65,20 +70,20 @@
     .title-card {
       display: grid !important;
       padding: 1rem 1rem;
+      margin: unset;
       grid-template-areas:
         'title image'
         'desc image';
       grid-template-columns: 2fr 1fr;
       grid-template-rows: 1fr 1fr;
-      margin: unset;
 
       h3 {
         grid-area: title;
       }
 
       .title-card-text {
-        grid-area: desc;
         padding: unset;
+        grid-area: desc;
       }
 
       .title-card-image {

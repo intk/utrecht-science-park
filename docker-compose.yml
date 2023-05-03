@@ -45,7 +45,7 @@ services:
 #         memory: 1000M
 
   frontend:
-    image: tiberiuichim/utrecht-science-part:2.7
+    image: tiberiuichim/utrecht-science-part:2.8
     restart: always
     depends_on:
     - plone
@@ -71,7 +71,7 @@ services:
     labels:
       ofelia.job-exec.restart-plone.schedule: "@every 48h"
       ofelia.job-exec.restart-plone.command: "/scripts/restart-plone.sh"
-       
+
 #   ports:
 #     - "2812:2812"
 #   depends_on:

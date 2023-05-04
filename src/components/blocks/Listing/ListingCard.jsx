@@ -3,7 +3,7 @@ import { flattenToAppURL } from '@plone/volto/helpers';
 import { Link } from 'react-router-dom';
 import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
 import { FormattedDate } from '@package/components';
-import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
+// import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
 
 // see extras/listing.less for less
 function PreviewImage(props) {
@@ -24,7 +24,7 @@ function PreviewImage(props) {
 
 const Card = ({ item }) => {
   const { image_field } = item;
-  const size = 'teaser';
+  const size = 'large';
   return (
     <section className="slider-card listing-card">
       <Link to={flattenToAppURL(item['@id'])} title={item.title}>
@@ -43,7 +43,7 @@ const Card = ({ item }) => {
 
 const NewsItemCard = ({ item }) => {
   const { image_field } = item;
-  const size = 'teaser';
+  const size = 'large';
   return (
     <section className="slider-card listing-card newsitem-card">
       <Link to={flattenToAppURL(item['@id'])} title={item.title}>
@@ -67,7 +67,7 @@ const NewsItemCard = ({ item }) => {
 
 const EventCard = ({ item }) => {
   const { image_field } = item;
-  const size = 'teaser';
+  const size = 'large';
   return (
     <section className="slider-card listing-card event-card">
       <Link to={flattenToAppURL(item['@id'])} title={item.title}>

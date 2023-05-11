@@ -67,6 +67,7 @@
 
     // fix case when the document starts with an h3
     &:first-child + p {
+      min-height: 3em;
       padding-top: 0em !important;
     }
 
@@ -83,6 +84,10 @@
 
   & > p.block.image.align.center {
     margin-left: unset;
+
+    img.medium {
+      margin-left: 10%;
+    }
   }
 
   & > p.block.image.align.right {

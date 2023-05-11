@@ -8,8 +8,8 @@ import { ListingBlockHeader } from '@package/components';
 
 import './less/title-cards.less';
 
-const LinkWrapper = ({ link, children, title }) => {
-  return link ? (
+const LinkWrapper = ({ link, children, title, editable }) => {
+  return link && !editable ? (
     <a href={link} target="_blank" rel="noreferrer" title={title}>
       {children}
     </a>
@@ -18,11 +18,11 @@ const LinkWrapper = ({ link, children, title }) => {
   );
 };
 
-const Card = ({ card = {}, image_scale, imageSize }) => {
+const Card = ({ card = {}, image_scale, imageSize, editable }) => {
   const { link, title, text } = card;
 
   return (
-    <LinkWrapper link={link} title={title}>
+    <LinkWrapper link={link} title={title} i editable={editable}>
       <div className="title-card">
         <h3>{title || 'null'}</h3>
         <div className="title-card-text">
@@ -56,7 +56,12 @@ const TitleCards = (props) => {
     <div className="title-cards">
       <ListingBlockHeader data={data} />
       {cards.map((card, i) => (
-        <Card key={i} card={card} imageSize={data.imageSize} />
+        <Card
+          key={i}
+          card={card}
+          imageSize={data.imageSize}
+          editable={editable}
+        />
       ))}
     </div>
   );

@@ -7,9 +7,16 @@ import Card from './ListingCard';
 
 const ListingTemplate = (data) => {
   const { items, isEditMode } = data;
+  const blockData = Object.assign(
+    {},
+    ...Object.keys(data)
+      .filter((n) => n !== 'title')
+      .map((n) => ({ [n]: data[n] })),
+  );
+
   return (
     <>
-      {!isEditMode && <ListingBlockHeader data={data} />}
+      {!isEditMode && <ListingBlockHeader data={blockData} />}
       <Grid stackable columns={2} className="listings two-columns">
         {items.map((item, i) => (
           <Grid.Column

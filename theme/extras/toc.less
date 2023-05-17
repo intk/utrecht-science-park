@@ -33,6 +33,17 @@
   &.horizontalMenu {
     .ui.menu {
       flex-wrap: wrap;
+      justify-content: flex-end;
+      box-shadow: unset;
+      background: unset;
+      border: unset;
+      .item::before {
+        top: 20%;
+        height: 55%;
+      }
+      .item:last-child:before {
+        height: 0%;
+      }
       @media only screen and (max-width: @largestMobileScreen) {
         display: block;
         // flex-basis: calc(100% / 2 - @card-gap) !important;

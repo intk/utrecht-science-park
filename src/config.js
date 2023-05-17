@@ -25,7 +25,7 @@ export default function applyConfig(config) {
 
   const DEFAULT_LANG = 'en';
 
-  config.settings.isMultilingual = true;
+  config.settings.isMultilingual = false;
   config.settings.supportedLanguages = ['en', 'nl'];
   config.settings.defaultLanguage = DEFAULT_LANG;
 

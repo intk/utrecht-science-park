@@ -116,8 +116,10 @@
 
   & > table,
   .table-of-contents {
-    width: @rightColumnSize;
-    margin-left: @leftColumnSize;
+    @media only screen and (min-width: @largestTabletScreen) {
+      width: @rightColumnSize;
+      margin-left: @leftColumnSize;
+    }
   }
 
   & > h3 + .ui.divider {

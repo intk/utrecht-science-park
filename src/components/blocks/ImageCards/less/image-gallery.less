@@ -31,6 +31,14 @@
       // padding-right: 0em;
       // margin-right: 0.25rem;
       background-color: #ffffff;
+
+      @media only screen and (max-width: @largestTabletScreen) {
+        flex-basis: calc(100% / 2 - @card-gap) !important;
+      }
+
+      @media only screen and (max-width: @largestMobileScreen) {
+        flex-basis: calc(100% / 1 - @card-gap) !important;
+      }
     }
 
     .card-3x {

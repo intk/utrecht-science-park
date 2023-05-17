@@ -1,4 +1,4 @@
-.table-of-contents {
+#page-document .table-of-contents {
   li li.item {
     font-size: initial;
   }
@@ -28,5 +28,19 @@
     &.headline-5 {
       font-size: 12px;
     }
+  }
+
+  &.horizontalMenu {
+    .ui.menu {
+      flex-wrap: wrap;
+      @media only screen and (max-width: @largestMobileScreen) {
+        display: block;
+        // flex-basis: calc(100% / 2 - @card-gap) !important;
+      }
+    }
+    //
+    // @media only screen and (max-width: @largestMobileScreen) {
+    //   flex-basis: calc(100% / 1 - @card-gap) !important;
+    // }
   }
 }

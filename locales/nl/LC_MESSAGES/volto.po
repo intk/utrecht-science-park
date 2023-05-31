@@ -43,7 +43,7 @@ msgstr "Acties"
 #: components/theme/Footer/Footer
 # defaultMessage: Address
 msgid "Address"
-msgstr "Adres"
+msgstr "Contact"
 
 #: components/blocks/Image/ImageBlockEdit
 # defaultMessage: Browse the site, drop an image, or type an URL
@@ -104,7 +104,12 @@ msgstr "Zoeken"
 #: components/theme/Footer/Footer
 # defaultMessage: Subscribe
 msgid "Subscribe"
-msgstr "Abonneren"
+msgstr "Aanmelden"
+
+#: components/theme/Footer/Footer
+# defaultMessage: Utrecht Science Park Foundation
+msgid "USPFoundation"
+msgstr "Stichting Utrecht Science Park"
 
 #: components/theme/Footer/Footer
 # defaultMessage: University of Applied Sciences Utrecht
@@ -139,7 +144,7 @@ msgstr "afbeelding"
 #: components/theme/Footer/Footer
 # defaultMessage: Join our mailing list to stay up to date on everything that happens at the park
 msgid "joinOurMailing"
-msgstr "Word lid van onze mailinglijst om op de hoogte te blijven van alles wat er op het park gebeurt"
+msgstr "Op de hoogte blijven? Meld u aan voor onze nieuwsbrief"
 
 #: components/blocks/Facts/schema
 # defaultMessage: Destination for the call to action button
@@ -147,9 +152,9 @@ msgid "linkToDescription"
 msgstr "linkNaarBeschrijving"
 
 #: components/theme/Footer/Footer
-# defaultMessage: Partners / founders
+# defaultMessage: Founders
 msgid "partners/founders"
-msgstr "partners/founders"
+msgstr "Founders"
 
 #: components/blocks/Facts/schema
 # defaultMessage: SubTitle

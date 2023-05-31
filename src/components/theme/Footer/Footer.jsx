@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 
-import UtrechtUnivLogo from '@package/static/Utrecht University.png';
+import UtrechtUnivLogo from '@package/static/Utrecht_University_logo.png';
 import CityUtrechtLogo from '@package/static/City of Utrecht.png';
 import UMCUtrechtLogo from '@package/static/UMC Utrecht.png';
 import UnivApplScienceLogo from '@package/static/University of Applied Sciences Utrecht.png';
 import ProvUtrechtLogo from '@package/static/Provincie Utrecht.png';
-import OnderFondsLogo from '@package/static/Ondernemers fonds Utrecht.png';
+import OnderFondsLogo from '@package/static/Ondernemersfonds Utrecht logo.jpg';
 import EuroRegDevLogo from '@package/static/European Fund for regional Development.png';
 import FacebookLogo from '@package/static/facebook.svg';
 import InstagramLogo from '@package/static/instagram.svg';
@@ -28,10 +28,7 @@ const FooterLogos = ({ intl }) => {
   return (
     <>
       <h4>
-        <FormattedMessage
-          id="partners/founders"
-          defaultMessage="Partners / founders"
-        />
+        <FormattedMessage id="partners/founders" defaultMessage="Founders" />
       </h4>
       <div className="logos">
         <img
@@ -95,7 +92,7 @@ const FooterLogos = ({ intl }) => {
 
 const SocialLinks = () => (
   <>
-    <a href="https://facebook.com">
+    <a href="https://www.facebook.com/UtrechtSciencePark">
       <img
         height="auto"
         title="Facebook"
@@ -104,7 +101,7 @@ const SocialLinks = () => (
         className="logo-social"
       />
     </a>
-    <a href="https://instagram.com">
+    <a href="https://www.instagram.com/utrechtsciencepark/">
       <img
         height="auto"
         title="Instagram"
@@ -113,7 +110,7 @@ const SocialLinks = () => (
         className="logo-social"
       />
     </a>
-    <a href="https://youtube.com">
+    <a href="https://www.youtube.com/@utrechtscipark">
       <img
         height="auto"
         title="YouTube"
@@ -122,7 +119,7 @@ const SocialLinks = () => (
         className="logo-social"
       />
     </a>
-    <a href="https://twitter.com">
+    <a href="https://twitter.com/UtrechtSciPark">
       <img
         height="auto"
         title="Twitter"
@@ -131,7 +128,7 @@ const SocialLinks = () => (
         className="logo-social"
       />
     </a>
-    <a href="https://linkedin.com">
+    <a href="https://www.linkedin.com/company/utrecht-science-park/">
       <img
         height="auto"
         title="LinkedIn"
@@ -146,25 +143,36 @@ const SocialLinks = () => (
 const Address = () => (
   <>
     <p>
-      <FormattedMessage id="Address" defaultMessage="Address" /> <br />
       <strong>
-        Utrecht Science Park Foundation <br />
-        Heidelberglaan 11 <br />
-        3584 CS Utrecht
+        <FormattedMessage id="Address" defaultMessage="Address" /> <br />
       </strong>
-    </p>
-    <p>
-      <FormattedMessage id="E-mail" defaultMessage="E-mail" />
-      <br /> <strong>info @ utrechtsciencepark.nl</strong>
-    </p>
-    <p>
-      <FormattedMessage id="Phone" defaultMessage="Phone" />
+      <FormattedMessage
+        id="USPFoundation"
+        defaultMessage="Utrecht Science Park Foundation"
+      />
       <br />
-      <strong> +31 30 800 4499</strong>{' '}
+      Heidelberglaan 11 <br />
+      3584 CS Utrecht
     </p>
     <p>
-      <FormattedMessage id="KvK" defaultMessage="KvK" /> <br />
-      <strong>56652488 </strong>
+      <strong>
+        <FormattedMessage id="E-mail" defaultMessage="E-mail" />
+      </strong>
+      <br /> info @ utrechtsciencepark.nl
+    </p>
+    <p>
+      <strong>
+        <FormattedMessage id="Phone" defaultMessage="Phone" />
+      </strong>
+      <br />
+      +31 30 800 4499
+    </p>
+    <p>
+      <strong>
+        <FormattedMessage id="KvK" defaultMessage="KvK" />
+      </strong>
+      <br />
+      56652488
     </p>
   </>
 );
@@ -174,7 +182,7 @@ const NewsletterDetails = () => (
     <p>
       <FormattedMessage
         id="joinOurMailing"
-        defaultMessage="Join our mailing list to stay up to date on everything that happens at the park"
+        defaultMessage="Would you like to stay informed? Sign up for our newsletter"
       />
     </p>
     <a href="en/newsletter">

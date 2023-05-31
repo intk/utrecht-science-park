@@ -39,6 +39,8 @@ const sizes = {
 const ViewImage = (props) => {
   const { data = {}, detached } = props;
   const { source, sourceHref, imageCaption } = data;
+  const { href } = data;
+  const url = href?.[0] ? href[0]?.['@id'] : data.sourceHref;
 
   return (
     <p
@@ -75,12 +77,12 @@ const ViewImage = (props) => {
                 loading="lazy"
               />
             );
-            if (data.href) {
-              if (!isInternalURL(data.href)) {
+            if (url) {
+              if (!isInternalURL(url)) {
                 return (
                   <a
                     target={data.openLinkInNewTab ? '_blank' : null}
-                    href={data.href}
+                    href={url}
                   >
                     {image}
                   </a>
@@ -88,7 +90,7 @@ const ViewImage = (props) => {
               } else {
                 return (
                   <Link
-                    to={flattenToAppURL(data.href)}
+                    to={flattenToAppURL(url)}
                     target={data.openLinkInNewTab ? '_blank' : null}
                   >
                     {image}

@@ -5,6 +5,9 @@ import navTreeSVG from '@plone/volto/icons/nav.svg';
 
 const ImageSchema = (props) => {
   const { block, data = {}, onChangeBlock, openObjectBrowser } = props;
+  const url = data?.sourceHref?.[0]
+    ? data?.sourceHref?.[0]?.['@id']
+    : data.sourceHref;
 
   return {
     title: 'Image',
@@ -22,19 +25,19 @@ const ImageSchema = (props) => {
       },
       sourceHref: {
         title: 'Source website',
-        icon: data.href ? clearSVG : navTreeSVG,
-        iconAction: data.href
+        icon: data.sourceHref ? clearSVG : navTreeSVG,
+        iconAction: data.sourceHref
           ? () => {
               onChangeBlock(block, {
                 ...data,
-                href: '',
+                sourceHref: '',
                 title: '',
                 description: '',
                 preview_image: '',
               });
             }
           : () => openObjectBrowser({ mode: 'link' }),
-        value: data.href && flattenToAppURL(data.href),
+        value: url && flattenToAppURL(url),
       },
       imageCaption: {
         type: 'richtext',

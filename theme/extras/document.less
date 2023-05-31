@@ -6,6 +6,130 @@
   margin-top: 0rem;
 }
 
+// fix editing image blocks
+.block-editor-image {
+  p.align.left,
+  p.align.right,
+  div.align.left,
+  div.align.right {
+    min-height: 2px;
+    background-color: red;
+    cursor: pointer;
+  }
+}
+
+// fix alignment of inline image in paragraph
+.block.image.align:has(+ p) {
+  margin-bottom: 0em;
+}
+
+.unsetImg() {
+  &.small,
+  &.large,
+  &.medium {
+    max-width: unset !important;
+    background-color: green !important;
+  }
+}
+
+.imageBlock() {
+  // & > .block.image.align.right {
+  //   .img-wrapper.medium {
+  //     max-width: 33%;
+  //   }
+  // }
+
+  .block.image {
+    // .align.center
+    margin-right: unset;
+    margin-bottom: unset;
+    margin-left: unset;
+    text-align: left;
+
+    &.align.right {
+      .img-wrapper {
+        margin-bottom: 1em;
+        margin-left: 1em;
+        float: right;
+
+        &.medium {
+          max-width: 40%;
+        }
+
+        &.small {
+          max-width: 25%;
+        }
+      }
+
+      img {
+        // .unsetImg();
+
+        max-width: 100%;
+        margin-bottom: unset;
+        margin-left: unset !important;
+        float: unset;
+      }
+    }
+
+    &.align.left {
+      .img-wrapper {
+        margin-right: 1em;
+        margin-bottom: 1em;
+        float: left;
+
+        &.medium {
+          max-width: 40%;
+        }
+
+        &.small {
+          max-width: 25%;
+        }
+      }
+
+      img {
+        .unsetImg();
+
+        max-width: 100%;
+        margin-right: unset !important;
+        margin-bottom: unset;
+        float: unset;
+
+        &.small,
+        &.large,
+        &.medium {
+          max-width: unset !important;
+        }
+      }
+    }
+
+    .img-wrapper {
+      &.small {
+        // max-width: 50%;
+        margin-right: unset;
+        margin-left: 30%;
+      }
+
+      &.medium {
+        width: 70%;
+        max-width: 70%;
+        margin-right: unset;
+        margin-left: 30%;
+      }
+
+      &.large {
+        max-width: 100%;
+        margin-left: 0%;
+      }
+    }
+
+    .image-caption {
+      .fontSizeSecondary();
+      display: block;
+      margin-bottom: 1em;
+    }
+  }
+}
+
 .ui.segment.content-area {
   margin-top: 4em;
 }
@@ -48,8 +172,29 @@
   }
 }
 
+#page-edit,
+#page-add {
+  // img {
+  //   height: 200px !important;
+  // }
+  // .imageBlock();
+  // & > .ui.container .blocks-form .block.image {
+  // }
+  .block.image {
+    img.small {
+      max-width: 30%;
+    }
+
+    img.medium {
+      max-width: 100%;
+    }
+  }
+}
+
 // Floated content design
 #page-document {
+  .imageBlock();
+
   // float h3s to left
   & > h3 {
     max-width: @leftColumnSize;
@@ -79,20 +224,6 @@
 
     & + p.block.image.align {
       clear: none;
-    }
-  }
-
-  & > p.block.image.align.center {
-    margin-left: unset;
-
-    img.medium {
-      margin-left: 10%;
-    }
-  }
-
-  & > p.block.image.align.right {
-    img.medium {
-      max-width: 33%;
     }
   }
 
@@ -228,11 +359,7 @@
   font-size: clamp(1.125rem, 2.75vw, 1.75rem);
   line-height: clamp(1.35rem, 2.75vw, 2.1rem);
 }
-//image caption
-#page-document .image-caption {
-  .fontSizeSecondary();
-  float: left !important;
-}
+
 // no borders on h1
 .documentFirstHeading {
   border: unset;
@@ -274,19 +401,4 @@
 .view-addview .header-bg,
 .view-editview .header-bg {
   display: none;
-}
-
-// fix editing image blocks
-.block-editor-image {
-  p.align.left,
-  p.align.right {
-    min-height: 2px;
-    background-color: red;
-    cursor: pointer;
-  }
-}
-
-// fix alignment of inline image in paragraph
-.block.image.align:has(+ p) {
-  margin-bottom: 0em;
 }

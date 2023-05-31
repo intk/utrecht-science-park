@@ -1,6 +1,8 @@
 import imageSVG from '@plone/volto/icons/image.svg';
 import ImageBlockView from './ImageBlockView';
-import ImageBlockEdit from './ImageBlockEdit';
+import ImageBlockEdit from '@plone/volto/components/manage/Blocks/Image/Edit';
+import imageSchemaEnhancer from './schema';
+// import ImageBlockEdit from './ImageBlockEdit';
 
 export default (config) => {
   config.blocks.blocksConfig.image = {
@@ -17,6 +19,7 @@ export default (config) => {
       addPermission: [],
       view: [],
     },
+    schemaEnhancer: imageSchemaEnhancer,
   };
   return config;
 };

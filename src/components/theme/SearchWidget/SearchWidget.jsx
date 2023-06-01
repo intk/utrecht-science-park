@@ -50,7 +50,7 @@ const SearchWidget = (props) => {
     (event) => {
       const l = pathname ? pathname.length : 0;
       // const section = this.state.section ? `&path=${this.props.pathname}` : '';
-      const path = l > 0 ? `&path=${encodeURIComponent(pathname)}` : '';
+      const path = l > 0 ? `&path=${currentLang}` : '';
       const encodedText = encodeURIComponent(text);
       history.push(
         `/${currentLang}/search?SearchableText=${encodedText}${path}`,

@@ -34,7 +34,13 @@ const SearchWidgetWrapper = (props) => {
       </Button>
       <PopupMenu open={showPopup} onClose={() => setShowPopup(false)}>
         <div className="hover-menu search-widget">
-          <div className="hover-menu-inner">{children}</div>
+          <div className="hover-menu-inner">
+            {children({
+              onClose: () => {
+                setShowPopup(false);
+              },
+            })}
+          </div>
         </div>
       </PopupMenu>
     </div>
@@ -43,7 +49,7 @@ const SearchWidgetWrapper = (props) => {
 
 const GlobalSearchWidget = (props) => (
   <SearchWidgetWrapper>
-    <SearchWidget {...props} />
+    {({ onClose }) => <SearchWidget onClose={onClose} {...props} />}
   </SearchWidgetWrapper>
 );
 

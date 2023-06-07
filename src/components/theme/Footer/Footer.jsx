@@ -27,9 +27,9 @@ const messages = defineMessages({
 const FooterLogos = ({ intl }) => {
   return (
     <>
-      <h4>
+      <div className="footer-headline">
         <FormattedMessage id="partners/founders" defaultMessage="Founders" />
-      </h4>
+      </div>
       <div className="logos">
         <img
           height="auto"
@@ -67,9 +67,9 @@ const FooterLogos = ({ intl }) => {
           className="logo-partner"
         />
       </div>
-      <h4>
+      <div className="footer-headline">
         <FormattedMessage id="supportedBy" defaultMessage="Supported by" />
-      </h4>
+      </div>
       <div className="logos">
         <img
           height="auto"
@@ -92,7 +92,11 @@ const FooterLogos = ({ intl }) => {
 
 const SocialLinks = () => (
   <>
-    <a href="https://www.facebook.com/UtrechtSciencePark">
+    <a
+      href="https://www.facebook.com/UtrechtSciencePark"
+      target="_blank"
+      rel="noreferrer"
+    >
       <img
         height="auto"
         title="Facebook"
@@ -101,7 +105,11 @@ const SocialLinks = () => (
         className="logo-social"
       />
     </a>
-    <a href="https://www.instagram.com/utrechtsciencepark/">
+    <a
+      href="https://www.instagram.com/utrechtsciencepark/"
+      target="_blank"
+      rel="noreferrer"
+    >
       <img
         height="auto"
         title="Instagram"
@@ -110,7 +118,11 @@ const SocialLinks = () => (
         className="logo-social"
       />
     </a>
-    <a href="https://www.youtube.com/@utrechtscipark">
+    <a
+      href="https://www.youtube.com/@utrechtscipark"
+      target="_blank"
+      rel="noreferrer"
+    >
       <img
         height="auto"
         title="YouTube"
@@ -119,7 +131,11 @@ const SocialLinks = () => (
         className="logo-social"
       />
     </a>
-    <a href="https://twitter.com/UtrechtSciPark">
+    <a
+      href="https://twitter.com/UtrechtSciPark"
+      target="_blank"
+      rel="noreferrer"
+    >
       <img
         height="auto"
         title="Twitter"
@@ -128,7 +144,11 @@ const SocialLinks = () => (
         className="logo-social"
       />
     </a>
-    <a href="https://www.linkedin.com/company/utrecht-science-park/">
+    <a
+      href="https://www.linkedin.com/company/utrecht-science-park/"
+      target="_blank"
+      rel="noreferrer"
+    >
       <img
         height="auto"
         title="LinkedIn"

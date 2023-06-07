@@ -14,8 +14,8 @@ const Source = ({ source = '', sourceHref }) => (
 
 const sizes = {
   l: 'huge',
-  m: 'preview',
-  s: 'mini',
+  m: 'huge',
+  s: 'preview',
   fallback: 'huge',
 };
 
@@ -36,11 +36,69 @@ const sizes = {
 //                      )}/@@images/image/huge`;
 //                    }
 
-const ViewImage = (props) => {
-  const { data = {}, detached } = props;
-  const { source, sourceHref, imageCaption } = data;
+const Image = ({ data }) => {
   const { href } = data;
   const url = href?.[0] ? href[0]?.['@id'] : data.sourceHref;
+  const { source, sourceHref, imageCaption } = data;
+  // const showAlign = data.size === 's';
+
+  const image = (
+    <div
+      className={cx('img-wrapper', {
+        'full-width': data.align === 'full',
+        large: data.size === 'l',
+        medium: data.size === 'm',
+        small: data.size === 's',
+      })}
+    >
+      <img
+        src={
+          isInternalURL(data.url)
+            ? // Backwards compat in the case that the block is storing the full server URL
+              (() =>
+                `${flattenToAppURL(data.url)}/@@images/image/${
+                  sizes[data.size || 'fallback']
+                }`)()
+            : data.url
+        }
+        alt={data.alt || ''}
+        loading="lazy"
+      />
+      {source && <Source source={source} sourceHref={sourceHref} />}
+      {imageCaption && <span className="image-caption">{imageCaption}</span>}
+    </div>
+  );
+
+  if (url) {
+    if (!isInternalURL(url)) {
+      return (
+        <a target={data.openLinkInNewTab ? '_blank' : null} href={url}>
+          {image}
+        </a>
+      );
+    } else {
+      return (
+        <Link
+          to={flattenToAppURL(url)}
+          target={data.openLinkInNewTab ? '_blank' : null}
+        >
+          {image}
+        </Link>
+      );
+    }
+  } else {
+    return image;
+  }
+};
+
+const ViewImage = (props) => {
+  const { data = {}, detached } = props;
+
+  // className={cx('block image align', {
+  //   center: !showAlign,
+  //   detached,
+  //   [data.align]: showAlign,
+  // })}
 
   return (
     <p
@@ -53,58 +111,7 @@ const ViewImage = (props) => {
         data.align,
       )}
     >
-      {data.url && (
-        <>
-          {(() => {
-            const image = (
-              <img
-                className={cx({
-                  'full-width': data.align === 'full',
-                  large: data.size === 'l',
-                  medium: data.size === 'm',
-                  small: data.size === 's',
-                })}
-                src={
-                  isInternalURL(data.url)
-                    ? // Backwards compat in the case that the block is storing the full server URL
-                      (() =>
-                        `${flattenToAppURL(data.url)}/@@images/image/${
-                          sizes[data.size || 'fallback']
-                        }`)()
-                    : data.url
-                }
-                alt={data.alt || ''}
-                loading="lazy"
-              />
-            );
-            if (url) {
-              if (!isInternalURL(url)) {
-                return (
-                  <a
-                    target={data.openLinkInNewTab ? '_blank' : null}
-                    href={url}
-                  >
-                    {image}
-                  </a>
-                );
-              } else {
-                return (
-                  <Link
-                    to={flattenToAppURL(url)}
-                    target={data.openLinkInNewTab ? '_blank' : null}
-                  >
-                    {image}
-                  </Link>
-                );
-              }
-            } else {
-              return image;
-            }
-          })()}
-        </>
-      )}
-      {source && <Source source={source} sourceHref={sourceHref} />}
-      {imageCaption && <span className="image-caption">{imageCaption}</span>}
+      {!!data.url && <Image {...props} />}
     </p>
   );
 };

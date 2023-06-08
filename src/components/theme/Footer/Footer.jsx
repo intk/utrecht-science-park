@@ -95,7 +95,7 @@ const SocialLinks = () => (
     <a
       href="https://www.facebook.com/UtrechtSciencePark"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       <img
         height="auto"

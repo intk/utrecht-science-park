@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Dropdown, Button } from 'semantic-ui-react';
 import cx from 'classnames';
-import { Icon } from '@plone/volto/components';
+import { Icon, LanguageSelector } from '@plone/volto/components';
 
 import { CSSTransition } from 'react-transition-group';
 import { BodyClass } from '@plone/volto/helpers';
@@ -118,6 +118,9 @@ const MobileNavItems = ({
             <Icon name={closeSVG} />
           </Button>
         </div>
+        <div className="language-selector-wrapper">
+                <LanguageSelector />
+              </div>
         <div className="mobile-menu-nav">
           <Menu stackable pointing secondary>
             <NavItems

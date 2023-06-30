@@ -118,7 +118,16 @@ nav.navigation .hamburger-wrapper {
     flex-direction: column;
     align-items: center;
     padding-top: 0px;
-    background-color: @lightergrey;
+    // background-color: @lightergrey;
+
+    .language-selector-wrapper {
+      align-self: start;
+      margin: 1rem 0 0 1rem;
+      text-transform: uppercase;
+      a {
+        color: #706f6f;
+      }
+    }
 
     @media (max-width: @largestTabletScreen) {
       // border: 2px solid #000000;

@@ -23,8 +23,7 @@
   padding-left: 1em;
 }
 
-@media only screen and (max-width: @largestMobileScreen) {
-  .ui.container.tags {
+.view-viewview .ui.container.tags {
     display: none;
-  }
+
 }

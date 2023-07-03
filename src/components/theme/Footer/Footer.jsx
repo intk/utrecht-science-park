@@ -178,7 +178,7 @@ const Address = () => (
       <strong>
         <FormattedMessage id="E-mail" defaultMessage="E-mail" />
       </strong>
-      <br /> info @ utrechtsciencepark.nl
+      <br /> <a href="mailto:info@utrechtsciencepark.nl"> info@utrechtsciencepark.nl</a>
     </p>
     <p>
       <strong>

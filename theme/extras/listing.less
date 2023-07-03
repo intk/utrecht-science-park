@@ -14,12 +14,16 @@
     display: flex;
     height: 100%;
     flex-direction: column;
+
   }
 
   .animateBackgroundImage();
 
   .image-container {
     max-height: 50%;
+    @media only screen and (max-width: @largestMobileScreen) {
+      max-height: 75%;
+}
 
     img {
       width: 100%;
@@ -36,6 +40,9 @@
     justify-content: space-between;
     padding: 1.5rem;
     background-color: @cardBg;
+    @media only screen and (max-width: @largestMobileScreen) {
+          height: 25%;
+    }
 
     h4 {
       .h2Font();

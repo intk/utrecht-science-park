@@ -144,7 +144,7 @@ msgstr "afbeelding"
 #: components/theme/Footer/Footer
 # defaultMessage: Join our mailing list to stay up to date on everything that happens at the park
 msgid "joinOurMailing"
-msgstr "Op de hoogte blijven? Meld u aan voor onze nieuwsbrief"
+msgstr "Op de hoogte blijven? Meld je aan voor onze nieuwsbrief"
 
 #: components/blocks/Facts/schema
 # defaultMessage: Destination for the call to action button

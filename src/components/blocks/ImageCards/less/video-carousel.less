@@ -6,6 +6,9 @@
 .block.imagecards-videocarousel {
   .slider-wrapper {
     height: 100vh;
+    @media only screen and (max-width: @largestMobileScreen) {
+      height: unset;
+    }
 
     .slick-slider {
       height: 100%;

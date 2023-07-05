@@ -112,12 +112,3 @@
 body:not(.view-editview):not(.document_wide_view):not(.is-anonymous) main {
   overflow: unset;
 }
-
-.slider-wrapper {
-  @media (max-width: 600px) {
-    height: unset;
-  }
-  @media only screen and (max-width: @largestMobileScreen) {
-    aspect-ratio: 16 / 9;
-  }
-}

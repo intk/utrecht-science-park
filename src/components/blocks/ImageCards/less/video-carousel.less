@@ -12,20 +12,38 @@
 
     .slick-slider {
       height: 100%;
+      @media only screen and (max-width: @largestMobileScreen) {
+        height: unset;
+      }
 
       .slick-list {
         height: 100%;
+        @media only screen and (max-width: @largestMobileScreen) {
+          height: unset;
+        }
 
         .slick-track {
           height: 100%;
+          @media only screen and (max-width: @largestMobileScreen) {
+            height: unset;
+          }
 
           .slick-slide {
             & > div {
               height: 100%;
+              @media only screen and (max-width: @largestMobileScreen) {
+                height: unset;
+              }
             }
 
             .slider-slide {
               height: 100%;
+              @media only screen and (max-width: @largestMobileScreen) {
+                height: unset;
+                aspect-ratio: 16/9;
+                width: 100vw;
+              }
+              
 
               .video-responsive {
                 position: absolute;
@@ -36,6 +54,10 @@
                 height: 100vh;
                 min-height: 100%;
                 transform: translate(-50%, -50%);
+                @media only screen and (max-width: @largestMobileScreen) {
+                  height: unset;
+                  width: 100vw;
+                }
 
                 // .ui.button {
                 //   position: absolute;

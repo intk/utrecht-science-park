@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Dropdown, Button } from 'semantic-ui-react';
 import cx from 'classnames';
-import { Icon, LanguageSelector } from '@plone/volto/components';
+import { Icon, LanguageSelector, SearchWidget } from '@plone/volto/components';
 
 import { CSSTransition } from 'react-transition-group';
 import { BodyClass } from '@plone/volto/helpers';
@@ -12,6 +12,7 @@ import config from '@plone/volto/registry';
 
 import closeSVG from '@plone/volto/icons/clear.svg';
 import SiteLogo from '@package/static/logo.svg';
+import { FormattedMessage, } from 'react-intl';
 
 const NavItem = ({ item, lang, level, closeMobileMenu }) => {
   const { settings } = config;
@@ -118,9 +119,19 @@ const MobileNavItems = ({
             <Icon name={closeSVG} />
           </Button>
         </div>
-        <div className="language-selector-wrapper">
-                <LanguageSelector />
-              </div>
+        <div className="tools-search-wrapper-mobile">
+          <div className="language-selector-wrapper">
+            <LanguageSelector />
+          </div>
+          <div className="search-wrapper">
+            <a
+              href="/search"
+              rel="noopener noreferrer"
+            >
+              <FormattedMessage id="Search" defaultMessage="Search" />
+            </a>
+          </div>
+        </div>
         <div className="mobile-menu-nav">
           <Menu stackable pointing secondary>
             <NavItems

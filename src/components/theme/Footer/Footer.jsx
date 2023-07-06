@@ -178,7 +178,8 @@ const Address = () => (
       <strong>
         <FormattedMessage id="E-mail" defaultMessage="E-mail" />
       </strong>
-      <br /> <a href="mailto:info@utrechtsciencepark.nl"> info@utrechtsciencepark.nl</a>
+      <br />
+      <a href="mailto:info@utrechtsciencepark.nl">info@utrechtsciencepark.nl</a>
     </p>
     <p>
       <strong>
@@ -197,19 +198,24 @@ const Address = () => (
   </>
 );
 
-const NewsletterDetails = () => (
-  <>
-    <p>
-      <FormattedMessage
-        id="joinOurMailing"
-        defaultMessage="Would you like to stay informed? Sign up for our newsletter"
-      />
-    </p>
-    <a href="en/newsletter">
-      <FormattedMessage id="Subscribe" defaultMessage="Subscribe" />
-    </a>
-  </>
-);
+const NewsletterDetails = () => {
+  const currentLang = useSelector((state) => state.intl.locale);
+  const link = currentLang === 'nl' ? 'xxx' : 'yyy';
+
+  return (
+    <>
+      <p>
+        <FormattedMessage
+          id="joinOurMailing"
+          defaultMessage="Would you like to stay informed? Sign up for our newsletter"
+        />
+      </p>
+      <a href={link}>
+        <FormattedMessage id="Subscribe" defaultMessage="Subscribe" />
+      </a>
+    </>
+  );
+};
 
 const Copyright = () => (
   <p>

@@ -200,7 +200,10 @@ const Address = () => (
 
 const NewsletterDetails = () => {
   const currentLang = useSelector((state) => state.intl.locale);
-  const link = currentLang === 'nl' ? 'https://utrechtsciencepark.m17.mailplus.nl/wpezr2fZeDy5-1315-317000385-test-1' : 'https://c.spotler.com/ct/m17/k1/mZO2Jea9eWKR5bOVUiEZt9hKxFcRYkWPGQc6Bxpuh_vB-xEAekU1agfOZ-GXm0Ys/sEECXng8qdmrcMu';
+  const link =
+    currentLang === 'nl'
+      ? 'https://utrechtsciencepark.m17.mailplus.nl/wpezr2fZeDy5-1315-317000385-test-1'
+      : 'https://c.spotler.com/ct/m17/k1/mZO2Jea9eWKR5bOVUiEZt9hKxFcRYkWPGQc6Bxpuh_vB-xEAekU1agfOZ-GXm0Ys/sEECXng8qdmrcMu';
 
   return (
     <>

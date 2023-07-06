@@ -10,7 +10,7 @@
   padding-right: 3px;
   padding-left: 3px;
 }
-#main .ui.grid .column + .column {
+#view .columns-view > .column-grid > .column + .column {
   padding-left: 1rem;
 }
 // fix for news items folder listing top colored borders

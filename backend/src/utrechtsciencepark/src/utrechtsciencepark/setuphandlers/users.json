@@ -1,0 +1,19 @@
+{
+  "portal": [
+    {
+      "email": "cihan@itsnotthatkind.org",
+      "properties": {
+        "fullname": "Utrechtsciencepark",
+        "location": "World"
+      },
+      "groups": [
+      ],
+      "roles": [
+        "Member"
+      ],
+      "username": "utrechtsciencepark"
+    }
+  ],
+    "team": [
+  ]
+}

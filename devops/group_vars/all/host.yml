@@ -1,0 +1,3 @@
+---
+hostname: 'utrechtsciencepark'
+fqdn: '{{ hostname }}.localhost'

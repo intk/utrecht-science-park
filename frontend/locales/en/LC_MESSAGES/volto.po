@@ -77,6 +77,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
+#: components/theme/Navigation/MobileNavItems
 #: components/theme/SearchWidget/SearchWidget
 # defaultMessage: Search
 msgid "Search"

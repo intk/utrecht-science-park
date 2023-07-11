@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2023-05-31T07:59:09.591Z\n"
+"POT-Creation-Date: 2023-07-11T14:04:16.383Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -79,6 +79,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
+#: components/theme/Navigation/MobileNavItems
 #: components/theme/SearchWidget/SearchWidget
 # defaultMessage: Search
 msgid "Search"
@@ -125,7 +126,7 @@ msgid "image"
 msgstr ""
 
 #: components/theme/Footer/Footer
-# defaultMessage: Join our mailing list to stay up to date on everything that happens at the park
+# defaultMessage: Would you like to stay informed? Sign up for our newsletter
 msgid "joinOurMailing"
 msgstr ""
 

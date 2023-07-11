@@ -96,6 +96,7 @@ msgstr "Open menu"
 msgid "Phone"
 msgstr "Telefoon"
 
+#: components/theme/Navigation/MobileNavItems
 #: components/theme/SearchWidget/SearchWidget
 # defaultMessage: Search
 msgid "Search"
@@ -142,7 +143,7 @@ msgid "image"
 msgstr "afbeelding"
 
 #: components/theme/Footer/Footer
-# defaultMessage: Join our mailing list to stay up to date on everything that happens at the park
+# defaultMessage: Would you like to stay informed? Sign up for our newsletter
 msgid "joinOurMailing"
 msgstr "Op de hoogte blijven? Meld je aan voor onze nieuwsbrief"
 

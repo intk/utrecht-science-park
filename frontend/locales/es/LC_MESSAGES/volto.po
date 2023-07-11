@@ -87,6 +87,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
+#: components/theme/Navigation/MobileNavItems
 #: components/theme/SearchWidget/SearchWidget
 # defaultMessage: Search
 msgid "Search"
@@ -133,7 +134,7 @@ msgid "image"
 msgstr ""
 
 #: components/theme/Footer/Footer
-# defaultMessage: Join our mailing list to stay up to date on everything that happens at the park
+# defaultMessage: Would you like to stay informed? Sign up for our newsletter
 msgid "joinOurMailing"
 msgstr ""
 

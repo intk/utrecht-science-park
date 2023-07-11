@@ -129,16 +129,16 @@ stop-stack:  ## Stop local stack
 .PHONY: build-acceptance-servers
 build-acceptance-servers: ## Build Acceptance Servers
 	@echo "Build acceptance backend"
-	@docker build backend -t intk/utrechtsciencepark-backend:acceptance -f backend/Dockerfile.acceptance
+	@docker build backend -t intkbv/utrechtsciencepark-backend:acceptance -f backend/Dockerfile.acceptance
 	@echo "Build acceptance frontend"
-	@docker build frontend -t intk/utrechtsciencepark-frontend:acceptance -f frontend/Dockerfile
+	@docker build frontend -t intkbv/utrechtsciencepark-frontend:acceptance -f frontend/Dockerfile
 
 .PHONY: start-acceptance-servers
 start-acceptance-servers: build-acceptance-servers ## Start Acceptance Servers
 	@echo "Start acceptance backend"
-	@docker run --rm -p 55001:55001 --name utrechtsciencepark-backend-acceptance -d intk/utrechtsciencepark-backend:acceptance
+	@docker run --rm -p 55001:55001 --name utrechtsciencepark-backend-acceptance -d intkbv/utrechtsciencepark-backend:acceptance
 	@echo "Start acceptance frontend"
-	@docker run --rm -p 3000:3000 --name utrechtsciencepark-frontend-acceptance --link utrechtsciencepark-backend-acceptance:backend -e RAZZLE_API_PATH=http://localhost:55001/plone -e RAZZLE_INTERNAL_API_PATH=http://backend:55001/plone -d intk/utrechtsciencepark-frontend:acceptance
+	@docker run --rm -p 3000:3000 --name utrechtsciencepark-frontend-acceptance --link utrechtsciencepark-backend-acceptance:backend -e RAZZLE_API_PATH=http://localhost:55001/plone -e RAZZLE_INTERNAL_API_PATH=http://backend:55001/plone -d intkbv/utrechtsciencepark-frontend:acceptance
 
 .PHONY: stop-acceptance-servers
 stop-acceptance-servers: ## Stop Acceptance Servers

@@ -107,9 +107,9 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            intk/utrechtsciencepark-backend
+            intkbv/utrechtsciencepark-backend
           labels: |
-            org.label-schema.docker.cmd=docker run -d -p 8080:8080 intk/utrechtsciencepark-backend:latest
+            org.label-schema.docker.cmd=docker run -d -p 8080:8080 intkbv/utrechtsciencepark-backend:latest
           flavor:
             latest=false
           tags: |

@@ -7,7 +7,7 @@ SHELL:=bash
 .DELETE_ON_ERROR:
 MAKEFLAGS+=--warn-undefined-variables
 MAKEFLAGS+=--no-builtin-rules
-IMAGE_NAME=intk/utrechtsciencepark-frontend
+IMAGE_NAME=intkbv/utrechtsciencepark-frontend
 IMAGE_TAG=latest
 
 NODEBIN = ./node_modules/.bin

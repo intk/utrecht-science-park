@@ -10,7 +10,10 @@
   padding-right: 3px;
   padding-left: 3px;
 }
-#view .columns-view > .column-grid > .column h2, h3, p, .btn-block {
+#view .columns-view > .column-grid > .column h2, 
+#view .columns-view > .column-grid > .column h3,
+#view .columns-view > .column-grid > .column p,
+#view .columns-view > .column-grid > .column .btn-block {
   padding-left: 1rem;
 }
 

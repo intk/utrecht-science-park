@@ -1,0 +1,17 @@
+###############################################################################
+# mxdev combined constraints
+-c constraints-mxdev.txt
+
+###############################################################################
+# begin requirements from: requirements.txt
+
+-e src/utrechtsciencepark[test]
+
+zope.testrunner
+
+# Add required add-ons
+# (Ideally add them in setup.py for utrechtsciencepark)
+# collective.easyform
+
+# end requirements from: requirements.txt
+###############################################################################

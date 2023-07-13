@@ -1,0 +1,21 @@
+---
+users:
+  "plone":
+    name: "Plone installation"
+    email: "cihan@itsnotthatkind.org"
+    public_keys: [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHco9oFxflLsYnoXHgm3mmf2SpjZI74HXiBcg1M61/l8DOo3ph7yNbhUFQ3izqMa7ew15o+qncWJtKYM5Is3G19Yg4JtdD67NKCob9ZYdkToFbScmHyMBPu7GXkFDyv9mhn4QhaZVPedtLYWpm8cJ1Ng++OxVI6LQwyOVO8wN/V5z8yvwVjORsHQXKOvmqkUQwD2uvf03UYW8h8+mNrYVtL5ZAJsb0mSShe8SrH0dkZM0ej98KSnoO1jiliI1NaJ3muIzqa2003lN/sYJ8OI7pzDpPhJxaLMxqpCDjXrHXYOtBUatS+dDc4O275oGUsN21hwjMVIx4V8s8tvDlUtIHN9zQHHw6ZoR/A/sFTbpI85ZK50bos8Rk3oAfVAxsNpblQHWCzMP6cx65D2qujKUlTJoH4Zenl7AQFR1PLxbPZh4L7Pn1PXEXdUIaejXIRCZtZw2rDDXQeabKopyTvWEMyKuf1QQJB08yXd27toKGuyGHDfe46ti+tVAwJ4rqzdU= ubuntu@ip-172-31-29-242]
+    state: present
+    shell: "/bin/bash"
+    groups:
+      - "docker"
+      - "plone"
+
+
+
+
+
+
+
+
+
+

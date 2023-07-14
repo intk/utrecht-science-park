@@ -45,7 +45,7 @@ services:
 #         memory: 1000M
 
   frontend:
-    image: tiberiuichim/utrecht-science-part:4.3
+    image: tiberiuichim/utrecht-science-part:4.4
     restart: always
     depends_on:
     - plone

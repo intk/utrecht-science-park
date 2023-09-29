@@ -1,10 +1,6 @@
 {
-    "compilerOptions": {
-        "paths": {
-            "@eeacms/volto-block-image-cards": [
-                "develop/volto-block-image-cards/src"
-            ]
-        },
-        "baseUrl": "src"
-    }
+  "compilerOptions": {
+    "paths": {},
+    "baseUrl": "src"
+  }
 }

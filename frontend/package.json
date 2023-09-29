@@ -35,7 +35,8 @@
     "@eeacms/volto-block-toc",
     "@eeacms/volto-block-divider",
     "@eeacms/volto-columns-block",
-    "volto-form-block"
+    "volto-form-block",
+    "@eeacms/volto-block-style"
   ],
   "jest": {
     "modulePathIgnorePatterns": [
@@ -139,6 +140,7 @@
   },
   "dependencies": {
     "@eeacms/volto-block-divider": "5.0.0",
+    "@eeacms/volto-block-style": "5.2.3",
     "@eeacms/volto-block-toc": "3.0.3",
     "@eeacms/volto-columns-block": "6.0.2",
     "@eeacms/volto-group-block": "5.0.1",

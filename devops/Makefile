@@ -121,6 +121,11 @@ logs-backend: ## Display backend logs
 	@echo "$(GREEN)==> Logs for backend in $(DEPLOY_ENV) $(RESET)"
 	${DOCKER_CONTEXT} service logs plone_backend
 
+.PHONY: logs-zeo
+logs-zeo: ## Display zeo logs
+	@echo "$(GREEN)==> Logs for zeo in $(DEPLOY_ENV) $(RESET)"
+	${DOCKER_CONTEXT} service logs plone_zeo
+
 .PHONY: scale-services
 scale-services: ## Scale services
 	@echo "$(GREEN)==> Scaling Frontend and Backend to $(DEPLOY_SCALES) in $(DEPLOY_ENV) $(RESET)"
@@ -133,3 +138,13 @@ all: ## Create new box, run ansible, deploy stack
 	fi
 	$(MAKE) run-playbook
 	$(MAKE) deploy
+
+.PHONY: remove-backend
+remove-backend:
+	${DOCKER_CONTEXT} service rm plone_backend
+
+.PHONY: remove-all
+remove-all:
+	${DOCKER_CONTEXT} service rm plone_backend
+	${DOCKER_CONTEXT} service rm plone_frontend
+	${DOCKER_CONTEXT} service rm plone_traefik

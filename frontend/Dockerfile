@@ -25,7 +25,7 @@ RUN cd /opt/frontend \
     && rm -rf /opt/frontend/src/addons/* \
     && make develop \
     && yarn \
-    && RAZZLE_API_PATH=VOLTO_API_PATH RAZZLE_INTERNAL_API_PATH=VOLTO_INTERNAL_API_PATH yarn build \
+    # && RAZZLE_API_PATH=VOLTO_API_PATH RAZZLE_INTERNAL_API_PATH=VOLTO_INTERNAL_API_PATH yarn build \
     && rm -rf /home/node/.cache
 USER root
 

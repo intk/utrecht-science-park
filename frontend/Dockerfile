@@ -1,38 +1,43 @@
-FROM node:16-slim
+# syntax=docker/dockerfile:1
+FROM node:16-slim as base
+FROM base as builder
 
-# Update apt packages
-RUN runDeps="openssl ca-certificates patch gosu git tmux locales-all curl python3 build-essential" \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends $runDeps \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN <<EOT
+    apt-get update
+    buildDeps="python3 build-essential git ca-certificates"
+    apt-get install -y --no-install-recommends $buildDeps
+    rm -rf /var/lib/apt/lists/*
+EOT
 
-COPY . /opt/frontend/
-
-RUN npm install -g mrs-developer \
-    && mkdir -p /opt/frontend/src/addons \
-    && rm -rf /opt/frontend/src/addons/*
-
-RUN chown -R node /opt/frontend
+COPY --chown=node . /build/
+RUN corepack enable
 
 USER node
+WORKDIR /build
+RUN <<EOT
+    make install
+    yarn build
+EOT
 
-COPY entrypoint.sh /opt/frontend/entrypoint.sh
+FROM base
 
-WORKDIR /opt/frontend/
+LABEL maintainer="INTK <collective@plone.org>" \
+    org.label-schema.name="utrechtsciencepark-frontend" \
+    org.label-schema.description="utrechtsciencepark frontend image." \
+    org.label-schema.vendor="INTK"
 
-RUN cd /opt/frontend \
-    && rm -rf /opt/frontend/src/addons/* \
-    && make develop \
-    && yarn \
-    # && RAZZLE_API_PATH=VOLTO_API_PATH RAZZLE_INTERNAL_API_PATH=VOLTO_INTERNAL_API_PATH yarn build \
-    && rm -rf /home/node/.cache
-USER root
+RUN <<EOT
+    apt-get update
+    buildDeps="busybox"
+    apt-get install -y --no-install-recommends $buildDeps
+    busybox --install -s
+    rm -rf /var/lib/apt/lists/*
+EOT
 
-EXPOSE 3000 3001 4000 4001
 
-HEALTHCHECK --interval=1m --timeout=3s \
-  CMD curl -f http://localhost:3000/ || exit 1
+USER node
+COPY --from=builder /build/ /app/
 
-ENTRYPOINT ["/opt/frontend/entrypoint.sh"]
+WORKDIR /app
+EXPOSE 3000
 CMD ["yarn", "start:prod"]

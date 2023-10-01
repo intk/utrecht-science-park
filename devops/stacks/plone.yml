@@ -5,9 +5,9 @@ services:
     image: intkbv/utrechtsciencepark-frontend:latest
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
-      RAZZLE_API_PATH: http://backend:8080/Plone
-      API_PATH: https://www.cihanandac.net
-      PUBLIC_URL: https://www.cihanandac.net
+      # RAZZLE_API_PATH: http://backend:8080/Plone
+      # API_PATH: https://www.cihanandac.net
+      # PUBLIC_URL: https://www.cihanandac.net
     depends_on:
       - backend
     networks:
@@ -22,8 +22,8 @@ services:
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
       RAZZLE_API_PATH: http://backend:8080/Plone
-      API_PATH: https://www.cihanandac.net
-      PUBLIC_URL: https://www.cihanandac.net
+      # API_PATH: https://www.cihanandac.net
+      # PUBLIC_URL: https://www.cihanandac.net
     depends_on:
       - backend
     networks:

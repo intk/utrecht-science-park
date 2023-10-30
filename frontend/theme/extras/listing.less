@@ -40,6 +40,23 @@
     justify-content: space-between;
     padding: 1.5rem;
     background-color: @cardBg;
+
+    @media only screen and (min-width: 1012px) and (max-width: 1220px) {
+      h4.title{
+        font-size: 2vw !important;
+      }
+    }
+    @media only screen and (min-width: 994px) and (max-width: 1012px) {
+      h4.title {
+        font-size: 1.6vw !important;
+      }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 994px) {
+      h4.title {
+        font-size: 1.9vw !important;
+      }
+    }
+
     @media only screen and (max-width: @largestMobileScreen) {
           height: 25%;
     }

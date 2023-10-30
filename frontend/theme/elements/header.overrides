@@ -56,7 +56,7 @@
           }
         }
       }
-      .tools-search-wrapper-mobile { 
+      .tools-search-wrapper-mobile {
         align-self: flex-start;
         margin: 0 1rem;
         width: 95%;
@@ -241,6 +241,7 @@ nav.navigation .hamburger-wrapper {
 
         .divider.text {
           align-self: end;
+          color: #000 !important;
         }
 
         a.level-1:hover,

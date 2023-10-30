@@ -13,6 +13,7 @@ import config from '@plone/volto/registry';
 import closeSVG from '@plone/volto/icons/clear.svg';
 import SiteLogo from '@package/static/logo.svg';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 
 const NavItem = ({ item, lang, level, closeMobileMenu }) => {
   const { settings } = config;
@@ -53,7 +54,15 @@ const MenuItem = ({ item, lang, level = 0, closeMobileMenu }) => {
   const [isOpened, setIsOpened] = React.useState(false);
   return item.items?.length > 0 ? (
     <Dropdown
-      text={item.title}
+      text={
+        item.url && item.url.split('/').length - 1 === 3 ? (
+          <Link to={item.url} className="divider" onClick={closeMobileMenu}>
+            {item.title}
+          </Link>
+        ) : (
+          item.title
+        )
+      }
       className={cx('item', `level-${level}`)}
       onClick={() => setIsOpened(!isOpened)}
       open={isOpened}

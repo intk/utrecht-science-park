@@ -5,6 +5,7 @@ import { Icon, UniversalLink } from '@plone/volto/components';
 import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
 import YouTube from 'react-youtube';
 import config from '@plone/volto/registry';
+import { useState, useEffect } from 'react';
 
 import playSVG from '@plone/volto/icons/play.svg';
 
@@ -97,20 +98,22 @@ const getEmbedUrl = (url) => {
 const VimeoPlayer = ({ width, height, embed }) => {
   // we need to apply a correction factor of 16:9 (1.77) to the video, so that
   // it appears to show full screen.
-  const ratio = 16 / 9; // assuming video ratio of 16/9;
+  const ratio = 16 / 9;
+  const [cWidth, setCWidth] = useState(width);
+  const [cHeight, setCHeight] = useState(height);
 
-  let cHeight = width,
-    cWidth = height;
+  useEffect(() => {
+    if (width > height * ratio) {
+      // landscape screen
+      setCWidth(width);
+      setCHeight(width / ratio);
+    } else {
+      // vertical screen
+      setCHeight(height);
+      setCWidth(height * ratio);
+    }
+  }, [width, height, ratio]);
 
-  if (width > height * ratio) {
-    // landscape screen
-    cWidth = width;
-    cHeight = width / ratio;
-  } else {
-    // vertical screen
-    cHeight = height;
-    cWidth = height * ratio;
-  }
   return (
     <iframe
       width={`${cWidth}px`}

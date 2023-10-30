@@ -24,7 +24,7 @@ msgstr ""
 #: components/theme/Footer/Footer
 # defaultMessage: Address
 msgid "Address"
-msgstr "Contact"
+msgstr "Address"
 
 #: components/blocks/Image/ImageBlockEdit
 # defaultMessage: Browse the site, drop an image, or type an URL

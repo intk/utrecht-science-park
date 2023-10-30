@@ -43,7 +43,7 @@ msgstr "Acties"
 #: components/theme/Footer/Footer
 # defaultMessage: Address
 msgid "Address"
-msgstr "Contact"
+msgstr "Adres"
 
 #: components/blocks/Image/ImageBlockEdit
 # defaultMessage: Browse the site, drop an image, or type an URL

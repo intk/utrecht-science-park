@@ -123,6 +123,7 @@ const VimeoPlayer = ({ width, height, embed }) => {
       allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; "
       allowFullScreen
       title="Embedded video"
+      className="videoCarousel"
     />
   );
 };

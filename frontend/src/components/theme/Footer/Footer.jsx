@@ -92,6 +92,7 @@ const FooterLogos = ({ intl }) => {
 
 const SocialLinks = () => (
   //
+  //
   <>
     <a
       href="https://www.facebook.com/UtrechtSciencePark"

@@ -16,11 +16,20 @@ import InstagramLogo from '@package/static/instagram.svg';
 import TwitterLogo from '@package/static/twiter.svg';
 import YouTubeLogo from '@package/static/youtube.svg';
 import LinkedInLogo from '@package/static/linkedin.svg';
+import { Link } from 'react-router-dom';
 
 const messages = defineMessages({
   UniversityOfAppliedSciences: {
     id: 'University of Applied Sciences Utrecht',
     defaultMessage: 'University of Applied Sciences Utrecht',
+  },
+  InfoAuto: {
+    id: 'infoauto',
+    defaultMessage: 'Info auto',
+  },
+  Navigeernaar: {
+    id: 'navigeernaar',
+    defaultMessage: 'navigeer naar',
   },
 });
 
@@ -160,43 +169,63 @@ const SocialLinks = () => (
   </>
 );
 
-const Address = () => (
-  <>
-    <p>
-      <strong>
-        <FormattedMessage id="Address" defaultMessage="Address" /> <br />
-      </strong>
-      <FormattedMessage
-        id="USPFoundation"
-        defaultMessage="Utrecht Science Park Foundation"
-      />
-      <br />
-      Heidelberglaan 11 <br />
-      3584 CS Utrecht
-    </p>
-    <p>
-      <strong>
-        <FormattedMessage id="E-mail" defaultMessage="E-mail" />
-      </strong>
-      <br />
-      <a href="mailto:info@utrechtsciencepark.nl">info@utrechtsciencepark.nl</a>
-    </p>
-    <p>
-      <strong>
-        <FormattedMessage id="Phone" defaultMessage="Phone" />
-      </strong>
-      <br />
-      +31 30 800 4499
-    </p>
-    <p>
-      <strong>
-        <FormattedMessage id="KvK" defaultMessage="KvK" />
-      </strong>
-      <br />
-      56652488
-    </p>
-  </>
-);
+const Address = () => {
+  const currentLang = useSelector((state) => state.intl.locale);
+
+  return (
+    <>
+      <p>
+        <strong>
+          <FormattedMessage id="Address" defaultMessage="Address" /> <br />
+        </strong>
+        <FormattedMessage
+          id="USPFoundation"
+          defaultMessage="Utrecht Science Park Foundation"
+        />
+        <br />
+        Heidelberglaan 11 <br />
+        3584 CS Utrecht
+      </p>
+      <p>
+        <strong>
+          <FormattedMessage id="infoauto" defaultMessage="Info auto" /> <br />
+        </strong>
+        <Link
+          to={
+            currentLang === 'nl'
+              ? '/nl/ontdekken/bezoek/contact'
+              : '/en/discover/visit/contact'
+          }
+        >
+          <FormattedMessage id="Navigeernaar" defaultMessage="navigeer naar" />
+        </Link>
+      </p>
+      <p>
+        <strong>
+          <FormattedMessage id="E-mail" defaultMessage="E-mail" />
+        </strong>
+        <br />
+        <a href="mailto:info@utrechtsciencepark.nl">
+          info@utrechtsciencepark.nl
+        </a>
+      </p>
+      <p>
+        <strong>
+          <FormattedMessage id="Phone" defaultMessage="Phone" />
+        </strong>
+        <br />
+        +31 30 800 4499
+      </p>
+      <p>
+        <strong>
+          <FormattedMessage id="KvK" defaultMessage="KvK" />
+        </strong>
+        <br />
+        56652488
+      </p>
+    </>
+  );
+};
 
 const NewsletterDetails = () => {
   const currentLang = useSelector((state) => state.intl.locale);

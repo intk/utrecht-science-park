@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2023-07-11T14:04:16.383Z\n"
+"POT-Creation-Date: 2024-06-27T15:14:13.917Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,11 @@ msgstr ""
 msgid "LinkTo"
 msgstr ""
 
+#: components/theme/Footer/Footer
+# defaultMessage: navigeer naar
+msgid "Navigeernaar"
+msgstr ""
+
 #: components/theme/Navigation/Navigation
 # defaultMessage: Open menu
 msgid "Open menu"
@@ -126,6 +131,11 @@ msgid "image"
 msgstr ""
 
 #: components/theme/Footer/Footer
+# defaultMessage: Info auto
+msgid "infoauto"
+msgstr ""
+
+#: components/theme/Footer/Footer
 # defaultMessage: Would you like to stay informed? Sign up for our newsletter
 msgid "joinOurMailing"
 msgstr ""
@@ -133,6 +143,11 @@ msgstr ""
 #: components/blocks/Facts/schema
 # defaultMessage: Destination for the call to action button
 msgid "linkToDescription"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: navigeer naar
+msgid "navigeernaar"
 msgstr ""
 
 #: components/theme/Footer/Footer

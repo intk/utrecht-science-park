@@ -75,6 +75,11 @@ msgstr ""
 msgid "LinkTo"
 msgstr ""
 
+#: components/theme/Footer/Footer
+# defaultMessage: navigeer naar
+msgid "Navigeernaar"
+msgstr ""
+
 #: components/theme/Navigation/Navigation
 # defaultMessage: Open menu
 msgid "Open menu"
@@ -132,6 +137,11 @@ msgid "image"
 msgstr ""
 
 #: components/theme/Footer/Footer
+# defaultMessage: Info auto
+msgid "infoauto"
+msgstr ""
+
+#: components/theme/Footer/Footer
 # defaultMessage: Would you like to stay informed? Sign up for our newsletter
 msgid "joinOurMailing"
 msgstr ""
@@ -139,6 +149,11 @@ msgstr ""
 #: components/blocks/Facts/schema
 # defaultMessage: Destination for the call to action button
 msgid "linkToDescription"
+msgstr ""
+
+#: components/theme/Footer/Footer
+# defaultMessage: navigeer naar
+msgid "navigeernaar"
 msgstr ""
 
 #: components/theme/Footer/Footer

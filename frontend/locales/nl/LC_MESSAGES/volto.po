@@ -86,6 +86,11 @@ msgstr "KvK"
 msgid "LinkTo"
 msgstr "LinkNaar"
 
+#: components/theme/Footer/Footer
+# defaultMessage: navigeer naar
+msgid "Navigeernaar"
+msgstr ""
+
 #: components/theme/Navigation/Navigation
 # defaultMessage: Open menu
 msgid "Open menu"
@@ -143,6 +148,11 @@ msgid "image"
 msgstr "afbeelding"
 
 #: components/theme/Footer/Footer
+# defaultMessage: Info auto
+msgid "infoauto"
+msgstr ""
+
+#: components/theme/Footer/Footer
 # defaultMessage: Would you like to stay informed? Sign up for our newsletter
 msgid "joinOurMailing"
 msgstr "Op de hoogte blijven? Meld je aan voor onze nieuwsbrief"
@@ -151,6 +161,11 @@ msgstr "Op de hoogte blijven? Meld je aan voor onze nieuwsbrief"
 # defaultMessage: Destination for the call to action button
 msgid "linkToDescription"
 msgstr "linkNaarBeschrijving"
+
+#: components/theme/Footer/Footer
+# defaultMessage: navigeer naar
+msgid "navigeernaar"
+msgstr ""
 
 #: components/theme/Footer/Footer
 # defaultMessage: Founders

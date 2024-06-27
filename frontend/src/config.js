@@ -28,7 +28,7 @@ export default function applyConfig(config) {
   config.settings.isMultilingual = true;
   config.settings.supportedLanguages = ['en', 'nl'];
   config.settings.defaultLanguage = DEFAULT_LANG;
-
+  config.settings.openExternalLinkInNewTab = true;
   config.settings.footerPageId = 'footer-content';
   config.settings.actionBlockIds = [
     ['footerLinks', 'Footer Links'],

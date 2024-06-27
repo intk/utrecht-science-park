@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   frontend:
-    image: intkbv/utrechtsciencepark-frontend:latest
+    image: intkbv/utrechtsciencepark-frontend:sha-40cad4c
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
       # RAZZLE_API_PATH: http://backend:8080/Plone
@@ -21,9 +21,6 @@ services:
     image: intkbv/utrechtsciencepark-frontend:latest
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
-      RAZZLE_API_PATH: http://backend:8080/Plone
-      # API_PATH: https://www.cihanandac.net
-      # PUBLIC_URL: https://www.cihanandac.net
     depends_on:
       - backend
     networks:
@@ -34,24 +31,28 @@ services:
       replicas: 1
 
   backend:
-    image: intkbv/utrechtsciencepark-backend:latest
+    image: intkbv/utrechtsciencepark-backend:sha-64b295c
     environment:
       SITE: Plone
       ZEO_ADDRESS: zeo:8100
       # ADDONS: "collective.volto.dropdownmenu collective.volto.formsupport collective.volto.cookieconsent plone.formwidget.recaptcha"
     volumes:
       - cache:/data
+    deploy:
+      replicas: 2
     networks:
       - backend
     ports:
       - 8080:8080
+    depends_on:
+      - zeo
 
   zeo:
     image: plone/plone-zeo:latest
     volumes:
-      - /var/local/utrechtsciencepark/data:/data
-    ports:
-      - 8100:8100
+      - /var/local/utrecht-science-park/data:/data
+    # ports:
+    #   - 8100:8100
     networks:
       - backend
 

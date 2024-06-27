@@ -147,4 +147,5 @@ remove-backend:
 remove-all:
 	${DOCKER_CONTEXT} service rm plone_backend
 	${DOCKER_CONTEXT} service rm plone_frontend
-	${DOCKER_CONTEXT} service rm plone_traefik
+	${DOCKER_CONTEXT} service rm plone_stage-frontend
+	${DOCKER_CONTEXT} service rm plone_zeo

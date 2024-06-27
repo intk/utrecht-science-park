@@ -40,9 +40,9 @@ const FooterLogos = ({ intl }) => {
         />
         <img
           height="auto"
-          title="City of Utrecht"
-          src={CityUtrechtLogo}
-          alt="City of Utrecht"
+          title={intl.formatMessage(messages.UniversityOfAppliedSciences)}
+          src={UnivApplScienceLogo}
+          alt="University of Applied Sciences Utrecht"
           className="logo-partner"
         />
         <img
@@ -54,9 +54,9 @@ const FooterLogos = ({ intl }) => {
         />
         <img
           height="auto"
-          title={intl.formatMessage(messages.UniversityOfAppliedSciences)}
-          src={UnivApplScienceLogo}
-          alt="University of Applied Sciences Utrecht"
+          title="City of Utrecht"
+          src={CityUtrechtLogo}
+          alt="City of Utrecht"
           className="logo-partner"
         />
         <img

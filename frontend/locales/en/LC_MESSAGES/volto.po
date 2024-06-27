@@ -70,7 +70,7 @@ msgstr ""
 #: components/theme/Footer/Footer
 # defaultMessage: navigeer naar
 msgid "Navigeernaar"
-msgstr "Car info"
+msgstr "Navigate to"
 
 #: components/theme/Navigation/Navigation
 # defaultMessage: Open menu
